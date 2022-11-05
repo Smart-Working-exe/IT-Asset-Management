@@ -1,0 +1,19 @@
+/*
+ - SmartWorking.exe
+ - Author: Julian Grillenmeier
+ */
+
+article {
+    /*top, right, bottom, left*/
+    margin: 0 10% 50px 10%;
+}
+
+h1 {
+    font-size: x-large;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: large;
+    margin-bottom: 10px;
+}
