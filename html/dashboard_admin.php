@@ -23,7 +23,7 @@
             </form>
         </div>
     </div>
-    <div class="row mt-5 row justify-content-between">
+    <div class="row  justify-content-between" style="padding: 10%;">
         <div class="btn-group-vertical col-lg-5 mt-3 offset-1">
             <button type="button" class="btn btn-primary sub">Raumansicht</button>
             <button type="button" class="btn btn-primary sub mt-2">Datenbank</button>
