@@ -11,3 +11,12 @@
     border-color: #131313;
 }
 
+#grid-container {
+    background-color: white;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-row-gap: 15px;
+    /*height: calc(100vh - 20px);*/
+    margin: 0 10% 0 10%;
+    padding-bottom: 20px;
+}
