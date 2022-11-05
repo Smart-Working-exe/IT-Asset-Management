@@ -1,6 +1,5 @@
 /*
  - SmartWorking.exe
- - Author: Julian Grillenmeier
  */
 
 /*main stylesheet that includes all styles*/
@@ -9,6 +8,7 @@
 @import "footer.css";
 @import "main.css";
 @import "login.css";
+@import "bootstrap.min.css";
 
 * {
     padding: 0;
