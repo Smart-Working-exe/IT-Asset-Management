@@ -19,7 +19,7 @@
         <img class="img-fluid col-lg-4" src="/img/fh-aachen_university-of-applied-sciences_303_logo.png" alt="FH Aachen Logo">
     </div>
     <div class="row justify-content-center">
-        <div class="col-lg-4 "><p class=" text-center display-3 login">Login</p></div>
+        <div class="col-lg-4 "><p class="text-center display-3 login">Login</p></div>
     </div>
 
     <div class="row mt-3 justify-content-center align-items-center">

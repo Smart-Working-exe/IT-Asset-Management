@@ -10,6 +10,7 @@
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/bootstrap.css">
     <link rel="stylesheet" href="/styles/custom.css">
+    <script src="js/bootstrap.bundle.min.js"></script>
     <title>Dashboard</title>
 </head>
 <body>
@@ -25,14 +26,8 @@
     </div>
     <div class="row mt-5 row justify-content-between">
         <div class="btn-group-vertical col-lg-5 mt-3 offset-1">
-            <button type="button" class="btn btn-primary sub">Raumansicht</button>
-            <button type="button" class="btn btn-primary sub mt-2">Datenbank</button>
-            <button type="button" class="btn btn-primary sub mt-2">Ausleihe</button>
-            <button type="button" class="btn btn-primary sub mt-2">Gerät hinzufügen</button>
-            <button type="button" class="btn btn-primary sub mt-2">Person hinzufügen</button>
-            <button type="button" class="btn btn-primary sub mt-2">Softwarelizenzen</button>
-            <button type="button" class="btn btn-primary sub mt-2">Systemlogs</button>
-            <button type="button" class="btn btn-primary sub mt-2">Einstellungen</button>
+            <button type="button" class="btn btn-primary staticButton sub">Raumansicht</button>
+            <button type="button" class="btn btn-primary staticButton sub mt-2">Ausleihe</button>
         </div>
         <div class="col-lg-5">
             <div class="row">
@@ -41,38 +36,27 @@
 
             <div class="toast show col-lg-6 mt-2">
                 <div class="toast-header ">
-                    Important
+                    Ausleihfrist
                     <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
                 </div>
                 <div class="toast-body">
-                    Die Lizenz von Microsoft Visual Studio läuft auf PC1 in 3 Tagen ab.
+                    Ihre Ausleihfrist für Ihr Gerät "ARBKVS_Steckboard_74866" läuft in 3 Tagen ab.
                 </div>
             </div>
 
             <div class="toast show col-lg-6 mt-2">
                 <div class="toast-header ">
-                    Important
-                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-                <div class="toast-body">
-                    Die Lizenz von MS Office läuft auf PC2 in 14 Tagen ab.
-                </div>
-            </div>
-
-            <div class="toast show col-lg-6 mt-2">
-                <div class="toast-header ">
-                    Important
+                    Ausleihfrist
                     <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
                 </div>
                 <div class="toast-body">
-                    In Raum A001 sind 30 von 32 IP-Adressen belegt.
+                    Ihre Ausleihfrist für Ihr Gerät "HP_Maus_94471" läuft in 6 Tagen ab.
                 </div>
+            </div>
             </div>
         </div>
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
