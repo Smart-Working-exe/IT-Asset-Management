@@ -23,8 +23,7 @@
 <body>
 <div id="login">
     <img src="/img/fh-aachen_university-of-applied-sciences_303_logo.png" alt="FH Aachen Logo">
-    <h2>Login</h2>
-    <p>Please fill in your credentials to login.</p>
+    <h1>Login</h1>
 
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <div class="form-group">
