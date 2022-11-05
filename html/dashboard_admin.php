@@ -2,7 +2,9 @@
 <head>
     <meta charset="UTF-8" http-equiv="X-UA-Compatible" content="IE=edge" name="viewport"
           content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/style.css">
+    <!-- CSS only --><!-- CSS only -->
+    <link rel="stylesheet" href="/styles/bootstrap.css">
+    <link rel="stylesheet" href="/styles/custom.css">
     <title>Dashboard</title>
 </head>
 <body>
