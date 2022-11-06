@@ -25,8 +25,8 @@
     </div>
     <div class="row mt-5 row justify-content-between">
         <div class="btn-group-vertical col-lg-5 mt-3 offset-1">
-            <button type="button" class="btn btn-primary staticButton sub">Raumansicht</button>
-            <button type="button" class="btn btn-primary staticButton sub mt-2">Ausleihe</button>
+            <a href="#" type="button" class="btn btn-primary staticButton sub">Raumansicht</a>
+            <a href="ausleihe.php" type="button" class="btn btn-primary staticButton sub mt-2">Ausleihe</a>
         </div>
         <div class="col-lg-5">
             <div class="row">
@@ -58,6 +58,7 @@
 </div>
 <footer class="py-3 my-4 footerBot">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item nav-link px-2 text-muted">Angemeldet als Benutzer lk8776s</li>
         <li class="nav-item"><a href="dashboard_studenten.php" class="nav-link px-2 text-muted">Home</a></li>
         <li class="nav-item"><a href="impressum.php" class="nav-link px-2 text-muted">Impressum</a></li>
     </ul>

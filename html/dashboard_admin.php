@@ -26,14 +26,14 @@
     </div>
     <div class="row  justify-content-between" style="padding: 10%;">
         <div class="btn-group-vertical col-lg-5 mt-3 offset-1">
-            <button type="button" class="btn btn-primary staticButton sub">Raumansicht</button>
-            <button type="button" class="btn btn-primary staticButton sub mt-2">Datenbank</button>
-            <button type="button" class="btn btn-primary staticButton sub mt-2">Ausleihe</button>
-            <button type="button" class="btn btn-primary staticButton sub mt-2">Gerät hinzufügen</button>
-            <button type="button" class="btn btn-primary staticButton sub mt-2">Person hinzufügen</button>
-            <button type="button" class="btn btn-primary staticButton sub mt-2">Softwarelizenzen</button>
-            <button type="button" class="btn btn-primary staticButton sub mt-2">Systemlogs</button>
-            <button type="button" class="btn btn-primary staticButton sub mt-2">Einstellungen</button>
+            <a href="raumauswahl.php" type="button" class="btn btn-primary staticButton sub">Raumansicht</a>
+            <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Datenbank</a>
+            <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Ausleihe</a>
+            <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Gerät hinzufügen</a>
+            <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Person hinzufügen</a>
+            <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Softwarelizenzen</a>
+            <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Systemlogs</a>
+            <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Einstellungen</a>
         </div>
         <div class="col-lg-5">
             <div class="row">
@@ -74,7 +74,8 @@
 </div>
 <footer class="py-3 my-4 footerBot">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-        <li class="nav-item"><a href="dashboard_studenten.php" class="nav-link px-2 text-muted">Home</a></li>
+        <li class="nav-item nav-link px-2 text-muted">Angemeldet als Benutzer ef8366m</li>
+        <li class="nav-item"><a href="dashboard_admin.php" class="nav-link px-2 text-muted">Home</a></li>
         <li class="nav-item"><a href="impressum.php" class="nav-link px-2 text-muted">Impressum</a></li>
     </ul>
     <p class="text-center text-muted">© 2022 SmartWorking.exe</p>

@@ -10,6 +10,7 @@
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/bootstrap.css">
     <link rel="stylesheet" href="/styles/custom.css">
+    <link rel="icon" type="image/x-icon" href="/img/fh-aachen_university-of-applied-sciences_303_logo.png">
     <title>Dashboard</title>
 </head>
 <body>
@@ -25,9 +26,9 @@
     </div>
     <div class="row mt-5 row justify-content-between">
         <div class="btn-group-vertical col-lg-5 mt-3 offset-1">
-            <button type="button" class="btn btn-primary staticButton sub">Raumansicht</button>
-            <button type="button" class="btn btn-primary staticButton sub mt-2">Eigene Geräte</button>
-            <button type="button" class="btn btn-primary staticButton sub mt-2">Verleihung an Studeenten</button>
+            <a href="#" type="button" class="btn btn-primary staticButton sub">Raumansicht</a>
+            <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Eigene Geräte</a>
+            <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Verleihung an Studeenten</a>
         </div>
         <div class="col-lg-5">
             <div class="row">
@@ -50,7 +51,8 @@
 </div>
 <footer class="py-3 my-4 footerBot">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-        <li class="nav-item"><a href="dashboard_studenten.php" class="nav-link px-2 text-muted">Home</a></li>
+        <li class="nav-item nav-link px-2 text-muted">Angemeldet als Benutzer ab1876m</li>
+        <li class="nav-item"><a href="dashboard_mitglieder.php" class="nav-link px-2 text-muted">Home</a></li>
         <li class="nav-item"><a href="impressum.php" class="nav-link px-2 text-muted">Impressum</a></li>
     </ul>
     <p class="text-center text-muted">© 2022 SmartWorking.exe</p>
