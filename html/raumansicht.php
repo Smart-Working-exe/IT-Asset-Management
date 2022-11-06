@@ -21,9 +21,10 @@
     </div>
     <div class="row mt-4 ">
         <p class="display-6 col-lg-3"> Raum A102</p>
-        <div class="input-group mt-2 col-lg-3 " style="width: 30%; height: 2vh;">
-            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-            <button type="button" class="btn btn-primary sub">search</button>
+        <div class="input-group mt-2 col-lg-3" style="width: 30%; height: 2vh;">
+            <input type="search" class="form-control rounded" placeholder="Suche" aria-label="Search"
+                   aria-describedby="search-addon"/>
+            <button type="button" class="btn btn-primary sub"><img src="/img/search_icon.svg" width="30px"></button>
         </div>
     </div>
     <div class="row">
@@ -58,37 +59,149 @@
             </thead>
             <tbody>
             <tr>
-                <td>PC1</td>
-                <td>Tower-P</td>
-                <td>Dell</td>
-                <td>3 Jahren</td>
-                <td>111.111.111.1</td>
-                <td>Windows10</td>
-                <td><ul><li>MSOffice</li>
-                    <li>Visual Studio</li>
-                    <li>Microship Studio</li></ul></td>
-                <td><ul><li>8GB RAM</li>
-                        <li>1000GB SSD</li>
-                        <li>NVIDIA RTX4090</li></ul></td>
-                <td>Game Design geeignet</td>
-                <td> <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked></td>
-            </tr>
-
-            <tr>
-                <td>PC2</td>
+                <td>PC-1</td>
                 <td>Tower-P</td>
                 <td>Dell</td>
                 <td>3 Jahren</td>
                 <td>111.111.111.2</td>
                 <td>Windows10</td>
-                <td><ul><li>MSOffice</li>
+                <td>
+                    <ul>
+                        <li>MSOffice</li>
                         <li>Visual Studio</li>
-                        <li>Microship Studio</li></ul></td>
-                <td><ul><li>16GB RAM</li>
+                        <li>Microship Studio</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>8GB RAM</li>
                         <li>1000GB SSD</li>
-                        <li>NVIDIA RTX3070</li></ul></td>
+                        <li>NVIDIA RTX4090</li>
+                    </ul>
+                </td>
+                <td>Game Design geeignet</td>
+                <td><input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked></td>
+            </tr>
+
+            <tr>
+                <td>PC-2</td>
+                <td>Tower-P</td>
+                <td>Dell</td>
+                <td>3 Jahren</td>
+                <td>111.111.111.3</td>
+                <td>Windows10</td>
+                <td>
+                    <ul>
+                        <li>MSOffice</li>
+                        <li>Visual Studio</li>
+                        <li>Microship Studio</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>16GB RAM</li>
+                        <li>1000GB SSD</li>
+                        <li>NVIDIA RTX3070</li>
+                    </ul>
+                </td>
                 <td>Virtualization geeignet</td>
-                <td> <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked></td>
+                <td><input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked></td>
+            </tr>
+            <tr>
+                <td>PC-3</td>
+                <td>Tower-P</td>
+                <td>Dell</td>
+                <td>3 Jahren</td>
+                <td>111.111.111.4</td>
+                <td>Windows10</td>
+                <td>
+                    <ul>
+                        <li>MSOffice</li>
+                        <li>Visual Studio</li>
+                        <li>Microship Studio</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>8GB RAM</li>
+                        <li>1000GB SSD</li>
+                        <li>NVIDIA RTX4090</li>
+                    </ul>
+                </td>
+                <td>Game Design geeignet</td>
+                <td><input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked></td>
+            </tr>
+            <tr>
+                <td>PC-4</td>
+                <td>Tower-P</td>
+                <td>Dell</td>
+                <td>3 Jahren</td>
+                <td>111.111.111.5</td>
+                <td>Windows10</td>
+                <td>
+                    <ul>
+                        <li>MSOffice</li>
+                        <li>Visual Studio</li>
+                        <li>Microship Studio</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>16GB RAM</li>
+                        <li>1000GB SSD</li>
+                        <li>NVIDIA RTX3070</li>
+                    </ul>
+                </td>
+                <td>Virtualization geeignet</td>
+                <td><input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked></td>
+            </tr>
+            <tr>
+                <td>PC-5</td>
+                <td>Tower-P</td>
+                <td>Dell</td>
+                <td>3 Jahren</td>
+                <td>111.111.111.6</td>
+                <td>Windows10</td>
+                <td>
+                    <ul>
+                        <li>MSOffice</li>
+                        <li>Visual Studio</li>
+                        <li>Microship Studio</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>8GB RAM</li>
+                        <li>1000GB SSD</li>
+                        <li>NVIDIA RTX4090</li>
+                    </ul>
+                </td>
+                <td>Game Design geeignet</td>
+                <td><input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked></td>
+            </tr>
+            <tr>
+                <td>PC-6</td>
+                <td>Tower-P</td>
+                <td>Dell</td>
+                <td>3 Jahren</td>
+                <td>111.111.111.7</td>
+                <td>Windows10</td>
+                <td>
+                    <ul>
+                        <li>MSOffice</li>
+                        <li>Visual Studio</li>
+                        <li>Microship Studio</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>16GB RAM</li>
+                        <li>1000GB SSD</li>
+                        <li>NVIDIA RTX3070</li>
+                    </ul>
+                </td>
+                <td>Virtualization geeignet</td>
+                <td><input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked></td>
             </tr>
 
 
@@ -97,6 +210,14 @@
     </div>
 
 </div>
+<footer class="py-3 my-4 footerBot">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item"><a href="dashboard_studenten.php" class="nav-link px-2 text-muted">Home</a></li>
+        <li class="nav-item"><a href="impressum.php" class="nav-link px-2 text-muted">Impressum</a></li>
+    </ul>
+    <p class="text-center text-muted">© 2022 SmartWorking.exe</p>
+</footer>
+
 <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

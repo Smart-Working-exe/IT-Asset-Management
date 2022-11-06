@@ -10,7 +10,7 @@
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/bootstrap.css">
     <link rel="stylesheet" href="/styles/custom.css">
-    <title>Dashboard Admin</title>
+    <title>Dashboard</title>
 </head>
 <body>
 <div class="container"">
@@ -72,6 +72,14 @@
         </div>
     </div>
 </div>
+<footer class="py-3 my-4 footerBot">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item"><a href="dashboard_studenten.php" class="nav-link px-2 text-muted">Home</a></li>
+        <li class="nav-item"><a href="impressum.php" class="nav-link px-2 text-muted">Impressum</a></li>
+    </ul>
+    <p class="text-center text-muted">© 2022 SmartWorking.exe</p>
+</footer>
+
 <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
