@@ -10,7 +10,7 @@
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/bootstrap.css">
     <link rel="stylesheet" href="/styles/custom.css">
-    <title>Dashboard</title>
+    <title>Dashboard Admin</title>
 </head>
 <body>
 <div class="container"">
@@ -72,6 +72,6 @@
         </div>
     </div>
 </div>
-<script src="js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
