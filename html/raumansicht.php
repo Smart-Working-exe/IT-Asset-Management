@@ -11,11 +11,11 @@
 <body>
 <div class="container">
     <div class="row">
-        <img class="col-lg-3 img-fluid" src="/img/fh-aachen_university-of-applied-sciences_303_logo.png" alt="fhlogo">
+        <a href="dashboard_admin.php"><img class="col-lg-3 img-fluid" src="/img/fh-aachen_university-of-applied-sciences_303_logo.png" alt="fhlogo"></a>
         <div class="col-lg-6"><p class="h1 text-center mt-4"> IT Asset Management</p></div>
         <div class="col-lg-3">
             <form method="get">
-                <button type="submit" class="btn btn-danger mt-4">Abmelden</button>
+                <a href="login.php"><button type="submit" class="btn btn-danger mt-4">Abmelden</button></a>
             </form>
         </div>
     </div>
@@ -38,7 +38,7 @@
         </div>
 
         <div class="form-group">
-            <input type="submit" class="btn btn-primary sub" value="Gerät hinzufügen">
+            <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal" data-bs-target="#confirmation">Geräte bearbeiten</button>
         </div>
     </div>
     <div class="container mt-3">
@@ -203,10 +203,33 @@
                 <td>Virtualization geeignet</td>
                 <td><input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked></td>
             </tr>
-
-
             </tbody>
         </table>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal" id="confirmation">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Was wollen Sie bearbeiten?</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                
+                <!-- Modal Body -->
+                <div class="modal-body">
+                    
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Neues Gerät hinzufügen</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Vorhandes Gerät bearbeiten</button>
+                </div>
+            </div>
+        </div>
     </div>
 
 </div>

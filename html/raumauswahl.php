@@ -11,11 +11,11 @@
 <body>
 <div class="container">
     <div class="row">
-        <img class="col-lg-3 img-fluid" src="/img/fh-aachen_university-of-applied-sciences_303_logo.png" alt="fhlogo">
+        <a href="dashboard_admin.php"><img class="col-lg-3 img-fluid" src="/img/fh-aachen_university-of-applied-sciences_303_logo.png" alt="fhlogo"></a>
         <div class="col-lg-6"><p class="h1 text-center mt-4"> IT Asset Management</p></div>
         <div class="col-lg-3">
             <form method="get">
-                <button type="submit" class="btn btn-danger mt-4">Abmelden</button>
+                <a href="login.php"><button type="submit" class="btn btn-danger mt-4">Abmelden</button></a>
             </form>
         </div>
     </div>
@@ -32,7 +32,7 @@
                 <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
                     <div class="card-body">
                         <a href="#"> Raum A001</a>
-                        <a href="#"> Raum A002</a>
+                        <a href="raumansicht.php"> Raum A002</a>
                         <a href="#"> Raum A003</a>
                         <a href="#"> Raum A004</a>
                         <a href="#"> Raum A101</a>

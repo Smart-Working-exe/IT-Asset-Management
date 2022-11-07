@@ -11,15 +11,17 @@
     <link rel="stylesheet" href="/styles/bootstrap.css">
     <link rel="stylesheet" href="/styles/custom.css">
     <title>Ausleihe</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 <div class="container">
     <div class="row">
-        <img class="col-lg-3 img-fluid" src="/img/fh-aachen_university-of-applied-sciences_303_logo.png" alt="fhlogo">
+        <a href="dashboard_studenten.php"><img class="col-lg-3 img-fluid" src="/img/fh-aachen_university-of-applied-sciences_303_logo.png" alt="fhlogo"></a>
         <div class="col-lg-6"><p class="h1 text-center mt-4"> IT Asset Management</p></div>
         <div class="col-lg-3">
             <form method="get">
-                <button type="submit" class="btn btn-danger mt-4">Abmelden</button>
+                <a href="login.php"><button type="submit" class="btn btn-danger mt-4">Abmelden</button></a>
             </form>
         </div>
     </div>
@@ -138,8 +140,35 @@
             </table>
         </div>
     </div>
-    <a href="dashboard_studenten.php"><input type="submit" class="btn btn-primary sub col-4 offset-2" value="Zurück"></a>
-    <input type="submit" class="btn btn-primary sub col-4" value="Auswahl bestätigen">
+    <a href="dashboard_studenten.php"><button type="submit" class="btn btn-primary sub col-4 offset-2">Zurück</button></a>
+    <!-- Butteon triggert Modal -->
+    <button type="submit" class="btn btn-primary sub col-4" data-bs-toggle="modal" data-bs-target="#confirmation">Auswahl bestätigen</button>
+
+    <!-- The Modal -->
+    <div class="modal" id="confirmation">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Auswahl bestätigt</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    Anfrage wurde an einem Mitarbeiter gesendet
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Ok</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
 </div>
 <footer class="py-3 my-4 footerBot">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
