@@ -19,9 +19,6 @@
     <div class="row mt-5 justify-content-center">
         <img class="img-fluid col-lg-4" src="/img/fh-aachen_university-of-applied-sciences_303_logo.png" alt="FH Aachen Logo">
     </div>
-    <div class="row justify-content-center">
-        <a href="login.php"><button type="submit" class="btn btn-danger mt-4">Abmelden</button></a>
-    </div>
 
     <div class="row mt-3 justify-content-center align-items-center">
         <div class="col-lg-4">
