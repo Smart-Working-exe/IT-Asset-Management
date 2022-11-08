@@ -10,6 +10,7 @@
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/bootstrap.css">
     <link rel="stylesheet" href="/styles/custom.css">
+    <link rel="icon" type="image/x-icon" href="/img/fh-aachen_university-of-applied-sciences_303_logo.png">
     <title>Ausleihe</title>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -170,7 +171,7 @@
     </div>
     
 </div>
-<footer class="py-3 my-4 ">
+<footer class="py-3 my-4">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
         <li class="nav-item nav-link px-2 text-muted">Angemeldet als Benutzer lk8776s</li>
         <li class="nav-item"><a href="dashboard_studenten.php" class="nav-link px-2 text-muted">Home</a></li>

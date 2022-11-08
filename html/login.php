@@ -10,6 +10,7 @@
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/bootstrap.css">
     <link rel="stylesheet" href="/styles/custom.css">
+    <link rel="icon" type="image/x-icon" href="/img/fh-aachen_university-of-applied-sciences_303_logo.png">
     <title>Login</title>
     <style>
     </style>

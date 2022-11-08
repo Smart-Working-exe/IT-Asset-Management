@@ -10,6 +10,7 @@
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/bootstrap.css">
     <link rel="stylesheet" href="/styles/custom.css">
+    <link rel="icon" type="image/x-icon" href="/img/fh-aachen_university-of-applied-sciences_303_logo.png">
     <title>Dashboard</title>
 </head>
 <body>
@@ -28,7 +29,7 @@
 
 </div>
 </div>
-<footer class="py-3 my-4 ">
+<footer class="py-3 my-4">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
         <!-- Muss angepasst werden -->
         <li class="nav-item nav-link px-2 text-muted">Angemeldet als Benutzer XXX</li>

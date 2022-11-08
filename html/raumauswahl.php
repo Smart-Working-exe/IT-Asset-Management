@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/styles/bootstrap.css">
     <link rel="stylesheet" href="/styles/custom.css">
+    <link rel="icon" type="image/x-icon" href="/img/fh-aachen_university-of-applied-sciences_303_logo.png">
     <title>Raumauswahl</title>
 </head>
 <body>
@@ -165,11 +166,11 @@
 
     </div>
 </div>
-<footer class="py-3 my-4 footerBot">
+<footer class="py-3 my-4">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-        <li class="nav-item nav-link px-2 text-muted">Angemeldet als Benutzer ab1876m</li>
+        <li class="nav-item nav-link px-2 text-muted">Angemeldet als Benutzer ef8366m</li>
         <li class="nav-item"><a href="dashboard_admin.php" class="nav-link px-2 text-muted">Home</a></li>
-        <li class="nav-item"><a href="impressum.php" class="nav-link px-2 ">Impressum</a></li>
+        <li class="nav-item"><a href="impressum.php" class="nav-link px-2 text-muted">Impressum</a></li>
     </ul>
     <p class="text-center text-muted">© 2022 SmartWorking.exe</p>
 </footer>
