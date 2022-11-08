@@ -25,7 +25,11 @@
         </div>
     </div>
     <!-- Ab hier wird Gescripted! -->
-
+    <div class="container">
+        <div class="row p-4">
+    <img src="../img/hehe.gif" alt="">
+        </div>
+    </div>
 </div>
 </div>
 <footer class="py-3 my-4 ">
@@ -33,7 +37,7 @@
         <!-- Muss angepasst werden -->
         <li class="nav-item nav-link px-2 text-muted">Angemeldet als Benutzer XXX</li>
         <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-        <li class="nav-item"><a href="impressum.php" class="nav-link px-2 text-muted">Impressum</a></li>
+        <li class="nav-item"><a href="impressum.php" class="nav-link px-2 ">Impressum</a></li>
     </ul>
     <p class="text-center text-muted">© 2022 SmartWorking.exe</p>
 </footer>
