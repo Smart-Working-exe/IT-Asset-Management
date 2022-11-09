@@ -38,11 +38,6 @@
                        placeholder="Passwort">
                 <span class="invalid-feedback"><?php echo $password_err; ?></span>
             </div>
-            <div class="form-check mb-3">
-                <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" name="remember"> Remember me
-                </label>
-            </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary sub" value="Login">
             </div>

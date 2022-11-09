@@ -12,12 +12,16 @@
 <body>
 <div class="container">
     <div class="row">
-        <a href="dashboard_admin.php" class="col-lg-3"><img class="img-fluid" src="/img/fh-aachen_university-of-applied-sciences_303_logo.png" alt="fhlogo"></a>
-        <div class="col-lg-6"><p class="h1 text-center mt-4"> IT Asset Management</p></div>
-        <div class="col-lg-3">
-            <form method="get">
-                <a href="login.php"><button type="submit" class="btn btn-danger mt-4">Abmelden</button></a>
-            </form>
+        <a href="dashboard_admin.php" class="col-3"><img class="img-fluid"
+                                                         src="/img/fh-aachen_university-of-applied-sciences_303_logo.png"
+                                                         alt="fhlogo"></a>
+        <a href="dashboard_admin.php" class="nav-link col-6"><p class="h1 text-center mt-4">IT Asset Management</p></a>
+        <div class="col-3">
+            <!-- <form method="get"> -->
+            <a href="login.php">
+                <button type="submit" class="btn btn-danger mt-4">Abmelden</button>
+            </a>
+            <!-- </form> -->
         </div>
     </div>
     <div class="row mt-4 ">
@@ -28,33 +32,42 @@
             <button type="button" class="btn btn-primary sub"><img src="/img/search_icon.svg" width="30px"></button>
         </div>
     </div>
-    <div class="row">
-        <p class="col-lg-3"><b>IP-Adressen: 111.111.111.000/27</b></p>
-        <div class="progress mt-1 col-lg-2">
-            <div class="progress-bar" style="width:70%; background-color: #40BEA9;">70%</div>
+    <div class="row"> <!-- Wegen Row ist die Progressbar abgeschnitten -->
+        <p class="col-3"><b>IP-Adressbereich: 111.111.111.000/27</b></p>
+        <div class=" mt-1 col-2">
+            <div class="progress">
+                <div class="progress-bar" style="width:70%; background-color: #40BEA9"
+                     aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">70%</div>
+            </div>
         </div>
-        <p class="col-lg-3"><b>Belegung Workstations:</b></p>
-        <div class="progress mt-1 col-lg-2">
-            <div class="progress-bar" style="width:40%; background-color: #40BEA9;">40%</div>
+        <p class="col-2 offset-1"><b>Belegung Workstations:</b></p>
+        <div class=" mt-1 col-2">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width:40%; background-color: #40BEA9"
+                     aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">40%</div>
+            </div>
         </div>
 
+
         <div class="form-group">
-            <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal" data-bs-target="#confirmation">Geräte bearbeiten</button>
+            <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal" data-bs-target="#addConfirmation">
+                Geräte hinzufügen
+            </button>
         </div>
     </div>
     <div class="container mt-3">
-        <table class="table table-hover">
+        <table class="table table-striped table-bordered" id="devices">
             <thead>
             <tr>
-                <th>Name</th>
-                <th>Typ</th>
-                <th>Hersteller</th>
-                <th>Alter</th>
-                <th>IP-Adresse</th>
-                <th>Betriebsystem</th>
-                <th>Software</th>
-                <th>Technische Daten</th>
-                <th>Kommentar</th>
+                <th onclick="sortTable(0)">Name</th>
+                <th onclick="sortTable(1)">Typ</th>
+                <th onclick="sortTable(2)">Hersteller</th>
+                <th onclick="sortTable(3)">Alter</th>
+                <th onclick="sortTable(4)">IP-Adresse</th>
+                <th onclick="sortTable(5)">Betriebsystem</th>
+                <th onclick="sortTable(6)">Software</th>
+                <th onclick="sortTable(7)">Technische Daten</th>
+                <th onclick="sortTable(8)">Kommentar</th>
                 <th>Bearbeit</th>
             </tr>
             </thead>
@@ -63,7 +76,7 @@
                 <td>PC-1</td>
                 <td>Tower-P</td>
                 <td>Dell</td>
-                <td>3 Jahren</td>
+                <td>6 Jahren</td>
                 <td>111.111.111.2</td>
                 <td>Windows10</td>
                 <td>
@@ -81,14 +94,18 @@
                     </ul>
                 </td>
                 <td>Game Design geeignet</td>
-                <td><input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked></td>
+                <td>
+                    <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
+                            data-bs-target="#editConfirmation">Geräte bearbeiten
+                    </button>
+                </td>
             </tr>
 
             <tr>
                 <td>PC-2</td>
                 <td>Tower-P</td>
                 <td>Dell</td>
-                <td>3 Jahren</td>
+                <td>6 Jahren</td>
                 <td>111.111.111.3</td>
                 <td>Windows10</td>
                 <td>
@@ -106,12 +123,16 @@
                     </ul>
                 </td>
                 <td>Virtualization geeignet</td>
-                <td><input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked></td>
+                <td>
+                    <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
+                            data-bs-target="#editConfirmation">Geräte bearbeiten
+                    </button>
+                </td>
             </tr>
             <tr>
                 <td>PC-3</td>
                 <td>Tower-P</td>
-                <td>Dell</td>
+                <td>HP</td>
                 <td>3 Jahren</td>
                 <td>111.111.111.4</td>
                 <td>Windows10</td>
@@ -130,7 +151,11 @@
                     </ul>
                 </td>
                 <td>Game Design geeignet</td>
-                <td><input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked></td>
+                <td>
+                    <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
+                            data-bs-target="#editConfirmation">Geräte bearbeiten
+                    </button>
+                </td>
             </tr>
             <tr>
                 <td>PC-4</td>
@@ -154,13 +179,17 @@
                     </ul>
                 </td>
                 <td>Virtualization geeignet</td>
-                <td><input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked></td>
+                <td>
+                    <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
+                            data-bs-target="#editConfirmation">Geräte bearbeiten
+                    </button>
+                </td>
             </tr>
             <tr>
                 <td>PC-5</td>
-                <td>Tower-P</td>
-                <td>Dell</td>
-                <td>3 Jahren</td>
+                <td>Desktop</td>
+                <td>HP</td>
+                <td>2 Jahren</td>
                 <td>111.111.111.6</td>
                 <td>Windows10</td>
                 <td>
@@ -178,13 +207,17 @@
                     </ul>
                 </td>
                 <td>Game Design geeignet</td>
-                <td><input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked></td>
+                <td>
+                    <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
+                            data-bs-target="#editConfirmation">Geräte bearbeiten
+                    </button>
+                </td>
             </tr>
             <tr>
                 <td>PC-6</td>
                 <td>Tower-P</td>
                 <td>Dell</td>
-                <td>3 Jahren</td>
+                <td>1 Jahren</td>
                 <td>111.111.111.7</td>
                 <td>Windows10</td>
                 <td>
@@ -202,39 +235,71 @@
                     </ul>
                 </td>
                 <td>Virtualization geeignet</td>
-                <td><input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" unchecked></td>
+                <td>
+                    <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
+                            data-bs-target="#editConfirmation">Geräte bearbeiten
+                    </button>
+                </td>
             </tr>
             </tbody>
         </table>
     </div>
 
     <!-- The Modal -->
-    <div class="modal" id="confirmation">
+    <div class="modal" id="editConfirmation">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Was wollen Sie bearbeiten?</h4>
+                    <h4 class="modal-title">Hier kommt das Fomular zum Bearbeiten hin.</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-                
+
                 <!-- Modal Body -->
                 <div class="modal-body">
-                    
+
                 </div>
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Neues Gerät hinzufügen</button>
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Vorhandes Gerät bearbeiten</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Speichern</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="raumauswahl.php">
+        <button type="submit" class="btn btn-primary sub">Zurück zur Raumauswahl</button>
+    </a>
+
+    <div class="modal" id="addConfirmation">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Hier kommt das Formular für das Hinzufügen hin.</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="modal-body">
+
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">+</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Speichern</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
                 </div>
             </div>
         </div>
     </div>
 
 </div>
-<footer class="py-3 my-4">
+<footer class="py-3 my-4 footerBot">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
         <li class="nav-item nav-link px-2 text-muted">Angemeldet als Benutzer ef8366m</li>
         <li class="nav-item"><a href="dashboard_admin.php" class="nav-link px-2 text-muted">Home</a></li>
@@ -242,7 +307,62 @@
     </ul>
     <p class="text-center text-muted">© 2022 SmartWorking.exe</p>
 </footer>
-
+<script>
+    function sortTable(n) {
+        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+        table = document.getElementById("devices");
+        switching = true;
+        // Set the sorting direction to ascending:
+        dir = "asc";
+        /* Make a loop that will continue until
+        no switching has been done: */
+        while (switching) {
+            // Start by saying: no switching is done:
+            switching = false;
+            rows = table.rows;
+            /* Loop through all table rows (except the
+            first, which contains table headers): */
+            for (i = 1; i < (rows.length - 1); i++) {
+                // Start by saying there should be no switching:
+                shouldSwitch = false;
+                /* Get the two elements you want to compare,
+                one from current row and one from the next: */
+                x = rows[i].getElementsByTagName("TD")[n];
+                y = rows[i + 1].getElementsByTagName("TD")[n];
+                /* Check if the two rows should switch place,
+                based on the direction, asc or desc: */
+                if (dir == "asc") {
+                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                        // If so, mark as a switch and break the loop:
+                        shouldSwitch = true;
+                        break;
+                    }
+                } else if (dir == "desc") {
+                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                        // If so, mark as a switch and break the loop:
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+            }
+            if (shouldSwitch) {
+                /* If a switch has been marked, make the switch
+                and mark that a switch has been done: */
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+                // Each time a switch is done, increase this count by 1:
+                switchcount++;
+            } else {
+                /* If no switching has been done AND the direction is "asc",
+                set the direction to "desc" and run the while loop again. */
+                if (switchcount == 0 && dir == "asc") {
+                    dir = "desc";
+                    switching = true;
+                }
+            }
+        }
+    }
+</script>
 <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

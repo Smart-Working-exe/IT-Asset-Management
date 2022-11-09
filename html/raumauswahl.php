@@ -12,12 +12,12 @@
 <body>
 <div class="container">
     <div class="row">
-        <a href="dashboard_admin.php" class="col-lg-3"><img class="img-fluid" src="/img/fh-aachen_university-of-applied-sciences_303_logo.png" alt="fhlogo"></a>
-        <div class="col-lg-6"><p class="h1 text-center mt-4"> IT Asset Management</p></div>
-        <div class="col-lg-3">
-            <form method="get">
-                <a href="login.php"><button type="submit" class="btn btn-danger mt-4">Abmelden</button></a>
-            </form>
+        <a href="dashboard_admin.php" class="col-3"><img class="img-fluid" src="/img/fh-aachen_university-of-applied-sciences_303_logo.png" alt="fhlogo"></a>
+        <a href="dashboard_admin.php" class="nav-link col-6"><p class="h1 text-center mt-4">IT Asset Management</p></a>
+        <div class="col-3">
+            <!-- <form method="get"> -->
+            <a href="login.php"><button type="submit" class="btn btn-danger mt-4">Abmelden</button></a>
+            <!-- </form> -->
         </div>
     </div>
     <div class="row p-4 mt-4">
@@ -33,11 +33,11 @@
                 <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
                     <div class="card-body">
                         <a href="#"> Raum A001</a>
-                        <a href="raumansicht.php"> Raum A002</a>
+                        <a href="+"> Raum A002</a>
                         <a href="#"> Raum A003</a>
                         <a href="#"> Raum A004</a>
                         <a href="#"> Raum A101</a>
-                        <a href="#"> Raum A102</a>
+                        <a href="raumansicht.php"> Raum A102</a>
                         <a href="#"> Raum A103</a>
                         <a href="#"> Raum A104</a>
                     </div>
@@ -166,7 +166,7 @@
 
     </div>
 </div>
-<footer class="py-3 my-4">
+<footer class="py-3 my-4 footerBot">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
         <li class="nav-item nav-link px-2 text-muted">Angemeldet als Benutzer ef8366m</li>
         <li class="nav-item"><a href="dashboard_admin.php" class="nav-link px-2 text-muted">Home</a></li>

@@ -17,12 +17,12 @@
 <div class="container"">
     </style>
     <div class="row">
-        <a href="dashboard_admin.php" class="col-lg-3"><img class="img-fluid" src="/img/fh-aachen_university-of-applied-sciences_303_logo.png" alt="fhlogo"></a>
-        <div class="col-lg-6"><p class="h1 text-center mt-4"> IT Asset Management</p></div>
-        <div class="col-lg-3">
-            <form method="get">
-                <a href="login.php"><button type="submit" class="btn btn-danger mt-4">Abmelden</button></a>
-            </form>
+        <a href="dashboard_admin.php" class="col-3"><img class="img-fluid" src="/img/fh-aachen_university-of-applied-sciences_303_logo.png" alt="fhlogo"></a>
+        <a href="dashboard_admin.php" class="nav-link col-6"><p class="h1 text-center mt-4">IT Asset Management</p></a>
+        <div class="col-3">
+            <!-- <form method="get"> -->
+            <a href="login.php"><button type="submit" class="btn btn-danger mt-4">Abmelden</button></a>
+            <!-- </form> -->
         </div>
     </div>
     <div class="row  justify-content-between" style="padding: 10%;">
@@ -30,7 +30,7 @@
             <a href="raumauswahl.php" type="button" class="btn btn-primary staticButton sub">Raumansicht</a>
             <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Datenbank</a>
             <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Ausleihe</a>
-            <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Gerät hinzufügen</a>
+            <button type="submit" class="btn btn-primary staticButton sub mt-2" data-bs-toggle="modal" data-bs-target="#addConfirmation">Geräte hinzufügen</button>
             <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Person hinzufügen</a>
             <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Softwarelizenzen</a>
             <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Systemlogs</a>
@@ -68,6 +68,30 @@
                 </div>
                 <div class="toast-body">
                     In Raum A001 sind 30 von 32 IP-Adressen belegt.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="addConfirmation">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Hier kommt das Formular für das Hinzufügen hin.</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="modal-body">
+
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">+</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Speichern</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
                 </div>
             </div>
         </div>

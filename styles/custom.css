@@ -1,6 +1,7 @@
-.login { 
-    color: #1D191A ; 
+.login {
+    color: #1D191A;
 }
+
 .sub {
     background-color: #40BEA9;
     border-color: #40BEA9;
@@ -25,7 +26,17 @@
     font-size: calc(100% + 1vw + 1vh);
 }
 
+/* Damit der Button in der Größe nicht Variiert */
 .staticButton {
     height: 50px !important;
     max-height: 60px !important;
+}
+
+/* FOOTER */
+.footerBot {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    height: 100px;
 }
