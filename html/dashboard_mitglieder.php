@@ -26,8 +26,8 @@
     </div>
     <div class="row mt-5 row justify-content-between">
         <div class="btn-group-vertical col-lg-5 mt-3 offset-1">
-            <a href="#" type="button" class="btn btn-primary staticButton sub">Raumansicht</a>
-            <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Eigene Geräte</a>
+            <a href="raumauswahl.php" type="button" class="btn btn-primary staticButton sub">Raumauswahl</a>
+            <a href="eigeneGeraete.php" type="button" class="btn btn-primary staticButton sub mt-2">Eigene Geräte</a>
             <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Verleihung an Studenten</a>
         </div>
         <div class="col-lg-5">
