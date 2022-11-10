@@ -64,11 +64,11 @@
                 <th onclick="sortTable(2)">Hersteller</th>
                 <th onclick="sortTable(3)">Alter</th>
                 <th onclick="sortTable(4)">IP-Adresse</th>
-                <th onclick="sortTable(5)">Betriebsystem</th>
+                <th onclick="sortTable(5)">Betriebssystem</th>
                 <th onclick="sortTable(6)">Software</th>
                 <th onclick="sortTable(7)">Technische Daten</th>
                 <th onclick="sortTable(8)">Kommentar</th>
-                <th>Bearbeit</th>
+                <th>Bearbeiten</th>
             </tr>
             </thead>
             <tbody>
@@ -83,7 +83,7 @@
                     <ul>
                         <li>MSOffice</li>
                         <li>Visual Studio</li>
-                        <li>Microship Studio</li>
+                        <li>Microchip Studio</li>
                     </ul>
                 </td>
                 <td>
@@ -112,7 +112,7 @@
                     <ul>
                         <li>MSOffice</li>
                         <li>Visual Studio</li>
-                        <li>Microship Studio</li>
+                        <li>Microchip Studio</li>
                     </ul>
                 </td>
                 <td>
@@ -140,7 +140,7 @@
                     <ul>
                         <li>MSOffice</li>
                         <li>Visual Studio</li>
-                        <li>Microship Studio</li>
+                        <li>Microchip Studio</li>
                     </ul>
                 </td>
                 <td>
@@ -168,7 +168,7 @@
                     <ul>
                         <li>MSOffice</li>
                         <li>Visual Studio</li>
-                        <li>Microship Studio</li>
+                        <li>Microchip Studio</li>
                     </ul>
                 </td>
                 <td>
@@ -196,7 +196,7 @@
                     <ul>
                         <li>MSOffice</li>
                         <li>Visual Studio</li>
-                        <li>Microship Studio</li>
+                        <li>Microchip Studio</li>
                     </ul>
                 </td>
                 <td>
@@ -224,7 +224,7 @@
                     <ul>
                         <li>MSOffice</li>
                         <li>Visual Studio</li>
-                        <li>Microship Studio</li>
+                        <li>Microchip Studio</li>
                     </ul>
                 </td>
                 <td>
@@ -252,7 +252,7 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Hier kommt das Fomular zum Bearbeiten hin.</h4>
+                    <h4 class="modal-title">Hier kommt das Formular zum Bearbeiten hin.</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
 

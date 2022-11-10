@@ -33,12 +33,12 @@
             <button type="submit" class="btn btn-primary staticButton sub mt-2" data-bs-toggle="modal" data-bs-target="#addConfirmation">Geräte hinzufügen</button>
             <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Person hinzufügen</a>
             <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Softwarelizenzen</a>
-            <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Systemlogs</a>
+            <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">System-logs</a>
             <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Einstellungen</a>
         </div>
         <div class="col-lg-5">
             <div class="row">
-                <p class="display-6 h6 text-center col-lg-4 mt-3"> Benachrichtungen</p>
+                <p class="display-6 h6 text-center col-lg-4 mt-3">Benachrichtungen</p>
             </div>
 
             <div class="toast show col-lg-6 mt-2">

@@ -142,7 +142,7 @@
         </div>
     </div>
     <a href="dashboard_studenten.php"><button type="submit" class="btn btn-primary sub col-4 offset-2">Zurück</button></a>
-    <!-- Butteon triggert Modal -->
+    <!-- Button triggert Modal -->
     <button type="submit" class="btn btn-primary sub col-4" data-bs-toggle="modal" data-bs-target="#confirmation">Auswahl bestätigen</button>
 
     <!-- The Modal -->
