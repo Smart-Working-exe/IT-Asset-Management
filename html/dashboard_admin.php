@@ -28,11 +28,11 @@
     <div class="row  justify-content-between" style="padding: 10%;">
         <div class="btn-group-vertical col-lg-5 mt-3 offset-1">
             <a href="raumauswahl.php" type="button" class="btn btn-primary staticButton sub">Raumansicht</a>
-            <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Datenbank</a>
+            <a href="datenbank_geraete.php" type="button" class="btn btn-primary staticButton sub mt-2">Datenbank</a>
             <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Ausleihe</a>
             <button type="submit" class="btn btn-primary staticButton sub mt-2" data-bs-toggle="modal" data-bs-target="#addConfirmation">Geräte hinzufügen</button>
             <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Person hinzufügen</a>
-            <a href="Softwarelizenzen.php" type="button" class="btn btn-primary staticButton sub mt-2">Softwarelizenzen</a>
+            <a href="softwarelizenzen.php" type="button" class="btn btn-primary staticButton sub mt-2">Softwarelizenzen</a>
             <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">System-logs</a>
             <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Einstellungen</a>
         </div>
