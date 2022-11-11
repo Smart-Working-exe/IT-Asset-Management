@@ -125,6 +125,10 @@
 
             </tbody>
         </table>
+
+        <a href="raumauswahl.php">
+            <button type="submit" class="btn btn-primary sub">Zurück zur Raumauswahl</button>
+        </a>
     </div>
 
     <!-- The Modal -->
@@ -151,9 +155,6 @@
             </div>
         </div>
     </div>
-    <a href="raumauswahl.php">
-        <button type="submit" class="btn btn-primary sub">Zurück zur Raumauswahl</button>
-    </a>
 
     <div class="modal" id="addConfirmation">
         <div class="modal-dialog modal-dialog-centered">
@@ -197,7 +198,6 @@
 
             <!-- Modal footer -->
               <div class="modal-footer">
-                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">+</button>
                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Speichern</button>
                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
              </div>
@@ -222,7 +222,6 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">+</button>
                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Speichern</button>
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
                 </div>
