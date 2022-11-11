@@ -33,7 +33,7 @@
             <button type="submit" class="btn btn-primary staticButton sub mt-2" data-bs-toggle="modal" data-bs-target="#addConfirmation">Geräte hinzufügen</button>
             <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Person hinzufügen</a>
             <a href="softwarelizenzen.php" type="button" class="btn btn-primary staticButton sub mt-2">Softwarelizenzen</a>
-            <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">System-logs</a>
+            <a href="Systemlog.php" type="button" class="btn btn-primary staticButton sub mt-2">System-logs</a>
             <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Einstellungen</a>
         </div>
         <div class="col-lg-5">
