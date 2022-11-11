@@ -39,7 +39,7 @@
         </div>
     </div>
     <div class="row mt-4 ">
-        <p class="display-6 col-lg-3"> Softwarelizenzen</p>
+        <p class="display-6 col-lg-3"> Benachrichtigungseinstellungen</p>
 
 
         <div class="form-group">

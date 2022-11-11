@@ -34,7 +34,7 @@
             <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Person hinzufügen</a>
             <a href="softwarelizenzen.php" type="button" class="btn btn-primary staticButton sub mt-2">Softwarelizenzen</a>
             <a href="Systemlog.php" type="button" class="btn btn-primary staticButton sub mt-2">System-logs</a>
-            <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Einstellungen</a>
+            <a href="benachrichtigungseinstellungen.php" type="button" class="btn btn-primary staticButton sub mt-2">Einstellungen</a>
         </div>
         <div class="col-lg-5">
             <div class="row">
