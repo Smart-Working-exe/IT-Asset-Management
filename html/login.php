@@ -1,5 +1,10 @@
-<!doctype html>
 
+<?php
+//Set true to show "incorrect login data" warning
+$loginFailed = false;
+?>
+
+<!doctype html>
 <!--
  - SmartWorking.exe
 -->
@@ -18,32 +23,41 @@
 <body>
 <div class="container justify-content-center align-items-center" id="login">
     <div class="row mt-5 justify-content-center">
-        <img class="img-fluid col-lg-4" src="/img/fh-aachen_university-of-applied-sciences_303_logo.png" alt="FH Aachen Logo">
+        <img class="img-fluid col-lg-3" src="/img/fh-aachen_university-of-applied-sciences_303_logo.png" alt="FH Aachen Logo">
+        <h2 class="text-center mt-4">IT Asset Management</h2>
     </div>
 
     <div class="row mt-3 justify-content-center align-items-center">
         <div class="col-lg-4">
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="form-group mb-3 mt-3">
-                <label for="username">Benutzername*</label>
-                <input type="text" name="username" id="username" required="true"
-                       class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>"
-                       placeholder="Benutzername">
-                <span class="invalid-feedback"><?php echo $username_err; ?></span>
-            </div>
-            <div class="form-group mb-3">
-                <label for="pwd">Passwort*</label>
-                <input type="password" name="password" id="pwd" required="true"
-                       class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>"
-                       placeholder="Passwort">
-                <span class="invalid-feedback"><?php echo $password_err; ?></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary sub" value="Login">
-            </div>
-        </form>
-    </div>
+            <?php if ($loginFailed) echo "<div class='alert alert-danger'>Benutzername oder Passwort ungültig </div>"?>
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                <div class="form-group mb-3 mt-3">
+                    <label for="username">Benutzername*</label>
+                    <input type="text" name="username" id="username" required="true"
+                           class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>"
+                           placeholder="Benutzername" <?php if($loginFailed) echo "value = 'lk5975s' "?> >
+                    <span class="invalid-feedback"><?php echo $username_err; ?></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="pwd">Passwort*</label>
+                    <input type="password" name="password" id="pwd" required="true"
+                           class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>"
+                           placeholder="Passwort">
+                    <span class="invalid-feedback"><?php echo $password_err; ?></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary sub" value="Login">
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 </body>
+<footer class="py-3 my-4" >
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+
+        <li class="nav-item"><a href="https://www.fh-aachen.de/impressum/" class="nav-link px-2 text-muted" target="_blank">Impressum</a></li>
+    </ul>
+    <p class="text-center text-muted">© 2022 SmartWorking.exe</p>
+</footer>
 </html>
