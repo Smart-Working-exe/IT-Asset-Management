@@ -7,7 +7,21 @@
     <link rel="stylesheet" href="/styles/bootstrap.css">
     <link rel="stylesheet" href="/styles/custom.css">
     <link rel="icon" type="image/x-icon" href="/img/fh-aachen_university-of-applied-sciences_303_logo.png">
-    <title>Softwarelizenzen</title>
+    <title>Benachrichtigungseinstellungen</title>
+    <script src=
+            "https://code.jquery.com/jquery-1.12.4.min.js">
+    </script>
+    <style type="text/css">
+        .selectt {
+
+            display: none;
+
+        }
+
+        label {
+            margin-right: 20px;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -62,33 +76,39 @@
 
                     <!-- Modal Body -->
                     <div class="modal-body">
-                            Das Frühwarnsystem warnt momentan 1 Monat vor Ablauf der Softwarelizenz. <br>
-                            Der neue Zeitraum für das Frühwarnsystem beträgt: <br>
+                            Das Frühwarnsystem schlägt momentan 1 Monat vor Ablauf der Softwarelizenz aus. <br>
+                            Der neue Zeitraum für das Frühwarnsystem beträgt: <br> <br>
+                            <div>
+                                <label>
+                                    <input type="radio" name="Warnsystem_Softwarelizenz"
+                                           value="1 Woche"> 1 Woche vor Ablauf der Softwarelizenz
+                                </label> <br>
+                                <label>
+                                    <input type="radio" name="Warnsystem_Softwarelizenz"
+                                           value="2 Wochen"> 2 Wochen vor Ablauf der Softwarelizenz</label><br>
+                                <label>
+                                    <input type="radio" name="Warnsystem_Softwarelizenz"
+                                           value="1 Monat"> 1 Monat vor Ablauf der Softwarelizenz</label><br>
+                                <label>
+                                    <input type="radio" name="Warnsystem_Softwarelizenz"
+                                           value="Sonstiges"> Sonstiges </label><br>
+                            </div>
 
-                        <form action="" method="post">
-                            <input type="radio" id="week" name=warning value="1 Woche">
-                            <label for="week">1 Woche</label><br>
-                            <input type="radio" id="2 weeks" name=warning value="2 Wochen">
-                            <label for="2 weeks">2 Wochen</label><br>
-                            <input type="radio" id="Monat" name=warning value="1 Monat">
-                            <label for="Monat">1 Monat</label> <br>
-                            <input type="radio" id="sonstiges" name=warning value="sonst">
-                            <label for="sonstiges">sonstiges</label><br>
-
-                   <!--         <script>
+                            <div class="Sonstiges selectt">
+                                <label>
+                                    <input style="height: 18px;width: 50px;"type="input" name="Warnsystem_Softwarelizenz"
+                                           value=""> Tage vor Ablauf der Softwarelizenz </label><br>
+                                </div>
+                            <script type="text/javascript">
                                 $(document).ready(function() {
-                                    $("input[name$='warning']").click(function() {
-                                        var test = $(this).val();
-                                        $("#" + test).show();
+                                    $('input[type="radio"]').click(function() {
+                                        var inputValue = $(this).attr("value");
+                                        var targetBox = $("." + inputValue);
+                                        $(".selectt").not(targetBox).hide();
+                                        $(targetBox).show();
                                     });
                                 });
                             </script>
-                            <div class="desc" id="sonst" style="display: none;">
-                                Anzahl Tage
-                                <input type="text" />
-                            </div>-->
-                        </form>
-
 
                     </div>
 
@@ -114,33 +134,39 @@
 
                 <!-- Modal Body -->
                 <div class="modal-body">
-                    Das Frühwarnsystem warnt momentan wenn der Addressbereich nur noch 100 freie Plätze hat <br>
-                     <br>
-
-                    <form action="" method="post">
-                        <input type="radio" id="10 IP" name=Adressraum value="10 frei">
-                        <label for="week">10 freie Adressen</label><br>
-                        <input type="radio" id="20 IP" name=Adressraum value="20 frei">
-                        <label for="2 weeks">20 freie  Adressen </label><br>
-                        <input type="radio" id="50 IP" name=Adressraum value="50 frei">
-                        <label for="Monat">50 freie Addressen</label> <br>
-                        <input type="radio" id="sonstig" name=Adressraum value="sonsti">
-                        <label for="sonstig">sonstiges</label><br>
-
-                        <!--         <script>
-                                     $(document).ready(function() {
-                                         $("input[name$='Adressraum']").click(function() {
-                                             var test = $(this).val();
-                                             $("#" + test).show();
-                                         });
-                                     });
-                                 </script>
-                                 <div class="descr" id="sonsti" style="display: none;">
-                                     Anzahl Tage
-                                     <input type="text" />
-                                 </div>-->
-                    </form>
-
+                    Das Frühwarnsystem warnt momentan, wenn der Adressbereich 50 freie Adressen unterschreitet. <br>
+                    Der neue Grenze für das Frühwarnsystem beträgt:
+                    <br> <br>
+                    <div>
+                        <label>
+                            <input type="radio" name="Warnsystem_IP-Adressraum"
+                                   value="10 Adresseen"> 10 freie Adressen
+                        </label> <br>
+                        <label>
+                            <input type="radio" name="Warnsystem_IP-Adressraum"
+                                   value="20 Adresseen"> 20 freie Adressen</label><br>
+                        <label>
+                            <input type="radio" name="Warnsystem_IP-Adressraum"
+                                   value="30 Adresseen"> 50 freie Adressen</label><br>
+                        <label>
+                            <input type="radio" name="Warnsystem_IP-Adressraum"
+                                   value="Sonstiges2"> Sonstiges </label><br>
+                    </div>
+                    <div class="Sonstiges2 selectt">
+                        <label>
+                            <input style="height: 18px;width: 50px;"type="input" name="Warnsystem_Softwarelizenz"
+                                   value=""> freie Adressen </label><br>
+                    </div>
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            $('input[type="radio"]').click(function() {
+                                var inputValue = $(this).attr("value");
+                                var targetBox = $("." + inputValue);
+                                $(".selectt").not(targetBox).hide();
+                                $(targetBox).show();
+                            });
+                        });
+                    </script>
 
                 </div>
 
