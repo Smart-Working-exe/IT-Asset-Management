@@ -1,3 +1,7 @@
+
+
+
+
 <html>
 <head>
     <meta charset="UTF-8">
@@ -33,6 +37,12 @@
         <div class="form-group">
             <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal" data-bs-target="#addConfirmation">
                 Geräte hinzufügen
+            </button>
+            <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal" data-bs-target="#exportConfirmation">
+                Export
+            </button>
+            <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal" data-bs-target="#importConfirmation">
+                Import
             </button>
 
         </div>
@@ -89,14 +99,29 @@
             </select>
         </div>
 
+        <div class="col mt-2">
+            <input type="search" class="form-control rounded" placeholder="Raum" aria-label="Search"
+                   name="raum" id = "raum">
+        </div>
+
 
         <div class="col mt-1">
             <button type="submit" class="btn btn-primary sub"><img src="/img/search_icon.svg" width="30px"></button>
         </div>
 
     </div>
-
     </form>
+
+
+    <div>
+        <div class="form-group">
+            <a href="datenbank_geraete.php" class="btn btn-primary sub "  role="button" aria-disabled="true">Geräte</a>
+
+            <a href="datenbank_personen.php" class="btn btn-secondary"  role="button" aria-disabled="true">Personen</a>
+
+        </div>
+
+    </div>
 
 
     <div class="container mt-3">
@@ -107,21 +132,20 @@
                 <th onclick="sortTable(1)">Typ</th>
                 <th onclick="sortTable(2)">Hersteller</th>
                 <th onclick="sortTable(3)">Alter</th>
-                <th onclick="sortTable(4)">IP-Adresse</th>
-                <th onclick="sortTable(5)">Betriebssystem</th>
-                <th onclick="sortTable(6)">Software</th>
-                <th onclick="sortTable(7)">Technische Daten</th>
-                <th onclick="sortTable(8)">Kommentar</th>
+                <th onclick="sortTable(4)">Betriebssystem</th>
+                <th onclick="sortTable(5)">Software</th>
+                <th onclick="sortTable(6)">Technische Daten</th>
+                <th onclick="sortTable(7)">Kommentar</th>
+                <th onclick="sortTable(8)">Raum</th>
                 <th>Bearbeiten</th>
             </tr>
             </thead>
             <tbody>
             <tr>
                 <td>PC-1</td>
-                <td>Tower-P</td>
+                <td>Tower-Pc</td>
                 <td>Dell</td>
-                <td>6 Jahren</td>
-                <td>111.111.111.2</td>
+                <td>6 Jahre</td>
                 <td>Windows10</td>
                 <td>
                     <ul>
@@ -138,6 +162,7 @@
                     </ul>
                 </td>
                 <td>Game Design geeignet</td>
+                <td>E145</td>
                 <td>
                     <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
                             data-bs-target="#editConfirmation">Geräte bearbeiten
@@ -147,10 +172,9 @@
 
             <tr>
                 <td>PC-2</td>
-                <td>Tower-P</td>
+                <td>Tower-Pc</td>
                 <td>Dell</td>
-                <td>6 Jahren</td>
-                <td>111.111.111.3</td>
+                <td>6 Jahre</td>
                 <td>Windows10</td>
                 <td>
                     <ul>
@@ -167,46 +191,19 @@
                     </ul>
                 </td>
                 <td>Virtualization geeignet</td>
+                <td>E144</td>
                 <td>
                     <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
                             data-bs-target="#editConfirmation">Geräte bearbeiten
                     </button>
                 </td>
             </tr>
+
             <tr>
                 <td>PC-3</td>
-                <td>Tower-P</td>
-                <td>HP</td>
-                <td>3 Jahren</td>
-                <td>111.111.111.4</td>
-                <td>Windows10</td>
-                <td>
-                    <ul>
-                        <li>MSOffice</li>
-                        <li>Visual Studio</li>
-                        <li>Microchip Studio</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>8GB RAM</li>
-                        <li>1000GB SSD</li>
-                        <li>NVIDIA RTX4090</li>
-                    </ul>
-                </td>
-                <td>Game Design geeignet</td>
-                <td>
-                    <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                            data-bs-target="#editConfirmation">Geräte bearbeiten
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>PC-4</td>
-                <td>Tower-P</td>
+                <td>Tower-Pc</td>
                 <td>Dell</td>
-                <td>3 Jahren</td>
-                <td>111.111.111.5</td>
+                <td>6 Jahre</td>
                 <td>Windows10</td>
                 <td>
                     <ul>
@@ -223,126 +220,68 @@
                     </ul>
                 </td>
                 <td>Virtualization geeignet</td>
+                <td>E144</td>
                 <td>
                     <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
                             data-bs-target="#editConfirmation">Geräte bearbeiten
                     </button>
                 </td>
             </tr>
+
             <tr>
-                <td>PC-5</td>
-                <td>Desktop</td>
-                <td>HP</td>
-                <td>2 Jahren</td>
-                <td>111.111.111.6</td>
-                <td>Windows10</td>
+                <td>HDMI Kabel</td>
+                <td>Sonstiges</td>
+                <td>Amazon</td>
+                <td>2 Jahre</td>
+                <td></td>
                 <td>
-                    <ul>
-                        <li>MSOffice</li>
-                        <li>Visual Studio</li>
-                        <li>Microchip Studio</li>
-                    </ul>
                 </td>
                 <td>
                     <ul>
-                        <li>8GB RAM</li>
-                        <li>1000GB SSD</li>
-                        <li>NVIDIA RTX4090</li>
+                        <li>HDMI 2.0</li>
+                        <li>2 Meter</li>
+
                     </ul>
                 </td>
-                <td>Game Design geeignet</td>
+                <td>Ist eigentlich nur 1,97m lang</td>
+                <td>Lager</td>
                 <td>
                     <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
                             data-bs-target="#editConfirmation">Geräte bearbeiten
                     </button>
                 </td>
             </tr>
+
             <tr>
-                <td>PC-6</td>
-                <td>Tower-P</td>
-                <td>Dell</td>
-                <td>1 Jahren</td>
-                <td>111.111.111.7</td>
-                <td>Windows10</td>
+                <td>Maus</td>
+                <td>Pc-Maus</td>
+                <td>Logischtech</td>
+                <td>1 Jahr</td>
+                <td></td>
                 <td>
-                    <ul>
-                        <li>MSOffice</li>
-                        <li>Visual Studio</li>
-                        <li>Microchip Studio</li>
-                    </ul>
+
                 </td>
                 <td>
                     <ul>
-                        <li>16GB RAM</li>
-                        <li>1000GB SSD</li>
-                        <li>NVIDIA RTX3070</li>
+                        <li>Kabelgebunden</li>
+                        <li>1000 Hz</li>
                     </ul>
                 </td>
-                <td>Virtualization geeignet</td>
+                <td>Sie ist gerne microchips</td>
+                <td>Lager</td>
                 <td>
                     <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
                             data-bs-target="#editConfirmation">Geräte bearbeiten
                     </button>
                 </td>
             </tr>
+
             </tbody>
         </table>
     </div>
 
-    <!-- The Modal -->
-    <div class="modal" id="editConfirmation">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Hier kommt das Formular zum Bearbeiten hin.</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-
-                <!-- Modal Body -->
-                <div class="modal-body">
-
-                </div>
-
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Speichern</button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <a href="raumauswahl.php">
-        <button type="submit" class="btn btn-primary sub">Zurück zur Raumauswahl</button>
-    </a>
-
-    <div class="modal" id="addConfirmation">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Hier kommt das Formular für das Hinzufügen hin.</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-
-                <!-- Modal Body -->
-                <div class="modal-body">
-
-                </div>
-
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">+</button>
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Speichern</button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </div>
+</body>
 <footer class="py-3 my-4 footerBot">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
         <li class="nav-item nav-link px-2 text-muted">Angemeldet als Benutzer ef8366m</li>
@@ -351,6 +290,107 @@
     </ul>
     <p class="text-center text-muted">© 2022 SmartWorking.exe</p>
 </footer>
+
+<!-- The Modal -->
+<div class="modal" id="editConfirmation">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Hier kommt das Formular zum Bearbeiten hin.</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Speichern</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="addConfirmation">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Hier kommt das Formular für das Hinzufügen hin.</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">+</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Speichern</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" id="exportConfirmation">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Hier kommt das Formular für das Expotieren hin.</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Speichern</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="importConfirmation">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Hier kommt das Formular für den Import hin.</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Speichern</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script>
     function sortTable(n) {
         var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
@@ -408,5 +448,4 @@
     }
 </script>
 <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
-</body>
 </html>
