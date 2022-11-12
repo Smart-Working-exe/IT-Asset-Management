@@ -36,15 +36,15 @@
         <p class="col-3"><b>IP-Adressbereich: 111.111.111.000/27</b></p>
         <div class=" mt-1 col-2">
             <div class="progress">
-                <div class="progress-bar" style="width:70%; background-color: #40BEA9"
-                     aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">70%</div>
+                <div class="progress-bar" style="width:20%; background-color: #40BEA9"
+                     aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">6/30</div>
             </div>
         </div>
         <p class="col-2 offset-1"><b>Belegung Workstations:</b></p>
         <div class=" mt-1 col-2">
             <div class="progress">
                 <div class="progress-bar" role="progressbar" style="width:40%; background-color: #40BEA9"
-                     aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">40%</div>
+                     aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">6/18</div>
             </div>
         </div>
 
