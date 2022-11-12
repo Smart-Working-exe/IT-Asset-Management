@@ -38,10 +38,10 @@
         <table class="table table-striped table-bordered" id="license">
             <thead>
             <tr>
-                <th onclick="sortTable(0, license)">Name</th>
-                <th onclick="sortTable(1, license)">Erworben am</th>
-                <th onclick="sortTable(2, license)">Ablauf am</th>
-                <th onclick="sortTable(3, license)">Installationen</th>
+                <th onclick="sortTable(0, license)">Name <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(1, license)">Erworben am <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(2, license)">Ablauf am <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(3, license)">Installationen <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
             </tr>
             </thead>
             <tbody>
@@ -108,9 +108,7 @@
     </div>
 
     <!-- The Modal -->
-
-
-    <div class="modal" id="addConfirmation">
+    <div class="modal fade" id="addConfirmation">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
 

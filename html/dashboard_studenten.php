@@ -38,14 +38,14 @@
     <div class="row mt-5 row justify-content-between">
         <div class="btn-group-vertical col-5 mt-3 offset-1">
 
-            <a style="padding: 3%;" href="#" type="button" class="btn btn-primary staticButton sub">Raumansicht</a>
-            <a style="padding: 3%;" href="ausleihe.php" type="button" class="btn btn-primary staticButton sub mt-2">Ausleihe</a>
+            <a style="padding: 3%;" href="#" type="button" class="btn btn-primary staticButton sub text-center">Raumansicht</a>
+            <a style="padding: 3%;" href="ausleihe.php" type="button" class="btn btn-primary staticButton sub mt-2 text-center">Ausleihe</a>
 
 
         </div>
         <div class="col-5">
             <div class="row">
-                <p class="display-6 h6 text-center col-4 mt-3"> Benachrichtungen</p>
+                <p class="display-6 h6 text-center col-4 mt-3">Benachrichtungen</p>
             </div>
 
             <div style="overflow-y: scroll;margin-right:20%; height:300px;">

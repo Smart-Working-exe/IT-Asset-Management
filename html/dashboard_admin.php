@@ -72,8 +72,8 @@
             </div>
         </div>
     </div>
-    <div class="modal" id="addConfirmation">
-        <div class="modal-dialog modal-dialog-centered">
+    <div class="modal fade" id="addConfirmation" tabindex="-1" aria-labelledby="addConfirmation" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
             <div class="modal-content">
 
                 <!-- Modal Header -->

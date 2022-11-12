@@ -84,10 +84,10 @@
         <table class="table table-striped table-bordered" id="devices">
             <thead>
             <tr>
-                <th onclick="sortTable(0, devices)">Name</th>
-                <th onclick="sortTable(1, devices)">Erworben am</th>
-                <th onclick="sortTable(2, devices)">Ablauf am</th>
-                <th onclick="sortTable(3, devices)">Installationen</th>
+                <th onclick="sortTable(0, devices)">Name <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(1, devices)">Erworben am <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(2, devices)">Ablauf am <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(3, devices)">Installationen <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
             </tr>
             </thead>
             <tbody>
@@ -131,7 +131,7 @@
 </footer>
 
 <!-- The Modal -->
-<div class="modal" id="editConfirmation">
+<div class="modal fade" id="editConfirmation">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
 
@@ -155,7 +155,7 @@
     </div>
 </div>
 
-<div class="modal" id="exportConfirmation">
+<div class="modal fade" id="exportConfirmation">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
 
@@ -179,7 +179,7 @@
     </div>
 </div>
 
-<div class="modal" id="importConfirmation">
+<div class="modal fade" id="importConfirmation">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
 
@@ -203,7 +203,7 @@
     </div>
 </div>
 
-<div class="modal" id="addSoftwareConfirmation">
+<div class="modal fade" id="addSoftwareConfirmation">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
 

@@ -94,10 +94,10 @@
         <table class="table table-striped table-bordered" id="person">
             <thead>
             <tr>
-                <th onclick="sortTable(0, person)">Name</th>
-                <th onclick="sortTable(1, person)">Vorname</th>
-                <th onclick="sortTable(2, person)">Rolle</th>
-                <th onclick="sortTable(3, person)">Kürzel</th>
+                <th onclick="sortTable(0, person)">Name <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(1, person)">Vorname <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(2, person)">Rolle <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(3, person)">Kürzel <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
             </tr>
             </thead>
             <tbody>
@@ -162,7 +162,7 @@
     </div>
 </div>
 
-<div class="modal" id="exportConfirmation">
+<div class="modal fade" id="exportConfirmation">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
 
@@ -186,7 +186,7 @@
     </div>
 </div>
 
-<div class="modal" id="importConfirmation">
+<div class="modal fade" id="importConfirmation">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
 
@@ -210,7 +210,7 @@
     </div>
 </div>
 
-<div class="modal" id="addEmployeesConfirmation">
+<div class="modal fade" id="addEmployeesConfirmation">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
 

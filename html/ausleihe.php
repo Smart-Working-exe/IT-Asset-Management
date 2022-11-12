@@ -37,7 +37,7 @@
             <table class="table table-bordered table-striped" id="verfuegbareGeräte">
                 <thead class="sticky-top bg-white">
                 <tr>
-                    <th onclick="sortTable(0, verfuegbareGeräte)">Geräte Name  <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                    <th onclick="sortTable(0, verfuegbareGeräte)">Geräte Name <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
                     <th onclick="sortTable(1, verfuegbareGeräte)">Geräte Typ <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
                     <th onclick="sortTable(2, verfuegbareGeräte)">Verfügbare Geräte <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
                     <th onclick="sortTable(3, verfuegbareGeräte)">Auswahl <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
@@ -185,6 +185,7 @@
             </table>
         </div>
     </div>
+    <!-- Button to go back Home -->
     <a href="dashboard_studenten.php">
         <button type="submit" class="btn btn-primary sub col-4 offset-2">Zurück</button>
     </a>
@@ -194,19 +195,19 @@
     </button>
 
     <!-- The Modal -->
-    <div class="modal" id="confirmation" data-keyboard="false" data-backdrop="static">
+    <div class="modal" id="confirmation">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Auswahl bestätigt</h4>
+                    <h3 class="modal-title">Auswahl bestätigt</h3>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                    Anfrage wurde an einem Mitarbeiter gesendet
+                    Eine Anfrage wurde an einem Mitarbeiter gesendet
                 </div>
 
                 <!-- Modal footer -->
