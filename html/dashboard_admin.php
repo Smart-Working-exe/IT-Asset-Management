@@ -25,16 +25,16 @@
             <!-- </form> -->
         </div>
     </div>
-    <div class="row  justify-content-between" style="padding: 10%;">
+    <div class="row  justify-content-between" style="padding: 10%; font-size: 36px;">
         <div class="btn-group-vertical col-5 mt-3 offset-1">
-            <a href="raumauswahl.php" type="button" class="btn btn-primary staticButton sub">Raumansicht</a>
-            <a href="datenbank_geraete.php" type="button" class="btn btn-primary staticButton sub mt-2">Datenbank</a>
-            <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Ausleihe</a>
+            <a style="padding: 3% ;" href="raumauswahl.php" type="button" class="btn btn-primary staticButton sub">Raumansicht</a>
+            <a style="padding: 3%;" href="datenbank_geraete.php" type="button" class="btn btn-primary staticButton sub mt-2">Datenbank</a>
+            <a style="padding: 3%;" href="#" type="button" class="btn btn-primary staticButton sub mt-2">Ausleihe</a>
             <button type="submit" class="btn btn-primary staticButton sub mt-2" data-bs-toggle="modal" data-bs-target="#addConfirmation">Geräte hinzufügen</button>
-            <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Person hinzufügen</a>
-            <a href="softwarelizenzen.php" type="button" class="btn btn-primary staticButton sub mt-2">Softwarelizenzen</a>
-            <a href="Systemlog.php" type="button" class="btn btn-primary staticButton sub mt-2">System-logs</a>
-            <a href="benachrichtigungseinstellungen.php" type="button" class="btn btn-primary staticButton sub mt-2">Einstellungen</a>
+            <a style="padding: 3%;" href="#" type="button" class="btn btn-primary staticButton sub mt-2">Person hinzufügen</a>
+            <a style="padding: 3%;" href="softwarelizenzen.php" type="button" class="btn btn-primary staticButton sub mt-2">Softwarelizenzen</a>
+            <a style="padding: 3%;" href="Systemlog.php" type="button" class="btn btn-primary staticButton sub mt-2">System-logs</a>
+            <a style="padding: 3%;" href="benachrichtigungseinstellungen.php" type="button" class="btn btn-primary staticButton sub mt-2">Einstellungen</a>
         </div>
         <div class="col-5">
             <div class="row">
