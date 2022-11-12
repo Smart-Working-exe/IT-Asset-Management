@@ -160,7 +160,7 @@
                     <div class=" mt-1 col-10">
                         <div class="progress position-relative">
                             <div class="progress-bar" role="progressbar"
-                                 style="width:50%; background-color: yellow" aria-valuenow="50" aria-valuemin="0"
+                                 style="width:50%; background-color: #ffe135" aria-valuenow="50" aria-valuemin="0"
                                  aria-valuemax="100">
                                 <small class="justify-content-center d-flex position-absolute w-100">6/12</small>
                             </div>
