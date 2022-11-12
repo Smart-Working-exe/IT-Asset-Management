@@ -82,7 +82,7 @@
 
             <tr>
                 <td>Intel Quartus Prime</td>
-                <td>01.01.1906</td>
+                <td>01.01.1996</td>
                 <td>01.01.2026</td>
                 <td>
                     <div class="progress position-relative">
