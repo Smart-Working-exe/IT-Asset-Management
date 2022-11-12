@@ -41,7 +41,7 @@
                 <p class="display-6 h6 text-center col-4 mt-3"> Benachrichtungen</p>
             </div>
 
-            <div style="overflow-y: scroll; height:300px;">
+            <div style="overflow-y: scroll;margin-right:20%; height:300px;">
                 <div class="toast show col-6 mt-2">
                     <div class="toast-header ">
                         Ausleihfrist
