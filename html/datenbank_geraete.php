@@ -125,15 +125,15 @@
         <table class="table table-striped table-bordered" id="devices">
             <thead>
             <tr>
-                <th onclick="sortTable(0, devices)">Name</th>
-                <th onclick="sortTable(1, devices)">Typ</th>
-                <th onclick="sortTable(2, devices)">Hersteller</th>
-                <th onclick="sortTable(3, devices)">Alter</th>
-                <th onclick="sortTable(4, devices)">Betriebssystem</th>
-                <th onclick="sortTable(5, devices)">Software</th>
-                <th onclick="sortTable(6, devices)">Technische Daten</th>
-                <th onclick="sortTable(7, devices)">Kommentar</th>
-                <th onclick="sortTable(8, devices)">Raum</th>
+                <th onclick="sortTable(0, devices)">Name <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(1, devices)">Typ <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(2, devices)">Hersteller <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(3, devices)">Alter <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(4, devices)">Betriebssystem <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(5, devices)">Software <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(6, devices)">Technische Daten <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(7, devices)">Kommentar <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(8, devices)">Raum <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
                 <th>Bearbeiten</th>
             </tr>
             </thead>
@@ -314,7 +314,7 @@
     </div>
 </div>
 
-<div class="modal" id="addConfirmation">
+<div class="modal fade" id="addConfirmation">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
 
@@ -340,7 +340,7 @@
 </div>
 
 
-<div class="modal" id="exportConfirmation">
+<div class="modal fade" id="exportConfirmation">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
 
@@ -364,7 +364,7 @@
     </div>
 </div>
 
-<div class="modal" id="importConfirmation">
+<div class="modal fade" id="importConfirmation">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
 

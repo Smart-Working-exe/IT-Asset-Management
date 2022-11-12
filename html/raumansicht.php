@@ -30,16 +30,20 @@
     <div class="row"> <!-- Wegen Row ist die Progressbar abgeschnitten -->
         <p class="col-3"><b>IP-Adressbereich: 111.111.111.000/27</b></p>
         <div class=" mt-1 col-2">
-            <div class="progress">
+            <div class="progress position-relative">
                 <div class="progress-bar" style="width:20%; background-color: #40BEA9"
-                     aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">6/30</div>
+                     aria-valuenow="40" aria-valuemin="0" aria-valuemax="30">
+                <small class="justify-content-center d-flex position-absolute w-100">6/30</small></div>
+                <div class="progress-bar" style="width:80%; background-color: black"></div>
             </div>
         </div>
         <p class="col-2 offset-1"><b>Belegung Workstations:</b></p>
         <div class=" mt-1 col-2">
-            <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width:40%; background-color: #40BEA9"
-                     aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">6/18</div>
+            <div class="progress position-relative">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:100%; background-color: darkred"
+                     aria-valuenow="40" aria-valuemin="0" aria-valuemax="30">
+                    <small class="justify-content-center d-flex position-absolute w-100">6/6</small></div>
+                <div class="progress-bar" style="width:0%; background-color: black"></div>
             </div>
         </div>
 
@@ -109,15 +113,15 @@
         <table class="table table-striped table-bordered" id="devices">
             <thead>
             <tr>
-                <th onclick="sortTable(0, devices)">Name</th>
-                <th onclick="sortTable(1, devices)">Typ</th>
-                <th onclick="sortTable(2, devices)">Hersteller</th>
-                <th onclick="sortTable(3, devices)">Alter</th>
-                <th onclick="sortTable(4, devices)">IP-Adresse</th>
-                <th onclick="sortTable(5, devices)">Betriebssystem</th>
-                <th onclick="sortTable(6, devices)">Software</th>
-                <th onclick="sortTable(7, devices)">Technische Daten</th>
-                <th onclick="sortTable(8, devices)">Kommentar</th>
+                <th onclick="sortTable(0, devices)">Name<img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(1, devices)">Typ<img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(2, devices)">Hersteller<img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(3, devices)">Alter<img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(4, devices)">IP-Adresse<img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(5, devices)">Betriebssystem<img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(6, devices)">Software<img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(7, devices)">Technische Daten<img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(8, devices)">Kommentar<img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
                 <th>Bearbeiten</th>
             </tr>
             </thead>
@@ -296,7 +300,7 @@
     </div>
 
     <!-- The Modal -->
-    <div class="modal" id="editConfirmation">
+    <div class="modal fade" id="editConfirmation">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
 
@@ -323,7 +327,7 @@
         <button type="submit" class="btn btn-primary sub">Zurück zur Raumauswahl</button>
     </a>
 
-    <div class="modal" id="addConfirmation">
+    <div class="modal fade" id="addConfirmation">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
 

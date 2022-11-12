@@ -99,19 +99,19 @@
     </form>
     </div>
     <div class="container mt-3">
-        <table class="table table-striped table-bordered" id="devices">
+        <table class="table table-striped table-bordered" id="ownDevices">
             <thead>
             <tr>
-                <th onclick="sortTable(0, devices)">Name</th>
-                <th onclick="sortTable(1, devices)">Typ</th>
-                <th onclick="sortTable(2, devices)">Hersteller</th>
-                <th onclick="sortTable(3, devices)">Alter</th>
-                <th onclick="sortTable(5, devices)">Betriebssystem</th>
-                <th onclick="sortTable(6, devices)">Software</th>
-                <th onclick="sortTable(7, devices)">Technische Daten</th>
-                <th onclick="sortTable(8, devices)">Kommentar</th>
+                <th onclick="sortTable(0, ownDevices)">Name <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(1, ownDevices)">Typ <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(2, ownDevices)">Hersteller <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(3, ownDevices)">Alter <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(5, ownDevices)">Betriebssystem <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(6, ownDevices)">Software <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(7, ownDevices)">Technische Daten <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(8, ownDevices)">Kommentar <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
                 <th >Bearbeiten</th>
-                <th onclick="sortTable(9)">Raum</th>
+                <th onclick="sortTable(9, ownDevices)">Raum</th>
             </tr>
             </thead>
             <tbody>
@@ -188,7 +188,7 @@
     </div>
 
     <!-- The Modal -->
-    <div class="modal" id="editConfirmation">
+    <div class="modal fade" id="editConfirmation">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
 
@@ -212,7 +212,7 @@
         </div>
     </div>
 
-    <div class="modal" id="addConfirmation">
+    <div class="modal fade" id="addConfirmation">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
 
@@ -237,7 +237,7 @@
         </div>
     </div>
 
-    <div class="modal" id="exportConfirmation">
+    <div class="modal fade" id="exportConfirmation">
        <div class="modal-dialog modal-dialog-centered">
            <div class="modal-content">
 
@@ -261,7 +261,7 @@
        </div>
     </div>
 
-    <div class="modal" id="roomConfirmation">
+    <div class="modal fade" id="roomConfirmation">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
 
