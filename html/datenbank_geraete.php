@@ -30,7 +30,7 @@
     </div>
 
     <div class="row mt-4 ">
-        <p class="display-6 col-lg-3"> Datenbank</p>
+        <p class="display-6 col-3"> Datenbank</p>
     </div>
 
     <div>
@@ -52,7 +52,7 @@
     <form action="#" method="get">
     <div class="row">
 
-        <div class="input-group mt-2 col-lg-3" style="width: 20%; height: 2vh;">
+        <div class="input-group mt-2 col-3" style="width: 20%; height: 2vh;">
             <input type="search" class="form-control rounded" placeholder="Suche" aria-label="Search"
                    aria-describedby="search-addon" name="search" id="search"/>
         </div>

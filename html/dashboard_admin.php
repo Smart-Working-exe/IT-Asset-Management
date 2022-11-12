@@ -26,7 +26,7 @@
         </div>
     </div>
     <div class="row  justify-content-between" style="padding: 10%;">
-        <div class="btn-group-vertical col-lg-5 mt-3 offset-1">
+        <div class="btn-group-vertical col-5 mt-3 offset-1">
             <a href="raumauswahl.php" type="button" class="btn btn-primary staticButton sub">Raumansicht</a>
             <a href="datenbank_geraete.php" type="button" class="btn btn-primary staticButton sub mt-2">Datenbank</a>
             <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Ausleihe</a>
@@ -36,12 +36,12 @@
             <a href="Systemlog.php" type="button" class="btn btn-primary staticButton sub mt-2">System-logs</a>
             <a href="benachrichtigungseinstellungen.php" type="button" class="btn btn-primary staticButton sub mt-2">Einstellungen</a>
         </div>
-        <div class="col-lg-5">
+        <div class="col-5">
             <div class="row">
-                <p class="display-6 h6 text-center col-lg-4 mt-3">Benachrichtungen</p>
+                <p class="display-6 h6 text-center col-4 mt-3">Benachrichtungen</p>
             </div>
 
-            <div class="toast show col-lg-6 mt-2">
+            <div class="toast show col-6 mt-2">
                 <div class="toast-header ">
                     Important
                     <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
@@ -51,7 +51,7 @@
                 </div>
             </div>
 
-            <div class="toast show col-lg-6 mt-2">
+            <div class="toast show col-6 mt-2">
                 <div class="toast-header">
                     Important
                     <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
@@ -61,7 +61,7 @@
                 </div>
             </div>
 
-            <div class="toast show col-lg-6 mt-2">
+            <div class="toast show col-6 mt-2">
                 <div class="toast-header ">
                     Important
                     <button type="button" class="btn-close" data-bs-dismiss="toast"></button>

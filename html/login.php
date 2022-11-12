@@ -23,12 +23,12 @@ $loginFailed = false;
 <body>
 <div class="container justify-content-center align-items-center" id="login">
     <div class="row mt-5 justify-content-center">
-        <img class="img-fluid col-lg-3" src="/img/fh-aachen_university-of-applied-sciences_303_logo.png" alt="FH Aachen Logo">
+        <img class="img-fluid col-3" src="/img/fh-aachen_university-of-applied-sciences_303_logo.png" alt="FH Aachen Logo">
         <h2 class="text-center mt-4">IT Asset Management</h2>
     </div>
 
     <div class="row mt-3 justify-content-center align-items-center">
-        <div class="col-lg-4">
+        <div class="col-4">
             <?php if ($loginFailed) echo "<div class='alert alert-danger'>Benutzername oder Passwort ungültig </div>"?>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <div class="form-group mb-3 mt-3">

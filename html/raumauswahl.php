@@ -21,8 +21,8 @@
         </div>
     </div>
     <div class="row p-4 mt-4">
-        <img src="../img/Lageplan.png" alt="Lageplan der FH-Aachen, Eupener Straße 33" class="col-lg-8" style="height: 60vh;">
-        <div id="accordion " class="col-lg-4">
+        <img src="../img/Lageplan.png" alt="Lageplan der FH-Aachen, Eupener Straße 33" class="col-8" style="height: 60vh;">
+        <div id="accordion " class="col-4">
 
             <div class="card">
                 <div class="card-header">

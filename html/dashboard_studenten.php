@@ -29,20 +29,20 @@
     </div>
 
     <div class="row mt-5 row justify-content-between">
-        <div class="btn-group-vertical col-lg-5 mt-3 offset-1">
+        <div class="btn-group-vertical col-5 mt-3 offset-1">
 
             <a href="#" type="button" class="btn btn-primary staticButton sub">Raumansicht</a>
             <a href="ausleihe.php" type="button" class="btn btn-primary staticButton sub mt-2">Ausleihe</a>
 
 
         </div>
-        <div class="col-lg-5">
+        <div class="col-5">
             <div class="row">
-                <p class="display-6 h6 text-center col-lg-4 mt-3"> Benachrichtungen</p>
+                <p class="display-6 h6 text-center col-4 mt-3"> Benachrichtungen</p>
             </div>
 
             <div style="overflow-y: scroll; height:300px;">
-                <div class="toast show col-lg-6 mt-2">
+                <div class="toast show col-6 mt-2">
                     <div class="toast-header ">
                         Ausleihfrist
                         <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
@@ -52,7 +52,7 @@
                     </div>
                 </div>
 
-                <div class="toast show col-lg-6 mt-2">
+                <div class="toast show col-6 mt-2">
                     <div class="toast-header ">
                         Ausleihfrist
                         <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
@@ -61,7 +61,7 @@
                         Ihre Ausleihfrist für Ihr Gerät "HP_Maus_94471" läuft in 6 Tagen ab.
                     </div>
                 </div>
-                <div class="toast show col-lg-6 mt-2">
+                <div class="toast show col-6 mt-2">
                     <div class="toast-header ">
                         Ausleihfrist
                         <button type="button" class="btn-close" data-bs-dismiss="toast"></button>

@@ -25,17 +25,17 @@
         </div>
     </div>
     <div class="row mt-5 row justify-content-between">
-        <div class="btn-group-vertical col-lg-5 mt-3 offset-1">
+        <div class="btn-group-vertical col-5 mt-3 offset-1">
             <a href="raumauswahl.php" type="button" class="btn btn-primary staticButton sub">Raumauswahl</a>
             <a href="eigeneGeraete.php" type="button" class="btn btn-primary staticButton sub mt-2">Eigene Geräte</a>
             <a href="#" type="button" class="btn btn-primary staticButton sub mt-2">Verleihung an Studenten</a>
         </div>
-        <div class="col-lg-5">
+        <div class="col-5">
             <div class="row">
-                <p class="display-6 h6 text-center col-lg-4 mt-3">Benachrichtigungen</p>
+                <p class="display-6 h6 text-center col-4 mt-3">Benachrichtigungen</p>
             </div>
 
-            <div class="toast show col-lg-6 mt-2">
+            <div class="toast show col-6 mt-2">
                 <div class="toast-header ">
                     Info
                 </div>

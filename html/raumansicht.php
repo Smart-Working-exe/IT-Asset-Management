@@ -25,8 +25,8 @@
         </div>
     </div>
     <div class="row mt-4 ">
-        <p class="display-6 col-lg-3"> Raum A102</p>
-        <div class="input-group mt-2 col-lg-3" style="width: 30%; height: 2vh;">
+        <p class="display-6 col-3"> Raum A102</p>
+        <div class="input-group mt-2 col-3" style="width: 30%; height: 2vh;">
             <input type="search" class="form-control rounded" placeholder="Suche" aria-label="Search"
                    aria-describedby="search-addon"/>
             <button type="button" class="btn btn-primary sub"><img src="/img/search_icon.svg" width="30px"></button>

@@ -17,9 +17,9 @@
 <div class="container">
     <div class="row">
         <!-- Verknüpfung muss angepasst werden -->
-        <a href="#" class="col-lg-3"><img class="img-fluid" src="/img/fh-aachen_university-of-applied-sciences_303_logo.png" alt="fhlogo"></a>
-        <div class="col-lg-6"><p class="h1 text-center mt-4"> IT Asset Management</p></div>
-        <div class="col-lg-3">
+        <a href="#" class="col-3"><img class="img-fluid" src="/img/fh-aachen_university-of-applied-sciences_303_logo.png" alt="fhlogo"></a>
+        <div class="col-6"><p class="h1 text-center mt-4"> IT Asset Management</p></div>
+        <div class="col-3">
             <form method="get">
                 <a href="login.php"><button type="submit" class="btn btn-danger mt-4">Abmelden</button></a>
             </form>
