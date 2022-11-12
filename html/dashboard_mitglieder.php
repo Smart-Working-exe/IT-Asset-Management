@@ -28,7 +28,7 @@
         <div class="btn-group-vertical col-5 mt-3 offset-1">
             <a style="padding: 3%;" href="raumauswahl.php" type="button" class="btn btn-primary staticButton sub">Raumauswahl</a>
             <a style="padding: 3%;" href="eigeneGeraete.php" type="button" class="btn btn-primary staticButton sub mt-2">Eigene Geräte</a>
-            <a style="padding: 3%;" href="#" type="button" class="btn btn-primary staticButton sub mt-2">Verleihung an Studenten</a>
+            <a style="padding: 3%;" href="verleihung_studenten.php" type="button" class="btn btn-primary staticButton sub mt-2">Verleihung an Studenten</a>
         </div>
         <div class="col-5">
             <div class="row">

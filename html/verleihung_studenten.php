@@ -161,40 +161,13 @@
             </table>
         </div>
         </div>
-    </div>
-    <a href="dashboard_studenten.php" >
-        <button type="submit" class="btn btn-primary sub col-4 offset-2">Zurück </button>
+
+    <a href="dashboard_mitglieder.php">
+        <button type="submit" class="btn btn-primary sub">Zurück zum Dashboard</button>
     </a>
-    <!-- Button triggert Modal -->
-
-    <button type="submit" class="btn btn-primary sub col-4" data-bs-toggle="modal" data-bs-target="#confirmation">
-        Auswahl bestätigen
-    </button>
-
-    <!-- The Modal -->
-    <div class="modal" id="confirmation" data-keyboard="false" data-backdrop="static">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Auswahl bestätigt</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                    Anfrage wurde an einem Mitarbeiter gesendet
-                </div>
-
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Ok</button>
-                </div>
-
-            </div>
-        </div>
     </div>
+
+
 
 </div>
 <footer class="py-3 my-4">
