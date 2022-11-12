@@ -83,6 +83,8 @@
 
             <a href="datenbank_personen.php" class="btn btn-primary sub"  role="button" aria-disabled="true">Personen</a>
 
+            <a href="datenbank_softwarelizenzen.php" class="btn btn-secondary"  role="button" aria-disabled="true">Lizenzen</a>
+
         </div>
 
     </div>

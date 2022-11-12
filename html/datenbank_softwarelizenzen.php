@@ -1,7 +1,6 @@
 
 
 
-
 <html>
 <head>
     <meta charset="UTF-8">
@@ -35,74 +34,31 @@
 
     <div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal" data-bs-target="#addConfirmation">
-                Geräte hinzufügen
+            <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal" data-bs-target="#addSoftwareConfirmation">
+                Softwarelizenzen hinzufügen
             </button>
+
             <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal" data-bs-target="#exportConfirmation">
                 Export
             </button>
+
             <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal" data-bs-target="#importConfirmation">
                 Import
             </button>
+
 
         </div>
     </div>
 
 
     <form action="#" method="get">
-    <div class="row">
+    <div class="row" style="padding-right: 30%">
 
-        <div class="input-group mt-2 col-lg-3" style="width: 20%; height: 2vh;">
+        <div class="input-group mt-2 col-lg-3" style="width: 50%; height: 2vh;">
             <input type="search" class="form-control rounded" placeholder="Suche" aria-label="Search"
                    aria-describedby="search-addon" name="search" id="search"/>
         </div>
 
-        <div class="col mt-2">
-
-            <select class="form-select" name="typ" id="typ">
-                <option value="none" selected>Typ</option>
-                <option value="pC">PC</option>
-                <option value="laptop">Laptop</option>
-                <option value="sontiges">Sonstiges</option>
-            </select>
-
-        </div>
-
-        <div class="col mt-2">
-            <select class="form-select" name="hersteller" id="hersteller">
-                <option value="none" selected>Hersteller</option>
-                <option value="dell">Dell</option>
-                <option value="hp">Hp</option>
-            </select>
-        </div>
-
-        <div class="col mt-2">
-            <input type="search" class="form-control rounded" placeholder="Alter" aria-label="Search"
-            name="alter" id = "alter">
-        </div>
-
-        <div class="col mt-2">
-            <select class="form-select" name="betriebssystem" id="betriebssystem">
-                <option value="none" selected>Betriebssystem</option>
-                <option value="windows">Windows</option>
-                <option value="mac">Mac</option>
-                <option value="linux">Linux</option>
-            </select>
-        </div>
-
-        <div class="col mt-2">
-            <select class="form-select" name="software" id="software">
-                <option value="none" selected>Software</option>
-                <option value="msoffice">MSOffice</option>
-                <option value="visualstudio">Visual Studio</option>
-                <option value="microchipstudio">Microchip Studio</option>
-            </select>
-        </div>
-
-        <div class="col mt-2">
-            <input type="search" class="form-control rounded" placeholder="Raum" aria-label="Search"
-                   name="raum" id = "raum">
-        </div>
 
 
         <div class="col mt-1">
@@ -115,11 +71,9 @@
 
     <div>
         <div class="form-group">
-            <a href="datenbank_geraete.php" class="btn btn-primary sub "  role="button" aria-disabled="true">Geräte</a>
-
+            <a href="datenbank_geraete.php" class="btn btn-secondary "  role="button" aria-disabled="true">Geräte</a>
             <a href="datenbank_personen.php" class="btn btn-secondary"  role="button" aria-disabled="true">Personen</a>
-
-            <a href="datenbank_softwarelizenzen.php" class="btn btn-secondary"  role="button" aria-disabled="true">Lizenzen</a>
+            <a href="datenbank_softwarelizenzen.php" class="btn btn-primary sub"  role="button" aria-disabled="true">Lizenzen</a>
 
         </div>
 
@@ -131,152 +85,35 @@
             <thead>
             <tr>
                 <th onclick="sortTable(0)">Name</th>
-                <th onclick="sortTable(1)">Typ</th>
-                <th onclick="sortTable(2)">Hersteller</th>
-                <th onclick="sortTable(3)">Alter</th>
-                <th onclick="sortTable(4)">Betriebssystem</th>
-                <th onclick="sortTable(5)">Software</th>
-                <th onclick="sortTable(6)">Technische Daten</th>
-                <th onclick="sortTable(7)">Kommentar</th>
-                <th onclick="sortTable(8)">Raum</th>
-                <th>Bearbeiten</th>
+                <th onclick="sortTable(1)">Erworben am</th>
+                <th onclick="sortTable(2)">Ablauf am</th>
+                <th onclick="sortTable(3)">Installationen</th>
             </tr>
             </thead>
             <tbody>
+
             <tr>
-                <td>PC-1</td>
-                <td>Tower-Pc</td>
-                <td>Dell</td>
-                <td>6 Jahre</td>
-                <td>Windows10</td>
-                <td>
-                    <ul>
-                        <li>MSOffice</li>
-                        <li>Visual Studio</li>
-                        <li>Microchip Studio</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>8GB RAM</li>
-                        <li>1000GB SSD</li>
-                        <li>NVIDIA RTX4090</li>
-                    </ul>
-                </td>
-                <td>Game Design geeignet</td>
-                <td>E145</td>
-                <td>
-                    <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                            data-bs-target="#editConfirmation">Geräte bearbeiten
-                    </button>
-                </td>
+                <td>MS Office</td>
+                <td>20.10.2022</td>
+                <td>20.10.2024</td>
+                <td>187</td>
             </tr>
 
             <tr>
-                <td>PC-2</td>
-                <td>Tower-Pc</td>
-                <td>Dell</td>
-                <td>6 Jahre</td>
-                <td>Windows10</td>
-                <td>
-                    <ul>
-                        <li>MSOffice</li>
-                        <li>Visual Studio</li>
-                        <li>Microchip Studio</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>16GB RAM</li>
-                        <li>1000GB SSD</li>
-                        <li>NVIDIA RTX3070</li>
-                    </ul>
-                </td>
-                <td>Virtualization geeignet</td>
-                <td>E144</td>
-                <td>
-                    <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                            data-bs-target="#editConfirmation">Geräte bearbeiten
-                    </button>
-                </td>
+                <td>Microsoft Visual Studio 2022</td>
+                <td>01.09.2022</td>
+                <td>01.10.2024</td>
+                <td>207</td>
             </tr>
 
             <tr>
-                <td>PC-3</td>
-                <td>Tower-Pc</td>
-                <td>Dell</td>
-                <td>6 Jahre</td>
-                <td>Windows10</td>
-                <td>
-                    <ul>
-                        <li>MSOffice</li>
-                        <li>Visual Studio</li>
-                        <li>Microchip Studio</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>16GB RAM</li>
-                        <li>1000GB SSD</li>
-                        <li>NVIDIA RTX3070</li>
-                    </ul>
-                </td>
-                <td>Virtualization geeignet</td>
-                <td>E144</td>
-                <td>
-                    <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                            data-bs-target="#editConfirmation">Geräte bearbeiten
-                    </button>
-                </td>
+                <td>Intel Quartus Prime</td>
+                <td>01.01.1906</td>
+                <td>01.01.2026</td>
+                <td>17</td>
             </tr>
 
-            <tr>
-                <td>HDMI Kabel</td>
-                <td>Sonstiges</td>
-                <td>Amazon</td>
-                <td>2 Jahre</td>
-                <td></td>
-                <td>
-                </td>
-                <td>
-                    <ul>
-                        <li>HDMI 2.0</li>
-                        <li>2 Meter</li>
 
-                    </ul>
-                </td>
-                <td>Ist eigentlich nur 1,97m lang</td>
-                <td>Lager</td>
-                <td>
-                    <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                            data-bs-target="#editConfirmation">Geräte bearbeiten
-                    </button>
-                </td>
-            </tr>
-
-            <tr>
-                <td>Maus</td>
-                <td>Pc-Maus</td>
-                <td>Logischtech</td>
-                <td>1 Jahr</td>
-                <td></td>
-                <td>
-
-                </td>
-                <td>
-                    <ul>
-                        <li>Kabelgebunden</li>
-                        <li>1000 Hz</li>
-                    </ul>
-                </td>
-                <td>Sie ist gerne microchips</td>
-                <td>Lager</td>
-                <td>
-                    <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                            data-bs-target="#editConfirmation">Geräte bearbeiten
-                    </button>
-                </td>
-            </tr>
 
             </tbody>
         </table>
@@ -317,32 +154,6 @@
         </div>
     </div>
 </div>
-
-<div class="modal" id="addConfirmation">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title">Hier kommt das Formular für das Hinzufügen hin.</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-
-            <!-- Modal Body -->
-            <div class="modal-body">
-
-            </div>
-
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">+</button>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Speichern</button>
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
-            </div>
-        </div>
-    </div>
-</div>
-
 
 <div class="modal" id="exportConfirmation">
     <div class="modal-dialog modal-dialog-centered">
@@ -385,6 +196,31 @@
 
             <!-- Modal footer -->
             <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Speichern</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="addSoftwareConfirmation">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Hier kommt das Formular für das Hinzufügen hin.</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">+</button>
                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Speichern</button>
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
             </div>
