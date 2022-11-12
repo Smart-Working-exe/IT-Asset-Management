@@ -58,11 +58,8 @@
             </div>
 
             <div class="col mt-2">
-                <select class="form-select" name="hersteller" id="hersteller">
-                    <option value="none" selected>Hersteller</option>
-                    <option value="dell">Dell</option>
-                    <option value="hp">Hp</option>
-                </select>
+                <input type="search" class="form-control rounded" placeholder="Hersteller" aria-label="Search"
+                       name="hersteller" id="hersteller">
             </div>
 
             <div class="col mt-2">
