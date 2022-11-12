@@ -35,13 +35,13 @@
         </div>
 
     <div class="container mt-3">
-        <table class="table table-striped table-bordered" id="devices">
+        <table class="table table-striped table-bordered" id="license">
             <thead>
             <tr>
-                <th onclick="sortTable(0)">Name</th>
-                <th onclick="sortTable(1)">Erworben am</th>
-                <th onclick="sortTable(2)">Ablauf am</th>
-                <th onclick="sortTable(3)">Installationen</th>
+                <th onclick="sortTable(0, license)">Name</th>
+                <th onclick="sortTable(1, license)">Erworben am</th>
+                <th onclick="sortTable(2, license)">Ablauf am</th>
+                <th onclick="sortTable(3, license)">Installationen</th>
             </tr>
             </thead>
             <tbody>
@@ -50,21 +50,51 @@
                 <td>MS Office</td>
                 <td>20.10.2022</td>
                 <td>20.10.2024</td>
-                <td>187</td>
+                <td>
+                    <div class="progress position-relative">
+                        <div class="progress-bar" role="progressbar"
+                             style="width:18%; background-color: green" aria-valuenow="187" aria-valuemin="0"
+                             aria-valuemax="1000">
+                            <small class="justify-content-center d-flex position-absolute w-100">187/1000</small>
+                        </div>
+                        <div class="progress-bar" role="progressbar"
+                             style="width:82%; background-color: black"></div>
+                    </div>
+                </td>
             </tr>
 
             <tr>
                 <td>Microsoft Visual Studio 2022</td>
                 <td>01.09.2022</td>
                 <td>01.10.2024</td>
-                <td>207</td>
+                <td>
+                    <div class="progress position-relative">
+                        <div class="progress-bar" role="progressbar"
+                             style="width:25%; background-color: green" aria-valuenow="207" aria-valuemin="0"
+                             aria-valuemax="800">
+                            <small class="justify-content-center d-flex position-absolute w-100">207/800</small>
+                        </div>
+                        <div class="progress-bar" role="progressbar"
+                             style="width:75%; background-color: black"></div>
+                    </div>
+                </td>>
             </tr>
 
             <tr>
                 <td>Intel Quartus Prime</td>
                 <td>01.01.1906</td>
                 <td>01.01.2026</td>
-                <td>17</td>
+                <td>
+                    <div class="progress position-relative">
+                        <div class="progress-bar" role="progressbar"
+                             style="width:92%; background-color: darkred" aria-valuenow="17" aria-valuemin="0"
+                             aria-valuemax="100">
+                            <small class="justify-content-center d-flex position-absolute w-100">92/100</small>
+                        </div>
+                        <div class="progress-bar" role="progressbar"
+                             style="width:8%; background-color: black"></div>
+                    </div>
+                </td>
             </tr>
 
 
@@ -114,62 +144,7 @@
     </ul>
     <p class="text-center text-muted">© 2022 SmartWorking.exe</p>
 </footer>
-<script>
-    function sortTable(n) {
-        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-        table = document.getElementById("devices");
-        switching = true;
-        // Set the sorting direction to ascending:
-        dir = "asc";
-        /* Make a loop that will continue until
-        no switching has been done: */
-        while (switching) {
-            // Start by saying: no switching is done:
-            switching = false;
-            rows = table.rows;
-            /* Loop through all table rows (except the
-            first, which contains table headers): */
-            for (i = 1; i < (rows.length - 1); i++) {
-                // Start by saying there should be no switching:
-                shouldSwitch = false;
-                /* Get the two elements you want to compare,
-                one from current row and one from the next: */
-                x = rows[i].getElementsByTagName("TD")[n];
-                y = rows[i + 1].getElementsByTagName("TD")[n];
-                /* Check if the two rows should switch place,
-                based on the direction, asc or desc: */
-                if (dir == "asc") {
-                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                        // If so, mark as a switch and break the loop:
-                        shouldSwitch = true;
-                        break;
-                    }
-                } else if (dir == "desc") {
-                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                        // If so, mark as a switch and break the loop:
-                        shouldSwitch = true;
-                        break;
-                    }
-                }
-            }
-            if (shouldSwitch) {
-                /* If a switch has been marked, make the switch
-                and mark that a switch has been done: */
-                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                switching = true;
-                // Each time a switch is done, increase this count by 1:
-                switchcount++;
-            } else {
-                /* If no switching has been done AND the direction is "asc",
-                set the direction to "desc" and run the while loop again. */
-                if (switchcount == 0 && dir == "asc") {
-                    dir = "desc";
-                    switching = true;
-                }
-            }
-        }
-    }
-</script>
+<script type="text/javascript" src="../js/custom.js"></script>
 <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

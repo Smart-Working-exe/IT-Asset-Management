@@ -1,7 +1,3 @@
-
-
-
-
 <html>
 <head>
     <meta charset="UTF-8">
@@ -38,10 +34,12 @@
             <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal" data-bs-target="#addConfirmation">
                 Geräte hinzufügen
             </button>
-            <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal" data-bs-target="#exportConfirmation">
+            <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
+                    data-bs-target="#exportConfirmation">
                 Export
             </button>
-            <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal" data-bs-target="#importConfirmation">
+            <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
+                    data-bs-target="#importConfirmation">
                 Import
             </button>
 
@@ -50,76 +48,76 @@
 
 
     <form action="#" method="get">
-    <div class="row">
+        <div class="row">
 
-        <div class="input-group mt-2 col-3" style="width: 20%; height: 2vh;">
-            <input type="search" class="form-control rounded" placeholder="Suche" aria-label="Search"
-                   aria-describedby="search-addon" name="search" id="search"/>
+            <div class="input-group mt-2 col-3" style="width: 20%; height: 2vh;">
+                <input type="search" class="form-control rounded" placeholder="Suche" aria-label="Search"
+                       aria-describedby="search-addon" name="search" id="search"/>
+            </div>
+
+            <div class="col mt-2">
+
+                <select class="form-select" name="typ" id="typ">
+                    <option value="none" selected>Typ</option>
+                    <option value="pC">PC</option>
+                    <option value="laptop">Laptop</option>
+                    <option value="sontiges">Sonstiges</option>
+                </select>
+
+            </div>
+
+            <div class="col mt-2">
+                <select class="form-select" name="hersteller" id="hersteller">
+                    <option value="none" selected>Hersteller</option>
+                    <option value="dell">Dell</option>
+                    <option value="hp">Hp</option>
+                </select>
+            </div>
+
+            <div class="col mt-2">
+                <input type="search" class="form-control rounded" placeholder="Alter" aria-label="Search"
+                       name="alter" id="alter">
+            </div>
+
+            <div class="col mt-2">
+                <select class="form-select" name="betriebssystem" id="betriebssystem">
+                    <option value="none" selected>Betriebssystem</option>
+                    <option value="windows">Windows</option>
+                    <option value="mac">Mac</option>
+                    <option value="linux">Linux</option>
+                </select>
+            </div>
+
+            <div class="col mt-2">
+                <select class="form-select" name="software" id="software">
+                    <option value="none" selected>Software</option>
+                    <option value="msoffice">MSOffice</option>
+                    <option value="visualstudio">Visual Studio</option>
+                    <option value="microchipstudio">Microchip Studio</option>
+                </select>
+            </div>
+
+            <div class="col mt-2">
+                <input type="search" class="form-control rounded" placeholder="Raum" aria-label="Search"
+                       name="raum" id="raum">
+            </div>
+
+
+            <div class="col mt-1">
+                <button type="submit" class="btn btn-primary sub"><img src="/img/search_icon.svg" width="30px"></button>
+            </div>
+
         </div>
-
-        <div class="col mt-2">
-
-            <select class="form-select" name="typ" id="typ">
-                <option value="none" selected>Typ</option>
-                <option value="pC">PC</option>
-                <option value="laptop">Laptop</option>
-                <option value="sontiges">Sonstiges</option>
-            </select>
-
-        </div>
-
-        <div class="col mt-2">
-            <select class="form-select" name="hersteller" id="hersteller">
-                <option value="none" selected>Hersteller</option>
-                <option value="dell">Dell</option>
-                <option value="hp">Hp</option>
-            </select>
-        </div>
-
-        <div class="col mt-2">
-            <input type="search" class="form-control rounded" placeholder="Alter" aria-label="Search"
-            name="alter" id = "alter">
-        </div>
-
-        <div class="col mt-2">
-            <select class="form-select" name="betriebssystem" id="betriebssystem">
-                <option value="none" selected>Betriebssystem</option>
-                <option value="windows">Windows</option>
-                <option value="mac">Mac</option>
-                <option value="linux">Linux</option>
-            </select>
-        </div>
-
-        <div class="col mt-2">
-            <select class="form-select" name="software" id="software">
-                <option value="none" selected>Software</option>
-                <option value="msoffice">MSOffice</option>
-                <option value="visualstudio">Visual Studio</option>
-                <option value="microchipstudio">Microchip Studio</option>
-            </select>
-        </div>
-
-        <div class="col mt-2">
-            <input type="search" class="form-control rounded" placeholder="Raum" aria-label="Search"
-                   name="raum" id = "raum">
-        </div>
-
-
-        <div class="col mt-1">
-            <button type="submit" class="btn btn-primary sub"><img src="/img/search_icon.svg" width="30px"></button>
-        </div>
-
-    </div>
     </form>
 
 
     <div>
         <div class="form-group">
-            <a href="datenbank_geraete.php" class="btn btn-primary sub "  role="button" aria-disabled="true">Geräte</a>
+            <a href="datenbank_geraete.php" class="btn btn-primary sub " role="button" aria-disabled="true">Geräte</a>
 
-            <a href="datenbank_personen.php" class="btn btn-secondary"  role="button" aria-disabled="true">Personen</a>
+            <a href="datenbank_personen.php" class="btn btn-secondary" role="button" aria-disabled="true">Personen</a>
 
-            <a href="datenbank_softwarelizenzen.php" class="btn btn-secondary"  role="button" aria-disabled="true">Lizenzen</a>
+            <a href="datenbank_softwarelizenzen.php" class="btn btn-secondary" role="button" aria-disabled="true">Lizenzen</a>
 
         </div>
 
@@ -130,15 +128,15 @@
         <table class="table table-striped table-bordered" id="devices">
             <thead>
             <tr>
-                <th onclick="sortTable(0)">Name</th>
-                <th onclick="sortTable(1)">Typ</th>
-                <th onclick="sortTable(2)">Hersteller</th>
-                <th onclick="sortTable(3)">Alter</th>
-                <th onclick="sortTable(4)">Betriebssystem</th>
-                <th onclick="sortTable(5)">Software</th>
-                <th onclick="sortTable(6)">Technische Daten</th>
-                <th onclick="sortTable(7)">Kommentar</th>
-                <th onclick="sortTable(8)">Raum</th>
+                <th onclick="sortTable(0, devices)">Name</th>
+                <th onclick="sortTable(1, devices)">Typ</th>
+                <th onclick="sortTable(2, devices)">Hersteller</th>
+                <th onclick="sortTable(3, devices)">Alter</th>
+                <th onclick="sortTable(4, devices)">Betriebssystem</th>
+                <th onclick="sortTable(5, devices)">Software</th>
+                <th onclick="sortTable(6, devices)">Technische Daten</th>
+                <th onclick="sortTable(7, devices)">Kommentar</th>
+                <th onclick="sortTable(8, devices)">Raum</th>
                 <th>Bearbeiten</th>
             </tr>
             </thead>
@@ -288,7 +286,8 @@
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
         <li class="nav-item nav-link px-2 text-muted">Angemeldet als Benutzer ef8366m</li>
         <li class="nav-item"><a href="dashboard_admin.php" class="nav-link px-2 text-muted">Home</a></li>
-        <li class="nav-item"><a href="https://www.fh-aachen.de/impressum/" class="nav-link px-2 text-muted" target="_blank">Impressum</a></li>
+        <li class="nav-item"><a href="https://www.fh-aachen.de/impressum/" class="nav-link px-2 text-muted"
+                                target="_blank">Impressum</a></li>
     </ul>
     <p class="text-center text-muted">© 2022 SmartWorking.exe</p>
 </footer>
@@ -391,63 +390,6 @@
         </div>
     </div>
 </div>
-
-
-<script>
-    function sortTable(n) {
-        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-        table = document.getElementById("devices");
-        switching = true;
-        // Set the sorting direction to ascending:
-        dir = "asc";
-        /* Make a loop that will continue until
-        no switching has been done: */
-        while (switching) {
-            // Start by saying: no switching is done:
-            switching = false;
-            rows = table.rows;
-            /* Loop through all table rows (except the
-            first, which contains table headers): */
-            for (i = 1; i < (rows.length - 1); i++) {
-                // Start by saying there should be no switching:
-                shouldSwitch = false;
-                /* Get the two elements you want to compare,
-                one from current row and one from the next: */
-                x = rows[i].getElementsByTagName("TD")[n];
-                y = rows[i + 1].getElementsByTagName("TD")[n];
-                /* Check if the two rows should switch place,
-                based on the direction, asc or desc: */
-                if (dir == "asc") {
-                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                        // If so, mark as a switch and break the loop:
-                        shouldSwitch = true;
-                        break;
-                    }
-                } else if (dir == "desc") {
-                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                        // If so, mark as a switch and break the loop:
-                        shouldSwitch = true;
-                        break;
-                    }
-                }
-            }
-            if (shouldSwitch) {
-                /* If a switch has been marked, make the switch
-                and mark that a switch has been done: */
-                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                switching = true;
-                // Each time a switch is done, increase this count by 1:
-                switchcount++;
-            } else {
-                /* If no switching has been done AND the direction is "asc",
-                set the direction to "desc" and run the while loop again. */
-                if (switchcount == 0 && dir == "asc") {
-                    dir = "desc";
-                    switching = true;
-                }
-            }
-        }
-    }
-</script>
+<script type="text/javascript" src="../js/custom.js"></script>
 <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
 </html>

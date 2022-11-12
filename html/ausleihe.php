@@ -18,135 +18,183 @@
 <body>
 <div class="container">
     <div class="row">
-        <a href="dashboard_studenten.php" class="col-3"><img class="img-fluid" src="/img/fh-aachen_university-of-applied-sciences_303_logo.png" alt="fhlogo"></a>
-        <a href="dashboard_studenten.php" class="nav-link col-6"><p class="h1 text-center mt-4">IT Asset Management</p></a>
+        <a href="dashboard_studenten.php" class="col-3"><img class="img-fluid"
+                                                             src="/img/fh-aachen_university-of-applied-sciences_303_logo.png"
+                                                             alt="fhlogo"></a>
+        <a href="dashboard_studenten.php" class="nav-link col-6"><p class="h1 text-center mt-4">IT Asset Management</p>
+        </a>
         <div class="col-3">
             <!-- <form method="get"> -->
-            <a href="login.php"><button type="submit" class="btn btn-danger mt-4">Abmelden</button></a>
+            <a href="login.php">
+                <button type="submit" class="btn btn-danger mt-4">Abmelden</button>
+            </a>
             <!-- </form> -->
         </div>
     </div>
 
     <div class="row mt-5 row justify-content-between">
         <div class="btn-group-vertical col-lg-6 mt-3 tbodyDiv">
-            <table class="table table-bordered table-striped" id="verfügbareGeräte">
+            <table class="table table-bordered table-striped" id="verfuegbareGeräte">
                 <thead class="sticky-top bg-white">
                 <tr>
-                    <th onclick="sortTable(0)">Geräte Name</th>
-                    <th onclick="sortTable(1)">Geräte Typ</th>
-                    <th onclick="sortTable(2)">Auswahl</th>
+                    <th onclick="sortTable(0, verfuegbareGeräte)">Geräte Name  <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                    <th onclick="sortTable(1, verfuegbareGeräte)">Geräte Typ <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                    <th onclick="sortTable(2, verfuegbareGeräte)">Verfügbare Geräte <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                    <th onclick="sortTable(3, verfuegbareGeräte)">Auswahl <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                     <td>ARBKVS-Board</td>
                     <td>Microchip</td>
+                    <td>
+                        <div class="progress position-relative">
+                            <div class="progress-bar" role="progressbar"
+                                 style="width:68%; background-color: green" aria-valuenow="438" aria-valuemin="0"
+                                 aria-valuemax="648">
+                                <small class="justify-content-center d-flex position-absolute w-100">438/648</small>
+                            </div>
+                            <div class="progress-bar" role="progressbar"
+                                 style="width:32%; background-color: black" aria-valuenow="438" aria-valuemin="0"
+                                 aria-valuemax="648"></div>
+                        </div>
+                    </td>
                     <td class="text-center"><input class="form-check-input" type="checkbox" id="flexCheckChecked"></td>
                 </tr>
                 <tr>
                     <td>TI-Board</td>
                     <td>Schaltboard</td>
-                    <td class="text-center"><input class="form-check-input" type="checkbox" id="flexCheckChecked" checked></td>
-                </tr>
-                <tr>
-                    <td>Kabelmaus</td>
-                    <td>Accessoir</td>
-                    <td class="text-center"><input class="form-check-input" type="checkbox" id="flexCheckChecked"></td>
-                </tr>
-                <tr>
-                    <td>Funkmaus</td>
-                    <td>Accessoir</td>
-                    <td class="text-center"><input class="form-check-input" type="checkbox" id="flexCheckChecked"></td>
-                </tr>
-                <tr>
-                    <td>3D Maus</td>
-                    <td>Accessoir</td>
-                    <td class="text-center"><input class="form-check-input" type="checkbox" id="flexCheckChecked" checked></td>
+                    <td>
+                        <div class="progress position-relative">
+                            <div class="progress-bar" role="progressbar"
+                                 style="width:49%; background-color: green" aria-valuenow="154" aria-valuemin="0"
+                                 aria-valuemax="312">
+                                <small class="justify-content-center d-flex position-absolute w-100">438/648</small>
+                            </div>
+                            <div class="progress-bar" role="progressbar"
+                                 style="width:51%; background-color: black" aria-valuenow="438" aria-valuemin="0"
+                                 aria-valuemax="648"></div>
+                        </div>
+                    </td>
+                    <td class="text-center"><input class="form-check-input" type="checkbox" id="flexCheckChecked"
+                                                   checked></td>
                 </tr>
                 <tr>
                     <td>Laptop</td>
                     <td>Computer</td>
-                    <td class="text-center"><input class="form-check-input" type="checkbox" id="flexCheckChecked" checked></td>
+                    <td>
+                        <div class="progress position-relative">
+                            <div class="progress-bar" role="progressbar"
+                                 style="width:84%; background-color: orange" aria-valuenow="212" aria-valuemin="0"
+                                 aria-valuemax="250">
+                                <small class="justify-content-center d-flex position-absolute w-100">212/250</small>
+                            </div>
+                            <div class="progress-bar" role="progressbar"
+                                 style="width:16%; background-color: black" aria-valuenow="438" aria-valuemin="0"
+                                 aria-valuemax="648"></div>
+                        </div>
+                    </td>
+                    <td class="text-center"><input class="form-check-input" type="checkbox" id="flexCheckChecked"
+                                                   checked></td>
                 </tr>
                 <tr>
-                    <td>Lötset</td>
-                    <td>Werkzeug</td>
-                    <td class="text-center"><input class="form-check-input" type="checkbox" id="flexCheckChecked"></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <div class="progress position-relative">
+                            <div class="progress-bar" role="progressbar"
+                                 style="width:0%; background-color: green" aria-valuenow="0" aria-valuemin="0"
+                                 aria-valuemax="0">
+                                <small class="justify-content-center d-flex position-absolute w-100">0/0</small>
+                            </div>
+                            <div class="progress-bar" role="progressbar"
+                                 style="width:100%; background-color: black" aria-valuenow="438" aria-valuemin="0"
+                                 aria-valuemax="0"></div>
+                        </div>
+                    </td>
+                    <td class="text-center"><input class="form-check-input" type="checkbox" id="flexCheckChecked" onclick="return false;"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <div class="progress position-relative">
+                            <div class="progress-bar" role="progressbar"
+                                 style="width:0%; background-color: green" aria-valuenow="0" aria-valuemin="0"
+                                 aria-valuemax="0">
+                                <small class="justify-content-center d-flex position-absolute w-100">0/0</small>
+                            </div>
+                            <div class="progress-bar" role="progressbar"
+                                 style="width:100%; background-color: black" aria-valuenow="438" aria-valuemin="0"
+                                 aria-valuemax="0"></div>
+                        </div>
+                    </td>
+                    <td class="text-center"><input class="form-check-input" type="checkbox" id="flexCheckChecked" onclick="return false;"></td>
                 </tr>
                 </tbody>
             </table>
         </div>
         <div class="btn-group-vertical col-lg-6 mt-3 tbodyDiv">
-            <table class="table table-bordered table-striped" id="verfügbareGeräte">
+            <table class="table table-bordered table-striped" id="gelieheneGeraete">
                 <thead class="sticky-top bg-white">
                 <tr>
-                    <th>Geräte Name</th>
-                    <th>Geräte Typ</th>
-                    <th>Ausgeliehen</th>
-                    <th>Rückgabefrist</th>
-                    <th>Auswahl</th>
+                    <th onclick="sortTable(0, gelieheneGeraete)">Geräte Name<img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                    <th onclick="sortTable(1, gelieheneGeraete)">Geräte Typ<img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                    <th onclick="sortTable(2, gelieheneGeraete)">Ausgeliehen<img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                    <th onclick="sortTable(3, gelieheneGeraete)">Rückgabefrist<img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                    <th onclick="sortTable(4, gelieheneGeraete)">Auswahl<img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                     <td>ARBKVS-Board</td>
                     <td>Microchip</td>
-                    <td>21.09.2022
+                    <td>21.09.2022</td>
                     <td>02.11.2022</td>
-                    <td class="text-center"><input class="form-check-input" type="checkbox" id="flexCheckChecked" checked></td>
+                    <td class="text-center"><input class="form-check-input" type="checkbox" id="flexCheckChecked"
+                                                   checked></td>
                 </tr>
                 <tr>
-                    <td>Lötset</td>
+                    <td>Laptop</td>
                     <td>Werkzeug</td>
-                    <td>27.10.2022
+                    <td>27.10.2022</td>
                     <td>10.11.2022</td>
-                    <td class="text-center"><input class="form-check-input" type="checkbox" id="flexCheckChecked" unchecked></td>
+                    <td class="text-center"><input class="form-check-input" type="checkbox" id="flexCheckChecked"></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td></td>
-                    <td>
                     <td></td>
-                    <td class="text-center"><input class="form-check-input" type="checkbox" id="flexCheckChecked" unchecked></td>
+                    <td></td>
+                    <td class="text-center"><input class="form-check-input" type="checkbox" id="flexCheckChecked" onclick="return false;"></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td></td>
-                    <td>
-                    <td></td>
-                    <td class="text-center"><input class="form-check-input" type="checkbox" id="flexCheckChecked" unchecked></td>
-                </tr>
-                <tr>
                     <td></td>
                     <td></td>
-                    <td>
-                    <td></td>
-                    <td class="text-center"><input class="form-check-input" type="checkbox" id="flexCheckChecked" unchecked></td>
-                </tr>
-                <tr>
+                    <td class="text-center"><input class="form-check-input" type="checkbox" id="flexCheckChecked" onclick="return false;"></td>
+                </tr><tr>
                     <td></td>
                     <td></td>
-                    <td>
-                    <td></td>
-                    <td class="text-center"><input class="form-check-input" type="checkbox" id="flexCheckChecked" unchecked></td>
-                </tr>
-                <tr>
                     <td></td>
                     <td></td>
-                    <td>
-                    <td></td>
-                    <td class="text-center"><input class="form-check-input" type="checkbox" id="flexCheckChecked" unchecked></td>
+                    <td class="text-center"><input class="form-check-input" type="checkbox" id="flexCheckChecked" onclick="return false;"></td>
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
-    <a href="dashboard_studenten.php"><button type="submit" class="btn btn-primary sub col-4 offset-2">Zurück</button></a>
+    <a href="dashboard_studenten.php">
+        <button type="submit" class="btn btn-primary sub col-4 offset-2">Zurück</button>
+    </a>
     <!-- Button triggert Modal -->
-    <button type="submit" class="btn btn-primary sub col-4" data-bs-toggle="modal" data-bs-target="#confirmation">Auswahl bestätigen</button>
+    <button type="submit" class="btn btn-primary sub col-4" data-bs-toggle="modal" data-bs-target="#confirmation">
+        Auswahl bestätigen
+    </button>
 
     <!-- The Modal -->
-    <div class="modal" id="confirmation">
+    <div class="modal" id="confirmation" data-keyboard="false" data-backdrop="static">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
 
@@ -175,66 +223,12 @@
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
         <li class="nav-item nav-link px-2 text-muted">Angemeldet als Benutzer lk8776s</li>
         <li class="nav-item"><a href="dashboard_studenten.php" class="nav-link px-2 text-muted">Home</a></li>
-        <li class="nav-item"><a href="https://www.fh-aachen.de/impressum/" class="nav-link px-2 text-muted" target="_blank">Impressum</a></li>
+        <li class="nav-item"><a href="https://www.fh-aachen.de/impressum/" class="nav-link px-2 text-muted"
+                                target="_blank">Impressum</a></li>
     </ul>
     <p class="text-center text-muted">© 2022 SmartWorking.exe</p>
 </footer>
-<script>
-    function sortTable(n) {
-        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-        table = document.getElementById("verfügbareGeräte");
-        switching = true;
-        // Set the sorting direction to ascending:
-        dir = "asc";
-        /* Make a loop that will continue until
-        no switching has been done: */
-        while (switching) {
-            // Start by saying: no switching is done:
-            switching = false;
-            rows = table.rows;
-            /* Loop through all table rows (except the
-            first, which contains table headers): */
-            for (i = 1; i < (rows.length - 1); i++) {
-                // Start by saying there should be no switching:
-                shouldSwitch = false;
-                /* Get the two elements you want to compare,
-                one from current row and one from the next: */
-                x = rows[i].getElementsByTagName("TD")[n];
-                y = rows[i + 1].getElementsByTagName("TD")[n];
-                /* Check if the two rows should switch place,
-                based on the direction, asc or desc: */
-                if (dir == "asc") {
-                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                        // If so, mark as a switch and break the loop:
-                        shouldSwitch = true;
-                        break;
-                    }
-                } else if (dir == "desc") {
-                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                        // If so, mark as a switch and break the loop:
-                        shouldSwitch = true;
-                        break;
-                    }
-                }
-            }
-            if (shouldSwitch) {
-                /* If a switch has been marked, make the switch
-                and mark that a switch has been done: */
-                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                switching = true;
-                // Each time a switch is done, increase this count by 1:
-                switchcount ++;
-            } else {
-                /* If no switching has been done AND the direction is "asc",
-                set the direction to "desc" and run the while loop again. */
-                if (switchcount == 0 && dir == "asc") {
-                    dir = "desc";
-                    switching = true;
-                }
-            }
-        }
-    }
-</script>
+<script type="text/javascript" src="../js/custom.js"></script>
 <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
