@@ -32,52 +32,57 @@
             <!-- </form> -->
         </div>
     </div>
-    <div class="row mt-4 ">
-        <p class="display-6> Verleihung an den Studenten</p>
+    <div class="row mt-4">
+        <p class="display-6 col-3"> Verleihung an den Studenten</p>
     </div>
-    <div class="row mt-5 row justify-content-between">
-        <div class="btn-group-vertical col-lg-6 mt-3 tbodyDiv">
+    <div class=" row mt-5 justify-content-between">
+        <div class="btn-group-vertical col-6 mt-3 tbodyDiv">
 
             <h3> Ausleihen </h3>
             <table class="table table-bordered table-striped" id="Anfrage">
                 <thead class="sticky-top bg-white">
-                <tr >
-                    <th>Anfragender </th>
-                    <th>Geräte </th>
+                <tr>
+                    <th>Anfragender</th>
+                    <th>Geräte</th>
                     <th></th>
                     <th></th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <td>Müller Max</td>
+                    <td>ok7698s</td>
                     <td>Praktikumsboard ARBKVS</td>
                     <td>
-                        <button type="submit" style="background-color :springgreen" >Annehmen</button>
+                        <button type="submit" class="btn btn-primary sub">Annehmen</button>
                     </td>
                     <td>
-                        <button type="submit" style="background-color :red" >Ablehnen</button>
+                        <button type="submit" class="btn btn-danger">Ablehnen</button>
                     </td>
                 </tr>
                 <tr>
                     <td>Ackerman Levi</td>
                     <td>TI-Board</td>
                     <td>
-                        <button type="submit" style="background-color :springgreen" >Annehmen</button>
+                        <button type="submit" class="btn btn-primary sub">Annehmen</button>
                     </td>
                     <td>
-                        <button type="submit" style="background-color :red" >Ablehnen</button>
+                        <button type="submit" class="btn btn-danger">Ablehnen</button>
                     </td>
                 </tr>
                 <tr>
-                    <td> Son Goku </td>
-                    <td> Lötset</td>
+                    <td>&nbsp;</td>
+                    <td></td>
                     <td>
-                        <button type="submit" style="background-color :springgreen" >Annehmen</button>
+
                     </td>
+                    <td></td>
+                </tr><tr>
+                    <td>&nbsp;</td>
+                    <td></td>
                     <td>
-                        <button type="submit" style="background-color :red" >Ablehnen</button>
+
                     </td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
@@ -98,75 +103,136 @@
                 </tbody>
             </table>
         </div>
-        <div class="btn-group-vertical col-lg-6 mt-3 tbodyDiv">
-
-            <h3> Rückgaben </h3>
+        <div class="btn-group-vertical col-6 mt-3 tbodyDiv">
+            <h3>Verlängern</h3>
             <table class="table table-bordered table-striped" id="Anfrage">
                 <thead class="sticky-top bg-white">
-                <tr >
-                    <th>Anfragender </th>
-                    <th>Geräte </th>
+                <tr>
+                    <th>Anfragender</th>
+                    <th>Geräte</th>
+                    <th>Ausgeliehen am</th>
                     <th></th>
                     <th></th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <td>Alter Johannes</td>
+                    <td>mm5475s</td>
                     <td>Praktikumsboard ARBKVS</td>
+                    <td type="date">25.08.2022</td>
                     <td>
-                        <button type="submit" style="background-color :springgreen" >Annehmen</button>
+
+                        <button type="submit" class="btn btn-primary sub">4 Wochen Verlängern</button>
                     </td>
                     <td>
-                        <button type="submit" style="background-color :red" >Ablehnen</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Classy Claßen</td>
-                    <td>Lötset</td>
-                    <td>
-                        <button type="submit" style="background-color :springgreen" >Annehmen</button>
-                    </td>
-                    <td>
-                        <button type="submit" style="background-color :red" >Ablehnen</button>
+                        <button type="submit" class="btn btn-danger">Ablehnen</button>
                     </td>
                 </tr>
                 <tr>
-                    <td> Okazaki Tomoya </td>
-                    <td> Praktikumsboard ARBKVS</td>
+                    <td>ku2243s</td>
+                    <td>Praktikumsboard ARBKVS</td>
+                    <td type="date">17.11.2022</td>
                     <td>
-                        <button type="submit" style="background-color :springgreen" >Annehmen</button>
+                        <button type="submit" class="btn btn-primary sub">4 Wochen Verlängern</button>
                     </td>
                     <td>
-                        <button type="submit" style="background-color :red" >Ablehnen</button>
+                        <button type="submit" class="btn btn-danger">Ablehnen</button>
                     </td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
                     <td></td>
-                    <td>
-
-                    </td>
+                    <td></td>
+                    <td></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
                     <td></td>
-                    <td>
-
-                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr><tr>
+                    <td>&nbsp;</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td></td>
                 </tr>
                 </tbody>
             </table>
         </div>
+        <div class="btn-group-vertical col-6 mt-3 tbodyDiv">
+            <h3>Rückgabe</h3>
+            <table class="table table-bordered table-striped" id="Anfrage">
+                <thead class="sticky-top bg-white">
+                <tr>
+                    <th>Anfragender</th>
+                    <th>Geräte</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>mm5475s</td>
+                    <td>Praktikumsboard ARBKVS</td>
+                    <td>
+                        <button type="submit" class="btn btn-primary sub">Gerät ohne Probleme</button>
+                    </td>
+                    <td>
+                        <button type="submit" class="btn btn-danger">Gerät beschädigt</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>ku2243s</td>
+                    <td>Praktikumsboard ARBKVS</td>
+                    <td>
+                        <button type="submit" class="btn btn-primary sub">Gerät ohne Probleme</button>
+                    </td>
+                    <td>
+                        <button type="submit" class="btn btn-danger">Gerät beschädigt</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr><tr>
+                    <td>&nbsp;</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
+    </div>
 
     <a href="dashboard_mitglieder.php">
         <button type="submit" class="btn btn-primary sub">Zurück zum Dashboard</button>
     </a>
-    </div>
-
+</div>
 
 
 </div>
