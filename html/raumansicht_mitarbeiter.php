@@ -302,6 +302,9 @@
             </tr>
             </tbody>
         </table>
+        <a href="dashboard_mitglieder.php">
+            <button type="submit" class="btn btn-primary sub">Zurück zum Dashboard</button>
+        </a>
     </div>
 
     <!-- The Modal -->
