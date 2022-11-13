@@ -41,7 +41,6 @@
             <a style="padding: 3% ;" href="raumauswahl.php" type="button" class="btn btn-primary staticButton sub">Raumansicht</a>
             <a style="padding: 3%;" href="datenbank_geraete.php" type="button"
                class="btn btn-primary staticButton sub mt-2">Datenbank</a>
-            <a style="padding: 3%;" href="#" type="button" class="btn btn-primary staticButton sub mt-2">Ausleihe</a>
             <button type="submit" class="btn btn-primary staticButton sub mt-2" data-bs-toggle="modal"
                     data-bs-target="#addDevice">Geräte hinzufügen
             </button>
