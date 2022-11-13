@@ -38,7 +38,7 @@
     <div class="row mt-5 row justify-content-between">
         <div class="btn-group-vertical col-5 mt-3 offset-1">
 
-            <a style="padding: 3%;" href="#" type="button" class="btn btn-primary staticButton sub text-center">Raumansicht</a>
+            <a style="padding: 3%;" href="raumauswahl_studenten.php" type="button" class="btn btn-primary staticButton sub text-center">Raumansicht</a>
             <a style="padding: 3%;" href="ausleihe.php" type="button"
                class="btn btn-primary staticButton sub mt-2 text-center">Ausleihe</a>
             <a style="padding: 3%;" href="benachrichtigungseinstellungen_studenten.php" type="button"
