@@ -46,12 +46,11 @@
             </button>
         </div>
         <div class="mt-3">
-        <a href="dashboard_studenten.php">
-            <button type="submit" class="btn btn-primary sub">Zurück zum Dashboard</button>
-        </a>
+            <a href="dashboard_studenten.php">
+                <button type="submit" class="btn btn-primary sub">Zurück zum Dashboard</button>
+            </a>
         </div>
     </div>
-
 
     <!-- The Modal -->
     <div class="modal" id="addConfirmation">

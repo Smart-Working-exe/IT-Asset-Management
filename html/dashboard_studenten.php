@@ -6,12 +6,12 @@
 
 <html lang="de">
 <head>
+    <title>Dashboard</title>
     <meta charset="UTF-8" http-equiv="X-UA-Compatible" content="IE=edge" name="viewport"
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/bootstrap.css">
     <link rel="stylesheet" href="/styles/custom.css">
     <link rel="icon" type="image/x-icon" href="/img/fh-aachen_university-of-applied-sciences_303_logo.png">
-    <title>Dashboard</title>
     <style>
         body {
             margin-bottom: initial;
@@ -40,6 +40,8 @@
 
             <a style="padding: 3%;" href="#" type="button" class="btn btn-primary staticButton sub text-center">Raumansicht</a>
             <a style="padding: 3%;" href="ausleihe.php" type="button"
+               class="btn btn-primary staticButton sub mt-2 text-center">Ausleihe</a>
+            <a style="padding: 3%;" href="benachrichtigungseinstellungen_studenten.php" type="button"
                class="btn btn-primary staticButton sub mt-2">Einstellungen</a>
 
         </div>

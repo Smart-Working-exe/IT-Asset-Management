@@ -122,11 +122,6 @@
                         </div>
                         <div class="row mt-3">
                             <div class="col">
-                                <input class="form-control" type="text" id="deviceName" placeholder="E-Mail Adresse*">
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col">
                                 <input class="form-control" type="text" id="deviceName" placeholder="Benutzerkennung*">
                             </div>
                         </div>
@@ -261,11 +256,15 @@
 </footer>
 <script type="text/javascript">
     $(function () {
-        $('#datepickerUsage').datepicker();
+        $('#datepickerBuild').datepicker({
+            format: 'dd.mm.yyyy'
+        });
     });
 
     $(function () {
-        $('#datepickerBuild').datepicker();
+        $('#datepickerUsage').datepicker({
+            format: 'dd.mm.yyyy'
+        });
     });
 </script>
 <script type="text/javascript" src="../js/custom.js"></script>

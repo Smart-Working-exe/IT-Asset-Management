@@ -130,16 +130,26 @@
         <table class="table table-striped table-bordered" id="devices">
             <thead>
             <tr>
-                <th onclick="sortTable(0, devices)">Name <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
-                <th onclick="sortTable(1, devices)">Typ <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
-                <th onclick="sortTable(2, devices)">Hersteller <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
-                <th onclick="sortTable(3, devices)">Alter <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
-                <th onclick="sortTable(2, devices)">Ip-Adresse<img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
-                <th onclick="sortTable(4, devices)">Betriebssystem <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
-                <th onclick="sortTable(5, devices)">Software <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
-                <th onclick="sortTable(6, devices)">Technische Daten <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
-                <th onclick="sortTable(7, devices)">Kommentar <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
-                <th onclick="sortTable(8, devices)">Raum <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(0, devices)">Name <img src="/img/up-and-down-arrows-svgrepo-com.svg"
+                                                              width="20px"></th>
+                <th onclick="sortTable(1, devices)">Typ <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px">
+                </th>
+                <th onclick="sortTable(2, devices)">Hersteller <img src="/img/up-and-down-arrows-svgrepo-com.svg"
+                                                                    width="20px"></th>
+                <th onclick="sortTable(3, devices)">Alter <img src="/img/up-and-down-arrows-svgrepo-com.svg"
+                                                               width="20px"></th>
+                <th onclick="sortTable(2, devices)">Ip-Adresse<img src="/img/up-and-down-arrows-svgrepo-com.svg"
+                                                                   width="20px"></th>
+                <th onclick="sortTable(4, devices)">Betriebssystem <img src="/img/up-and-down-arrows-svgrepo-com.svg"
+                                                                        width="20px"></th>
+                <th onclick="sortTable(5, devices)">Software <img src="/img/up-and-down-arrows-svgrepo-com.svg"
+                                                                  width="20px"></th>
+                <th onclick="sortTable(6, devices)">Technische Daten <img src="/img/up-and-down-arrows-svgrepo-com.svg"
+                                                                          width="20px"></th>
+                <th onclick="sortTable(7, devices)">Kommentar <img src="/img/up-and-down-arrows-svgrepo-com.svg"
+                                                                   width="20px"></th>
+                <th onclick="sortTable(8, devices)">Raum <img src="/img/up-and-down-arrows-svgrepo-com.svg"
+                                                              width="20px"></th>
                 <th>Bearbeiten</th>
             </tr>
             </thead>
@@ -286,6 +296,9 @@
 
             </tbody>
         </table>
+        <a href="dashboard_admin.php">
+            <button type="submit" class="btn btn-primary sub">Zurück zum Dashboard</button>
+        </a>
     </div>
 
 </div>
@@ -380,10 +393,12 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col">
-                            <textarea class="form-control" id="technischeEckdaten" rows="5" placeholder="Technische Eckdaten"></textarea>
+                            <textarea class="form-control" id="technischeEckdaten" rows="5"
+                                      placeholder="Technische Eckdaten"></textarea>
                         </div>
                         <div class="col">
-                            <textarea class="form-control" id="comment" rows="5" placeholder="Kommentar zum Geräte"></textarea>
+                            <textarea class="form-control" id="comment" rows="5"
+                                      placeholder="Kommentar zum Geräte"></textarea>
                         </div>
                     </div>
                     <div class="mt-3">
@@ -421,7 +436,7 @@
                     <div class="row mt-3">
                         <div class="col">
                             <select class="form-select" aria-label="Default select example" id="deviceTyp">
-                                <option >Typ*</option>
+                                <option>Typ*</option>
                                 <option value="1" id="deviceTyp" selected>Computer</option>
                                 <option value="2" id="deviceTyp">Accessoir</option>
                                 <option value="3" id="deviceTyp">Eigener Typ</option>
@@ -441,13 +456,16 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col">
-                            <input class="form-control" type="text" id="deviceName" placeholder="Name*" value="PC-2"></div>
+                            <input class="form-control" type="text" id="deviceName" placeholder="Name*" value="PC-2">
+                        </div>
                         <div class="col">
-                            <input class="form-control" type="text" id="deviceName" placeholder="IP-Adresse" value="111.111.111.3"></div>
+                            <input class="form-control" type="text" id="deviceName" placeholder="IP-Adresse"
+                                   value="111.111.111.3"></div>
                     </div>
                     <div class="row mt-3">
                         <div class="col">
-                            <input class="form-control" type="text" id="deviceName" placeholder="Hersteller" value="Dell"></div>
+                            <input class="form-control" type="text" id="deviceName" placeholder="Hersteller"
+                                   value="Dell"></div>
                         <div class="col">
                             <select class="form-select" data-mdb-clear-button="true"
                                     placeholder="Software des Gerätes">
@@ -462,7 +480,8 @@
                         <div class="col">
                             <div class="form-group">
                                 <div class="input-group date" id="datepickerEditUsage">
-                                    <input type="text" class="form-control" placeholder="erste Inbetriebname*" value="07/27/2017">
+                                    <input type="text" class="form-control" placeholder="erste Inbetriebname*"
+                                           value="27.07.2017">
                                     <span class="input-group-append">
                                         <span class="input-group-text bg-white d-block">
                                             <i class="fa fa-calendar"></i>
@@ -474,7 +493,8 @@
                         <div class="col">
                             <div class="form-group">
                                 <div class="input-group date" id="datepickerEditBuild">
-                                    <input type="text" class="form-control" placeholder="alter des Gerätes" value="07/27/2017">
+                                    <input type="text" class="form-control" placeholder="alter des Gerätes"
+                                           value="27.07.2017">
                                     <span class="input-group-append">
                                         <span class="input-group-text bg-white d-block">
                                             <i class="fa fa-calendar"></i>
@@ -501,12 +521,14 @@
                 </div>
 
             </div>
+
             <!-- Modal footer -->
-            <div class="modal-footer">
-                <p>mit * makierte Felder sind Pflichtfelder</p>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">+</button>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Speichern</button>
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-danger">Gerät Löschen</button>
+                <div>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Speichern</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
+                </div>
             </div>
         </div>
     </div>
@@ -562,18 +584,26 @@
 </div>
 <script type="text/javascript">
     $(function () {
-        $('#datepickerBuild').datepicker();
+        $('#datepickerBuild').datepicker({
+            format: 'dd.mm.yyyy'
+        });
     });
 
     $(function () {
-        $('#datepickerUsage').datepicker();
+        $('#datepickerUsage').datepicker({
+            format: 'dd.mm.yyyy'
+        });
     });
     $(function () {
-        $('#datepickerEditBuild').datepicker();
+        $('#datepickerEditBuild').datepicker({
+            format: 'dd.mm.yyyy'
+        });
     });
 
     $(function () {
-        $('#datepickerEditUsage').datepicker();
+        $('#datepickerEditUsage').datepicker({
+            format: 'dd.mm.yyyy'
+        });
     });
 </script>
 <script type="text/javascript" src="../js/custom.js"></script>
