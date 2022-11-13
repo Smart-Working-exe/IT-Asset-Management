@@ -51,3 +51,7 @@ function sortTable(n, table) {
         }
     }
 }
+
+function selectCalender(id){
+    (id).datepicker();
+}
