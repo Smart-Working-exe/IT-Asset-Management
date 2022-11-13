@@ -39,70 +39,56 @@
         </div>
     </div>
     <div class="row mt-4 ">
-        <p class="display-6 col-3"> Benachrichtigungseinstellungen</p>
-
-
+        <p class="display-6 col-3">Benachrichtigungseinstellungen</p>
         <div class="form-group">
             <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal" data-bs-target="#addConfirmation">
-                Ausleihe
+                Ausleihfrist
             </button>
         </div>
-        <div> <br></div>
-
+        <div class="mt-3">
         <a href="dashboard_studenten.php">
             <button type="submit" class="btn btn-primary sub">Zurück zum Dashboard</button>
         </a>
+        </div>
     </div>
 
 
     <!-- The Modal -->
-
-
     <div class="modal" id="addConfirmation">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Ausleihe</h4>
+                    <h4 class="modal-title">Ausleihfrist</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
 
                 <!-- Modal Body -->
                 <div class="modal-body">
-                    Sie werden momentan 2 Wochen vor Ende der Leihfrist gewarnt. <br>
-                    Das neue Zeitfenster für die Warnung beträgt:<br> <br>
+                    Das Frühwarnsystem schlägt momentan 1 Woche vor Ablauf der Ausleihfrist aus. <br>
+                    Der neue Zeitraum für das Frühwarnsystem beträgt: <br> <br>
                     <div>
                         <label>
-                            <input type="radio" name="Warnsystem_Softwarelizenz"
-                                   value="1 Woche"> 1 Woche vor Ende der Leihfrist
-                        </label> <br>
+                            <input type="radio" name="Warnsystem_Ausleihfrist"
+                                   value="3"> 3 Tage vor Ablauf der Ausleihfrist
+                        </label>
                         <label>
-                            <input type="radio" name="Warnsystem_Softwarelizenz"
-                                   value="2 Wochen"> 2 Wochen vor Ende der Leihfrist</label><br>
+                            <input type="radio" name="Warnsystem_Ausleihfrist"
+                                   value="7"> 1 Woche vor Ablauf der Ausleihfrist</label><br>
                         <label>
-                            <input type="radio" name="Warnsystem_Softwarelizenz"
-                                   value="1 Monat"> 1 Monat vor Ende der Leihfrist</label><br>
+                            <input type="radio" name="Warnsystem_Ausleihfrist"
+                                   value="14"> 2 Wochen vor Ablauf der Ausleihfrist</label><br>
                         <label>
-                            <input type="radio" name="Warnsystem_Softwarelizenz"
+                            <input type="radio" name="Warnsystem_Ausleihfrist"
                                    value="Sonstiges"> Sonstiges </label><br>
                     </div>
 
                     <div class="Sonstiges selectt">
                         <label>
-                            <input style="height: 18px;width: 50px;"type="input" name="Warnsystem_Softwarelizenz"
-                                   value=""> Tage vor Ende der Leihfrist </label><br>
+                            <input style="height: 18px;width: 50px;" type="input" name="Warnsystem_Ausleihfrist"
+                                   value=""> Tage vor Ablauf der Ausleihfrist </label><br>
                     </div>
-                    <script type="text/javascript">
-                        $(document).ready(function() {
-                            $('input[type="radio"]').click(function() {
-                                var inputValue = $(this).attr("value");
-                                var targetBox = $("." + inputValue);
-                                $(".selectt").not(targetBox).hide();
-                                $(targetBox).show();
-                            });
-                        });
-                    </script>
 
                 </div>
 
@@ -114,18 +100,26 @@
             </div>
         </div>
     </div>
-
-
 </div>
 <footer class="py-3 my-4 footerBot">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-        <li class="nav-item nav-link px-2 text-muted">Angemeldet als Benutzer ef8366m</li>
-        <li class="nav-item"><a href="dashboard_admin.php" class="nav-link px-2 text-muted">Home</a></li>
-        <li class="nav-item"><a href="https://www.fh-aachen.de/impressum/" class="nav-link px-2 text-muted" target="_blank">Impressum</a></li>
+        <li class="nav-item nav-link px-2 text-muted">Angemeldet als Benutzer lk8776s</li>
+        <li class="nav-item"><a href="dashboard_studenten.php" class="nav-link px-2 text-muted">Home</a></li>
+        <li class="nav-item"><a href="https://www.fh-aachen.de/impressum/" class="nav-link px-2 text-muted"
+                                target="_blank">Impressum</a></li>
     </ul>
     <p class="text-center text-muted">© 2022 SmartWorking.exe</p>
 </footer>
-
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('input[type="radio"]').click(function () {
+            var inputValue = $(this).attr("value");
+            var targetBox = $("." + inputValue);
+            $(".selectt").not(targetBox).hide();
+            $(targetBox).show();
+        });
+    });
+</script>
 <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

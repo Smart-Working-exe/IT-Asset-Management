@@ -47,79 +47,70 @@
                 Softwarelizenzen
             </button>
         </div>
-        <div> <br></div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal" data-bs-target="#addConfirmation2">
-                    IP-Adressräume
-                </button>
-            </div>
-        <div> <br></div>
+        <div><br></div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal" data-bs-target="#addConfirmation2">
+                IP-Adressräume
+            </button>
+        </div>
+        <div><br></div>
 
-            <a href="dashboard_admin.php">
-                <button type="submit" class="btn btn-primary sub">Zurück zum Dashboard</button>
-            </a>
+        <a href="dashboard_admin.php">
+            <button type="submit" class="btn btn-primary sub">Zurück zum Dashboard</button>
+        </a>
     </div>
 
 
-        <!-- The Modal -->
+    <!-- The Modal -->
 
 
-        <div class="modal" id="addConfirmation">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
+    <div class="modal" id="addConfirmation">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
 
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Softwarelizenzen</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Softwarelizenzen</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="modal-body">
+                    Das Frühwarnsystem schlägt momentan 1 Monat vor Ablauf der Softwarelizenz aus. <br>
+                    Der neue Zeitraum für das Frühwarnsystem beträgt: <br> <br>
+                    <div>
+                        <label>
+                            <input type="radio" name="Warnsystem_Softwarelizenz"
+                                   value="1 Woche"> 1 Woche vor Ablauf der Softwarelizenz
+                        </label> <br>
+                        <label>
+                            <input type="radio" name="Warnsystem_Softwarelizenz"
+                                   value="2 Wochen"> 2 Wochen vor Ablauf der Softwarelizenz</label><br>
+                        <label>
+                            <input type="radio" name="Warnsystem_Softwarelizenz"
+                                   value="1 Monat"> 1 Monat vor Ablauf der Softwarelizenz</label><br>
+                        <label>
+                            <input type="radio" name="Warnsystem_Softwarelizenz"
+                                   value="Sonstiges"> Sonstiges </label><br>
                     </div>
 
-                    <!-- Modal Body -->
-                    <div class="modal-body">
-                            Das Frühwarnsystem schlägt momentan 1 Monat vor Ablauf der Softwarelizenz aus. <br>
-                            Der neue Zeitraum für das Frühwarnsystem beträgt: <br> <br>
-                            <div>
-                                <label>
-                                    <input type="radio" name="Warnsystem_Softwarelizenz"
-                                           value="1 Woche"> 1 Woche vor Ablauf der Softwarelizenz
-                                </label> <br>
-                                <label>
-                                    <input type="radio" name="Warnsystem_Softwarelizenz"
-                                           value="2 Wochen"> 2 Wochen vor Ablauf der Softwarelizenz</label><br>
-                                <label>
-                                    <input type="radio" name="Warnsystem_Softwarelizenz"
-                                           value="1 Monat"> 1 Monat vor Ablauf der Softwarelizenz</label><br>
-                                <label>
-                                    <input type="radio" name="Warnsystem_Softwarelizenz"
-                                           value="Sonstiges"> Sonstiges </label><br>
-                            </div>
-
-                            <div class="Sonstiges selectt">
-                                <label>
-                                    <input style="height: 18px;width: 50px;"type="input" name="Warnsystem_Softwarelizenz"
-                                           value=""> Tage vor Ablauf der Softwarelizenz </label><br>
-                                </div>
-                            <script type="text/javascript">
-                                $(document).ready(function() {
-                                    $('input[type="radio"]').click(function() {
-                                        var inputValue = $(this).attr("value");
-                                        var targetBox = $("." + inputValue);
-                                        $(".selectt").not(targetBox).hide();
-                                        $(targetBox).show();
-                                    });
-                                });
-                            </script>
-
+                    <div class="Sonstiges selectt">
+                        <label>
+                            <input style="height: 18px;width: 50px;" type="input" name="Warnsystem_Softwarelizenz"
+                                   value=""> Tage vor Ablauf der Softwarelizenz </label><br>
                     </div>
 
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Speichern</button>
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
-                    </div>
+
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Speichern</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
                 </div>
             </div>
         </div>
+    </div>
 
 
     <div class="modal" id="addConfirmation2">
@@ -154,19 +145,9 @@
                     </div>
                     <div class="Sonstiges2 selectt">
                         <label>
-                            <input style="height: 18px;width: 50px;"type="input" name="Warnsystem_Softwarelizenz"
+                            <input style="height: 18px;width: 50px;" type="input" name="Warnsystem_Softwarelizenz"
                                    value=""> freie Adressen </label><br>
                     </div>
-                    <script type="text/javascript">
-                        $(document).ready(function() {
-                            $('input[type="radio"]').click(function() {
-                                var inputValue = $(this).attr("value");
-                                var targetBox = $("." + inputValue);
-                                $(".selectt").not(targetBox).hide();
-                                $(targetBox).show();
-                            });
-                        });
-                    </script>
 
                 </div>
 
@@ -178,18 +159,26 @@
             </div>
         </div>
     </div>
-
-
 </div>
-    <footer class="py-3 my-4 footerBot">
-        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-            <li class="nav-item nav-link px-2 text-muted">Angemeldet als Benutzer ef8366m</li>
-            <li class="nav-item"><a href="dashboard_admin.php" class="nav-link px-2 text-muted">Home</a></li>
-            <li class="nav-item"><a href="https://www.fh-aachen.de/impressum/" class="nav-link px-2 text-muted" target="_blank">Impressum</a></li>
-        </ul>
-        <p class="text-center text-muted">© 2022 SmartWorking.exe</p>
-    </footer>
-
-    <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
+<footer class="py-3 my-4 footerBot">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item nav-link px-2 text-muted">Angemeldet als Benutzer ef8366m</li>
+        <li class="nav-item"><a href="dashboard_admin.php" class="nav-link px-2 text-muted">Home</a></li>
+        <li class="nav-item"><a href="https://www.fh-aachen.de/impressum/" class="nav-link px-2 text-muted"
+                                target="_blank">Impressum</a></li>
+    </ul>
+    <p class="text-center text-muted">© 2022 SmartWorking.exe</p>
+</footer>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('input[type="radio"]').click(function () {
+            var inputValue = $(this).attr("value");
+            var targetBox = $("." + inputValue);
+            $(".selectt").not(targetBox).hide();
+            $(targetBox).show();
+        });
+    });
+</script>
+<script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

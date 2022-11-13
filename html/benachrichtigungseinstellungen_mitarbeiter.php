@@ -40,16 +40,12 @@
     </div>
     <div class="row mt-4 ">
         <p class="display-6 col-3"> Benachrichtigungseinstellungen</p>
-
-
         <div class="form-group">
             <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal" data-bs-target="#addConfirmation">
                 Softwarelizenzen
             </button>
         </div>
-        <div> <br></div>
-
-        <a href="dashboard_mitglieder.php">
+        <a href="dashboard_mitglieder.php" class="mt-3">
             <button type="submit" class="btn btn-primary sub">Zurück zum Dashboard</button>
         </a>
     </div>
@@ -90,19 +86,10 @@
 
                     <div class="Sonstiges selectt">
                         <label>
-                            <input style="height: 18px;width: 50px;"type="input" name="Warnsystem_Softwarelizenz"
+                            <input style="height: 18px;width: 50px;" type="input" name="Warnsystem_Softwarelizenz"
                                    value=""> Tage vor Ablauf der Softwarelizenz </label><br>
                     </div>
-                    <script type="text/javascript">
-                        $(document).ready(function() {
-                            $('input[type="radio"]').click(function() {
-                                var inputValue = $(this).attr("value");
-                                var targetBox = $("." + inputValue);
-                                $(".selectt").not(targetBox).hide();
-                                $(targetBox).show();
-                            });
-                        });
-                    </script>
+
 
                 </div>
 
@@ -121,11 +108,21 @@
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
         <li class="nav-item nav-link px-2 text-muted">Angemeldet als Benutzer ef8366m</li>
         <li class="nav-item"><a href="dashboard_admin.php" class="nav-link px-2 text-muted">Home</a></li>
-        <li class="nav-item"><a href="https://www.fh-aachen.de/impressum/" class="nav-link px-2 text-muted" target="_blank">Impressum</a></li>
+        <li class="nav-item"><a href="https://www.fh-aachen.de/impressum/" class="nav-link px-2 text-muted"
+                                target="_blank">Impressum</a></li>
     </ul>
     <p class="text-center text-muted">© 2022 SmartWorking.exe</p>
 </footer>
-
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('input[type="radio"]').click(function () {
+            var inputValue = $(this).attr("value");
+            var targetBox = $("." + inputValue);
+            $(".selectt").not(targetBox).hide();
+            $(targetBox).show();
+        });
+    });
+</script>
 <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
