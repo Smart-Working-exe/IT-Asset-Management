@@ -149,7 +149,7 @@
                 <td>Tower-Pc</td>
                 <td>Dell</td>
                 <td>6 Jahre</td>
-                <td>6 Jahre</td>
+                <td>111.111.112.1</td>
                 <td>Windows10</td>
                 <td>
                     <ul>
@@ -179,7 +179,7 @@
                 <td>Tower-Pc</td>
                 <td>Dell</td>
                 <td>6 Jahre</td>
-                <td>6 Jahre</td>
+                <td>111.111.112.2</td>
                 <td>Windows10</td>
                 <td>
                     <ul>
@@ -209,7 +209,7 @@
                 <td>Tower-Pc</td>
                 <td>Dell</td>
                 <td>6 Jahre</td>
-                <td>6 Jahre</td>
+                <td>111.111.112.3</td>
                 <td>Windows10</td>
                 <td>
                     <ul>
