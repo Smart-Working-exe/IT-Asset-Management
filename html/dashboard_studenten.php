@@ -40,7 +40,8 @@
 
             <a style="padding: 3%;" href="#" type="button" class="btn btn-primary staticButton sub text-center">Raumansicht</a>
             <a style="padding: 3%;" href="ausleihe.php" type="button" class="btn btn-primary staticButton sub mt-2 text-center">Ausleihe</a>
-
+            <a style="padding: 3%;" href="benachrichtigungseinstellungen_student.php" type="button"
+               class="btn btn-primary staticButton sub mt-2">Einstellungen</a>
 
         </div>
         <div class="col-5">
