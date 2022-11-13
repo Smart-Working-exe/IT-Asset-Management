@@ -50,7 +50,7 @@
                     <td>
                         <div class="progress position-relative">
                             <div class="progress-bar" role="progressbar"
-                                 style="width:68%; background-color: green" aria-valuenow="438" aria-valuemin="0"
+                                 style="width:68%; background-color: yellowgreen" aria-valuenow="438" aria-valuemin="0"
                                  aria-valuemax="648">
                                 <small class="justify-content-center d-flex position-absolute w-100">438/648</small>
                             </div>
@@ -67,9 +67,9 @@
                     <td>
                         <div class="progress position-relative">
                             <div class="progress-bar" role="progressbar"
-                                 style="width:49%; background-color: green" aria-valuenow="154" aria-valuemin="0"
+                                 style="width:48%; background-color: #ffe135" aria-valuenow="154" aria-valuemin="0"
                                  aria-valuemax="312">
-                                <small class="justify-content-center d-flex position-absolute w-100">438/648</small>
+                                <small class="justify-content-center d-flex position-absolute w-100">312/648</small>
                             </div>
                             <div class="progress-bar" role="progressbar"
                                  style="width:51%; background-color: black" aria-valuenow="438" aria-valuemin="0"
@@ -85,7 +85,7 @@
                     <td>
                         <div class="progress position-relative">
                             <div class="progress-bar" role="progressbar"
-                                 style="width:84%; background-color: orange" aria-valuenow="212" aria-valuemin="0"
+                                 style="width:84%; background-color: green" aria-valuenow="212" aria-valuemin="0"
                                  aria-valuemax="250">
                                 <small class="justify-content-center d-flex position-absolute w-100">212/250</small>
                             </div>
