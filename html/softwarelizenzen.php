@@ -70,7 +70,7 @@
                 <td>
                     <div class="progress position-relative">
                         <div class="progress-bar" role="progressbar"
-                             style="width:25%; background-color: green" aria-valuenow="207" aria-valuemin="0"
+                             style="width:25%; background-color: yellowgreen" aria-valuenow="207" aria-valuemin="0"
                              aria-valuemax="800">
                             <small class="justify-content-center d-flex position-absolute w-100">207/800</small>
                         </div>
@@ -87,7 +87,7 @@
                 <td>
                     <div class="progress position-relative">
                         <div class="progress-bar" role="progressbar"
-                             style="width:92%; background-color: darkred" aria-valuenow="17" aria-valuemin="0"
+                             style="width:92%; background-color: red" aria-valuenow="17" aria-valuemin="0"
                              aria-valuemax="100">
                             <small class="justify-content-center d-flex position-absolute w-100">92/100</small>
                         </div>
