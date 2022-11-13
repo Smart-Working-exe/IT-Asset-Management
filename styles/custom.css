@@ -44,3 +44,12 @@
 #verschieben {
     margin-top: -20px
 }
+
+table{
+   white-space: nowrap;
+}
+
+.no_nowrap
+{
+    white-space: normal;
+}
