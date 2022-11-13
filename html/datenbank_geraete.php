@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Dashboard</title>
+    <title>Datenbank</title>
     <meta charset="UTF-8" http-equiv="X-UA-Compatible" content="IE=edge" name="viewport"
           content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/img/fh-aachen_university-of-applied-sciences_303_logo.png">
@@ -134,6 +134,7 @@
                 <th onclick="sortTable(1, devices)">Typ <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
                 <th onclick="sortTable(2, devices)">Hersteller <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
                 <th onclick="sortTable(3, devices)">Alter <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                <th onclick="sortTable(2, devices)">Ip-Adresse<img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
                 <th onclick="sortTable(4, devices)">Betriebssystem <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
                 <th onclick="sortTable(5, devices)">Software <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
                 <th onclick="sortTable(6, devices)">Technische Daten <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
@@ -147,6 +148,7 @@
                 <td>PC-1</td>
                 <td>Tower-Pc</td>
                 <td>Dell</td>
+                <td>6 Jahre</td>
                 <td>6 Jahre</td>
                 <td>Windows10</td>
                 <td>
@@ -177,6 +179,7 @@
                 <td>Tower-Pc</td>
                 <td>Dell</td>
                 <td>6 Jahre</td>
+                <td>6 Jahre</td>
                 <td>Windows10</td>
                 <td>
                     <ul>
@@ -205,6 +208,7 @@
                 <td>PC-3</td>
                 <td>Tower-Pc</td>
                 <td>Dell</td>
+                <td>6 Jahre</td>
                 <td>6 Jahre</td>
                 <td>Windows10</td>
                 <td>
@@ -236,6 +240,7 @@
                 <td>Amazon</td>
                 <td>2 Jahre</td>
                 <td></td>
+                <td></td>
                 <td>
                 </td>
                 <td>
@@ -245,7 +250,7 @@
 
                     </ul>
                 </td>
-                <td>Ist eigentlich nur 1,97m lang</td>
+                <td class="no_nowrap">Ist eigentlich nur 1,97m lang</td>
                 <td>Lager</td>
                 <td>
                     <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
@@ -259,6 +264,7 @@
                 <td>Pc-Maus</td>
                 <td>Logischtech</td>
                 <td>1 Jahr</td>
+                <td></td>
                 <td></td>
                 <td>
 
