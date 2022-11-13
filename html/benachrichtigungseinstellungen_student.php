@@ -1,0 +1,131 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/styles/bootstrap.css">
+    <link rel="stylesheet" href="/styles/custom.css">
+    <link rel="icon" type="image/x-icon" href="/img/fh-aachen_university-of-applied-sciences_303_logo.png">
+    <title>Benachrichtigungseinstellungen</title>
+    <script src=
+            "https://code.jquery.com/jquery-1.12.4.min.js">
+    </script>
+    <style type="text/css">
+        .selectt {
+
+            display: none;
+
+        }
+
+        label {
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <a href="dashboard_admin.php" class="col-3"><img class="img-fluid"
+                                                         src="/img/fh-aachen_university-of-applied-sciences_303_logo.png"
+                                                         alt="fhlogo"></a>
+        <a href="dashboard_admin.php" class="nav-link col-6"><p class="h1 text-center mt-4">IT Asset Management</p></a>
+        <div class="col-3">
+            <!-- <form method="get"> -->
+            <a href="login.php">
+                <button type="submit" class="btn btn-danger mt-4">Abmelden</button>
+            </a>
+            <!-- </form> -->
+        </div>
+    </div>
+    <div class="row mt-4 ">
+        <p class="display-6 col-3"> Benachrichtigungseinstellungen</p>
+
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal" data-bs-target="#addConfirmation">
+                Ausleihe
+            </button>
+        </div>
+        <div> <br></div>
+
+        <a href="dashboard_studenten.php">
+            <button type="submit" class="btn btn-primary sub">Zurück zum Dashboard</button>
+        </a>
+    </div>
+
+
+    <!-- The Modal -->
+
+
+    <div class="modal" id="addConfirmation">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Ausleihe</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="modal-body">
+                    Sie werden momentan 2 Wochen vor Ende der Leihfrist gewarnt. <br>
+                    Das neue Zeitfenster für die Warnung beträgt:<br> <br>
+                    <div>
+                        <label>
+                            <input type="radio" name="Warnsystem_Softwarelizenz"
+                                   value="1 Woche"> 1 Woche vor Ende der Leihfrist
+                        </label> <br>
+                        <label>
+                            <input type="radio" name="Warnsystem_Softwarelizenz"
+                                   value="2 Wochen"> 2 Wochen vor Ende der Leihfrist</label><br>
+                        <label>
+                            <input type="radio" name="Warnsystem_Softwarelizenz"
+                                   value="1 Monat"> 1 Monat vor Ende der Leihfrist</label><br>
+                        <label>
+                            <input type="radio" name="Warnsystem_Softwarelizenz"
+                                   value="Sonstiges"> Sonstiges </label><br>
+                    </div>
+
+                    <div class="Sonstiges selectt">
+                        <label>
+                            <input style="height: 18px;width: 50px;"type="input" name="Warnsystem_Softwarelizenz"
+                                   value=""> Tage vor Ende der Leihfrist </label><br>
+                    </div>
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            $('input[type="radio"]').click(function() {
+                                var inputValue = $(this).attr("value");
+                                var targetBox = $("." + inputValue);
+                                $(".selectt").not(targetBox).hide();
+                                $(targetBox).show();
+                            });
+                        });
+                    </script>
+
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Speichern</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<footer class="py-3 my-4 footerBot">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item nav-link px-2 text-muted">Angemeldet als Benutzer ef8366m</li>
+        <li class="nav-item"><a href="dashboard_admin.php" class="nav-link px-2 text-muted">Home</a></li>
+        <li class="nav-item"><a href="https://www.fh-aachen.de/impressum/" class="nav-link px-2 text-muted" target="_blank">Impressum</a></li>
+    </ul>
+    <p class="text-center text-muted">© 2022 SmartWorking.exe</p>
+</footer>
+
+<script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

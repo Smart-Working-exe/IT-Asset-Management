@@ -29,6 +29,8 @@
             <a style="padding: 3%;" href="raumauswahl.php" type="button" class="btn btn-primary staticButton sub">Raumauswahl</a>
             <a style="padding: 3%;" href="eigeneGeraete.php" type="button" class="btn btn-primary staticButton sub mt-2">Eigene Geräte</a>
             <a style="padding: 3%;" href="verleihung_studenten.php" type="button" class="btn btn-primary staticButton sub mt-2">Verleihung an Studenten</a>
+            <a style="padding: 3%;" href="benachrichtigungseinstellungen_mitarbeiter.php" type="button"
+               class="btn btn-primary staticButton sub mt-2">Einstellungen</a>
         </div>
         <div class="col-5">
             <div class="row">
