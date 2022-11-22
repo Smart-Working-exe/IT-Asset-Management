@@ -196,7 +196,7 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Gerät Hinzufügen</h4>
+                <h4 class="modal-title">Softwarelizenz Hinzufügen</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
 
@@ -268,7 +268,7 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Gerät Hinzufügen</h4>
+                <h4 class="modal-title">Softwarelizenz bearbeiten</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
 
