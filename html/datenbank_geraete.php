@@ -426,7 +426,7 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Gerät Hinzufügen</h4>
+                <h4 class="modal-title">Gerät bearbeiten</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
 
@@ -503,24 +503,18 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col">
-                                <textarea class="form-control" id="technischeEckdaten" rows="5"
-                                          placeholder="Technische Eckdaten, mit Semikolon trennen">16GB RAM; 1000GB SSD; NVIDIA RTX3070</textarea>
+
+                        <div style="margin-top: 10px">
+                            A145
+                            <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
+                                    data-bs-target="#roomConfirmation" style="width: 100px">Ändern
+                            </button>
                         </div>
-                        <div class="col">
-                                <textarea class="form-control" id="comment" rows="5"
-                                          placeholder="Kommentar zum Geräte">Virtualization geeignet; </textarea>
-                        </div>
-                    </div>
-                    <div class="mt-3">
-                        <label for="dataImport" class="form-label">Aus Datei importieren</label>
-                        <input class="form-control" type="file" id="dataImport" placeholder="Aus Datei importieren">
                     </div>
                 </div>
 
             </div>
+
 
             <!-- Modal footer -->
             <div class="modal-footer justify-content-between">

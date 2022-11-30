@@ -132,14 +132,13 @@
         </div>
     </div>
 
-    <!-- The Modal -->
     <div class="modal fade" id="addSoftware" tabindex="-1" aria-labelledby="addSoftware" aria-hidden="true">
         <div class="modal-dialog modal-xl modal-dialog-centered">
             <div class="modal-content">
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Gerät Hinzufügen</h4>
+                    <h4 class="modal-title">Softwarelizenz Hinzufügen</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
 
@@ -203,6 +202,7 @@
             </div>
         </div>
     </div>
+
     <!-- The Modal -->
     <div class="modal fade" id="editSoftware" tabindex="-1" aria-labelledby="editSoftware" aria-hidden="true">
         <div class="modal-dialog modal-xl modal-dialog-centered">
@@ -210,7 +210,7 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Gerät Hinzufügen</h4>
+                    <h4 class="modal-title">Softwarelizenz bearbeiten</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
 
@@ -225,8 +225,7 @@
                         </div>
                         <div class="row mt-3">
                             <div class="col">
-                                <input class="form-control" type="text" id="deviceName" placeholder="Hersteller*"
-                                       value="Microsoft">
+                                <input class="form-control" type="text" id="deviceName" placeholder="Hersteller*" value="Microsoft">
                             </div>
                         </div>
                     </div>
@@ -234,8 +233,7 @@
                         <div class="col">
                             <div class="form-group">
                                 <div class="input-group date" id="datepickerEditAvailable">
-                                    <input type="text" class="form-control" placeholder="Erwerbsdatum"
-                                           value="27.05.2022">
+                                    <input type="text" class="form-control" placeholder="Erwerbsdatum" value="27.05.2022">
                                     <span class="input-group-append">
                                         <span class="input-group-text bg-white d-block">
                                             <i class="fa fa-calendar"></i>
@@ -249,8 +247,7 @@
                         <div class="col">
                             <div class="form-group">
                                 <div class="input-group date" id="datepickerEditNotAvailable">
-                                    <input type="text" class="form-control" placeholder="Ablaufdatum"
-                                           value="27.05.2023">
+                                    <input type="text" class="form-control" placeholder="Ablaufdatum" value="27.05.2023">
                                     <span class="input-group-append">
                                         <span class="input-group-text bg-white d-block">
                                             <i class="fa fa-calendar"></i>
@@ -278,8 +275,8 @@
             </div>
         </div>
     </div>
-</div>
-<footer class="py-3 my-4 footerBot">
+
+    <footer class="py-3 my-4 footerBot">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
         <li class="nav-item nav-link px-2 text-muted">Angemeldet als Benutzer ef8366m</li>
         <li class="nav-item"><a href="dashboard_admin.php" class="nav-link px-2 text-muted">Home</a></li>

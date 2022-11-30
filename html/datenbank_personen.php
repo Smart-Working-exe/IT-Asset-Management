@@ -218,7 +218,7 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Benutzer Hinzufügen</h4>
+                <h4 class="modal-title">Benutzer bearbeiten</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
 
