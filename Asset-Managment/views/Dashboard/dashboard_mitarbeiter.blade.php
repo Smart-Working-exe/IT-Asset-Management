@@ -6,7 +6,7 @@
     <div class="row mt-5 row justify-content-between">
         <div class="btn-group-vertical col-5 mt-3 offset-1">
             <a style="padding: 3%;" href="raumauswahl.php" type="button" class="btn btn-primary staticButton sub">Raumauswahl</a>
-            <a style="padding: 3%;" href="eigeneGeraete.php" type="button"
+            <a style="padding: 3%;" href="/eigeneGeraete" type="button"
                class="btn btn-primary staticButton sub mt-2">Eigene Geräte</a>
             <a style="padding: 3%;" href="/verleihung" type="button"
                class="btn btn-primary staticButton sub mt-2">Verleihung an Studenten</a>

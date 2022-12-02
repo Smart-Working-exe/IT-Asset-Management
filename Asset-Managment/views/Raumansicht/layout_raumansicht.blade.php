@@ -20,15 +20,16 @@
 
     @yield('header')
 
-    <div class="row mt-4 ">
-        <p class="display-6 col-3"> Raum {{strtoupper($room)}}</p>
-    </div>
+
 
     @yield('sub_header')
 
     @yield('geraetefilter')
 
     @yield('content')
+    <a href="dashboard_mitglieder.php">
+        <button type="submit" class="btn btn-primary sub">Zurück zum Dashboard</button>
+    </a>
 
 
 </div>
@@ -36,6 +37,8 @@
 @yield('addDevice')
 @yield('editDevice')
 @yield('editKommentar')
+@yield('editRoom')
+@yield('export')
 
 
     <footer class="py-3 my-4 footerBot">

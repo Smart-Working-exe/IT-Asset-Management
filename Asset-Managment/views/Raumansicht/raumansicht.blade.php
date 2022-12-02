@@ -6,7 +6,12 @@
 
 @section('sub_header')
 
+    <div class="row mt-4 ">
+        <p class="display-6 col-3"> Raum {{strtoupper($room)}}</p>
+    </div>
+
     @if($user == 1) <!-- admin -->
+
         <div class="row"> <!-- Wegen Row ist die Progressbar abgeschnitten -->
             <p class="col-3"><b>IP-Adressbereich: 111.111.111.000/27</b></p>
             <div class=" mt-1 col-2">
@@ -258,9 +263,7 @@
             </tr>
             </tbody>
         </table>
-        <a href="dashboard_mitglieder.php">
-            <button type="submit" class="btn btn-primary sub">Zurück zum Dashboard</button>
-        </a>
+
     </div>
 
 

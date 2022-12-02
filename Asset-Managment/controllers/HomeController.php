@@ -80,12 +80,13 @@ class HomeController
                 'user' => $anwender,
                 'database_filter' => false
         ]);
+    }
 
-
-
-
-
-
+    public function eigeneGeraete(RequestData $rd)
+    {
+        return view('Raumansicht.eigeneGeraete', [
+            'database_filter' => true
+        ]);
     }
 
 }

@@ -23,5 +23,6 @@ return array(
     '/softwarelizenzen' => "HomeController@softwarelizenzen",
     '/raumauswahl' => "HomeController@raumauswahl",
     '/ausleihe' => "HomeController@ausleihe",
-    '/raumansicht' => "HomeController@raumansicht"
+    '/raumansicht' => "HomeController@raumansicht",
+    '/eigeneGeraete' => "HomeController@eigeneGeraete"
 );
