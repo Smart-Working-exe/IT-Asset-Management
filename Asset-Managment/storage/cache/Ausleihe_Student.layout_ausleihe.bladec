@@ -19,7 +19,6 @@
 <div class="container">
 
  <?php echo $this->yieldContent('header'); ?>
-
  <?php echo $this->yieldContent('content'); ?>
  <?php echo $this->yieldContent('confirmation'); ?>
 </div>

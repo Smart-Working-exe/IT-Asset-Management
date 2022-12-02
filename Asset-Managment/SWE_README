@@ -3,6 +3,7 @@
 
 # Einträge hinzufügen, bearbeiten, Export ... Alles was über Pop-Up-Fenster und in mehreren szenen benötigt ist befindet sich in views/modals
         * ausgenommen modals welche es nur in einer szene gibt
+            - ihr könnt natürlich auch szenen exclusives ebenfalls auslagern
 
         * solltet ihr festellen, ihr nutzt dasselbe in mehreren Szenen legt möglichst nach dem selben Prinzip etwas an, vermeidet Redundanz
 
@@ -10,9 +11,14 @@
         * denkt daran im Layout entsprechend @yield('name') hinzuzufügen
 
 
- # vernachlässigt erstmal Buttons wie "zurück zum Dashboard", diese müssen voraussichtlich später eh nochmal angepasst werden
-        * das bedeutet auch, wenn ihr zu eurer Szene, welche ihr bearbeiten wollt, nicht hingelangt guckt wie diese in config/web.php und im Home Controller definiert sind
-        * es kann sein das ihr aktuell Variablen anpassen müsst um dort hin zu gelangen
+ # vernachlässigt erstmal navigations Buttons wie "zurück zum Dashboard", diese müssen voraussichtlich später eh nochmal angepasst werden
+ # das bedeutet auch, wenn ihr zu eurer Szene, welche ihr bearbeiten wollt, nicht hingelangt guckt wie diese in config/web.php und im Home Controller definiert sind
+ # gibt diese dann ueber die URL direkt ein
+        * es kann sein das ihr aktuell Variablen anpassen müsst um in Varianten von Szenen zu gelangen
+            - Dies Betrifft mindestens
+                ~ einstellungen
+                ~ raumauswahl
+
 
 
  #  Begrifflichkeiten und zuordnung
