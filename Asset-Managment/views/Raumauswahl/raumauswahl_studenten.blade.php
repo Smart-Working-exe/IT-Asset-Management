@@ -6,35 +6,35 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <a class="collapsed btn" data-bs-toggle="button" href="#collapseTwo">
+            <a class="collapsed btn"  href="/raumansicht?gebaeude=a">
                 Gebäude A
             </a>
         </div>
     </div>
     <div class="card">
         <div class="card-header">
-            <a class="collapsed btn" data-bs-toggle="button" href="#collapseTwo">
+            <a class="collapsed btn"  href="/raumansicht?gebaeude=b">
                 Gebäude B
             </a>
         </div>
     </div>
     <div class="card">
         <div class="card-header">
-            <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseThree">
+            <a class="collapsed btn"  href="#collapseThree">
                 Gebäude C
             </a>
         </div>
     </div>
     <div class="card">
         <div class="card-header">
-            <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseFour">
+            <a class="collapsed btn"  href="#collapseFour">
                 Gebäude D
             </a>
         </div>
     </div>
     <div class="card">
         <div class="card-header">
-            <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseFive">
+            <a class="collapsed btn"  href="#collapseFive">
                 Gebäude E
             </a>
         </div>

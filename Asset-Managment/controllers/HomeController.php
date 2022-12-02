@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'].'/../models/gericht.php');
+
 
 /* Datei: controllers/HomeController.php */
 class HomeController
@@ -62,6 +62,30 @@ class HomeController
     public function ausleihe(RequestData $rd)
     {
         return view('Ausleihe_Student.ausleihe',[]);
+    }
+
+    public function raumansicht(RequestData $rd)
+    {
+        // 1 = Admin, 2 = Mitarbeiter, 3 = Student
+        $anwender = 1;
+
+        if($anwender >= 3) {
+            return view('Raumansicht.studenten.raumansicht_studenten', [
+                'gebaeude' => $rd->query['gebaeude'] ?? 'a'
+            ]);
+        }
+
+        return view('Raumansicht.raumansicht',[
+                'room' => $rd->query['raum'] ?? 'a001',
+                'user' => $anwender,
+                'database_filter' => false
+        ]);
+
+
+
+
+
+
     }
 
 }
