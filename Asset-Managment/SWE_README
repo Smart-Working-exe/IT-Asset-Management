@@ -2,7 +2,7 @@
 {
 
 # Einträge hinzufügen, bearbeiten, Export ... Alles was über Pop-Up-Fenster und in mehreren szenen benötigt ist befindet sich in views/modals
-        * ausgenommen modals in bezug auf Einstellungen diese gibt es direkt in der Einstellung/einstellung.blade.php
+        * ausgenommen modals welche es nur in einer szene gibt
 
         * solltet ihr festellen, ihr nutzt dasselbe in mehreren Szenen legt möglichst nach dem selben Prinzip etwas an, vermeidet Redundanz
 
