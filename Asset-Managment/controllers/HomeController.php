@@ -14,16 +14,54 @@ class HomeController
         return view('Login.login', ['rq'=>$rd,'loginFailed'=>$loginFailed]);
    }
     public function dashboard_admin(RequestData $rd){
-        //Set true to show "incorrect login data" warning
+
         return view('Dashboard.dashboard_admin', ['rq'=>$rd]);
     }
 
     public function dashboard_mitarbeiter(RequestData $rd){
-        //Set true to show "incorrect login data" warning
+
         return view('Dashboard.dashboard_mitarbeiter', ['rq'=>$rd]);
     }
     public function dashboard_student(RequestData $rd){
-        //Set true to show "incorrect login data" warning
-        return view('Dashboard.dashboard_mitarbeiter', ['rq'=>$rd]);
+
+        return view('Dashboard.dashboard_student', ['rq'=>$rd]);
     }
+
+    public function einstellungen(RequestData $rd){
+        //User => 1 wenn admin, 2 = Mitarbeiter, 3 = student
+        return view ('Einstellungen.einstellungen',['user' => 2]);
+    }
+
+    public function verleihung(RequestData $rd)
+    {
+        return view('Verleihung_Mitarbeiter.verleihung',[]);
+    }
+
+    public function systemlogs(RequestData $rd)
+    {
+        return view('Systemlogs.systemlogs',[]);
+
+    }
+
+    public function softwarelizenzen(RequestData $rd)
+    {
+        return view('Softwarelizenzen.softwarelizenzen',[]);
+
+    }
+
+    public function raumauswahl(RequestData $rd)
+    {
+        $student = false;//set true um raumauswahl fuer studenten zu bekommen
+        if($student)
+             return view('Raumauswahl.raumauswahl_studenten',[]);
+        else
+            return view('Raumauswahl.raumauswahl',[]);
+
+    }
+
+    public function ausleihe(RequestData $rd)
+    {
+        return view('Ausleihe_Student.ausleihe',[]);
+    }
+
 }

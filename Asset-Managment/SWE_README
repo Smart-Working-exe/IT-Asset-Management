@@ -1,0 +1,23 @@
+
+{
+
+# Einträge hinzufügen, bearbeiten, Export ... Alles was über Pop-Up-Fenster und in mehreren szenen benötigt ist befindet sich in views/modals
+        * ausgenommen modals in bezug auf Einstellungen diese gibt es direkt in der Einstellung/einstellung.blade.php
+
+        * solltet ihr festellen, ihr nutzt dasselbe in mehreren Szenen legt möglichst nach dem selben Prinzip etwas an, vermeidet Redundanz
+
+        * nutzt ihr dieses in eurer Szene so macht bspw. @extends(modals.ordnername.name)
+        * denkt daran im Layout entsprechend @yield('name') hinzuzufügen
+
+
+ # vernachlässigt erstmal Buttons wie "zurück zum Dashboard", diese müssen voraussichtlich später eh nochmal angepasst werden
+        * das bedeutet auch, wenn ihr zu eurer Szene, welche ihr bearbeiten wollt, nicht hingelangt guckt wie diese in config/web.php und im Home Controller definiert sind
+        * es kann sein das ihr aktuell Variablen anpassen müsst um dort hin zu gelangen
+
+
+ #  Begrifflichkeiten und zuordnung
+        * Verleihung => Mitarbeiter
+        * Ausleihe => Student
+
+
+} -jan

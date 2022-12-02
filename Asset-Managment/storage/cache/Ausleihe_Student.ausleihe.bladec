@@ -1,0 +1,4 @@
+<?php $_shouldextend[1]=1; ?>
+<?php $_shouldextend[2]=1; ?>
+<?php if (isset($_shouldextend[2])) { echo $this->runChild('header_footer'); } ?>
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('Ausleihe_Student.layout_ausleihe'); } ?>

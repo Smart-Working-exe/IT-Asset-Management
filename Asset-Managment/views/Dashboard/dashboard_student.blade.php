@@ -1,30 +1,16 @@
-@extends('layout_dashboard')
+@extends('Dashboard.layout_dashboard')
+@extends('header_footer')
 
-@section('header')
-<div class="row">
-    <a href="/dashboard_student" class="col-3"><img class="img-fluid"
-                                                         src="/img/fh-aachen_university-of-applied-sciences_303_logo.png"
-                                                         alt="fhlogo"></a>
-    <a href="/dashboard_student" class="nav-link col-6"><p class="h1 text-center mt-4">IT Asset Management</p>
-    </a>
-    <div class="col-3">
-        <!-- <form method="get"> -->
-        <a href="/login">
-            <button type="submit" class="btn btn-danger mt-4">Abmelden</button>
-        </a>
-        <!-- </form> -->
-    </div>
-</div>
-@endsection
 
 @section('Navigation')
-<div class="row mt-5 row justify-content-between">
+    <div class="row mt-5 row justify-content-between">
         <div class="btn-group-vertical col-5 mt-3 offset-1">
 
-            <a style="padding: 3%;" href="raumauswahl_studenten.php" type="button" class="btn btn-primary staticButton sub text-center">Raumansicht</a>
-            <a style="padding: 3%;" href="ausleihe.php" type="button"
+            <a style="padding: 3%;" href="raumauswahl_studenten.php" type="button"
+               class="btn btn-primary staticButton sub text-center">Raumansicht</a>
+            <a style="padding: 3%;" href="/ausleihe" type="button"
                class="btn btn-primary staticButton sub mt-2 text-center">Ausleihe</a>
-            <a style="padding: 3%;" href="benachrichtigungseinstellungen_studenten.php" type="button"
+            <a style="padding: 3%;" href="/einstellungen" type="button"
                class="btn btn-primary staticButton sub mt-2">Einstellungen</a>
 
         </div>
@@ -64,19 +50,11 @@
                 </div>
             </div>
         </div>
-</div>
+    </div>
 @endsection
 
 @section('jsextra')
-<script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
 @endsection
 
-@section('footer')
-    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-        <li class="nav-item nav-link px-2 text-muted">Angemeldet als Benutzer lk8776s</li>
-        <li class="nav-item"><a href="/dashboard_student" class="nav-link px-2 text-muted">Home</a></li>
-        <li class="nav-item"><a href="https://www.fh-aachen.de/impressum/" class="nav-link px-2 text-muted"
-                                target="_blank">Impressum</a></li>
-    </ul>
-@endsection
 

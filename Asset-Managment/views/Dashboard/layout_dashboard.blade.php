@@ -30,7 +30,6 @@
 </div>
 <footer class="py-3 my-4">
    @yield('footer')
-    <p class="text-center text-muted">© 2022 SmartWorking.exe</p>
 </footer>
 @yield('jsextra')
 </body>
