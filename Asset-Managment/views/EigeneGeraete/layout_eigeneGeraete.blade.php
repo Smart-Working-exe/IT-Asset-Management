@@ -27,8 +27,8 @@
     @yield('geraetefilter')
 
     @yield('content')
-    <a href="/raumauswahl">
-        <button type="submit" class="btn btn-primary sub">Zurück zur Raumauswahl</button>
+    <a href="dashboard_mitglieder.php">
+        <button type="submit" class="btn btn-primary sub">Zurück zum Dashboard</button>
     </a>
 
 

@@ -84,7 +84,28 @@ class HomeController
 
     public function eigeneGeraete(RequestData $rd)
     {
-        return view('Raumansicht.eigeneGeraete', [
+        return view('EigeneGeraete.eigeneGeraete', [
+            'database_filter' => true
+        ]);
+    }
+
+    public function datenbank(RequestData $rd)
+    {
+
+        if(isset($rd->query['database'])) {
+            if ($rd->query['database'] == 'personen') {
+                return view('Datenbank.datenbank_personen', [
+                    'typ' => 'personen'
+                ]);
+            } elseif ($rd->query['database'] == 'lizenzen') {
+                return view('Datenbank.datenbank_lizenzen', [
+                    'typ' => 'lizenzen'
+                ]);
+            }
+        }
+
+        return view('Datenbank.datenbank_geraete',[
+            'typ' => 'geraete',
             'database_filter' => true
         ]);
     }

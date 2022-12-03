@@ -1,4 +1,4 @@
-@extends('Raumansicht.layout_raumansicht')
+@extends('EigeneGeraete.layout_eigeneGeraete')
 @extends('header_footer')
 @extends('modals.Eintraege.Device')
 @extends('Filter.geraete')

@@ -9,7 +9,7 @@
     <div class="row  justify-content-between" style="padding: 10%; font-size: 36px;">
         <div class="btn-group-vertical col-5 mt-3 offset-1">
             <a style="padding: 3% ;" href="/raumauswahl" type="button" class="btn btn-primary staticButton sub">Raumansicht</a>
-            <a style="padding: 3%;" href="datenbank_geraete.php" type="button"
+            <a style="padding: 3%;" href="/datenbank" type="button"
                class="btn btn-primary staticButton sub mt-2">Datenbank</a>
             <button type="submit" class="btn btn-primary staticButton sub mt-2" data-bs-toggle="modal"
                     data-bs-target="#addDevice">Geräte hinzufügen

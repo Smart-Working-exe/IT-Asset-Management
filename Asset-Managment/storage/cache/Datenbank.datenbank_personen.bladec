@@ -1,0 +1,72 @@
+<?php $_shouldextend[1]=1; ?>
+<?php $_shouldextend[2]=1; ?>
+<?php $_shouldextend[3]=1; ?>
+<?php $_shouldextend[4]=1; ?>
+<?php $_shouldextend[5]=1; ?>
+
+
+
+<?php $this->startSection('content'); ?>
+
+ <table class="table table-striped table-bordered" id="person">
+ <thead>
+ <tr>
+ <th onclick="sortTable(0, person)">Name <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px">
+ </th>
+ <th onclick="sortTable(1, person)">Vorname <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px">
+ </th>
+ <th onclick="sortTable(2, person)">Rolle <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px">
+ </th>
+ <th onclick="sortTable(3, person)">Kürzel <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px">
+ </th>
+ <th>Bearbeiten</th>
+ </tr>
+ </thead>
+ <tbody>
+
+ <tr>
+ <td>Musterstudent</td>
+ <td>Max</td>
+ <td>Student</td>
+ <td>mm5645s</td>
+ <td>
+ <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
+ data-bs-target="#editUser">Benutzer bearbeiten
+ </button>
+ </td>
+ </tr>
+
+ <tr>
+ <td>Mustermitarbeiter</td>
+ <td>Martin</td>
+ <td>Mitarbeiter</td>
+ <td>mm8536m</td>
+ <td>
+ <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
+ data-bs-target="#editUser">Benutzer bearbeiten
+ </button>
+ </td>
+ </tr>
+ <tr>
+ <td>Musteradmin</td>
+ <td>Maurice</td>
+ <td>Admin</td>
+ <td>mm2109a</td>
+ <td>
+ <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
+ data-bs-target="#editUser">Benutzer bearbeiten
+ </button>
+ </td>
+ </tr>
+
+ </tbody>
+ </table>
+
+
+<?php $this->stopSection(); ?>
+
+<?php if (isset($_shouldextend[5])) { echo $this->runChild('modals.export_import'); } ?>
+<?php if (isset($_shouldextend[4])) { echo $this->runChild('Filter.user'); } ?>
+<?php if (isset($_shouldextend[3])) { echo $this->runChild('modals.Eintraege.User'); } ?>
+<?php if (isset($_shouldextend[2])) { echo $this->runChild('header_footer'); } ?>
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('Datenbank.datenbank_layout'); } ?>
