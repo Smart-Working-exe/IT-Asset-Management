@@ -27,7 +27,13 @@
         * Ausleihe => Student
 
 
+
 # in der Datenbank werden technische Eckdaten, wenn es mehrere gibt, mit einem semicolon ';' getrennt
 
+# variablenwerte bedeutungen
+        *Rolle
+           - 1 = admin
+           - 2 = mitarbeiter
+           - 3 = student
 
 } -jan
