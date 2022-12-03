@@ -4,7 +4,7 @@ return [
     'user' => 'swe_praktikum',       // '<yourusername>'
     'password' => 'DasIstSWE', // '<yourpassword>'
     'database' => 'swe',
-    'port' => '7886'
+    'port' => '7586'
    /* $db_host     = '94.130.96.15';
 $db_user     = 'swe_praktikum';
 $db_pass     = 'DasIstSWE';

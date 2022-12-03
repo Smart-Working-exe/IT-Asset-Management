@@ -1,5 +1,6 @@
 <?php
 
+require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/geraete.php');
 
 /* Datei: controllers/HomeController.php */
 class HomeController
@@ -106,7 +107,17 @@ class HomeController
 
         return view('Datenbank.datenbank_geraete',[
             'typ' => 'geraete',
-            'database_filter' => true
+            'database_filter' => true,
+            'data' => getGeraeteData()
+        ]);
+    }
+
+
+    // zum testen, im browser einfach /test aufrufen
+    public function  test(RequestData $rd)
+    {
+        return view('test',[
+            'data' => getGeraeteData()
         ]);
     }
 

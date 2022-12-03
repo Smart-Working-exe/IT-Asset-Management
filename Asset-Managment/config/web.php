@@ -25,5 +25,7 @@ return array(
     '/ausleihe' => "HomeController@ausleihe",
     '/raumansicht' => "HomeController@raumansicht",
     '/eigeneGeraete' => "HomeController@eigeneGeraete",
-    '/datenbank' => 'HomeController@datenbank'
+    '/datenbank' => 'HomeController@datenbank',
+
+    '/test' => 'HomeController@test'
 );

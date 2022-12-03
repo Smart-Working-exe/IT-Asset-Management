@@ -36,145 +36,57 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>PC-1</td>
-            <td>Tower-Pc</td>
-            <td>Dell</td>
-            <td>6 Jahre</td>
-            <td>111.111.112.1</td>
-            <td>Windows10</td>
-            <td>
-                <ul>
-                    <li>MSOffice</li>
-                    <li>Visual Studio</li>
-                    <li>Microchip Studio</li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>8GB RAM</li>
-                    <li>1000GB SSD</li>
-                    <li>NVIDIA RTX4090</li>
-                </ul>
-            </td>
-            <td>Game Design geeignet</td>
-            <td>E145</td>
-            <td>
-                <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                        data-bs-target="#editDevice">Geräte bearbeiten
-                </button>
-            </td>
-        </tr>
 
-        <tr>
-            <td>PC-2</td>
-            <td>Tower-Pc</td>
-            <td>Dell</td>
-            <td>6 Jahre</td>
-            <td>111.111.112.2</td>
-            <td>Windows10</td>
-            <td>
-                <ul>
-                    <li>MSOffice</li>
-                    <li>Visual Studio</li>
-                    <li>Microchip Studio</li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>16GB RAM</li>
-                    <li>1000GB SSD</li>
-                    <li>NVIDIA RTX3070</li>
-                </ul>
-            </td>
-            <td>Virtualization geeignet</td>
-            <td>E144</td>
-            <td>
-                <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                        data-bs-target="#editConfirmation">Geräte bearbeiten
-                </button>
-            </td>
-        </tr>
+        @foreach($data as $geraet)
+            <tr>
+                <td>{{$geraet['name']}}</td>
+                <td>{{$geraet['typ']}}</td>
+                <td>{{$geraet['hersteller']}}</td>
+                <td>{{$geraet['age']}}</td>
+                <td>{{$geraet['ip-adresse']}}</td>
+                <td>
+                    @if(isset($geraet['betriebssystem']))
+                        <ul>
+                        @foreach($geraet['betriebssystem'] as $value)
+                            <li>{{$value}} </li>
+                        @endforeach
+                        </ul>
+                    @endif
+                </td>
+                <td>
+                    @if(isset($geraet['software']))
+                        <ul>
+                            @foreach($geraet['software'] as $value)
+                                <li>{{$value}} </li>
+                            @endforeach
+                        </ul>
+                    @endif
+                </td>
+                <td>
+                    @if(!empty($geraet['technische_eckdaten'][0]))
+                        <ul>
+                            @foreach($geraet['technische_eckdaten'] as $value)
+                                <li>{{$value}} </li>
+                            @endforeach
+                        </ul>
+                    @endif
+                </td>
+                <td class="no_nowrap">{{$geraet['kommentar']}}</td>
+                <td>{{$geraet['raumnummer']}}</td>
+                <td>
+                    <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
+                                   data-bs-target="#editDevice">Bearbeiten
+                    </button>
+                </td>
 
-        <tr>
-            <td>PC-3</td>
-            <td>Tower-Pc</td>
-            <td>Dell</td>
-            <td>6 Jahre</td>
-            <td>111.111.112.3</td>
-            <td>Windows10</td>
-            <td>
-                <ul>
-                    <li>MSOffice</li>
-                    <li>Visual Studio</li>
-                    <li>Microchip Studio</li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>16GB RAM</li>
-                    <li>1000GB SSD</li>
-                    <li>NVIDIA RTX3070</li>
-                </ul>
-            </td>
-            <td>Virtualization geeignet</td>
-            <td>E144</td>
-            <td>
-                <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                        data-bs-target="#editConfirmation">Geräte bearbeiten
-                </button>
-            </td>
-        </tr>
 
-        <tr>
-            <td>HDMI Kabel</td>
-            <td>Sonstiges</td>
-            <td>Amazon</td>
-            <td>2 Jahre</td>
-            <td></td>
-            <td></td>
-            <td>
-            </td>
-            <td>
-                <ul>
-                    <li>HDMI 2.0</li>
-                    <li>2 Meter</li>
 
-                </ul>
-            </td>
-            <td class="no_nowrap">Ist eigentlich nur 1,97m lang</td>
-            <td>Lager</td>
-            <td>
-                <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                        data-bs-target="#editConfirmation">Geräte bearbeiten
-                </button>
-            </td>
-        </tr>
+            </tr>
 
-        <tr>
-            <td>Maus</td>
-            <td>Pc-Maus</td>
-            <td>Logischtech</td>
-            <td>1 Jahr</td>
-            <td></td>
-            <td></td>
-            <td>
+        @endforeach
 
-            </td>
-            <td>
-                <ul>
-                    <li>Kabelgebunden</li>
-                    <li>1000 Hz</li>
-                </ul>
-            </td>
-            <td>Sie ist gerne microchips</td>
-            <td>Lager</td>
-            <td>
-                <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                        data-bs-target="#editConfirmation">Geräte bearbeiten
-                </button>
-            </td>
-        </tr>
+
+
 
         </tbody>
     </table>
