@@ -56,12 +56,16 @@
 
     @if($typ == 'geraete')
         @yield('geraetefilter')
-
+        @yield('addDevice')
+        @yield('editDevice')
     @elseif($typ == 'personen')
         @yield('userfilter')
-
+        @yield('addfilter')
+        @yield('editfilter')
     @elseif($typ == 'lizenzen')
         @yield('softwarefilter')
+        @yield('addsoftware')
+        @yield('editsoftware')
     @endif
 
     <div>

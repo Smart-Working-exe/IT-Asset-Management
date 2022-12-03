@@ -27,4 +27,7 @@
         * Ausleihe => Student
 
 
+# in der Datenbank werden technische Eckdaten, wenn es mehrere gibt, mit einem semicolon ';' getrennt
+
+
 } -jan

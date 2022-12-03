@@ -61,7 +61,7 @@
             <td>E145</td>
             <td>
                 <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                        data-bs-target="#editConfirmation">Geräte bearbeiten
+                        data-bs-target="#editDevice">Geräte bearbeiten
                 </button>
             </td>
         </tr>
