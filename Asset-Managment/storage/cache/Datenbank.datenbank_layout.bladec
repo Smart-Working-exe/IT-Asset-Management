@@ -56,12 +56,16 @@
 
  <?php if($typ == 'geraete'): ?>
  <?php echo $this->yieldContent('geraetefilter'); ?>
-
+ <?php echo $this->yieldContent('addDevice'); ?>
+ <?php echo $this->yieldContent('editDevice'); ?>
  <?php elseif($typ == 'personen'): ?>
  <?php echo $this->yieldContent('userfilter'); ?>
-
+ <?php echo $this->yieldContent('addfilter'); ?>
+ <?php echo $this->yieldContent('editfilter'); ?>
  <?php elseif($typ == 'lizenzen'): ?>
  <?php echo $this->yieldContent('softwarefilter'); ?>
+ <?php echo $this->yieldContent('addsoftware'); ?>
+ <?php echo $this->yieldContent('editsoftware'); ?>
  <?php endif; ?>
 
  <div>
