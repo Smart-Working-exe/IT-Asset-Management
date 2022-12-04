@@ -42,7 +42,7 @@
                 <td>{{$geraet['name']}}</td>
                 <td>{{$geraet['typ']}}</td>
                 <td>{{$geraet['hersteller']}}</td>
-                <td>{{$geraet['age']}}</td>
+                <td>{{$geraet['age']}} Jahre</td>
                 <td>{{$geraet['ip-adresse']}}</td>
                 <td>
                     @if(isset($geraet['betriebssystem']))

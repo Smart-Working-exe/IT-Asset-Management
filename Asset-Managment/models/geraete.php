@@ -1,12 +1,21 @@
 <?php
+require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/filter.php');
 
+
+const SEPERATOR = ';';
 
 /**
  * Gibt alle Geräte aus der Datenbank wieder, auf den den $filter passen
- * @param $filter  Array folgt noch
- * @return array gibt Geräte als 2 Dimensionales array wieder 1 Dimension = das Gerät 2 Dimension = eigenschaften des Gerätes,
- * wobei die Schlüssel für die Zweite DImension den Namen in der Datenbank entsprechend sind, als Beispiel: $array[0]['name'] gibt den Namen
- * des ersten Gerätes wieder
+ *   @param $filter array der Schlüssel gibt an, nach welcher Eigenschaft gefiltert wird, diese MÜSSEN der Eigenschafts-Namen in der Datenbank entsprechen! Für Namen und technische Daten als Schlüssel 'suche'<br>
+ *                      Der Wert, was die Eigenschaft sein soll. <br>
+ * <br>
+ *                      Softwarelizenzen und Betriessystem MÜSSEN als die entsprechende id uebergeben werden und der Schlüssel so heißen wie sie im table gerät_hat... benannt sind.<br>
+ * <br>
+ *                      Als Beispiel 'Array([age] => 3 [betriebssystem] => 1)' sucht nach einem Gerät welches 3 Jahre alt ist und Windows 10 besitzt.
+ * @return array array gibt Geräte als 2 Dimensionales array wieder 1 Dimension = das Gerät 2 Dimension = eigenschaften des Gerätes,
+ * wobei die Schlüssel für die Zweite DImension den Namen in der Datenbank entsprechend sind. <br> <br>
+ * Als Beispiel: $array[0]['name'] gibt den Namen
+ * des ersten Gerätes wieder <br>
  * @author jan
  */
 function getGeraeteData ($filter = []) {
@@ -18,10 +27,16 @@ function getGeraeteData ($filter = []) {
 
     // get geräte
     $sql = 'SELECT id,name,typ,hersteller,age,raumnummer,`ip-adresse`,technische_eckdaten,kommentar FROM geraet';
+
+    $sql = filter_to_sql($sql,1,$filter);
+
+
+
     $result = mysqli_query($link,$sql);
 
 
     $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
 
 
     foreach ($data as $key => $value) {
@@ -60,9 +75,11 @@ function getGeraeteData ($filter = []) {
 
 
         //technische_eckdaten von string zu array
-        $data[$key]['technische_eckdaten'] = explode(';',$value['technische_eckdaten']);
+        $data[$key]['technische_eckdaten'] = explode(SEPERATOR,$value['technische_eckdaten']);
 
-        // TODO alter als Zahl nicht mehr als Datum
+
+        $data[$key]['age'] = floor((time()- strtotime($value['age']))/31556926 );
+
     }
 
     mysqli_close($link);

@@ -1,6 +1,9 @@
 <?php
 
 require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/geraete.php');
+require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/betriessystem.php');
+require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/softwarelizenzen.php');
+require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/filter.php');
 
 /* Datei: controllers/HomeController.php */
 class HomeController
@@ -79,14 +82,16 @@ class HomeController
         return view('Raumansicht.raumansicht',[
                 'room' => $rd->query['raum'] ?? 'a001',
                 'user' => $anwender,
-                'database_filter' => false
+                'database_filter' => false,
+                'filter_variable_data' => get_softwarelizenzen_betriessystem() //Variable filter Daten wie zmb. softwarelizenzen
         ]);
     }
 
     public function eigeneGeraete(RequestData $rd)
     {
         return view('EigeneGeraete.eigeneGeraete', [
-            'database_filter' => true
+            'database_filter' => true,
+            'filter_variable_data' => get_softwarelizenzen_betriessystem() //Variable filter Daten wie zmb. softwarelizenzen
         ]);
     }
 
@@ -108,7 +113,9 @@ class HomeController
         return view('Datenbank.datenbank_geraete',[
             'typ' => 'geraete',
             'database_filter' => true,
-            'data' => getGeraeteData()
+            'data' => getGeraeteData(get_filter_data($rd)),
+            'filter_variable_data' => get_softwarelizenzen_betriessystem(), //Variable filter Daten wie zmb. softwarelizenzen
+            'test' => get_filter_data($rd)
         ]);
     }
 
@@ -117,7 +124,7 @@ class HomeController
     public function  test(RequestData $rd)
     {
         return view('test',[
-            'data' => getGeraeteData()
+            'data' => get_softwarelizenzen_betriessystem()
         ]);
     }
 
