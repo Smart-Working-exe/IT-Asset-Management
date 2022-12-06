@@ -1,7 +1,5 @@
 <?php
 
-
-
 function db_getAll_Betriebssystem()
 {
 
