@@ -23,6 +23,11 @@
                                 <input class="form-control" type="text" id="deviceName" placeholder="Hersteller*">
                             </div>
                         </div>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <input class="form-control" type="text" id="deviceName" placeholder="Version">
+                            </div>
+                        </div>
                     </div>
                     <div class="row mt-3">
                         <div class="col">
