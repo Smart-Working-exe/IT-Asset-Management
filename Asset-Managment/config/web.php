@@ -25,6 +25,7 @@ return array(
     '/raumansicht'          => "HomeController@raumansicht",
     '/eigeneGeraete'        => "HomeController@eigeneGeraete",
     '/datenbank'            => 'HomeController@datenbank',
+    '/lizenzhinzufugen'     => "HomeController@softwarelizenzen",
 
     '/test'                 => 'HomeController@test'
 );

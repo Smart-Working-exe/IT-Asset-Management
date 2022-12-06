@@ -4,6 +4,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/geraete.php');
 require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/betriessystem.php');
 require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/softwarelizenzen.php');
 require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/filter.php');
+require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/hinzufuegen.php');
 
 /* Datei: controllers/HomeController.php */
 class HomeController
@@ -49,6 +50,16 @@ class HomeController
 
     public function softwarelizenzen(RequestData $rd)
     {
+        $var=[
+            'hersteller'    =>filter_input(INPUT_POST,'Hersteller'),
+            'name'          =>filter_input(INPUT_POST,'Lizenzname'),
+            'version'       =>filter_input(INPUT_POST,'softwareversion'),
+            'anzahl_gerate' =>filter_input(INPUT_POST,'anzahl_gerate'),
+            'erwerbsdatum'  =>filter_input(INPUT_POST,'erwerbedatum'),
+            'ablaufdatum'   =>filter_input(INPUT_POST,'ablaufdatum')
+        ];
+        print_r($var);
+        db_add_software($var);
         return view('Softwarelizenzen.softwarelizenzen',[]);
 
     }

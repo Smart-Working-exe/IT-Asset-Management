@@ -10,65 +10,71 @@
                 </div>
 
                 <!-- Modal Body -->
+
                 <div class="modal-body">
                     <div class="row">
-                        <div class="row mt-3">
-                            <div class="col">
-                                <input class="form-control" type="text" id="deviceName"
-                                       placeholder="Name der Lizenz*">
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col">
-                                <input class="form-control" type="text" id="deviceName" placeholder="Hersteller*">
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col">
-                                <input class="form-control" type="text" id="deviceName" placeholder="Version">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col">
-                            <div class="form-group">
-                                <div class="input-group date" id="datepickerAvailable">
-                                    <input type="text" class="form-control" placeholder="Erwerbsdatum">
-                                    <span class="input-group-append">
-                                        <span class="input-group-text bg-white d-block">
-                                            <i class="fa fa-calendar"></i>
-                                        </span>
-                                    </span>
+                       <form action="/softwarelizenzen" method="post">
+                             <div class="row mt-3">
+                                <div class="col">
+                                    <input class="form-control" type="text" id="Lizenzname" name="Lizenzname"
+                                          placeholder="Name der Lizenz*">
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col">
-                            <div class="form-group">
-                                <div class="input-group date" id="datepickerNotAvailable">
-                                    <input type="text" class="form-control" placeholder="Ablaufdatum">
-                                    <span class="input-group-append">
-                                        <span class="input-group-text bg-white d-block">
-                                            <i class="fa fa-calendar"></i>
-                                        </span>
-                                    </span>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input class="form-control" type="text" name=Hersteller
+                                           id="Hersteller" placeholder="Hersteller*">
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col">
-                            <input class="form-control" type="number" id="deviceName"
-                                   placeholder="Anzahl verfügbarer Installation">
-                        </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input class="form-control" type="text" name="softwareversion" id="softwareversion" placeholder="Version">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <div class="input-group date" id="datepickerAvailable">
+                                            <input type="text" class="form-control" id="erwerbedatum" name="erwerbedatum" placeholder="Erwerbsdatum">
+                                            <span class="input-group-append">
+                                                <span class="input-group-text bg-white d-block">
+                                                    <i class="fa fa-calendar"></i>
+                                                </span>
+                                            </span>
+                                        </div>
+                                  </div>
+                             </div>
+                            </div>
+                            <div class="row mt-3">
+                              <div class="col">
+                                    <div class="form-group">
+                                        <div class="input-group date" id="datepickerNotAvailable">
+                                            <input type="text" class="form-control"   id="ablaufdatum"
+                                                   name="ablaufdatum" placeholder="Ablaufdatum">
+                                            <span class="input-group-append">
+                                                <span class="input-group-text bg-white d-block">
+                                                    <i class="fa fa-calendar"></i>
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                             </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input class="form-control" type="number" name="anzahl_gerate" id="anzahl_gerate"
+                                           placeholder="Anzahl verfügbarer Installation">
+                                </div>
+                            </div>
+                        <input type="submit" value="abschicken">
+                        </form>
                     </div>
                 </div>
                 <!-- Modal footer -->
                 <div class="modal-footer">
                     <p>mit * makierte Felder sind Pflichtfelder</p>
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">+</button>
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Speichern</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                            name="softwarelizenzsend" id="softwarelizenzsend">Speichern</button>
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
                 </div>
             </div>
