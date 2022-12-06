@@ -6,12 +6,12 @@
 
             <div class="input-group mt-2 col-3" style="width: 20%; height: 2vh;">
                 <input type="search" class="form-control rounded" placeholder="Suche" aria-label="Search"
-                       aria-describedby="search-addon" name="suche" id="suche"/>
+                       aria-describedby="search-addon" name="filter_suche" id="filter_suche"/>
             </div>
 
             <div class="col mt-2">
 
-                <select class="form-select" name="Typ" id="Typ">
+                <select class="form-select" name="filter_Typ" id="filter_Typ">
                     <option value="" selected>Typ</option>
                     <option value="PC">PC</option>
                     <option value="Laptop">Laptop</option>
@@ -26,19 +26,19 @@
 
             <div class="col mt-2">
                 <input type="search" class="form-control rounded" placeholder="Hersteller" aria-label="Search"
-                       name="hersteller" id="hersteller">
+                       name="filter_hersteller" id="filter_hersteller">
             </div>
 
             <div class="col mt-2">
                 <input type="search" class="form-control rounded" placeholder="Alter" aria-label="Search"
-                       name="age" id="age">
+                       name="filter_age" id="filter_age">
             </div>
 
             <div class="col mt-2">
                 <select class="form-select" name="betriebssystem" id="betriebssystem">
                     <option value="" selected>Betriebssystem</option>
                     @foreach($filter_variable_data['betriessystem'] as $key => $data)
-                        <option value="{{$key}}">{{$data}}</option>
+                        <option value="filter_{{$key}}">{{$data}}</option>
                     @endforeach
                 </select>
             </div>
@@ -47,7 +47,7 @@
                 <select class="form-select" name="software" id="software">
                     <option value="" selected>Software</option>
                     @foreach($filter_variable_data['softwarelizenzen'] as $key => $data)
-                        <option value="{{$key}}">{{$data}}</option>
+                        <option value="filter_{{$key}}">{{$data}}</option>
                     @endforeach
                 </select>
             </div>

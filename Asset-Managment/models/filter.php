@@ -61,23 +61,23 @@ function get_filter_data(RequestData &$rd) : array
     $filter_search = [];
 
 
-    if($rd->query['suche'] ?? false)
-        $filter_search['suche'] = $rd->query['suche'];
+    if($rd->query['filter_suche'] ?? false)
+        $filter_search['suche'] = $rd->query['filter_suche'];
 
-    if($rd->query['Typ'] ?? false)
-        $filter_search['Typ'] = $rd->query['Typ'];
+    if($rd->query['filter_Typ'] ?? false)
+        $filter_search['Typ'] = $rd->query['filter_Typ'];
 
-    if($rd->query['hersteller'] ?? false)
-        $filter_search['hersteller'] = $rd->query['hersteller'];
+    if($rd->query['filter_hersteller'] ?? false)
+        $filter_search['hersteller'] = $rd->query['filter_hersteller'];
 
-    if($rd->query['age'] ?? false)
-        $filter_search['age'] = $rd->query['age'];
+    if($rd->query['filter_age'] ?? false)
+        $filter_search['age'] = $rd->query['filter_age'];
 
-    if($rd->query['betriebssystem'] ?? false)
-        $filter_search['betriebssystemid'] = $rd->query['betriebssystem'];
+    if($rd->query['filter_betriebssystem'] ?? false)
+        $filter_search['betriebssystemid'] = $rd->query['filter_betriebssystem'];
 
-    if($rd->query['software'] ?? false)
-        $filter_search['softwarelizenzid'] = $rd->query['software'];
+    if($rd->query['filter_software'] ?? false)
+        $filter_search['softwarelizenzid'] = $rd->query['filter_software'];
 
     if($rd->query['raumnummer'] ?? false)
         $filter_search['raumnummer'] = $rd->query['raumnummer'];

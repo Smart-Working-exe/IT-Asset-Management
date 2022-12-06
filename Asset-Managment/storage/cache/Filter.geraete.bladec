@@ -6,12 +6,12 @@
 
  <div class="input-group mt-2 col-3" style="width: 20%; height: 2vh;">
  <input type="search" class="form-control rounded" placeholder="Suche" aria-label="Search"
- aria-describedby="search-addon" name="suche" id="suche"/>
+ aria-describedby="search-addon" name="filter_suche" id="filter_suche"/>
  </div>
 
  <div class="col mt-2">
 
- <select class="form-select" name="Typ" id="Typ">
+ <select class="form-select" name="filter_Typ" id="filter_Typ">
  <option value="" selected>Typ</option>
  <option value="PC">PC</option>
  <option value="Laptop">Laptop</option>
@@ -26,12 +26,12 @@
 
  <div class="col mt-2">
  <input type="search" class="form-control rounded" placeholder="Hersteller" aria-label="Search"
- name="hersteller" id="hersteller">
+ name="filter_hersteller" id="filter_hersteller">
  </div>
 
  <div class="col mt-2">
  <input type="search" class="form-control rounded" placeholder="Alter" aria-label="Search"
- name="age" id="age">
+ name="filter_age" id="filter_age">
  </div>
 
  <div class="col mt-2">
@@ -39,7 +39,7 @@
  <option value="" selected>Betriebssystem</option>
  <?php $__currentLoopData = $filter_variable_data['betriessystem']; $this->addLoop($__currentLoopData);$this->getFirstLoop();
  foreach($__currentLoopData as $key => $data): $loop = $this->incrementLoopIndices();  ?>
- <option value="<?php echo \htmlentities($key??'', ENT_QUOTES, 'UTF-8', false); ?>"><?php echo \htmlentities($data??'', ENT_QUOTES, 'UTF-8', false); ?></option>
+ <option value="filter_<?php echo \htmlentities($key??'', ENT_QUOTES, 'UTF-8', false); ?>"><?php echo \htmlentities($data??'', ENT_QUOTES, 'UTF-8', false); ?></option>
  <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
  </select>
  </div>
@@ -49,7 +49,7 @@
  <option value="" selected>Software</option>
  <?php $__currentLoopData = $filter_variable_data['softwarelizenzen']; $this->addLoop($__currentLoopData);$this->getFirstLoop();
  foreach($__currentLoopData as $key => $data): $loop = $this->incrementLoopIndices();  ?>
- <option value="<?php echo \htmlentities($key??'', ENT_QUOTES, 'UTF-8', false); ?>"><?php echo \htmlentities($data??'', ENT_QUOTES, 'UTF-8', false); ?></option>
+ <option value="filter_<?php echo \htmlentities($key??'', ENT_QUOTES, 'UTF-8', false); ?>"><?php echo \htmlentities($data??'', ENT_QUOTES, 'UTF-8', false); ?></option>
  <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
  </select>
  </div>
