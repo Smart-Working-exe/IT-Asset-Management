@@ -16,7 +16,6 @@ return array(
     '/dashboard_mitarbeiter'=> "HomeController@dashboard_mitarbeiter",
     '/dashboard_student'    => "HomeController@dashboard_student",
 
-
     '/einstellungen'        => "HomeController@einstellungen",
     '/verleihung'           => "HomeController@verleihung",
     '/systemlogs'           => "HomeController@systemlogs",
