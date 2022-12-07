@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Asset-ManagementMCV.iml" filepath="$PROJECT_DIR$/.idea/Asset-ManagementMCV.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/IT-Asset-Management.iml" filepath="$PROJECT_DIR$/.idea/IT-Asset-Management.iml" />
     </modules>
   </component>
 </project>
