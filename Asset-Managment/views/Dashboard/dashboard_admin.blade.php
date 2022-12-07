@@ -31,36 +31,38 @@
                 <div class="row">
                     <p class="display-6 h6 text-center col-4 mt-3">Benachrichtungen</p>
                 </div>
-
-                <div class="toast show col-6 mt-2">
-                    <div class="toast-header ">
-                        Important
-                        <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
-                    </div>
-                    <div class="toast-body">
-                        Die Lizenz von Microsoft Visual Studio läuft auf PC1 in 3 Tagen ab.
-                    </div>
-                </div>
-
-                <div class="toast show col-6 mt-2">
-                    <div class="toast-header">
-                        Important
-                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                    </div>
-                    <div class="toast-body">
-                        Die Lizenz von MS Office läuft auf PC2 in 14 Tagen ab.
-                    </div>
-                </div>
-
-                <div class="toast show col-6 mt-2">
-                    <div class="toast-header ">
-                        Important
-                        <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
-                    </div>
-                    <div class="toast-body">
-                        In Raum A001 sind 30 von 32 IP-Adressen belegt.
-                    </div>
-                </div>
+                    @foreach ($notifs as $benachrichtigung)
+                        @if(@isset($benachrichtigung['name']))
+                            <div class="toast show col-6 mt-2">
+                                <div class="toast-header ">
+                                    Important
+                                    <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+                                </div>
+                                <div class="toast-body">
+                                    @if($benachrichtigung['ablaufzeitraum'] < 0)
+                                        Die Lizenz von {{ $benachrichtigung['name'] }} ist auf {{ $benachrichtigung['anzahl_gerate'] }}
+                                        Gerät(en) vor {{ -1*$benachrichtigung['ablaufzeitraum'] }} Tag(en) abgelaufen.
+                                    @elseif($benachrichtigung['ablaufzeitraum'] == 0)
+                                        Die Lizenz von {{ $benachrichtigung['name'] }} läuft auf {{ $benachrichtigung['anzahl_gerate'] }}
+                                        Gerät(en) heute ab.
+                                    @else($benachrichtigung['ablaufzeitraum'] < 0)
+                                        Die Lizenz von {{ $benachrichtigung['name'] }} läuft auf {{ $benachrichtigung['anzahl_gerate'] }}
+                                        Gerät(en) in {{ $benachrichtigung['ablaufzeitraum'] }} Tag(en) ab.
+                                    @endif
+                                </div>
+                            </div>
+                        @elseif(@isset($benachrichtigung['raumnummer']))
+                            <div class="toast show col-6 mt-2">
+                                <div class="toast-header ">
+                                    Important
+                                    <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+                                </div>
+                                <div class="toast-body">
+                                    In Raum {{ $benachrichtigung['raumnummer'] }} sind {{ $benachrichtigung['belegung_ip'] }} von {{ $benachrichtigung['anzahl_ip'] }} IP-Adressen belegt.
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
             </div>
         @endsection
 

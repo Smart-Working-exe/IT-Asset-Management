@@ -53,6 +53,36 @@
     </div>
 @endsection
 
+@section('Benachrichtigungen')
+    <div class="col-5">
+        <div class="row">
+            <p class="display-6 h6 text-center col-4 mt-3">Benachrichtungen</p>
+        </div>
+        @foreach ($notifs as $benachrichtigung)
+            @if(@isset($benachrichtigung['name']))
+                <div class="toast show col-6 mt-2">
+                    <div class="toast-header ">
+                        Important
+                        <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+                    </div>
+                    <div class="toast-body">
+                        @if($benachrichtigung['ablaufzeitraum'] < 0)
+                            Die Lizenz von {{ $benachrichtigung['name'] }} ist auf {{ $benachrichtigung['anzahl_gerate'] }}
+                            Gerät(en) vor {{ -1*$benachrichtigung['ablaufzeitraum'] }} Tag(en) abgelaufen.
+                        @elseif($benachrichtigung['ablaufzeitraum'] == 0)
+                            Die Lizenz von {{ $benachrichtigung['name'] }} läuft auf {{ $benachrichtigung['anzahl_gerate'] }}
+                            Gerät(en) heute ab.
+                        @else($benachrichtigung['ablaufzeitraum'] < 0)
+                            Die Lizenz von {{ $benachrichtigung['name'] }} läuft auf {{ $benachrichtigung['anzahl_gerate'] }}
+                            Gerät(en) in {{ $benachrichtigung['ablaufzeitraum'] }} Tag(en) ab.
+                        @endif
+                    </div>
+                </div>
+            @endif
+        @endforeach
+    </div>
+@endsection
+
 @section('jsextra')
     <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
 @endsection

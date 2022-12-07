@@ -4,6 +4,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/geraete.php');
 require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/betriessystem.php');
 require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/softwarelizenzen.php');
 require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/filter.php');
+require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/benachrichtigungen.php');
 
 /* Datei: controllers/HomeController.php */
 class HomeController
@@ -18,17 +19,17 @@ class HomeController
         return view('Login.login', ['rq'=>$rd,'loginFailed'=>$loginFailed]);
    }
     public function dashboard_admin(RequestData $rd){
-
-        return view('Dashboard.dashboard_admin', ['rq'=>$rd]);
+        $notifs = notif_admin();
+        return view('Dashboard.dashboard_admin', ['rq'=>$rd, 'notifs' => $notifs]);
     }
 
     public function dashboard_mitarbeiter(RequestData $rd){
-
-        return view('Dashboard.dashboard_mitarbeiter', ['rq'=>$rd]);
+        $notifs = notif_employee();
+        return view('Dashboard.dashboard_mitarbeiter', ['rq'=>$rd, 'notifs' => $notifs]);
     }
     public function dashboard_student(RequestData $rd){
-
-        return view('Dashboard.dashboard_student', ['rq'=>$rd]);
+        $notifs = notif_student();
+        return view('Dashboard.dashboard_student', ['rq'=>$rd, 'notifs' => $notifs]);
     }
 
     public function einstellungen(RequestData $rd){
