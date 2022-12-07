@@ -51,12 +51,12 @@ class HomeController
     public function softwarelizenzen(RequestData $rd)
     {
         $var=[
-            'hersteller'    =>filter_input(INPUT_POST,'Hersteller'),
-            'name'          =>filter_input(INPUT_POST,'Lizenzname'),
-            'version'       =>filter_input(INPUT_POST,'softwareversion'),
-            'anzahl_gerate' =>filter_input(INPUT_POST,'anzahl_gerate'),
-            'erwerbsdatum'  =>filter_input(INPUT_POST,'erwerbedatum'),
-            'ablaufdatum'   =>filter_input(INPUT_POST,'ablaufdatum')
+            'hersteller'    => filter_input(INPUT_POST,'hersteller'),
+            'name'          => filter_input(INPUT_POST,'lizenzname'),
+            'version'       => filter_input(INPUT_POST,'softwareversion'),
+            'anzahl_gerate' => filter_input(INPUT_POST,'anzahl_gerate'),
+            'erwerbsdatum'  => filter_input(INPUT_POST,'erwerbedatum'),
+            'ablaufdatum'   => filter_input(INPUT_POST,'ablaufdatum')
         ];
         print_r($var);
         db_add_software($var);

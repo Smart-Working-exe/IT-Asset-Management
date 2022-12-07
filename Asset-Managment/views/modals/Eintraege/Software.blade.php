@@ -16,14 +16,14 @@
                        <form action="/softwarelizenzen" method="post">
                              <div class="row mt-3">
                                 <div class="col">
-                                    <input class="form-control" type="text" id="Lizenzname" name="Lizenzname"
+                                    <input class="form-control" type="text" id="lizenzname" name="lizenzname"
                                           placeholder="Name der Lizenz*">
                                 </div>
                             </div>
                             <div class="row mt-3">
                                 <div class="col">
-                                    <input class="form-control" type="text" name=Hersteller
-                                           id="Hersteller" placeholder="Hersteller*">
+                                    <input class="form-control" type="text" name="hersteller"
+                                           id="hersteller" placeholder="Hersteller*">
                                 </div>
                             </div>
                             <div class="row mt-3">
