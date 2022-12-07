@@ -72,10 +72,7 @@ function db_add_user()
 
 function db_add_software($var)
 {
-    $ablaufzeitraum = date('y-m-d h:i:s');
-
     $db = connectdb();
-
     $hersteller = $var['hersteller'];
     $name = $var['name'];
     $version = $var['version'];

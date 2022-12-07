@@ -17,13 +17,13 @@
                              <div class="row mt-3">
                                 <div class="col">
                                     <input class="form-control" type="text" id="lizenzname" name="lizenzname"
-                                          placeholder="Name der Lizenz*">
+                                          placeholder="Name der Lizenz*" required>
                                 </div>
                             </div>
                             <div class="row mt-3">
                                 <div class="col">
                                     <input class="form-control" type="text" name="hersteller"
-                                           id="hersteller" placeholder="Hersteller*">
+                                           id="hersteller" placeholder="Hersteller*" required>
                                 </div>
                             </div>
                             <div class="row mt-3">
@@ -35,7 +35,7 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <div class="input-group date" id="datepickerAvailable">
-                                            <input type="text" class="form-control" id="erwerbedatum" name="erwerbedatum" placeholder="Erwerbsdatum">
+                                            <input type="text" class="form-control" id="erwerbedatum" name="erwerbedatum" placeholder="Erwerbsdatum*" required>
                                             <span class="input-group-append">
                                                 <span class="input-group-text bg-white d-block">
                                                     <i class="fa fa-calendar"></i>
@@ -50,7 +50,7 @@
                                     <div class="form-group">
                                         <div class="input-group date" id="datepickerNotAvailable">
                                             <input type="text" class="form-control"   id="ablaufdatum"
-                                                   name="ablaufdatum" placeholder="Ablaufdatum">
+                                                   name="ablaufdatum" placeholder="Ablaufdatum*" required>
                                             <span class="input-group-append">
                                                 <span class="input-group-text bg-white d-block">
                                                     <i class="fa fa-calendar"></i>
@@ -63,7 +63,7 @@
                             <div class="row mt-3">
                                 <div class="col">
                                     <input class="form-control" type="number" name="anzahl_gerate" id="anzahl_gerate"
-                                           placeholder="Anzahl verfügbarer Installation">
+                                           placeholder="Anzahl verfügbarer Installation*" required>
                                 </div>
                             </div>
                         <input type="submit" value="abschicken">

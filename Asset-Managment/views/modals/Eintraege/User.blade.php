@@ -16,7 +16,7 @@
                         <div class="row">
                             <div class="row mt-3">
                                 <div class="col">
-                                    <select class="form-select" aria-label="Default select example" id="userRole" @if(isset($_POST['userRole'])) {{'value="' . $_POST['userRole'] . '"'}} @endif>
+                                    <select class="form-select" aria-label="Default select example" id="userRole">
                                         <option selected disabled>Rolle*</option>
                                         <option value="0" id="userRole">Administrator</option>
                                         <option value="1" id="userRole">Mitarbeiter</option>
@@ -26,18 +26,18 @@
                             </div>
                             <div class="row mt-3">
                                 <div class="col">
-                                    <input class="form-control" type="text" id="userFirstName" placeholder="Vorname*"  @if(isset($_POST['userFirstName'])) {{'value="' . $_POST['userFirstName'] . '"'}} @endif></div>
+                                    <input class="form-control" type="text" id="userFirstName" placeholder="Vorname*"></div>
                                 <div class="col">
-                                    <input class="form-control" type="text" id="userLastName" placeholder="Name*" @if(isset($_POST['userLastName'])) {{'value="' . $_POST['userLastName'] . '"'}} @endif></div>
+                                    <input class="form-control" type="text" id="userLastName" placeholder="Name*"></div>
                             </div>
                             <div class="row mt-3">
                                 <div class="col">
-                                    <input class="form-control" type="text" id="userFH_Name" placeholder="Benutzerkennung*" @if(isset($_POST['userFH_Name'])) {{'value="' . $_POST['userFH_Name'] . '"'}} @endif>
+                                    <input class="form-control" type="text" id="userFH_Name" placeholder="Benutzerkennung*">
                                 </div>
                             </div>
                             <div class="row mt-3">
                                 <div class="col">
-                                    <input class="form-control" type="password" id="userPass" placeholder="Passwort*" @if(isset($_POST['userPass'])) {{'value="' . $_POST['userPass'] . '"'}} @endif>
+                                    <input class="form-control" type="password" id="userPass" placeholder="Passwort*">
                                 </div>
                             </div>
                         </div>

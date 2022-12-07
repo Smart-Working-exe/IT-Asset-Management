@@ -59,7 +59,8 @@ class HomeController
             'ablaufdatum'   => filter_input(INPUT_POST,'ablaufdatum')
         ];
         print_r($var);
-        db_add_software($var);
+        if ($var['name'] != null)
+            db_add_software($var);
         return view('Softwarelizenzen.softwarelizenzen',[]);
 
     }
