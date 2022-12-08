@@ -26,7 +26,7 @@
             @if ($loginFailed)
             "<div class='alert alert-danger'>Benutzername oder Passwort ungültig </div>"
             @endif
-            <form {{--action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"--}} method="post">
+            <form action="/login_verify" method="post">
                 <div class="form-group mb-3 mt-3">
                     <label for="username">Benutzername*</label>
                     <input type="text" name="username" id="username" required="true"

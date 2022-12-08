@@ -7,14 +7,13 @@
  */
 
 return array(
-    '/'       => "HomeController@login",
-    '/login'       => "HomeController@login",
-    //Sicherheitsproblem Frage wie schränke ich den Zugriff ein? Scheinbar über index.php
-    //Diese Links sind also nur zum testen während der Programmierung und werden später entfernt
-    // Ich würde immer /dashboard aufrufen und bei dieser controller-Funktion dann die unterscheidung machen -jan
-    '/dashboard_admin'       => "HomeController@dashboard_admin",
-    '/dashboard_mitarbeiter'       => "HomeController@dashboard_mitarbeiter",
-    '/dashboard_student'       => "HomeController@dashboard_student",
+    '/'       => "HomeController@dashboard",
+    '/login'       => "LoginController@login",
+    '/login_verify'       => "LoginController@login_verify",
+    '/logout'       => "LoginController@logout",
+    // Ich würde immer /dashboard aufrufen und bei dieser controller-Funktion dann die unterscheidung machen -jan ist mir auch gerade aufgefallen danke :D
+    '/dashboard'       => "HomeController@dashboard",
+
 
 
     '/einstellungen'    => "HomeController@einstellungen",
