@@ -29,7 +29,7 @@
         @section('Benachrichtigungen')
             <div class="col-5">
                 <div class="row">
-                    <p class="display-6 h6 text-center col-4 mt-3">Benachrichtungen</p>
+                    <p class="display-6 h6 text-center col-4 mt-3">Benachrichtigungen</p>
                 </div>
                     @foreach ($notifs as $benachrichtigung)
                         @if(@isset($benachrichtigung['name']))
