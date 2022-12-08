@@ -25,6 +25,7 @@ class HomeController
 
     public function dashboard_mitarbeiter(RequestData $rd){
         $notifs = notif_employee();
+
         return view('Dashboard.dashboard_mitarbeiter', ['rq'=>$rd, 'notifs' => $notifs]);
     }
     public function dashboard_student(RequestData $rd){
