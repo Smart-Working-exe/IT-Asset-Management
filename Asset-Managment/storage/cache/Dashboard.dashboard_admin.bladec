@@ -29,7 +29,7 @@
  <?php $this->startSection('Benachrichtigungen'); ?>
  <div class="col-5">
  <div class="row">
- <p class="display-6 h6 text-center col-4 mt-3">Benachrichtungen</p>
+ <p class="display-6 h6 text-center col-4 mt-3">Benachrichtigungen</p>
  </div>
  <?php $__currentLoopData = $notifs; $this->addLoop($__currentLoopData);$this->getFirstLoop();
  foreach($__currentLoopData as $benachrichtigung): $loop = $this->incrementLoopIndices();  ?>

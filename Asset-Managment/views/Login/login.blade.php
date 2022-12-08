@@ -23,18 +23,13 @@
 
     <div class="row mt-3 justify-content-center align-items-center">
         <div class="col-4">
-            @if ($loginFailed)
-            "<div class='alert alert-danger'>Benutzername oder Passwort ungültig </div>"
-            @endif
+
             <form action="/login_verify" method="post">
                 <div class="form-group mb-3 mt-3">
                     <label for="username">Benutzername*</label>
                     <input type="text" name="username" id="username" required="true"
                            class="form-control {{(!empty($username_err)) ? 'is-invalid' : ''}}"
                            placeholder="Benutzername"
-                                @if($loginFailed)
-                                  {{"value = 'lk5975s' "}}
-                                @endif
                     >
                     <span class="invalid-feedback">{{$username_err}}</span>
                 </div>
