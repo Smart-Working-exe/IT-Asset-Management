@@ -3,7 +3,7 @@
 
 function notif_admin()
 {
-    $self = 'ad1234a';   // Platzhalter
+    $self = $_SESSION['name'];   // Platzhalter
 
     $link = connectdb();
     // get einstellungen
@@ -32,7 +32,7 @@ function notif_admin()
 
 function notif_employee()
 {
-    $self = 'tw0850m';   // Platzhalter
+    $self = $_SESSION['name'];
 
     $link = connectdb();
     // get einstellungen
@@ -60,7 +60,7 @@ function notif_employee()
 
 function notif_student()
 {
-    $self = 'vm4269s';   // Platzhalter
+    $self = $_SESSION['name'];
 
     $link = connectdb();
     // get einstellungen

@@ -20,13 +20,16 @@ class HomeController
             header('Location: /login');
         }
         if($_SESSION['Rolle'] == 1){
-            return view('Dashboard.dashboard_admin', ['rq'=>$rd]);
+            $notifs = notif_admin();
+            return view('Dashboard.dashboard_admin', ['rq'=>$rd, 'notifs'=>$notifs]);
         }
         elseif ($_SESSION['Rolle'] == 2){
-            return view('Dashboard.dashboard_mitarbeiter', ['rq'=>$rd]);
+            $notifs = notif_employee();
+            return view('Dashboard.dashboard_mitarbeiter', ['rq'=>$rd, 'notifs'=>$notifs]);
         }
         elseif($_SESSION['Rolle'] == 3){
-            return view('Dashboard.dashboard_student', ['rq'=>$rd]);
+            $notifs = notif_student();
+            return view('Dashboard.dashboard_student', ['rq'=>$rd, 'notifs'=>$notifs]);
         }
     }
 
