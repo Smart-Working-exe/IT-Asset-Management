@@ -12,45 +12,55 @@ class HomeController
     public function index(RequestData $request) {
         return view('home', ['rd' => $request ]);
     }
-    
-   public function login(RequestData $rd){
-       //Set true to show "incorrect login data" warning
-       $loginFailed = false;
-        return view('Login.login', ['rq'=>$rd,'loginFailed'=>$loginFailed]);
-   }
-    public function dashboard_admin(RequestData $rd){
-        $notifs = notif_admin();
-        return view('Dashboard.dashboard_admin', ['rq'=>$rd, 'notifs' => $notifs]);
-    }
 
-    public function dashboard_mitarbeiter(RequestData $rd){
-        $notifs = notif_employee();
+    public function dashboard(RequestData $rd){
 
-        return view('Dashboard.dashboard_mitarbeiter', ['rq'=>$rd, 'notifs' => $notifs]);
-    }
-    public function dashboard_student(RequestData $rd){
-        $notifs = notif_student();
-        return view('Dashboard.dashboard_student', ['rq'=>$rd, 'notifs' => $notifs]);
+        if (!isset($_SESSION['login_ok'])) {
+            $_SESSION['target'] = '/dashboard';
+            header('Location: /login');
+        }
+        if($_SESSION['Rolle'] == 1){
+            return view('Dashboard.dashboard_admin', ['rq'=>$rd]);
+        }
+        elseif ($_SESSION['Rolle'] == 2){
+            return view('Dashboard.dashboard_mitarbeiter', ['rq'=>$rd]);
+        }
+        elseif($_SESSION['Rolle'] == 3){
+            return view('Dashboard.dashboard_student', ['rq'=>$rd]);
+        }
     }
 
     public function einstellungen(RequestData $rd){
-        //User => 1 wenn admin, 2 = Mitarbeiter, 3 = student
-        return view ('Einstellungen.einstellungen',['user' => 2]);
+        if (!isset($_SESSION['login_ok'])) {
+            $_SESSION['target'] = '/einstellungen';
+            header('Location: /login');
+        }
+        return view ('Einstellungen.einstellungen',['user' => $_SESSION['Rolle']]);
     }
 
     public function verleihung(RequestData $rd)
     {
+
+        //ist das nur für mitarbeiter?
         return view('Verleihung_Mitarbeiter.verleihung',[]);
     }
 
     public function systemlogs(RequestData $rd)
     {
+        if (!isset($_SESSION['login_ok']) && !($_SESSION['Rolle'] == 1)) {
+            $_SESSION['target'] = '/systemlogs';
+            header('Location: /login');
+        }
         return view('Systemlogs.systemlogs',[]);
 
     }
 
     public function softwarelizenzen(RequestData $rd)
     {
+        if (!isset($_SESSION['login_ok']) && !($_SESSION['Rolle'] == 1)) {
+            $_SESSION['target'] = '/softwarelizenzen';
+            header('Location: /login');
+        }
         return view('Softwarelizenzen.softwarelizenzen',[]);
 
     }
@@ -73,9 +83,13 @@ class HomeController
     public function raumansicht(RequestData $rd)
     {
         // 1 = Admin, 2 = Mitarbeiter, 3 = Student
-        $anwender = 1;
 
-        if($anwender >= 3) {
+        if (!isset($_SESSION['login_ok'])) {
+            $_SESSION['target'] = '/raumansicht';
+            header('Location: /login');
+        }
+
+        if($_SESSION['Rolle'] >= 3) {
             return view('Raumansicht.studenten.raumansicht_studenten', [
                 'gebaeude' => $rd->query['gebaeude'] ?? 'a'
             ]);
@@ -83,7 +97,7 @@ class HomeController
 
         return view('Raumansicht.raumansicht',[
                 'room' => $rd->query['raum'] ?? 'a001',
-                'user' => $anwender,
+                'user' => $_SESSION['Rolle'],
                 'database_filter' => false,
                 'filter_variable_data' => get_softwarelizenzen_betriessystem() //Variable filter Daten wie zmb. softwarelizenzen
         ]);
@@ -91,6 +105,10 @@ class HomeController
 
     public function eigeneGeraete(RequestData $rd)
     {
+        if (!isset($_SESSION['login_ok']) && !($_SESSION['Rolle'] == 2)) {
+            $_SESSION['target'] = '/eigeneGeraete';
+            header('Location: /login');
+        }
         return view('EigeneGeraete.eigeneGeraete', [
             'database_filter' => true,
             'filter_variable_data' => get_softwarelizenzen_betriessystem() //Variable filter Daten wie zmb. softwarelizenzen
@@ -99,7 +117,10 @@ class HomeController
 
     public function datenbank(RequestData $rd)
     {
-
+        if (!isset($_SESSION['login_ok']) && !($_SESSION['Rolle'] == 1)) {
+            $_SESSION['target'] = '/datenbank';
+            header('Location: /login');
+        }
         if(isset($rd->query['database'])) {
             if ($rd->query['database'] == 'personen') {
                 return view('Datenbank.datenbank_personen', [
