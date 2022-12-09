@@ -20,7 +20,7 @@
 <?php $this->startSection("Benachrichtigungen"); ?>
  <div class="col-5">
  <div class="row">
- <p class="display-6 h6 text-center col-4 mt-3">Benachrichtungen</p>
+ <p class="display-6 h6 text-center col-4 mt-3">Benachrichtigungen</p>
  </div>
 
  <div style="overflow-y: scroll;margin-right:20%; height:300px;">

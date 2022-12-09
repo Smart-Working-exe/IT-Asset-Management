@@ -141,7 +141,8 @@ class HomeController
             'database_filter' => true,
             'data' => getGeraeteData(get_filter_data($rd)),
             'filter_variable_data' => get_softwarelizenzen_betriessystem(), //Variable filter Daten wie zmb. softwarelizenzen
-            'test' => get_filter_data($rd)
+            'test' => get_filter_data($rd),
+            'selected_filter' => get_filter_data($rd)
         ]);
     }
 

@@ -28,7 +28,7 @@ function get_softwarelizenzen_betriessystem(): array
         if(!empty($btrsys['version']))
             $name .=  " " . $btrsys['version'];
 
-        $result['betriessystem'][$btrsys['id']] = $name;
+        $result['betriebssystem'][$btrsys['id']] = $name;
     }
 
     foreach ($softwarelizenzen as $swl )
@@ -98,35 +98,56 @@ function get_filter_data(RequestData &$rd) : array
  */
 function filter_to_sql($sql,$eintrag, &$filter =[] ) : string
     {
-        $complet_sql = $sql. " WHERE true";
+
+        $where_sql = " WHERE true";
+        $join_sql = "";
 
         // Geräte
         if($eintrag == 1) {
 
 
             if (!empty($filter['raumnummer']))
-                $complet_sql .= " And raumnummer = '$filter[raumnummer]'";
+                $where_sql .= " And raumnummer = '$filter[raumnummer]'";
 
             if(!empty($filter['Typ']))
-                $complet_sql .= " And Typ = '$filter[Typ]'";
+                $where_sql .= " And Typ = '$filter[Typ]'";
 
             if(!empty($filter['suche']))
-                $complet_sql .= " And (name like '%$filter[suche]%' OR kommentar like '%$filter[suche]%' OR technische_eckdaten like '%$filter[suche]%')";
+                $where_sql .= " And (name like '%$filter[suche]%' OR kommentar like '%$filter[suche]%' OR technische_eckdaten like '%$filter[suche]%')";
 
             if(!empty($filter['hersteller']))
-                $complet_sql .= " And hersteller like '%$filter[hersteller]%'";
+                $where_sql .= " And hersteller like '%$filter[hersteller]%'";
 
             if(!empty($filter['age'])) {
                 $vor_age_Jahren = date("Y-m-d",strtotime("-$filter[age] year "));
                 $vor_age_plus_eins_Jahren = $filter['age'] +1;
                 $vor_age_plus_eins_Jahren = date("Y-m-d",strtotime("-$vor_age_plus_eins_Jahren year"));
-                $complet_sql .= " AND age BETWEEN '$vor_age_plus_eins_Jahren' AND '$vor_age_Jahren'";
+                $where_sql .= " AND age BETWEEN '$vor_age_plus_eins_Jahren' AND '$vor_age_Jahren'";
             }
 
-            //TODO software
-            //TODO Betriebssystem
+            if(!empty($filter['softwarelizenzid']))
+            {
+
+                $join_sql .= " LEFT JOIN geraet_hat_software gs on id = gs.geraetid ";
+                $where_sql .= " And gs.softwarelizenzid = '$filter[softwarelizenzid]' ";
+
+            }
+
+            if(!empty($filter['betriebssystemid']))
+            {
+                $join_sql .= " LEFT JOIN geraet_hat_betriebssystem gb On id = gb.geraetid ";
+                $where_sql .= " And gb.betriebssystemid = '$filter[betriebssystemid]' ";
+
+            }
         }
 
+        $complet_sql = $sql;
+
+        if(!empty($join_sql))
+            $complet_sql .= $join_sql . $where_sql . " Group by id " ;
+
+        else
+            $complet_sql .=  $where_sql;
 
 
 

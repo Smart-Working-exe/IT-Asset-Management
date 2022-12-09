@@ -26,7 +26,7 @@ function getGeraeteData ($filter = []) {
     $link = connectdb();
 
     // get geräte
-    $sql = 'SELECT id,name,typ,hersteller,age,raumnummer,`ip-adresse`,technische_eckdaten,kommentar FROM geraet';
+    $sql = 'SELECT id,name,typ,hersteller,age,raumnummer,`ip_adresse`,technische_eckdaten,kommentar FROM geraet';
 
     $sql = filter_to_sql($sql,1,$filter);
 
@@ -75,7 +75,8 @@ function getGeraeteData ($filter = []) {
 
 
         //technische_eckdaten von string zu array
-        $data[$key]['technische_eckdaten'] = explode(SEPERATOR,$value['technische_eckdaten']);
+        if(!empty($data[$key]['technische_eckdaten']))
+            $data[$key]['technische_eckdaten'] = explode(SEPERATOR,$value['technische_eckdaten']);
 
 
         $data[$key]['age'] = floor((time()- strtotime($value['age']))/31556926 );
