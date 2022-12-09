@@ -24,11 +24,15 @@
  </thead>
  <tbody>
 
+ <?php $__currentLoopData = $data; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $person): $loop = $this->incrementLoopIndices();  ?>
+
  <tr>
- <td>Musterstudent</td>
- <td>Max</td>
- <td>Student</td>
- <td>mm5645s</td>
+ <td><?php echo \htmlentities($person['nachname']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td><?php echo \htmlentities($person['vorname']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td><?php echo \htmlentities($person['rolle']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td><?php echo \htmlentities($person['fh_kuerzel']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+
  <td>
  <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
  data-bs-target="#editUser">Benutzer bearbeiten
@@ -36,28 +40,7 @@
  </td>
  </tr>
 
- <tr>
- <td>Mustermitarbeiter</td>
- <td>Martin</td>
- <td>Mitarbeiter</td>
- <td>mm8536m</td>
- <td>
- <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
- data-bs-target="#editUser">Benutzer bearbeiten
- </button>
- </td>
- </tr>
- <tr>
- <td>Musteradmin</td>
- <td>Maurice</td>
- <td>Admin</td>
- <td>mm2109a</td>
- <td>
- <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
- data-bs-target="#editUser">Benutzer bearbeiten
- </button>
- </td>
- </tr>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
 
  </tbody>
  </table>

@@ -52,35 +52,60 @@ function get_softwarelizenzen_betriessystem(): array
 
 /**Gibt sämtliche vorhandenen Filterdaten zurück, welche über post oder get übermittelt worden sind
  * @param RequestData $rd benötigt die request data
- * @return array ein array entsprechend der Anforderungen von der Funktion getGeraeteData. Softwarelizenzen und Betriebssysteme als id
+ *  * @param $eintrag int für welchen typ 1 = Geräte 2 = Personen 3 = Softwarelizenzen
+ * @return array ein array entsprechend der Anforderungen von der Funktion get...Data. Softwarelizenzen und Betriebssysteme als id
  * @author jan
  */
-function get_filter_data(RequestData &$rd) : array
+function get_filter_data(RequestData &$rd,$eintrag) : array
 {
 
     $filter_search = [];
 
+    if ($eintrag == 1) {
 
-    if($rd->query['filter_suche'] ?? false)
-        $filter_search['suche'] = $rd->query['filter_suche'];
 
-    if($rd->query['filter_Typ'] ?? false)
-        $filter_search['Typ'] = $rd->query['filter_Typ'];
+        if ($rd->query['filter_suche'] ?? false)
+            $filter_search['suche'] = $rd->query['filter_suche'];
 
-    if($rd->query['filter_hersteller'] ?? false)
-        $filter_search['hersteller'] = $rd->query['filter_hersteller'];
 
-    if($rd->query['filter_age'] ?? false)
-        $filter_search['age'] = $rd->query['filter_age'];
+        if ($rd->query['filter_Typ'] ?? false)
+            $filter_search['Typ'] = $rd->query['filter_Typ'];
 
-    if($rd->query['filter_betriebssystem'] ?? false)
-        $filter_search['betriebssystemid'] = $rd->query['filter_betriebssystem'];
 
-    if($rd->query['filter_software'] ?? false)
-        $filter_search['softwarelizenzid'] = $rd->query['filter_software'];
+        if ($rd->query['filter_hersteller'] ?? false)
+            $filter_search['hersteller'] = $rd->query['filter_hersteller'];
 
-    if($rd->query['raumnummer'] ?? false)
-        $filter_search['raumnummer'] = $rd->query['raumnummer'];
+
+        if ($rd->query['filter_age'] ?? false)
+            $filter_search['age'] = $rd->query['filter_age'];
+
+
+        if ($rd->query['filter_betriebssystem'] ?? false)
+            $filter_search['betriebssystemid'] = $rd->query['filter_betriebssystem'];
+
+
+        if ($rd->query['filter_software'] ?? false)
+            $filter_search['softwarelizenzid'] = $rd->query['filter_software'];
+
+
+        if ($rd->query['raumnummer'] ?? false)
+            $filter_search['raumnummer'] = $rd->query['raumnummer'];
+
+
+    }
+    elseif($eintrag == 2){
+
+
+        if ($rd->query['filter_suche'] ?? false)
+            $filter_search['suche'] = $rd->query['filter_suche'];
+
+        if ($rd->query['filter_rolle'] ?? false)
+            $filter_search['rolle'] = $rd->query['filter_rolle'];
+
+
+    }elseif ($eintrag == 3) {
+
+    }
 
 
     return $filter_search;
@@ -139,6 +164,18 @@ function filter_to_sql($sql,$eintrag, &$filter =[] ) : string
                 $where_sql .= " And gb.betriebssystemid = '$filter[betriebssystemid]' ";
 
             }
+        }
+        elseif ($eintrag == 2)
+        {
+
+            if (!empty($filter['rolle']))
+                $where_sql .= " And rolle = '$filter[rolle]' ";
+
+            if(!empty($filter['suche']))
+                $where_sql .= " And (vorname like '%$filter[suche]%' OR nachname like '%$filter[suche]%')";
+
+
+
         }
 
         $complet_sql = $sql;

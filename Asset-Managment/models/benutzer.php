@@ -18,6 +18,41 @@ function get_user_data(){
     return $data;
 }
 
+/**Siehe function getGeraeteData, selbes Prinzip
+ * @param $filter
+ * @return array
+ */
+function get_user_tabledata($filter = []) : array
+{
+
+    $link = connectdb();
+    mysqli_begin_transaction($link);
+    // mysqli_real_escape_string($link, $date);
+
+    $sql = "SELECT vorname,nachname, fh_kuerzel, rolle FROM personen";
+
+
+    $sql = filter_to_sql($sql,2,$filter);
+
+    $result = mysqli_query($link, $sql);
+
+    $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    foreach ($data as $key => $value)
+    {
+        if($value['rolle'] == 1)
+            $data[$key]['rolle'] = "Admin";
+        elseif ($value['rolle'] == 2)
+            $data[$key]['rolle'] = "Mitarbeiter";
+        elseif ($value['rolle'] == 3)
+            $data[$key]['rolle'] = "Student";
+    }
+
+    mysqli_close($link);
+    return $data;
+
+}
+
 /*function update_anmeldung($mail){
     $link = connectdb();
     mysqli_begin_transaction($link);

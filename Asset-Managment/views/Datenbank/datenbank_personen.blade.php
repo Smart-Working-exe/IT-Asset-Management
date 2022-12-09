@@ -24,40 +24,22 @@
         </thead>
         <tbody>
 
-        <tr>
-            <td>Musterstudent</td>
-            <td>Max</td>
-            <td>Student</td>
-            <td>mm5645s</td>
-            <td>
-                <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                        data-bs-target="#editUser">Benutzer bearbeiten
-                </button>
-            </td>
-        </tr>
+        @foreach($data as $person)
 
-        <tr>
-            <td>Mustermitarbeiter</td>
-            <td>Martin</td>
-            <td>Mitarbeiter</td>
-            <td>mm8536m</td>
-            <td>
-                <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                        data-bs-target="#editUser">Benutzer bearbeiten
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>Musteradmin</td>
-            <td>Maurice</td>
-            <td>Admin</td>
-            <td>mm2109a</td>
-            <td>
-                <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                        data-bs-target="#editUser">Benutzer bearbeiten
-                </button>
-            </td>
-        </tr>
+            <tr>
+                  <td>{{$person['nachname']}}</td>
+                  <td>{{$person['vorname']}}</td>
+                  <td>{{$person['rolle']}}</td>
+                  <td>{{$person['fh_kuerzel']}}</td>
+
+                  <td>
+                      <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
+                              data-bs-target="#editUser">Benutzer bearbeiten
+                      </button>
+                  </td>
+            </tr>
+
+        @endforeach
 
         </tbody>
     </table>

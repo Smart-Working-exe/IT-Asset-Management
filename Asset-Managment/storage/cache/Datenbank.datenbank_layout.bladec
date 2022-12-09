@@ -71,23 +71,19 @@
 
  <div class="container">
  <div class="row">
- <div class="form-group col-3">
+ <div class="form-group ">
  <a href="/datenbank?database=geraete" class="btn  <?php if($typ == 'geraete'): ?> btn-primary sub <?php else: ?> btn-secondary <?php endif; ?> " role="button" aria-disabled="true">Geräte</a>
 
  <a href="/datenbank?database=personen" class="btn <?php if($typ == 'personen'): ?> btn-primary sub <?php else: ?> btn-secondary <?php endif; ?>" role="button" aria-disabled="true">Personen</a>
 
  <a href="/datenbank?database=lizenzen" class="btn <?php if($typ == 'lizenzen'): ?> btn-primary sub <?php else: ?> btn-secondary <?php endif; ?>" role="button" aria-disabled="true">Lizenzen</a>
 
- </div>
-
- <?php if(!empty($selected_filter)): ?>
- <form class="col" style="margin-left:49% ">
- <div style="margin-left: 43%">
- <button type="submit" class="btn btn-primary sub text-nowrap">Filter Zurücksetzten</button>
- </div>
- </form>
-
+ <?php if(!empty($selected_filter) && $typ == "geraete"): ?>
+ <a href="/datenbank?database=geraete" class="btn  btn-primary sub " role="button" aria-disabled="true" style="margin-left: 65%">Filter Zurücksetzten</a>
  <?php endif; ?>
+ </div>
+
+
  </div>
 </div>
 

@@ -5,6 +5,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/betriessystem.php');
 require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/softwarelizenzen.php');
 require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/filter.php');
 require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/benachrichtigungen.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/../models/benutzer.php');
 
 /* Datei: controllers/HomeController.php */
 class HomeController
@@ -127,7 +128,9 @@ class HomeController
         if(isset($rd->query['database'])) {
             if ($rd->query['database'] == 'personen') {
                 return view('Datenbank.datenbank_personen', [
-                    'typ' => 'personen'
+                    'typ' => 'personen',
+                    'data' => get_user_tabledata(get_filter_data($rd,2)),
+                    'selected_filter' => get_filter_data($rd,2)
                 ]);
             } elseif ($rd->query['database'] == 'lizenzen') {
                 return view('Datenbank.datenbank_lizenzen', [
@@ -139,10 +142,10 @@ class HomeController
         return view('Datenbank.datenbank_geraete',[
             'typ' => 'geraete',
             'database_filter' => true,
-            'data' => getGeraeteData(get_filter_data($rd)),
+            'data' => getGeraeteData(get_filter_data($rd,1)),
             'filter_variable_data' => get_softwarelizenzen_betriessystem(), //Variable filter Daten wie zmb. softwarelizenzen
-            'test' => get_filter_data($rd),
-            'selected_filter' => get_filter_data($rd)
+            'test' => get_filter_data($rd,1),
+            'selected_filter' => get_filter_data($rd,1)
         ]);
     }
 
