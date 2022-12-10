@@ -117,9 +117,16 @@ class HomeController
             $_SESSION['target'] = '/eigeneGeraete';
             header('Location: /login');
         }
+
+        //damit, sollte jemand die url im Browser bearbeiten man immer nur auf seine eigenen Geräte kommt
+        if(empty($rd->query['kuerzel']) ||$rd->query['kuerzel'] != $_SESSION['name'] ) {
+            header('Location: /eigeneGeraete?kuerzel='.$_SESSION['name']);
+        }
         return view('EigeneGeraete.eigeneGeraete', [
             'database_filter' => true,
-            'filter_variable_data' => get_softwarelizenzen_betriessystem() //Variable filter Daten wie zmb. softwarelizenzen
+            'data' => getGeraeteData(get_filter_data($rd,1)),
+            'filter_variable_data' => get_softwarelizenzen_betriessystem(), //Variable filter Daten wie zmb. softwarelizenzen
+            'selected_filter' => get_filter_data($rd,1)
         ]);
     }
 

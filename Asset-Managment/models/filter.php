@@ -91,6 +91,9 @@ function get_filter_data(RequestData &$rd,$eintrag) : array
         if ($rd->query['raum'] ?? false)
             $filter_search['raum'] = $rd->query['raum'];
 
+        if ($rd->query['kuerzel'] ?? false)
+            $filter_search['kuerzel'] = $rd->query['kuerzel'];
+
 
     }
     elseif($eintrag == 2){
@@ -144,6 +147,9 @@ function filter_to_sql($sql,$eintrag, &$filter =[] ) : string
 
             if(!empty($filter['hersteller']))
                 $where_sql .= " And hersteller like '%$filter[hersteller]%'";
+
+            if(!empty($filter['kuerzel']))
+                $where_sql .= " And personen_id like '%$filter[kuerzel]%'";
 
             if(!empty($filter['age'])) {
                 $vor_age_Jahren = date("Y-m-d",strtotime("-$filter[age] year "));
