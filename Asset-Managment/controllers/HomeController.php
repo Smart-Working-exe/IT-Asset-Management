@@ -69,16 +69,6 @@ class HomeController
             $_SESSION['target'] = '/softwarelizenzen';
             header('Location: /login');
         }
-        $var=[
-            'software_add_hersteller'    => filter_input(INPUT_POST,'software_add_hersteller'),
-            'software_add_name'          => filter_input(INPUT_POST,'software_add_lizenzname'),
-            'software_add_version'       => filter_input(INPUT_POST,'software_add_softwareversion'),
-            'software_add_anzahl_gerate' => filter_input(INPUT_POST,'software_add_anzahl_gerate'),
-            'software_add_erwerbsdatum'  => filter_input(INPUT_POST,'software_add_erwerbedatum'),
-            'software_add_ablaufdatum'   => filter_input(INPUT_POST,'software_add_ablaufdatum')
-        ];
-        if ($var['software_add_name'] != null)
-            db_add_software($var);
         return view('Softwarelizenzen.softwarelizenzen',[
                     'data' => get_SoftwarlizenzenTabledata(get_filter_data($rd,3)),
                     'selected_filter' => get_filter_data($rd,3)
