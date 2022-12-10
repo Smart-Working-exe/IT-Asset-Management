@@ -74,8 +74,7 @@ class HomeController
 
     public function raumauswahl(RequestData $rd)
     {
-        $student = false;//set true um raumauswahl fuer studenten zu bekommen
-        if($student)
+        if($_SESSION['Rolle'] >= 3)
              return view('Raumauswahl.raumauswahl_studenten',[]);
         else
             return view('Raumauswahl.raumauswahl',[]);
@@ -106,7 +105,9 @@ class HomeController
                 'room' => $rd->query['raum'] ?? 'a001',
                 'user' => $_SESSION['Rolle'],
                 'database_filter' => false,
-                'filter_variable_data' => get_softwarelizenzen_betriessystem() //Variable filter Daten wie zmb. softwarelizenzen
+                'data' => getGeraeteData(get_filter_data($rd,1)),
+                'filter_variable_data' => get_softwarelizenzen_betriessystem(), //Variable filter Daten wie zmb. softwarelizenzen
+                'selected_filter' => get_filter_data($rd,1)
         ]);
     }
 
@@ -149,7 +150,6 @@ class HomeController
             'database_filter' => true,
             'data' => getGeraeteData(get_filter_data($rd,1)),
             'filter_variable_data' => get_softwarelizenzen_betriessystem(), //Variable filter Daten wie zmb. softwarelizenzen
-            'test' => get_filter_data($rd,1),
             'selected_filter' => get_filter_data($rd,1)
         ]);
     }

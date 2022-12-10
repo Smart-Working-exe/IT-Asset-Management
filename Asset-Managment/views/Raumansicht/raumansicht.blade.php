@@ -38,6 +38,11 @@
                 <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal" data-bs-target="#addDevice">
                     Gerät hinzufügen
                 </button>
+
+                @if(!empty($selected_filter['suche']) || !empty($selected_filter['Typ']) || !empty($selected_filter['hersteller']) || !empty($selected_filter['age']) || !empty($selected_filter['betriebssystemid']) || !empty($selected_filter['softwarelizenzid'])  )
+                        <a href="" class="btn  btn-primary sub  text-nowrap" style="margin-left: 72%" role="button" aria-disabled="true">Filter Zurücksetzten</a>
+                @endif
+
             </div>
         </div>
     @elseif($user == 2)<!-- mitarbeiter -->
@@ -68,8 +73,17 @@
                 <div class="progress-bar" style="width:0%; background-color: black"></div>
             </div>
         </div>
+
+        @if(!empty($selected_filter['suche']) || !empty($selected_filter['Typ']) || !empty($selected_filter['hersteller']) || !empty($selected_filter['age']) || !empty($selected_filter['betriebssystemid']) || !empty($selected_filter['softwarelizenzid'])  )
+            <div class="col" style="margin-left: 32%">
+             <a href="" class="btn  btn-primary sub  text-nowrap" role="button" aria-disabled="true">Filter Zurücksetzten</a>
+            </div>
+        @endif
+
     </div>
     @endif
+
+
 
 
 @endsection
@@ -99,168 +113,69 @@
                                                                          width="20px"></th>
                 <th onclick="sortTable(8, devices)">Kommentar<img src="/img/up-and-down-arrows-svgrepo-com.svg"
                                                                   width="20px"></th>
-                <th >Kommentieren</th>
+                <th >  @if($user == 1)
+                            Bearbeiten
+                         @else
+                           Kommentar
+                         @endif
+                </th>
 
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>PC-1</td>
-                <td>Tower-P</td>
-                <td>Dell</td>
-                <td>6 Jahren</td>
-                <td>111.111.111.2</td>
-                <td>Windows10</td>
-                <td>
-                    <ul>
-                        <li>MSOffice</li>
-                        <li>Visual Studio</li>
-                        <li>Microchip Studio</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>8GB RAM</li>
-                        <li>1000GB SSD</li>
-                        <li>NVIDIA RTX4090</li>
-                    </ul>
-                </td>
-                <td>Game Design geeignet</td>
-                <td><button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                            data-bs-target="#editDevice">Bearbeiten
-                    </button></td>
-            </tr>
+            @foreach($data as $geraet)
+                <tr>
+                    <td>{{$geraet['name']}}</td>
+                    <td>{{$geraet['typ']}}</td>
+                    <td>{{$geraet['hersteller']}}</td>
+                    <td>{{$geraet['age']}} Jahre</td>
+                    <td>{{$geraet['ip_adresse']}}</td>
+                    <td>
+                        @if(isset($geraet['betriebssystem']))
+                            <ul>
+                                @foreach($geraet['betriebssystem'] as $value)
+                                    <li>{{$value}} </li>
+                                @endforeach
+                            </ul>
+                        @endif
+                    </td>
+                    <td>
+                        @if(isset($geraet['software']))
+                            <ul>
+                                @foreach($geraet['software'] as $value)
+                                    <li>{{$value}} </li>
+                                @endforeach
+                            </ul>
+                        @endif
+                    </td>
+                    <td>
+                        @if(!empty($geraet['technische_eckdaten'][0]))
+                            <ul>
+                                @foreach($geraet['technische_eckdaten'] as $value)
+                                    <li>{{$value}} </li>
+                                @endforeach
+                            </ul>
+                        @endif
+                    </td>
+                    <td class="no_nowrap">{{$geraet['kommentar']}}</td>
+                    <td>
 
-            <tr>
-                <td>PC-2</td>
-                <td>Tower-P</td>
-                <td>Dell</td>
-                <td>6 Jahren</td>
-                <td>111.111.111.3</td>
-                <td>Windows10</td>
-                <td>
-                    <ul>
-                        <li>MSOffice</li>
-                        <li>Visual Studio</li>
-                        <li>Microchip Studio</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>16GB RAM</li>
-                        <li>1000GB SSD</li>
-                        <li>NVIDIA RTX3070</li>
-                    </ul>
-                </td>
-                <td>Virtualization geeignet</td>
-                <td><button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                            data-bs-target="#editKommentar">Kommentieren
-                    </button></td>
-            </tr>
-            <tr>
-                <td>PC-3</td>
-                <td>Tower-P</td>
-                <td>HP</td>
-                <td>3 Jahren</td>
-                <td>111.111.111.4</td>
-                <td>Windows10</td>
-                <td>
-                    <ul>
-                        <li>MSOffice</li>
-                        <li>Visual Studio</li>
-                        <li>Microchip Studio</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>8GB RAM</li>
-                        <li>1000GB SSD</li>
-                        <li>NVIDIA RTX4090</li>
-                    </ul>
-                </td>
-                <td>Game Design geeignet</td>
-                <td><button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                            data-bs-target="#editKommentar">Kommentieren
-                    </button></td>
-            </tr>
-            <tr>
-                <td>PC-4</td>
-                <td>Tower-P</td>
-                <td>Dell</td>
-                <td>3 Jahren</td>
-                <td>111.111.111.5</td>
-                <td>Windows10</td>
-                <td>
-                    <ul>
-                        <li>MSOffice</li>
-                        <li>Visual Studio</li>
-                        <li>Microchip Studio</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>16GB RAM</li>
-                        <li>1000GB SSD</li>
-                        <li>NVIDIA RTX3070</li>
-                    </ul>
-                </td>
-                <td>Virtualization geeignet</td>
-                <td><button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                            data-bs-target="#editKommentar">Kommentieren
-                    </button></td>
-            </tr>
-            <tr>
-                <td>PC-5</td>
-                <td>Desktop</td>
-                <td>HP</td>
-                <td>2 Jahren</td>
-                <td>111.111.111.6</td>
-                <td>Windows10</td>
-                <td>
-                    <ul>
-                        <li>MSOffice</li>
-                        <li>Visual Studio</li>
-                        <li>Microchip Studio</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>8GB RAM</li>
-                        <li>1000GB SSD</li>
-                        <li>NVIDIA RTX4090</li>
-                    </ul>
-                </td>
-                <td>Game Design geeignet</td>
-                <td><button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                            data-bs-target="#editKommentar">Kommentieren
-                    </button></td>
-            </tr>
-            <tr>
-                <td>PC-6</td>
-                <td>Tower-P</td>
-                <td>Dell</td>
-                <td>1 Jahren</td>
-                <td>111.111.111.7</td>
-                <td>Windows10</td>
-                <td>
-                    <ul>
-                        <li>MSOffice</li>
-                        <li>Visual Studio</li>
-                        <li>Microchip Studio</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>16GB RAM</li>
-                        <li>1000GB SSD</li>
-                        <li>NVIDIA RTX3070</li>
-                    </ul>
-                </td>
-                <td>Virtualization geeignet</td>
-                <td><button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                            data-bs-target="#editKommentar">Kommentieren
-                    </button></td>
-            </tr>
+                        @if($user == 1)
+                        <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
+                                data-bs-target="#editDevice">Bearbeiten
+                        </button>
+                        @else
+                            <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
+                                    data-bs-target="#editKommentar">Kommentieren
+                            </button>
+                        @endif
+                    </td>
+
+
+
+                </tr>
+
+            @endforeach
             </tbody>
         </table>
 

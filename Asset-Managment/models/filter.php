@@ -88,8 +88,8 @@ function get_filter_data(RequestData &$rd,$eintrag) : array
             $filter_search['softwarelizenzid'] = $rd->query['filter_software'];
 
 
-        if ($rd->query['raumnummer'] ?? false)
-            $filter_search['raumnummer'] = $rd->query['raumnummer'];
+        if ($rd->query['raum'] ?? false)
+            $filter_search['raum'] = $rd->query['raum'];
 
 
     }
@@ -133,8 +133,8 @@ function filter_to_sql($sql,$eintrag, &$filter =[] ) : string
         if($eintrag == 1) {
 
 
-            if (!empty($filter['raumnummer']))
-                $where_sql .= " And raumnummer = '$filter[raumnummer]'";
+            if (!empty($filter['raum']))
+                $where_sql .= " And raumnummer = '$filter[raum]'";
 
             if(!empty($filter['Typ']))
                 $where_sql .= " And Typ = '$filter[Typ]'";

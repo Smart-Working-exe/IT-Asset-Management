@@ -85,13 +85,14 @@
             <!--zeigt das Element nicht an wenn database false ist keine Ahnung wieso  -->
             <div class=" mt-2 col-3" style="width: 10%; height: 2vh; @if($database_filter) display:none@endif">
                 <input type="search" class="form-control rounded" placeholder="Raum" aria-label="Search"
-                       aria-describedby="search-addon" name="raumnummer" id="raumnummer" @if(!empty($selected_filter['raumnummer'])) value="{{$selected_filter['raumnummer']}}"@endif />
+                       aria-describedby="search-addon" name="raum" id="raum" @if(!empty($selected_filter['raum'])) value="{{$selected_filter['raum']}}"@endif />
             </div>
             @endif
 
 
             <div class="col-1 mt-1" style="margin-right: 0">
                 <button type="submit" class="btn btn-primary sub"><img src="/img/search_icon.svg" width="30px"></button>
+
             </div>
 
         </div>
