@@ -1,12 +1,12 @@
 <?php
-require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/filter.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/../models/filter.php');
 
 
 const SEPERATOR = ';';
 
 /**
  * Gibt alle Geräte aus der Datenbank wieder, auf den den $filter passen
- *   @param $filter array der Schlüssel gibt an, nach welcher Eigenschaft gefiltert wird, diese MÜSSEN der Eigenschafts-Namen in der Datenbank entsprechen! Für Namen und technische Daten als Schlüssel 'suche'<br>
+ * @param $filter array der Schlüssel gibt an, nach welcher Eigenschaft gefiltert wird, diese MÜSSEN der Eigenschafts-Namen in der Datenbank entsprechen! Für Namen und technische Daten als Schlüssel 'suche'<br>
  *                      Der Wert, was die Eigenschaft sein soll. <br>
  * <br>
  *                      Softwarelizenzen und Betriessystem MÜSSEN als die entsprechende id uebergeben werden und der Schlüssel so heißen wie sie im table gerät_hat... benannt sind.<br>
@@ -18,9 +18,8 @@ const SEPERATOR = ';';
  * des ersten Gerätes wieder <br>
  * @author jan
  */
-function getGeraeteData ($filter = []) {
-
-
+function getGeraeteData($filter = [])
+{
 
 
     $link = connectdb();
@@ -28,15 +27,13 @@ function getGeraeteData ($filter = []) {
     // get geräte
     $sql = 'SELECT id,name,typ,hersteller,age,raumnummer,`ip_adresse`,technische_eckdaten,kommentar FROM geraet';
 
-    $sql = filter_to_sql($sql,1,$filter);
+    $sql = filter_to_sql($sql, 1, $filter);
 
 
-
-    $result = mysqli_query($link,$sql);
+    $result = mysqli_query($link, $sql);
 
 
     $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
 
 
     foreach ($data as $key => $value) {
@@ -44,7 +41,6 @@ function getGeraeteData ($filter = []) {
         $value_id = $value['id'];
 
         if($value['typ'] == 'PC' || $value['typ'] == 'Laptop') {
-
             //get betriebssystem
             $sql = "SELECT  b.name FROM geraet_hat_betriebssystem gb LEFT JOIN betriebssystem b On gb.betriebssystemid = b.id where gb.geraetid = $value_id ";
             $result_betriebssystem = mysqli_query($link, $sql);
@@ -81,7 +77,6 @@ function getGeraeteData ($filter = []) {
 
 
         $data[$key]['age'] = floor((time()- strtotime($value['age']))/31556926 );
-
     }
 
     mysqli_close($link);

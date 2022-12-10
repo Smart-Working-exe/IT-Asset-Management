@@ -7,24 +7,23 @@
  */
 
 return array(
-    '/'       => "HomeController@dashboard",
-    '/login'       => "LoginController@login",
-    '/login_verify'       => "LoginController@login_verify",
-    '/logout'       => "LoginController@logout",
+    '/'                     => "HomeController@dashboard",
+    '/login'                => "LoginController@login",
+    '/login_verify'         => "LoginController@login_verify",
+    '/logout'               => "LoginController@logout",
     // Ich würde immer /dashboard aufrufen und bei dieser controller-Funktion dann die unterscheidung machen -jan ist mir auch gerade aufgefallen danke :D
-    '/dashboard'       => "HomeController@dashboard",
+    '/dashboard'            => "HomeController@dashboard",
 
+    '/einstellungen'        => "HomeController@einstellungen",
+    '/verleihung'           => "HomeController@verleihung",
+    '/systemlogs'           => "HomeController@systemlogs",
+    '/softwarelizenzen'     => "HomeController@softwarelizenzen",
+    '/raumauswahl'          => "HomeController@raumauswahl",
+    '/ausleihe'             => "HomeController@ausleihe",
+    '/raumansicht'          => "HomeController@raumansicht",
+    '/eigeneGeraete'        => "HomeController@eigeneGeraete",
+    '/datenbank'            => 'HomeController@datenbank',
+    '/lizenzhinzufugen'     => "HomeController@softwarelizenzen",
 
-
-    '/einstellungen'    => "HomeController@einstellungen",
-    '/verleihung' => "HomeController@verleihung",
-    '/systemlogs' => "HomeController@systemlogs",
-    '/softwarelizenzen' => "HomeController@softwarelizenzen",
-    '/raumauswahl' => "HomeController@raumauswahl",
-    '/ausleihe' => "HomeController@ausleihe",
-    '/raumansicht' => "HomeController@raumansicht",
-    '/eigeneGeraete' => "HomeController@eigeneGeraete",
-    '/datenbank' => 'HomeController@datenbank',
-
-    '/test' => 'HomeController@test'
+    '/test'                 => 'HomeController@test'
 );
