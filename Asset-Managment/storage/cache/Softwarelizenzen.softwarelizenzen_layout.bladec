@@ -30,6 +30,8 @@
  </button>
  </div>
 
+
+ <?php echo $this->yieldContent('softwarefilter'); ?>
  <div class="container mt-3">
 
  <?php echo $this->yieldContent('content'); ?>

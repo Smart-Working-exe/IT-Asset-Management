@@ -65,7 +65,10 @@ class HomeController
             $_SESSION['target'] = '/softwarelizenzen';
             header('Location: /login');
         }
-        return view('Softwarelizenzen.softwarelizenzen',[]);
+        return view('Softwarelizenzen.softwarelizenzen',[
+                    'data' => get_SoftwarlizenzenTabledata(get_filter_data($rd,3)),
+                    'selected_filter' => get_filter_data($rd,3)
+        ]);
 
     }
 
