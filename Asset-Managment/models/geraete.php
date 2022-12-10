@@ -25,7 +25,7 @@ function getGeraeteData($filter = [])
     $link = connectdb();
 
     // get geräte
-    $sql = 'SELECT id,name,typ,hersteller,age,raumnummer,`ip-adresse`,technische_eckdaten,kommentar FROM geraet';
+    $sql = 'SELECT id,name,typ,hersteller,age,raumnummer,`ip_adresse`,technische_eckdaten,kommentar FROM geraet';
 
     $sql = filter_to_sql($sql, 1, $filter);
 

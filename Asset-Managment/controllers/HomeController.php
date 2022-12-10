@@ -45,24 +45,22 @@ class HomeController
     public function systemlogs(RequestData $rd)
     {
         return view('Systemlogs.systemlogs',[]);
-
     }
 
     public function softwarelizenzen(RequestData $rd)
     {
         $var=[
-            'hersteller'    => filter_input(INPUT_POST,'hersteller'),
-            'name'          => filter_input(INPUT_POST,'lizenzname'),
-            'version'       => filter_input(INPUT_POST,'softwareversion'),
-            'anzahl_gerate' => filter_input(INPUT_POST,'anzahl_gerate'),
-            'erwerbsdatum'  => filter_input(INPUT_POST,'erwerbedatum'),
-            'ablaufdatum'   => filter_input(INPUT_POST,'ablaufdatum')
+            'software_add_hersteller'    => filter_input(INPUT_POST,'software_add_hersteller'),
+            'software_add_name'          => filter_input(INPUT_POST,'software_add_lizenzname'),
+            'software_add_version'       => filter_input(INPUT_POST,'software_add_softwareversion'),
+            'software_add_anzahl_gerate' => filter_input(INPUT_POST,'software_add_anzahl_gerate'),
+            'software_add_erwerbsdatum'  => filter_input(INPUT_POST,'software_add_erwerbedatum'),
+            'software_add_ablaufdatum'   => filter_input(INPUT_POST,'software_add_ablaufdatum')
         ];
-        print_r($var);
-        if ($var['name'] != null)
+        if ($var['software_add_name'] != null)
             db_add_software($var);
         return view('Softwarelizenzen.softwarelizenzen',[]);
-
+        //http_redirect("location:/#");
     }
 
     public function raumauswahl(RequestData $rd)
@@ -109,7 +107,6 @@ class HomeController
 
     public function datenbank(RequestData $rd)
     {
-
         if(isset($rd->query['database'])) {
             if ($rd->query['database'] == 'personen') {
                 return view('Datenbank.datenbank_personen', [
@@ -133,7 +130,7 @@ class HomeController
 
 
     // zum testen, im browser einfach /test aufrufen
-    public function  test(RequestData $rd)
+    public function test(RequestData $rd)
     {
         return view('test',[
             'data' => get_softwarelizenzen_betriessystem()
