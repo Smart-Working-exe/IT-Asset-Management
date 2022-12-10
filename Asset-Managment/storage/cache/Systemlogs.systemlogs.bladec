@@ -4,47 +4,75 @@
 
 <?php $this->startSection('content'); ?>
 
- <form action="#" method="get">
+ <form method="post">
  <div class="row">
 
  <div class="input-group mt-2 col-3" style="width: 20%; height: 2vh;">
  <input type="search" class="form-control rounded" placeholder="Suche" aria-label="Search"
- aria-describedby="search-addon" name="search" id="search"/>
+ aria-describedby="search-addon" name="filter_suche" id="filter_suche" <?php if(!empty($selected_filter['suche'] )): ?> value="<?php echo \htmlentities($selected_filter['suche']??'', ENT_QUOTES, 'UTF-8', false); ?>" <?php endif; ?> />
  </div>
 
  <div class="col mt-2">
  <input type="search" class="form-control rounded" placeholder="Datum" aria-label="Search"
- name="Datum" id="Datum">
+ name="filter_datum" id="filter_datum" <?php if(!empty($selected_filter['datum'] )): ?> value="<?php echo \htmlentities($selected_filter['datum']??'', ENT_QUOTES, 'UTF-8', false); ?> " <?php endif; ?> >
  </div>
 
  <div class="col mt-2">
  <input type="search" class="form-control rounded" placeholder="Benutzer" aria-label="Search"
- name="Benutzer" id="Benutzer">
+ name="filter_benutzer" id="filter_benutzer" <?php if(!empty($selected_filter['benutzer'])): ?> value="<?php echo \htmlentities($selected_filter['benutzer']??'', ENT_QUOTES, 'UTF-8', false); ?>" <?php endif; ?>>
  </div>
 
  <div class="col mt-2">
+ <select class="form-select" name="filter_aktion" id="filter_aktion">
+ <?php if(!empty($selected_filter['aktion'])): ?>
+ <option value="">Aktion</option>
+ <option value="1" <?php if($selected_filter['aktion'] == 1): ?> selected <?php endif; ?> >Anmeldung</option>
+ <option value="2" <?php if($selected_filter['aktion'] == 2): ?> selected <?php endif; ?> >Abmeldung</option>
+ <option value="3" <?php if($selected_filter['aktion'] == 3): ?> selected <?php endif; ?> >Ausleihe</option>
+ <option value="4" <?php if($selected_filter['aktion'] == 4): ?> selected <?php endif; ?> >Gerät bearbeiten</option>
+ <option value="5" <?php if($selected_filter['aktion'] == 5): ?> selected <?php endif; ?> >Gerät kommentieren</option>
+ <option value="6" <?php if($selected_filter['aktion'] == 6): ?> selected <?php endif; ?> >Gerät hinzufügen</option>
+ <option value="7" <?php if($selected_filter['aktion'] == 7): ?> selected <?php endif; ?> >Gerät gelöscht</option>
+ <option value="8" <?php if($selected_filter['aktion'] == 8): ?> selected <?php endif; ?> >Person bearbeitet</option>
+ <option value="9" <?php if($selected_filter['aktion'] == 9): ?> selected <?php endif; ?> >Person hinzugefügt</option>
+ <option value="10" <?php if($selected_filter['aktion'] == 10): ?> selected <?php endif; ?>> Person gelöscht</option>
+ <option value="11" <?php if($selected_filter['aktion'] == 11): ?> selected <?php endif; ?>> Softwarelizenz bearbeiten</option>
+ <option value="12" <?php if($selected_filter['aktion'] == 12): ?> selected <?php endif; ?>> Softwarelizenz hinzugefügt</option>
+ <option value="13" <?php if($selected_filter['aktion'] == 13): ?> selected <?php endif; ?>> Softwarelizenz gelöscht</option>
 
- <select class="form-select" name="Aktion" id="Aktion">
- <option value="none" selected>Aktion</option>
- <option value="Abmeldung">Abmeldung</option>
- <option value="Anmeldung">Anmeldung</option>
- <option value="Ausleihe">Ausleihe</option>
- <option value="Gerät bearbeiten">Gerät bearbeiten</option>
- <option value="Gerät einfügen">Gerät einfügen</option>
- <option value="Gerät löschen">Gerät löschen</option>
+ <?php else: ?>
+ <option value="" selected>Aktion</option>
+ <option value="1" >Anmeldung</option>
+ <option value="2" >Abmeldung</option>
+ <option value="3" >Ausleihe</option>
+ <option value="4" >Gerät bearbeiten</option>
+ <option value="5" >Gerät kommentieren</option>
+ <option value="6" >Gerät hinzufügen</option>
+ <option value="7" >Gerät gelöscht</option>
+ <option value="8" >Person bearbeitet</option>
+ <option value="9" >Person hinzugefügt</option>
+ <option value="10"> Person gelöscht</option>
+ <option value="11"> Softwarelizenz bearbeiten</option>
+ <option value="12"> Softwarelizenz hinzugefügt</option>
+ <option value="13"> Softwarelizenz gelöscht</option>
+
+ <?php endif; ?>
+
  </select>
 
+
  </div>
 
-
-
- <div class="col mt-2">
- <input type="search" class="form-control rounded" placeholder="Description" aria-label="Search"
- name="Description" id="Description">
- </div>
- <div class="col mt-1">
+ <div class="mt-1" style="width: 80px">
  <button type="submit" class="btn btn-primary sub"><img src="/img/search_icon.svg" width="30px"></button>
  </div>
+ <div class="col mt-2">
+ <?php if(!empty($selected_filter)): ?>
+ <a href="" class="btn  btn-primary sub  text-nowrap" role="button" aria-disabled="true">Filter Zurücksetzten</a>
+ <?php endif; ?>
+ </div>
+
+
 
  </div>
  </form>
@@ -61,45 +89,15 @@
  </tr>
  </thead>
  <tbody>
+ <?php $__currentLoopData = $data; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $value): $loop = $this->incrementLoopIndices();  ?>
  <tr>
- <td>2021.12.13</td>
- <td>mm5645s</td>
- <td>Anmeldung</td>
- <td>Der Benutzer mm5645s hat sich angemeldet</td>
-
+ <td><?php echo \htmlentities($value['datum']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td><?php echo \htmlentities($value['benutzer']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td><?php echo \htmlentities($value['aktion']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td class="no_nowrap"><?php echo \htmlentities($value['beschreibung']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
  </tr>
-
- <tr>
- <td>2013.02.14</td>
- <td>mm8536m</td>
- <td>Abmeldung</td>
- <td>Der Benutzer mm8536m hat sich abgemeldet</td>
-
- </tr>
-
- <tr>
- <td>2013.02.13</td>
- <td>ls0420</td>
- <td>Gerät löschen</td>
- <td>Der Benutzer ls0420 hat ein Gerät im Raum A112 gelöscht</td>
-
- </tr>
-
- <tr>
- <td>2022.02.12</td>
- <td>cd5679</td>
- <td>Gerät einfügen</td>
- <td>Der Benutzer cd5679 hat ein Gerät im Raum A112 eingefügt</td>
-
- </tr>
-
- <tr>
- <td>2022.07.27</td>
- <td>fy2134</td>
- <td>Ausleihe</td>
- <td>Der Benutzer fy2134 hat eine Anfrage für die Ausleihe gesendet</td>
-
- </tr>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
 
  </tbody>
  </table>

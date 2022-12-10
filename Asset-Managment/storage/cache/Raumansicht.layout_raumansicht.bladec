@@ -23,9 +23,7 @@
 
 
  <?php echo $this->yieldContent('sub_header'); ?>
-
  <?php echo $this->yieldContent('geraetefilter'); ?>
-
  <?php echo $this->yieldContent('content'); ?>
  <a href="/raumauswahl">
  <button type="submit" class="btn btn-primary sub">Zurück zur Raumauswahl</button>

@@ -50,6 +50,7 @@
             </button>
 
         </div>
+
     </div>
 
 
@@ -68,15 +69,23 @@
         @yield('editsoftware')
     @endif
 
-    <div>
-        <div class="form-group">
+    <div class="container">
+    <div class="row">
+        <div class="form-group ">
             <a href="/datenbank?database=geraete" class="btn  @if($typ == 'geraete') btn-primary sub @else btn-secondary @endif " role="button" aria-disabled="true">Geräte</a>
 
             <a href="/datenbank?database=personen" class="btn @if($typ == 'personen') btn-primary sub @else btn-secondary @endif" role="button" aria-disabled="true">Personen</a>
 
             <a href="/datenbank?database=lizenzen" class="btn @if($typ == 'lizenzen') btn-primary sub @else btn-secondary @endif" role="button" aria-disabled="true">Lizenzen</a>
+
+            @if(!empty($selected_filter) && $typ == "geraete")
+                <a href="/datenbank?database=geraete" class="btn  btn-primary sub " role="button" aria-disabled="true" style="margin-left: 65%">Filter Zurücksetzten</a>
+            @endif
         </div>
+
+
     </div>
+</div>
 
 
     <div class="container mt-3">

@@ -20,6 +20,10 @@
                 data-bs-target="#export">
             Export
         </button>
+
+        @if(!empty($selected_filter['suche']) || !empty($selected_filter['Typ']) || !empty($selected_filter['hersteller']) || !empty($selected_filter['age']) || !empty($selected_filter['betriebssystemid']) || !empty($selected_filter['softwarelizenzid'])  )
+            <a href="" class="btn  btn-primary sub  text-nowrap" style="margin-left: 68%" role="button" aria-disabled="true">Filter Zurücksetzten</a>
+        @endif
     </div>
 
 
@@ -29,6 +33,7 @@
 
 
 @section('content')
+
     <div class="container mt-3">
         <table class="table table-striped table-bordered" id="ownDevices">
             <thead>
@@ -54,68 +59,50 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>PC-1</td>
-                <td>Tower-P</td>
-                <td>Dell</td>
-                <td>6 Jahren</td>
-                <td>Windows10</td>
-                <td>
-                    <ul>
-                        <li>MSOffice</li>
-                        <li>Visual Studio</li>
-                        <li>Microchip Studio</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>8GB RAM</li>
-                        <li>1000GB SSD</li>
-                        <li>NVIDIA RTX4090</li>
-                    </ul>
-                </td>
-                <td>Game Design geeignet</td>
-                <td><button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                            data-bs-target="#editKommentar">Kommentieren
-                    </button></td>
-                <td>
-                    <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                            data-bs-target="#editRoom">Ändern
-                    </button>
-                </td>
-                </td>
-            </tr>
-            <tr>
-                <td>PC-2</td>
-                <td>Tower-P</td>
-                <td>Dell</td>
-                <td>6 Jahren</td>
-                <td>Windows10</td>
-                <td>
-                    <ul>
-                        <li>MSOffice</li>
-                        <li>Visual Studio</li>
-                        <li>Microchip Studio</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>8GB RAM</li>
-                        <li>1000GB SSD</li>
-                        <li>NVIDIA RTX4090</li>
-                    </ul>
-                </td>
-                <td>Game Design geeignet</td>
-                <td><button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                            data-bs-target="#editKommentar">Kommentieren
-                    </button></td>
-                <td>A102
-                    <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                            data-bs-target="#editRoom" style="width: 100px">Ändern
-                    </button>
-                </td>
+            @foreach($data as $geraet)
+                <tr>
+                    <td>{{$geraet['name']}}</td>
+                    <td>{{$geraet['typ']}}</td>
+                    <td>{{$geraet['hersteller']}}</td>
+                    <td>{{$geraet['age']}} Jahre</td>
+                    <td>
+                        @if(isset($geraet['betriebssystem']))
+                            <ul>
+                                @foreach($geraet['betriebssystem'] as $value)
+                                    <li>{{$value}} </li>
+                                @endforeach
+                            </ul>
+                        @endif
+                    </td>
+                    <td>
+                        @if(isset($geraet['software']))
+                            <ul>
+                                @foreach($geraet['software'] as $value)
+                                    <li>{{$value}} </li>
+                                @endforeach
+                            </ul>
+                        @endif
+                    </td>
+                    <td>
+                        @if(!empty($geraet['technische_eckdaten'][0]))
+                            <ul>
+                                @foreach($geraet['technische_eckdaten'] as $value)
+                                    <li>{{$value}} </li>
+                                @endforeach
+                            </ul>
+                        @endif
+                    </td>
+                    <td class="no_nowrap">{{$geraet['kommentar']}}</td>
+                    <td><button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
+                                data-bs-target="#editKommentar">Kommentieren
+                        </button></td>
+                    <td>{{$geraet['raumnummer']}}
+                        <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
+                                data-bs-target="#editRoom">Ändern
+                        </button></td>
+                </tr>
 
-            </tr>
+            @endforeach
 
             </tbody>
         </table>

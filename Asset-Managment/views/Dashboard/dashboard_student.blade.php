@@ -1,9 +1,12 @@
 @extends('Dashboard.layout_dashboard')
 @extends('header_footer')
+@extends('modals.Eintraege.User')
+@extends('modals.Eintraege.Device')
+
 
 
 @section('Navigation')
-    <div class="row mt-5 row justify-content-between">
+    <div class="row  justify-content-between" style="padding: 10%; font-size: 36px;">
         <div class="btn-group-vertical col-5 mt-3 offset-1">
 
             <a style="padding: 3%;" href="/raumauswahl" type="button"
@@ -14,47 +17,76 @@
                class="btn btn-primary staticButton sub mt-2">Einstellungen</a>
 
         </div>
-        <div class="col-5">
-            <div class="row">
-                <p class="display-6 h6 text-center col-4 mt-3">Benachrichtungen</p>
+        @endsection
+
+        @section('Benachrichtigungen')
+            <div class="col-5">
+                <div class="row">
+                    <p class="display-6 h6 text-center col-4 mt-3">Benachrichtigungen</p>
+                </div>
+
+                <div style="overflow-y: scroll;margin-right:20%; height:300px;">
+                    @foreach ($notifs as $benachrichtigung)
+                        @if(isset($benachrichtigung['art']))
+                            <div class="toast show col-6 mt-2">
+                                <div class="toast-header ">
+                                    Ausleihfrist
+                                    <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+                                </div>
+                                <div class="toast-body">
+                                    {{-- Angenommene Anfrage -> Ausleihfrist --}}
+                                    @if($benachrichtigung['art'] == 0 && $benachrichtigung['status'] == 1)
+                                        @if($benachrichtigung['zeitraum'] < 0)
+                                            Die Ausleihfrist für das Gerät "{{ $benachrichtigung['geraet'] }}" ist vor {{ -1*$benachrichtigung['zeitraum'] }} Tag(en) abgelaufen.
+                                        @elseif($benachrichtigung['zeitraum'] == 0)
+                                            Die Ausleihfrist für das Gerät "{{ $benachrichtigung['geraet'] }}" läuft heute ab.
+                                        @else($benachrichtigung['zeitraum'] > 0)
+                                            Die Ausleihfrist für das Gerät "{{ $benachrichtigung['geraet'] }}" läuft in {{ $benachrichtigung['zeitraum'] }} Tag(en) ab.
+                                        @endif
+                                        {{-- Angenommene Rückgabe -> Glückwunsch --}}
+                                    @elseif($benachrichtigung['art'] == 1 && $benachrichtigung['status'] == 1)
+                                        Die Rückgabe-Anfrage für "{{ $benachrichtigung['geraet'] }}" wurde angenommen.
+                                        {{-- Abgelehnte Rückgabe -> Sorry --}}
+                                    @elseif($benachrichtigung['art'] == 1 && $benachrichtigung['status'] == 1)
+                                        Die Rückgabe-Anfrage für "{{ $benachrichtigung['geraet'] }}" wurde abgelehnt.
+                                        Wenden Sie sich an Mitarbeitende der Fachhochschule Aachen für genauere Informationen.
+                                    @endif
+                                </div>
+                            </div>
+                        @else
+                            <div class="toast show col-6 mt-2">
+                                <div class="toast-header ">
+                                    Info
+                                    <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+                                </div>
+                                <div class="toast-body">
+                                    Keine Benachrichtigungen vorhanden.
+                                </div>
+                            </div>
+                        @endif
+
+
+                    @endforeach
+                </div>
             </div>
+        @endsection
 
-            <div style="overflow-y: scroll;margin-right:20%; height:300px;">
-                <div class="toast show col-6 mt-2">
-                    <div class="toast-header ">
-                        Ausleihfrist
-                        <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
-                    </div>
-                    <div class="toast-body">
-                        Ihre Ausleihfrist für Ihr Gerät "ARBKVS_Steckboard_74866" läuft in 3 Tagen ab.
-                    </div>
-                </div>
 
-                <div class="toast show col-6 mt-2">
-                    <div class="toast-header ">
-                        Ausleihfrist
-                        <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
-                    </div>
-                    <div class="toast-body">
-                        Ihre Ausleihfrist für Ihr Gerät "HP_Maus_94471" läuft in 6 Tagen ab.
-                    </div>
-                </div>
-                <div class="toast show col-6 mt-2">
-                    <div class="toast-header">
-                        Ausleihfrist
-                        <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
-                    </div>
-                    <div class="toast-body">
-                        Ihre Ausleihfrist für Ihr Gerät "Lötset" läuft in 9 Tagen ab.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+        @section('jsextra')
+            <script type="text/javascript">
+                $(function () {
+                    $('#datepickerBuild').datepicker({
+                        format: 'dd.mm.yyyy'
+                    });
+                });
+
+                $(function () {
+                    $('#datepickerUsage').datepicker({
+                        format: 'dd.mm.yyyy'
+                    });
+                });
+            </script>
+            <script type="text/javascript" src="../js/custom.js"></script>
+            <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
 @endsection
-
-@section('jsextra')
-    <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
-@endsection
-
-

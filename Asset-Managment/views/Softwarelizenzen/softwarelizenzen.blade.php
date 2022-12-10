@@ -1,6 +1,7 @@
 @extends('Softwarelizenzen.softwarelizenzen_layout')
 @extends('header_footer')
 @extends('modals.Eintraege.Software')
+@extends('Filter.software')
 
 
 @section('content')
@@ -22,71 +23,31 @@
             </thead>
             <tbody>
 
-            <tr>
-                <td>MS Office</td>
-                <td>20.10.2022</td>
-                <td>20.10.2024</td>
-                <td>
-                    <div class="progress position-relative">
-                        <div class="progress-bar" role="progressbar"
-                             style="width:18%; background-color: green" aria-valuenow="187" aria-valuemin="0"
-                             aria-valuemax="1000">
-                            <small class="justify-content-center d-flex position-absolute w-100">187/1000</small>
-                        </div>
-                        <div class="progress-bar" role="progressbar"
-                             style="width:82%; background-color: black"></div>
-                    </div>
-                </td>
-                <td>
-                    <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                            data-bs-target="#editSoftware">Softwarelizenz bearbeiten
-                    </button>
-                </td>
-            </tr>
+                @foreach($data as $lizenz)
 
-            <tr>
-                <td>Microsoft Visual Studio 2022</td>
-                <td>01.09.2022</td>
-                <td>01.10.2024</td>
-                <td>
-                    <div class="progress position-relative">
-                        <div class="progress-bar" role="progressbar"
-                             style="width:25%; background-color: yellowgreen" aria-valuenow="207" aria-valuemin="0"
-                             aria-valuemax="800">
-                            <small class="justify-content-center d-flex position-absolute w-100">207/800</small>
+                <tr>
+                    <td>{{$lizenz['name']}}</td>
+                    <td>{{$lizenz['erwerbsdatum']}}</td>
+                    <td>{{$lizenz['ablaufdatum']}}</td>
+                    <td>
+                        <div class="progress position-relative">
+                            <div class="progress-bar @if($lizenz['anzahl_installationen_prozent'] <=25) bg-success @elseif($lizenz['anzahl_installationen_prozent'] >25 && $lizenz['anzahl_installationen_prozent'] <=50) bg-info
+                             @elseif($lizenz['anzahl_installationen_prozent'] > 50 && $lizenz['anzahl_installationen_prozent'] <=75) bg-warning @else bg-danger" @endif role="progressbar"
+                                 style="width:{{$lizenz['anzahl_installationen_prozent']}}%; background-color: green" aria-valuenow="{{$lizenz['anzahl_installationen']}}" aria-valuemin="0"
+                                 aria-valuemax="{{$lizenz['anzahl_gerate']}}">
+                                <small class="justify-content-center d-flex position-absolute w-100" style="color: black">{{$lizenz['anzahl_installationen']}}/{{$lizenz['anzahl_gerate']}}</small>
+                            </div>
                         </div>
-                        <div class="progress-bar" role="progressbar"
-                             style="width:75%; background-color: black"></div>
-                    </div>
-                </td>
-                <td>
-                    <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                            data-bs-target="#editSoftware">Softwarelizenz bearbeiten
-                    </button>
-                </td>
-            </tr>
 
-            <tr>
-                <td>Intel Quartus Prime</td>
-                <td>01.01.1996</td>
-                <td>01.01.2026</td>
-                <td>
-                    <div class="progress position-relative">
-                        <div class="progress-bar" role="progressbar"
-                             style="width:92%; background-color: red" aria-valuenow="17" aria-valuemin="0"
-                             aria-valuemax="100">
-                            <small class="justify-content-center d-flex position-absolute w-100">92/100</small>
-                        </div>
-                        <div class="progress-bar" role="progressbar"
-                             style="width:8%; background-color: black"></div>
-                    </div>
-                </td>
-                <td>
-                    <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                            data-bs-target="#editSoftware">Softwarelizenz bearbeiten
-                    </button>
-                </td>
-            </tr>
+                    </td>
+                    <td>
+                        <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
+                                data-bs-target="#editSoftware">Softwarelizenz bearbeiten
+                        </button>
+                    </td>
+                </tr>
+
+            @endforeach
 
 
             </tbody>

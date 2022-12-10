@@ -30,6 +30,8 @@
             </button>
         </div>
 
+
+        @yield('softwarefilter')
         <div class="container mt-3">
 
         @yield('content')

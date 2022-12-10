@@ -23,9 +23,7 @@
 
 
     @yield('sub_header')
-
     @yield('geraetefilter')
-
     @yield('content')
     <a href="/raumauswahl">
         <button type="submit" class="btn btn-primary sub">Zurück zur Raumauswahl</button>

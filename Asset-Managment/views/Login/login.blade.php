@@ -23,18 +23,13 @@
 
     <div class="row mt-3 justify-content-center align-items-center">
         <div class="col-4">
-            @if ($loginFailed)
-            "<div class='alert alert-danger'>Benutzername oder Passwort ungültig </div>"
-            @endif
-            <form {{--action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"--}} method="post">
+
+            <form action="/login_verify" method="post">
                 <div class="form-group mb-3 mt-3">
                     <label for="username">Benutzername*</label>
                     <input type="text" name="username" id="username" required="true"
                            class="form-control {{(!empty($username_err)) ? 'is-invalid' : ''}}"
                            placeholder="Benutzername"
-                                @if($loginFailed)
-                                  {{"value = 'lk5975s' "}}
-                                @endif
                     >
                     <span class="invalid-feedback">{{$username_err}}</span>
                 </div>
@@ -59,5 +54,8 @@
         <li class="nav-item"><a href="https://www.fh-aachen.de/impressum/" class="nav-link px-2 text-muted" target="_blank">Impressum</a></li>
     </ul>
     <p class="text-center text-muted">© 2022 SmartWorking.exe</p>
+    tw0850m                  mitarbeiter <br>
+    ad1234a                    admin <br>
+    vm4269s                    student <br>
 </footer>
 </html>
