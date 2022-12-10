@@ -134,7 +134,9 @@ class HomeController
                 ]);
             } elseif ($rd->query['database'] == 'lizenzen') {
                 return view('Datenbank.datenbank_lizenzen', [
-                    'typ' => 'lizenzen'
+                    'typ' => 'lizenzen',
+                    'data' => get_SoftwarlizenzenTabledata(get_filter_data($rd,3)),
+                    'selected_filter' => get_filter_data($rd,3)
                 ]);
             }
         }

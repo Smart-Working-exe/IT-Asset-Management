@@ -105,6 +105,8 @@ function get_filter_data(RequestData &$rd,$eintrag) : array
 
     }elseif ($eintrag == 3) {
 
+        if ($rd->query['filter_suche'] ?? false)
+            $filter_search['suche'] = $rd->query['filter_suche'];
     }
 
 
@@ -174,7 +176,12 @@ function filter_to_sql($sql,$eintrag, &$filter =[] ) : string
             if(!empty($filter['suche']))
                 $where_sql .= " And (vorname like '%$filter[suche]%' OR nachname like '%$filter[suche]%')";
 
+        }
+        elseif ($eintrag == 3)
+        {
 
+            if(!empty($filter['suche']))
+                $where_sql .= " And (name like '%$filter[suche]%' OR version like '%$filter[suche]%')";
 
         }
 

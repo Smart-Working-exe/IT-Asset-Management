@@ -98,10 +98,6 @@
     </form>
 
 
-
-
-
-    {{print_r($test)}}
-
+    
 
 @endsection
