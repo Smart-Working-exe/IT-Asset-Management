@@ -56,5 +56,14 @@ INSERT INTO geraet_hat_software(geraetid, softwarelizenzid) VALUES
                                                                 (41,1);
 
 
+INSERT INTO logs (datum, benutzer, aktion, beschreibung) VALUES
+                                                             ('2022-12-10 16:30:01','ad1234a',1,'Eine wunderschöner Test Log, AKtion: Anmeldung'),
+                                                             ('2022-12-10 16:30:07','ad1234a',2,'Hi, ich bin nicht so schön..., AKtion: Abmeldung'),
+                                                             ('2022-12-10 16:30:11','kg1234a',4,'Ja du bist echt hässlich, AKtion: Gerät bearbeitung'),
+                                                             ('2022-12-10 16:30:13','ad1234a',6,'Ey, mach den kleinen log nicht fertig, AKtion: Gerät hinzufügen'),
+                                                             ('2022-12-10 16:30:15','kg1234a',9,'was willst du alter, jetzt eine aufs Maul oder später?, AKtion: Person hinzufügen'),
+                                                             ('2022-12-10 16:30:18','ad1234a',11,'reg dich ma ab Brooooow, las einfach weiter logs sein, AKtion: Softwarelizenz bearbeiten'),
+                                                             ('2022-12-10 16:30:21','kg1234a',13,'Im ernst, ich finde den Vorschlag hammer, wie in einer Werkzeuggasvorratskammer, AKtion: Softwarelizenz gelöscht');
+
 
 

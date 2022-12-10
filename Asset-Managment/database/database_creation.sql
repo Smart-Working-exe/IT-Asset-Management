@@ -96,7 +96,7 @@ CREATE TABLE `geraet_hat_software` (
 ;
 
 CREATE TABLE `logs` (
-                        `id` INT(11) NOT NULL COMMENT 'Evtl. einfach hochzählen beim Anlegen  ',
+                        `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'Evtl. einfach hochzählen beim Anlegen  ',
                         `datum` DATETIME NOT NULL COMMENT 'Datum der Aktion',
                         `benutzer` CHAR(7) NOT NULL COMMENT 'Admin, Mitarbeiter oder Student welcher die Aktion ausgeführt hat' COLLATE 'utf8mb4_general_ci',
                         `aktion` INT(8) NOT NULL COMMENT 'Was für Aktionen gibt es alles??',

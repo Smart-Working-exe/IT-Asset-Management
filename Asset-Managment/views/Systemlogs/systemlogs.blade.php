@@ -4,47 +4,75 @@
 
 @section('content')
 
-    <form action="#" method="get">
+    <form method="post">
         <div class="row">
 
             <div class="input-group mt-2 col-3" style="width: 20%; height: 2vh;">
                 <input type="search" class="form-control rounded" placeholder="Suche" aria-label="Search"
-                       aria-describedby="search-addon" name="search" id="search"/>
+                       aria-describedby="search-addon" name="filter_suche" id="filter_suche" @if(!empty($selected_filter['suche'] )) value="{{$selected_filter['suche']}}" @endif />
             </div>
 
             <div class="col mt-2">
                 <input type="search" class="form-control rounded" placeholder="Datum" aria-label="Search"
-                       name="Datum" id="Datum">
+                       name="filter_datum" id="filter_datum" @if(!empty($selected_filter['datum'] )) value="{{$selected_filter['datum']}} " @endif >
             </div>
 
             <div class="col mt-2">
                 <input type="search" class="form-control rounded" placeholder="Benutzer" aria-label="Search"
-                       name="Benutzer" id="Benutzer">
+                       name="filter_benutzer" id="filter_benutzer" @if(!empty($selected_filter['benutzer'])) value="{{$selected_filter['benutzer']}}" @endif>
             </div>
 
             <div class="col mt-2">
+                <select class="form-select" name="filter_aktion" id="filter_aktion">
+                    @if(!empty($selected_filter['aktion']))
+                        <option value="">Aktion</option>
+                        <option value="1" @if($selected_filter['aktion'] == 1) selected @endif >Anmeldung</option>
+                        <option value="2" @if($selected_filter['aktion'] == 2) selected @endif >Abmeldung</option>
+                        <option value="3" @if($selected_filter['aktion'] == 3) selected @endif >Ausleihe</option>
+                        <option value="4" @if($selected_filter['aktion'] == 4) selected @endif >Gerät bearbeiten</option>
+                        <option value="5" @if($selected_filter['aktion'] == 5) selected @endif >Gerät kommentieren</option>
+                        <option value="6" @if($selected_filter['aktion'] == 6) selected @endif >Gerät hinzufügen</option>
+                        <option value="7" @if($selected_filter['aktion'] == 7) selected @endif >Gerät gelöscht</option>
+                        <option value="8" @if($selected_filter['aktion'] == 8) selected @endif >Person bearbeitet</option>
+                        <option value="9" @if($selected_filter['aktion'] == 9) selected @endif >Person hinzugefügt</option>
+                        <option value="10" @if($selected_filter['aktion'] == 10) selected @endif> Person gelöscht</option>
+                        <option value="11" @if($selected_filter['aktion'] == 11) selected @endif> Softwarelizenz bearbeiten</option>
+                        <option value="12" @if($selected_filter['aktion'] == 12) selected @endif> Softwarelizenz hinzugefügt</option>
+                        <option value="13" @if($selected_filter['aktion'] == 13) selected @endif> Softwarelizenz gelöscht</option>
 
-                <select class="form-select" name="Aktion" id="Aktion">
-                    <option value="none" selected>Aktion</option>
-                    <option value="Abmeldung">Abmeldung</option>
-                    <option value="Anmeldung">Anmeldung</option>
-                    <option value="Ausleihe">Ausleihe</option>
-                    <option value="Gerät bearbeiten">Gerät bearbeiten</option>
-                    <option value="Gerät einfügen">Gerät einfügen</option>
-                    <option value="Gerät löschen">Gerät löschen</option>
+                    @else
+                        <option value="" selected>Aktion</option>
+                        <option value="1" >Anmeldung</option>
+                        <option value="2" >Abmeldung</option>
+                        <option value="3" >Ausleihe</option>
+                        <option value="4" >Gerät bearbeiten</option>
+                        <option value="5" >Gerät kommentieren</option>
+                        <option value="6" >Gerät hinzufügen</option>
+                        <option value="7" >Gerät gelöscht</option>
+                        <option value="8" >Person bearbeitet</option>
+                        <option value="9" >Person hinzugefügt</option>
+                        <option value="10"> Person gelöscht</option>
+                        <option value="11"> Softwarelizenz bearbeiten</option>
+                        <option value="12"> Softwarelizenz hinzugefügt</option>
+                        <option value="13"> Softwarelizenz gelöscht</option>
+
+                    @endif
+
                 </select>
 
+
             </div>
 
-
-
-            <div class="col mt-2">
-                <input type="search" class="form-control rounded" placeholder="Description" aria-label="Search"
-                       name="Description" id="Description">
-            </div>
-            <div class="col mt-1">
+            <div class="mt-1" style="width: 80px">
                 <button type="submit" class="btn btn-primary sub"><img src="/img/search_icon.svg" width="30px"></button>
             </div>
+                <div class="col mt-2">
+                    @if(!empty($selected_filter))
+                    <a href="" class="btn  btn-primary sub  text-nowrap" role="button" aria-disabled="true">Filter Zurücksetzten</a>
+                    @endif
+                </div>
+
+
 
         </div>
     </form>
@@ -61,45 +89,14 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>2021.12.13</td>
-                <td>mm5645s</td>
-                <td>Anmeldung</td>
-                <td>Der Benutzer mm5645s hat sich angemeldet</td>
-
-            </tr>
-
-            <tr>
-                <td>2013.02.14</td>
-                <td>mm8536m</td>
-                <td>Abmeldung</td>
-                <td>Der Benutzer mm8536m hat sich abgemeldet</td>
-
-            </tr>
-
-            <tr>
-                <td>2013.02.13</td>
-                <td>ls0420</td>
-                <td>Gerät löschen</td>
-                <td>Der Benutzer ls0420 hat ein Gerät im Raum A112 gelöscht</td>
-
-            </tr>
-
-            <tr>
-                <td>2022.02.12</td>
-                <td>cd5679</td>
-                <td>Gerät einfügen</td>
-                <td>Der Benutzer cd5679 hat ein Gerät im Raum A112 eingefügt</td>
-
-            </tr>
-
-            <tr>
-                <td>2022.07.27</td>
-                <td>fy2134</td>
-                <td>Ausleihe</td>
-                <td>Der Benutzer fy2134 hat eine Anfrage für die Ausleihe gesendet</td>
-
-            </tr>
+         @foreach($data as $value)
+             <tr>
+                 <td>{{$value['datum']}}</td>
+                 <td>{{$value['benutzer']}}</td>
+                 <td>{{$value['aktion']}}</td>
+                 <td class="no_nowrap">{{$value['beschreibung']}}</td>
+             </tr>
+         @endforeach
 
             </tbody>
         </table>

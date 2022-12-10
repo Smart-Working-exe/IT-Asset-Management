@@ -13,6 +13,25 @@
             - 'Tastatur'
             - 'Praktikumsmaterial'
             - 'Sonstiges'
+        * Logs Aktionen
+            -  1 = Anmeldung
+            -  2 = Abmeldung
+            -  3 = Ausleihe
+            -  4 = Gerät bearbeiteung/kommentieren
+            -  5 = Gerät kommentieren
+            -  6 = Gerät hinzufügen
+            -  7 = Gerät gelöscht
+            -  8 = Person bearbeitet
+            -  9 = Person hinzugefügt
+            -  10 = Person gelöscht
+            -  11 = Softwarelizenz bearbeitet
+            -  12 = Softwarelizenz hinzugefügt
+            -  13 = Softwarelizenz gelöscht
+
+
+
+
+
 
  #  Begrifflichkeiten und zuordnung
         * Verleihung => Mitarbeiter

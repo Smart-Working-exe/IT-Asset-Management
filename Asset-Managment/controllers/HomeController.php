@@ -6,6 +6,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/softwarelizenzen.php');
 require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/filter.php');
 require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/benachrichtigungen.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/../models/benutzer.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/../models/logs.php');
 
 /* Datei: controllers/HomeController.php */
 class HomeController
@@ -55,7 +56,10 @@ class HomeController
             $_SESSION['target'] = '/systemlogs';
             header('Location: /login');
         }
-        return view('Systemlogs.systemlogs',[]);
+        return view('Systemlogs.systemlogs',[
+                    'data' => get_logs(get_filter_data($rd,4)),
+                    'selected_filter' => get_filter_data($rd,4)
+        ]);
 
     }
 
