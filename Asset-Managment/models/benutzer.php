@@ -26,8 +26,6 @@ function get_user_tabledata($filter = []) : array
 {
 
     $link = connectdb();
-    mysqli_begin_transaction($link);
-    // mysqli_real_escape_string($link, $date);
 
     $sql = "SELECT vorname,nachname, fh_kuerzel, rolle FROM personen";
 

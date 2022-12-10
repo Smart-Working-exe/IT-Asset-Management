@@ -43,12 +43,14 @@ function getGeraeteData ($filter = []) {
 
         $value_id = $value['id'];
 
-        //get betriebssystem
-        $sql = "SELECT  b.name FROM geraet_hat_betriebssystem gb LEFT JOIN betriebssystem b On gb.betriebssystemid = b.id where gb.geraetid = $value_id " ;
-        $result_betriebssystem = mysqli_query($link, $sql);
+        if($value['typ'] == 'PC' || $value['typ'] == 'Laptop') {
+
+            //get betriebssystem
+            $sql = "SELECT  b.name FROM geraet_hat_betriebssystem gb LEFT JOIN betriebssystem b On gb.betriebssystemid = b.id where gb.geraetid = $value_id ";
+            $result_betriebssystem = mysqli_query($link, $sql);
 
 
-        $data_betriebssystem = mysqli_fetch_all($result_betriebssystem, MYSQLI_NUM);
+            $data_betriebssystem = mysqli_fetch_all($result_betriebssystem, MYSQLI_NUM);
 
             // entfernt array klammern
             foreach ($data_betriebssystem as $value2)
@@ -56,21 +58,20 @@ function getGeraeteData ($filter = []) {
                     $data[$key]['betriebssystem'][] = $value3;
 
 
+            //get software
+            $sql = "SELECT  s.name FROM geraet_hat_software gs LEFT JOIN softwarelizenzen s On gs.softwarelizenzid = s.id where gs.geraetid = $value_id ";
+            $result_software = mysqli_query($link, $sql);
 
 
-        //get software
-        $sql = "SELECT  s.name FROM geraet_hat_software gs LEFT JOIN softwarelizenzen s On gs.softwarelizenzid = s.id where gs.geraetid = $value_id " ;
-        $result_software = mysqli_query($link, $sql);
+            $data_software = mysqli_fetch_all($result_software, MYSQLI_NUM);
+
+            // entfernt array klammern
+            foreach ($data_software as $value4)
+                foreach ($value4 as $value5)
+                    $data[$key]['software'][] = $value5;
 
 
-        $data_software = mysqli_fetch_all($result_software, MYSQLI_NUM);
-
-        // entfernt array klammern
-        foreach ($data_software as $value4)
-            foreach ($value4 as $value5)
-                $data[$key]['software'][] = $value5;
-
-
+        }
 
 
 
