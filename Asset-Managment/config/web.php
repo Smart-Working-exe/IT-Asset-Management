@@ -26,7 +26,11 @@ return array(
 
     // Alle Hinzufügen Controller
     '/addSoftware'          => "AddController@addSoftware",
+
     '/addUser'              => "AddController@addUser",
+
+
+    '/addDevice'            => "AddController@addDevice",
 
     '/test'                 => "HomeController@test"
 );

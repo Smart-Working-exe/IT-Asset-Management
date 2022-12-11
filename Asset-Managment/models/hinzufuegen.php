@@ -1,14 +1,20 @@
 <?php
-function db_add_device()
+function db_add_device($var)
 {
     $db = connectdb();
-
-    // set devices
-    $stmt = mysqli_stmt_init($db);
-    mysqli_stmt_prepare($stmt, "INSERT INTO geraet (id, name, typ, betrieb, hersteller, age, ip-adresse, technische_eckdaten, kommentar) VALUES (?,?,?,?,?,?,?,?,?);");
-    mysqli_stmt_bind_param($stmt, 'issssssss', $id, $name, $typ, $betrieb, $hersteller, $age, $ip_adresse, $technische_eckdaten, $kommentar);
-    mysqli_stmt_execute($stmt);
-    mysqli_close($db);
+    $name=$var['addDeviceName'];
+    $typ =$var['addDevicedeviceTyp'];
+    $hersteller=$var['addDeviceHersteller'];
+    $age= date('Y-m-d', strtotime($var['addDevicealterGerat']));
+    $betrieb= date('Y-m-d', strtotime($var['addDeviceersteInbetriebname']));
+    $ip=$var['addDeviceIP'];
+    $technischeEckdaten=$var['addDevicetechnischeEckdaten'];
+    $kommentar=$var['addDeviceKommentarGerat'];
+    print_r($age);
+    print_r($betrieb);
+    $absenden = $db->prepare("INSERT INTO geraet(name, typ, hersteller, age, betrieb,ip_adresse,technische_eckdaten,kommentar) VALUES(?,?,?,?,?,?,?,?)");
+    $absenden->bind_param('ssssssss', $name, $typ, $hersteller, $age, $betrieb, $ip, $technischeEckdaten,$kommentar);
+    $absenden->execute();
 }
 
 function db_add_user($var)
