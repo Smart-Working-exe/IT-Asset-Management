@@ -2,18 +2,16 @@
     <div class="modal fade" id="addSoftware" tabindex="-1" aria-labelledby="addSoftware" aria-hidden="true">
         <div class="modal-dialog modal-xl modal-dialog-centered">
             <div class="modal-content">
+                <form action="/addSoftware" method="post">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Softwarelizenz Hinzufügen</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
 
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Softwarelizenz Hinzufügen</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-
-                <!-- Modal Body -->
-
-                <div class="modal-body">
-                    <div class="row">
-                       <form action="/addSoftware" method="post">
+                    <!-- Modal Body -->
+                    <div class="modal-body">
+                        <div class="row">
                              <div class="row mt-3">
                                 <div class="col">
                                     <input class="form-control" type="text" id="software_add_lizenzname" name="software_add_lizenzname"
@@ -66,17 +64,16 @@
                                            placeholder="Anzahl verfügbarer Installation*" required>
                                 </div>
                             </div>
-                        <input type="submit" value="abschicken">
-                        </form>
+                        </div>
                     </div>
-                </div>
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <p>mit * makierte Felder sind Pflichtfelder</p>
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
-                            name="software_add_submit" id="software_add_submit">Speichern</button>
-                    <button type="button" class="btn btn-danger" id="software_add_cancle" name="software_add_cancle" data-bs-dismiss="modal">Abbrechen</button>
-                </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <p>mit * makierte Felder sind Pflichtfelder</p>
+                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"
+                                name="software_add_submit" id="software_add_submit" value="Speichern">Speichern</button>
+                        <button type="button" class="btn btn-danger" id="software_add_cancle" name="software_add_cancle" data-bs-dismiss="modal">Abbrechen</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

@@ -11,63 +11,18 @@ function db_add_device()
     mysqli_close($db);
 }
 
-function db_add_user()
+function db_add_user($var)
 {
     $db = connectdb();
-
-    /*// set user
-    $stmt = mysqli_stmt_init($db);
-    mysqli_stmt_prepare($stmt, "INSERT INTO personen (fh_kuerzel, vorname, nachname, rolle, passwort) VALUES (?,?,?,?,?);");
-    mysqli_stmt_bind_param($stmt, 'sssis', $fh_kuerzel, $vorname, $nachname, $rolle, $passwort);
-    mysqli_stmt_execute($stmt);
-    mysqli_close($db);*/
-    $userRole = null;
-    $userFirstName = null;
-    $userLastName = null;
-    $userFH_Name = null;
-    $userPass = null;
-    print_r($userFirstName + ", " + $userLastName + ", " + $userRole + ", " + $userFH_Name + ", " + $userPass);
-    if (isset($_POST['addUserSubmit'])) {
-        if (isset($_POST['userRole'])) {
-            $userRole = trim($_POST['userRole']);
-        }
-        if (isset($_POST['userFirstName'])) {
-            $userFirstName = trim($_POST['userFirstName']);
-        }
-        if (isset($_POST['userLastName'])) {
-            $userLastName = trim($_POST['userLastName']);
-        }
-        if (isset($_POST['userFH_Name'])) {
-            $userFH_Name = trim($_POST['userFH_Name']);
-        }
-        if (isset($_POST['$userPass'])) {
-            $userPass = trim($_POST['$userPass']);
-        }
-
-        if (isset($db)) {
-            $userRole = mysqli_real_escape_string($db, $userRole);
-            $userFirstName = mysqli_real_escape_string($db, $userFirstName);
-            $userLastName = mysqli_real_escape_string($db, $userLastName);
-            $userFH_Name = mysqli_real_escape_string($db, $userFH_Name);
-            $userPass = mysqli_real_escape_string($db, $userPass);
-            $stmt = mysqli_stmt_init($db);
-            mysqli_stmt_prepare($stmt, "SELECT * FROM personen WHERE fh_kuerzel LIKE ?");
-            mysqli_stmt_bind_param($stmt, 's', $userFH_Name);
-            mysqli_stmt_execute($stmt);
-            $result = mysqli_stmt_get_result($stmt);
-
-            //If user allready exist, skip
-            if (!$result) {
-                mysqli_stmt_prepare($stmt, "INSERT INTO ersteller (fh_kuerzel, vorname, nachname, rolle) VALUES (?,?,?,?,?);");
-                mysqli_stmt_bind_param($stmt, 'sssss', $userFH_Name, $userFirstName, $userLastName, $userRole,);
-
-                mysqli_stmt_execute($stmt);
-                $result = mysqli_stmt_get_result($stmt);
-                //$result = mysqli_query($db, $sql1);
-            }
-            mysqli_free_result($result);
-        }
-    }
+    $fh_kuerzel = $var['user_add_fh_kuerzel'];
+    $vorname = $var['user_add_vorname'];
+    $nachname = $var['user_add_nachname'];
+    $rolle = $var['user_add_rolle'];
+    $passwort = $var['user_add_passwort'];
+    $absenden = $db->prepare("INSERT INTO personen(fh_kuerzel, vorname, nachname, rolle, passwort) VALUES(?,?,?,?,?)");
+    $absenden->bind_param('sssis', $fh_kuerzel, $vorname, $nachname, $rolle, $passwort);
+    $absenden->execute();
+    mysqli_close($db);
 }
 
 function db_add_software($var)

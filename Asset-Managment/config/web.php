@@ -26,6 +26,7 @@ return array(
 
     // Alle Hinzufügen Controller
     '/addSoftware'          => "AddController@addSoftware",
+    '/addUser'              => "AddController@addUser",
 
     '/test'                 => "HomeController@test"
 );

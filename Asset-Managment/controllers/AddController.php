@@ -1,13 +1,6 @@
 <?php
 
-require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/geraete.php');
-require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/betriessystem.php');
-require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/softwarelizenzen.php');
-require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/filter.php');
 require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/hinzufuegen.php');
-require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/benachrichtigungen.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/../models/benutzer.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/../models/logs.php');
 
 /* Datei: controllers/AddController.php */
 class AddController
@@ -16,7 +9,6 @@ class AddController
     {
 
         if (!isset($_SESSION['login_ok']) && !($_SESSION['Rolle'] == 1)) {
-            $_SESSION['target'] = $_SERVER["HTTP_REFERER"];
             header('Location: /login');
         }
         $var=[
@@ -35,5 +27,27 @@ class AddController
         if (isset($_SERVER["HTTP_REFERER"]))
             header('Location: ' . $_SERVER["HTTP_REFERER"]);
         //return view($_SERVER["HTTP_REFERER"],[]);
+    }
+
+    public function addUser(RequestData $rd)
+    {
+        if (!isset($_SESSION['login_ok']) && !($_SESSION['Rolle'] == 1)) {
+            header('Location: /login');
+        }
+        $var=[
+            'user_add_fh_kuerzel'   => filter_input(INPUT_POST,'user_add_fh_kuerzel'),
+            'user_add_vorname'      => filter_input(INPUT_POST,'user_add_vorname'),
+            'user_add_nachname'     => filter_input(INPUT_POST,'user_add_nachname'),
+            'user_add_rolle'        => filter_input(INPUT_POST,'user_add_rolle'),
+            'user_add_passwort'     => filter_input(INPUT_POST,'user_add_passwort')
+        ];
+        //print_r($var);
+        if ($var['user_add_vorname'] != null)
+            db_add_user($var);
+        //print_r('Location: ' . $_SERVER["HTTP_REFERER"]);
+
+        if (isset($_SERVER["HTTP_REFERER"]))
+            header('Location: ' . $_SERVER["HTTP_REFERER"]);
+        return view($_SERVER["HTTP_REFERER"],[]);
     }
 }
