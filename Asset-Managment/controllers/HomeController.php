@@ -8,6 +8,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/hinzufuegen.php');
 require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/benachrichtigungen.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/../models/benutzer.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/../models/logs.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/../models/raum.php');
 
 /* Datei: controllers/HomeController.php */
 class HomeController
@@ -120,7 +121,9 @@ class HomeController
                 'database_filter' => false,
                 'data' => getGeraeteData(get_filter_data($rd,1)),
                 'filter_variable_data' => get_softwarelizenzen_betriessystem(), //Variable filter Daten wie zmb. softwarelizenzen
-                'selected_filter' => get_filter_data($rd,1)
+                'selected_filter' => get_filter_data($rd,1),
+                'max_belegung' => get_raum_belegung( $rd->query['raum'] ?? 'a001')['max'],
+                'cur_belegung' => get_raum_belegung( $rd->query['raum'] ?? 'a001')['cur']
         ]);
     }
 
