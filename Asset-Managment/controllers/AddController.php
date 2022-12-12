@@ -76,9 +76,9 @@ class AddController
             db_add_device($var);
         //print_r('Location: ' . $_SERVER["HTTP_REFERER"]);
 
-        //if (isset($_SERVER["HTTP_REFERER"]))
-          //  header('Location: ' . $_SERVER["HTTP_REFERER"]);
-        //return view($_SERVER["HTTP_REFERER"],[]);
+        if (isset($_SERVER["HTTP_REFERER"]))
+            header('Location: ' . $_SERVER["HTTP_REFERER"]);
+        return view($_SERVER["HTTP_REFERER"],[]);
 
     }
 }

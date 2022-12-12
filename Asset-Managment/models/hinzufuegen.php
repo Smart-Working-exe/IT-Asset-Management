@@ -10,16 +10,23 @@ function db_add_device($var)
     $ip=$var['addDeviceIP'];
     $technischeEckdaten=$var['addDevicetechnischeEckdaten'];
     $kommentar=$var['addDeviceKommentarGerat'];
+    $betriebssystem=$var['addDeviceBetriebssystem'];
     print_r($age);
     print_r($betrieb);
     $absenden = $db->prepare("INSERT INTO geraet(name, typ, hersteller, age, betrieb,ip_adresse,technische_eckdaten,kommentar) VALUES(?,?,?,?,?,?,?,?)");
     $absenden->bind_param('ssssssss', $name, $typ, $hersteller, $age, $betrieb, $ip, $technischeEckdaten,$kommentar);
     $absenden->execute();
 
-    $db = connectdb();
-    $fremdkeyID='SELECT MAX(ID) FROM geraet ';
-
-
+    $order_id = $db->insert_id;
+    //$fremdkeyID='SELECT id FROM geraet ';
+    //$result=$db->query($fremdkeyID);
+    //$db = connectdb();
+    //$result=51;
+    $betriebssystem=2;
+    $absenden2=$db->prepare("INSERT INTO geraet_hat_betriebssystem(geraetid,betriebssystemid)VALUES (?,?)");
+    $absenden2->bind_param('ii',$order_id,$betriebssystem);
+    $absenden2->execute();
+    $db->close();
 }
 
 function db_add_user($var)
