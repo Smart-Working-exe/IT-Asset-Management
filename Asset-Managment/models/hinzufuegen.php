@@ -15,6 +15,11 @@ function db_add_device($var)
     $absenden = $db->prepare("INSERT INTO geraet(name, typ, hersteller, age, betrieb,ip_adresse,technische_eckdaten,kommentar) VALUES(?,?,?,?,?,?,?,?)");
     $absenden->bind_param('ssssssss', $name, $typ, $hersteller, $age, $betrieb, $ip, $technischeEckdaten,$kommentar);
     $absenden->execute();
+
+    $db = connectdb();
+    $fremdkeyID='SELECT MAX(ID) FROM geraet ';
+
+
 }
 
 function db_add_user($var)
