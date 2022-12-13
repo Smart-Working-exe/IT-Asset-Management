@@ -9,6 +9,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/benachrichtigungen.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/../models/benutzer.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/../models/logs.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/../models/raum.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/../models/einstellungen.php');
 
 /* Datei: controllers/HomeController.php */
 class HomeController
@@ -42,7 +43,15 @@ class HomeController
             $_SESSION['target'] = '/einstellungen';
             header('Location: /login');
         }
-        return view ('Einstellungen.einstellungen',['user' => $_SESSION['Rolle']]);
+        if($_SESSION['Rolle'] == 1){
+            $setting = get_setting();
+            $setting_ip = get_setting_ip();
+            return view('Einstellungen.einstellungen', ['user' => $_SESSION['Rolle'], 'setting' => $setting, 'setting_ip' => $setting_ip]);
+        }
+        else{
+            $setting = get_setting();
+            return view ('Einstellungen.einstellungen',['user' => $_SESSION['Rolle'], 'setting' => $setting]);
+        }
     }
 
     public function verleihung(RequestData $rd)

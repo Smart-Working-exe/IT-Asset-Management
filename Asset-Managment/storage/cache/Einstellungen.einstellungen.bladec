@@ -65,8 +65,8 @@
 
  <!-- Modal Body -->
  <div class="modal-body">
- Das Frühwarnsystem schlägt momentan 1 Monat vor Ablauf der Softwarelizenz aus. <br>
- Der neue Zeitraum für das Frühwarnsystem beträgt: <br> <br>
+ Aktuell werden Benachrichtigungen ab <?php echo \htmlentities($setting??'', ENT_QUOTES, 'UTF-8', false); ?> Tag(e) vor Ablauf der Softwarelizenz generiert.
+ Ab wann soll das System Benachrichtigungen anzeigen: <br><br>
  <div>
  <label>
  <input type="radio" name="Warnsystem_Softwarelizenz"
@@ -85,8 +85,8 @@
 
  <div class="Sonstiges selectt">
  <label>
- <input style="height: 18px;width: 50px;" type="input" name="Warnsystem_Softwarelizenz"
- value=""> Tage vor Ablauf der Softwarelizenz </label><br>
+ <input style="height: 18px;width: 50px;" type="number" min=0 max=60 name="Warnsystem_Softwarelizenz"
+ value=""> Tage vor Ablauf der Softwarelizenz (Es werden Werte zwischen 0 und 60 akzeptiert)</label><br>
  </div>
 
 
@@ -117,28 +117,28 @@
 
  <!-- Modal Body -->
  <div class="modal-body">
- Das Frühwarnsystem warnt momentan, wenn der Adressbereich 50 freie Adressen unterschreitet. <br>
- Der neue Grenze für das Frühwarnsystem beträgt:
+ Aktuell werden Benachrichtigungen ab <?php echo \htmlentities($setting_ip??'', ENT_QUOTES, 'UTF-8', false); ?> freien IP-Adressen im Raum Benachrichtigungen generiert.
+ Ab wann soll das System Benachrichtigungen anzeigen:
  <br> <br>
  <div>
  <label>
  <input type="radio" name="Warnsystem_IP-Adressraum"
- value="10 Adresseen"> 10 freie Adressen
+ value="10 Adresseen"> 5 freie Adressen
  </label> <br>
  <label>
  <input type="radio" name="Warnsystem_IP-Adressraum"
- value="20 Adresseen"> 20 freie Adressen</label><br>
+ value="20 Adresseen"> 8 freie Adressen</label><br>
  <label>
  <input type="radio" name="Warnsystem_IP-Adressraum"
- value="30 Adresseen"> 50 freie Adressen</label><br>
+ value="30 Adresseen"> 10 freie Adressen</label><br>
  <label>
  <input type="radio" name="Warnsystem_IP-Adressraum"
  value="Sonstiges2"> Sonstiges </label><br>
  </div>
  <div class="Sonstiges2 selectt">
  <label>
- <input style="height: 18px;width: 50px;" type="input" name="Warnsystem_Softwarelizenz"
- value=""> freie Adressen </label><br>
+ <input style="height: 18px;width: 50px;" type="number"  min=0 max = 20 name="Warnsystem_Softwarelizenz"
+ value=""> freie Adressen (Es werden Werte zwischen 0 und 20 akzeptiert)</label><br>
  </div>
 
  </div>
@@ -167,8 +167,8 @@
 
  <!-- Modal Body -->
  <div class="modal-body">
- Das Frühwarnsystem schlägt momentan 1 Woche vor Ablauf der Ausleihfrist aus. <br>
- Der neue Zeitraum für das Frühwarnsystem beträgt: <br> <br>
+ Aktuell werden Benachrichtigungen ab <?php echo \htmlentities($setting??'', ENT_QUOTES, 'UTF-8', false); ?> Tag(e) vor Ablauf der Ausleihfrist generiert.
+ Ab wann soll das System Benachrichtigungen anzeigen: <br> <br>
  <div>
  <label>
  <input type="radio" name="Warnsystem_Ausleihfrist"
@@ -187,8 +187,8 @@
 
  <div class="Sonstiges selectt">
  <label>
- <input style="height: 18px;width: 50px;" type="input" name="Warnsystem_Ausleihfrist"
- value=""> Tage vor Ablauf der Ausleihfrist </label><br>
+ <input style="height: 18px;width: 50px;" type="number" min=0 max=60 name="Warnsystem_Ausleihfrist"
+ value=""> Tage vor Ablauf der Ausleihfrist (Es werden Werte zwischen 0 und 60 akzeptiert)</label><br>
  </div>
 
  </div>

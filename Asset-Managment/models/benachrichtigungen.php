@@ -3,23 +3,22 @@
 
 function notif_admin()
 {
-    $self = $_SESSION['name'];   // Platzhalter
-
+    $self = $_SESSION['name'];
     $link = connectdb();
     // get einstellungen
-    $settings_request = "SELECT benachrichtigung from personen where fh_kuerzel = '$self'";
+    $settings_request = "SELECT benachrichtigung, benachrichtigung_ip from personen where fh_kuerzel = '$self'";
     $settings = mysqli_query($link,$settings_request);
     $data1 = mysqli_fetch_all($settings, MYSQLI_NUM);
 
     // get softwarelizenzen
-    $setting_sw = $data1[0][0]; // Platzhalter
+    $setting_sw = $data1[0][0];
     $sw_request = "SELECT name, anzahl_gerate, DATEDIFF(ablaufdatum,NOW()) AS ablaufzeitraum 
                     FROM softwarelizenzen HAVING ablaufzeitraum <= '$setting_sw'";
     $sw = mysqli_query($link,$sw_request);
 
-    // get IP TODO
-    $setting_ip = 0.9;      // Platzhalter
-    $ip_request = "SELECT raumnummer, anzahl_ip, belegung_ip FROM raum WHERE (belegung_ip/anzahl_ip) >= '$setting_ip'";
+    // get IP
+    $setting_ip = $data1[1][0];
+    $ip_request = "SELECT raumnummer, anzahl_ip, belegung_ip FROM raum WHERE (anzahl_ip - belegung_ip) <= '$setting_ip'";
     $ip = mysqli_query($link,$ip_request);
 
     $data2 = mysqli_fetch_all($sw, MYSQLI_ASSOC);
