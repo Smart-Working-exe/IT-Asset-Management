@@ -100,6 +100,23 @@ class HomeController
         return view('Ausleihe_Student.ausleihe',[]);
     }
 
+    public function get_color($max, $cur){
+        //$max = get_raum_belegung( $rd->query['raum'] ?? 'a001')['max'];
+        //$cur = get_raum_belegung( $rd->query['raum'] ?? 'a001')['cur'];
+        $diff = $cur/$max;
+        if($diff <= 1/5){
+            return 'green';
+        }elseif ($diff > 1/5 && $diff <= 2/5){
+            return '.bg-gradient-info';
+        }elseif ($diff > 2/5 && $diff <= 3/5){
+            return 'yellow';
+        }elseif ($diff > 3/5 && $diff <= 4/5){
+            return 'orange';
+        }elseif ($diff > 4/5 && $diff <= 5/5){
+            return 'red';
+        }
+    }
+
     public function raumansicht(RequestData $rd)
     {
         // 1 = Admin, 2 = Mitarbeiter, 3 = Student
@@ -115,6 +132,8 @@ class HomeController
             ]);
         }
 
+
+
         return view('Raumansicht.raumansicht',[
                 'room' => $rd->query['raum'] ?? 'a001',
                 'user' => $_SESSION['Rolle'],
@@ -123,7 +142,8 @@ class HomeController
                 'filter_variable_data' => get_softwarelizenzen_betriessystem(), //Variable filter Daten wie zmb. softwarelizenzen
                 'selected_filter' => get_filter_data($rd,1),
                 'max_belegung' => get_raum_belegung( $rd->query['raum'] ?? 'a001')['max'],
-                'cur_belegung' => get_raum_belegung( $rd->query['raum'] ?? 'a001')['cur']
+                'cur_belegung' => get_raum_belegung( $rd->query['raum'] ?? 'a001')['cur'],
+                'color' => $this->get_color(get_raum_belegung( $rd->query['raum'] ?? 'a001')['max'],get_raum_belegung( $rd->query['raum'] ?? 'a001')['cur'])
         ]);
     }
 
