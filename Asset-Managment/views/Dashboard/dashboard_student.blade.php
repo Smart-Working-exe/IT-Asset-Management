@@ -27,7 +27,7 @@
 
                 <div style="overflow-y: scroll;margin-right:20%; height:300px;">
                     @foreach ($notifs as $benachrichtigung)
-                        @if(isset($benachrichtigung['art']) && $benachrichtigung['status'] > 0)
+                        @if(isset($benachrichtigung['art']))
                             <div class="toast show col-6 mt-2">
                                 <div class="toast-header ">
                                     Ausleihfrist

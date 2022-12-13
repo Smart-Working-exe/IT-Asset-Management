@@ -48,7 +48,7 @@ function change_setting_ip(int $free)
     ($free > 20) ? ($optimized_setting = 20) : ($optimized_setting = $free);
 
     $link = connectdb();
-    $settings_request = "UPDATE personen SET benachrichtigung = '$optimized_setting' WHERE fh_kuerzel = '$self'";
+    $settings_request = "UPDATE personen SET benachrichtigung_ip = '$optimized_setting' WHERE fh_kuerzel = '$self'";
     mysqli_query($link, $settings_request);
     mysqli_close($link);
 

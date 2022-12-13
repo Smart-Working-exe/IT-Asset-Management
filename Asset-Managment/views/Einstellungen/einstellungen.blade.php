@@ -56,47 +56,47 @@
         <div class="modal" id="softwarlizenzen_benarichtigungen">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Softwarelizenzen</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-
-                    <!-- Modal Body -->
-                    <div class="modal-body">
-                        Aktuell werden Benachrichtigungen ab {{ $setting }} Tag(e) vor Ablauf der Softwarelizenz generiert.
-                        Ab wann soll das System Benachrichtigungen anzeigen: <br><br>
-                        <div>
-                            <label>
-                                <input type="radio" name="Warnsystem_Softwarelizenz"
-                                       value="1 Woche"> 1 Woche vor Ablauf der Softwarelizenz
-                            </label> <br>
-                            <label>
-                                <input type="radio" name="Warnsystem_Softwarelizenz"
-                                       value="2 Wochen"> 2 Wochen vor Ablauf der Softwarelizenz</label><br>
-                            <label>
-                                <input type="radio" name="Warnsystem_Softwarelizenz"
-                                       value="1 Monat"> 1 Monat vor Ablauf der Softwarelizenz</label><br>
-                            <label>
-                                <input type="radio" name="Warnsystem_Softwarelizenz"
-                                       value="Sonstiges"> Sonstiges </label><br>
+                    <form action="/einstellungen" method="post">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Softwarelizenzen</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                         </div>
 
-                        <div class="Sonstiges selectt">
-                            <label>
-                                <input style="height: 18px;width: 50px;" type="number" min=0 max=60 name="Warnsystem_Softwarelizenz"
-                                       value=""> Tage vor Ablauf der Softwarelizenz (Es werden Werte zwischen 0 und 60 akzeptiert)</label><br>
+                        <!-- Modal Body -->
+                        <div class="modal-body">
+                            Aktuell werden Benachrichtigungen ab {{ $setting }} Tag(e) vor Ablauf der Softwarelizenz generiert.
+                            Ab wann soll das System Benachrichtigungen anzeigen: <br><br>
+                            <div>
+                                <label>
+                                    <input type="radio" name="neue_einstellung"
+                                           value="7"> 1 Woche vor Ablauf der Softwarelizenz</label> <br>
+                                <label>
+                                    <input type="radio" name="neue_einstellung"
+                                           value="14"> 2 Wochen vor Ablauf der Softwarelizenz</label><br>
+                                <label>
+                                    <input type="radio" name="neue_einstellung"
+                                           value="30"> 1 Monat vor Ablauf der Softwarelizenz</label><br>
+                                <label>
+                                    <input type="radio" name="neue_einstellung"
+                                           value="Sonstiges"> Sonstiges </label><br>
+                            </div>
+
+                            <div class="Sonstiges selectt">
+                                <label>
+                                    <input style="height: 18px;width: 50px;" type="number" min=0 max=60 name="neue_einstellung_s">
+                                    Tage vor Ablauf der Softwarelizenz (Es werden Werte zwischen 0 und 60 akzeptiert)</label><br>
+                            </div>
+
+
                         </div>
 
-
-                    </div>
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Speichern</button>
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
-                    </div>
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <input type="submit" value="Speichern" class="btn btn-primary" data-bs-dismiss="modal">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -108,46 +108,47 @@
         <div class="modal" id="ip-adressraeume_benarichtigungen">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">IP-Adressräume</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-
-                    <!-- Modal Body -->
-                    <div class="modal-body">
-                        Aktuell werden Benachrichtigungen ab {{ $setting_ip }} freien IP-Adressen im Raum Benachrichtigungen generiert.
-                        Ab wann soll das System Benachrichtigungen anzeigen:
-                        <br> <br>
-                        <div>
-                            <label>
-                                <input type="radio" name="Warnsystem_IP-Adressraum"
-                                       value="10 Adresseen"> 5 freie Adressen
-                            </label> <br>
-                            <label>
-                                <input type="radio" name="Warnsystem_IP-Adressraum"
-                                       value="20 Adresseen"> 8 freie Adressen</label><br>
-                            <label>
-                                <input type="radio" name="Warnsystem_IP-Adressraum"
-                                       value="30 Adresseen"> 10 freie Adressen</label><br>
-                            <label>
-                                <input type="radio" name="Warnsystem_IP-Adressraum"
-                                       value="Sonstiges2"> Sonstiges </label><br>
-                        </div>
-                        <div class="Sonstiges2 selectt">
-                            <label>
-                                <input style="height: 18px;width: 50px;" type="number"  min=0 max = 20 name="Warnsystem_Softwarelizenz"
-                                       value=""> freie Adressen (Es werden Werte zwischen 0 und 20 akzeptiert)</label><br>
+                    <form action="/einstellungen" method="post">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">IP-Adressräume</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                         </div>
 
-                    </div>
+                        <!-- Modal Body -->
+                        <div class="modal-body">
+                            Aktuell werden Benachrichtigungen ab {{ $setting_ip }} freien IP-Adressen im Raum Benachrichtigungen generiert.
+                            Ab wann soll das System Benachrichtigungen anzeigen:
+                            <br> <br>
+                            <div>
+                                <label>
+                                    <input type="radio" name="neue_einstellung_ip"
+                                           value="5"> 5 freie Adressen
+                                </label> <br>
+                                <label>
+                                    <input type="radio" name="neue_einstellung_ip"
+                                           value="8"> 8 freie Adressen</label><br>
+                                <label>
+                                    <input type="radio" name="neue_einstellung_ip"
+                                           value="10"> 10 freie Adressen</label><br>
+                                <label>
+                                    <input type="radio" name="neue_einstellung_ip"
+                                           value="Sonstiges2"> Sonstiges </label><br>
+                            </div>
+                            <div class="Sonstiges2 selectt">
+                                <label>
+                                    <input style="height: 18px;width: 50px;" type="number"  min=0 max = 20 name="neue_einstellung_ip_s">
+                                    freie Adressen (Es werden Werte zwischen 0 und 20 akzeptiert)</label><br>
+                            </div>
 
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Speichern</button>
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
-                    </div>
+                        </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <input type="submit" value="Speichern" class="btn btn-primary" data-bs-dismiss="modal">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -158,50 +159,50 @@
             <div class="modal" id="ausleihfrist_benarichtigungen">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
-
-                        <!-- Modal Header -->
-                        <div class="modal-header">
-                            <h4 class="modal-title">Ausleihfrist</h4>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                        </div>
-
-                        <!-- Modal Body -->
-                        <div class="modal-body">
-                            Aktuell werden Benachrichtigungen ab {{ $setting }} Tag(e) vor Ablauf der Ausleihfrist generiert.
-                            Ab wann soll das System Benachrichtigungen anzeigen: <br> <br>
-                            <div>
-                                <label>
-                                    <input type="radio" name="Warnsystem_Ausleihfrist"
-                                           value="3"> 3 Tage vor Ablauf der Ausleihfrist
-                                </label>
-                                <label>
-                                    <input type="radio" name="Warnsystem_Ausleihfrist"
-                                           value="7"> 1 Woche vor Ablauf der Ausleihfrist</label><br>
-                                <label>
-                                    <input type="radio" name="Warnsystem_Ausleihfrist"
-                                           value="14"> 2 Wochen vor Ablauf der Ausleihfrist</label><br>
-                                <label>
-                                    <input type="radio" name="Warnsystem_Ausleihfrist"
-                                           value="Sonstiges"> Sonstiges </label><br>
+                        <form action="/einstellungen" method="post">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Ausleihfrist</h4>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                             </div>
 
-                            <div class="Sonstiges selectt">
-                                <label>
-                                    <input style="height: 18px;width: 50px;" type="number" min=0 max=60 name="Warnsystem_Ausleihfrist"
-                                           value=""> Tage vor Ablauf der Ausleihfrist (Es werden Werte zwischen 0 und 60 akzeptiert)</label><br>
+                            <!-- Modal Body -->
+                            <div class="modal-body">
+                                Aktuell werden Benachrichtigungen ab {{ $setting }} Tag(e) vor Ablauf der Ausleihfrist generiert.
+                                Ab wann soll das System Benachrichtigungen anzeigen: <br> <br>
+                                <div>
+                                    <label>
+                                        <input type="radio" name="neue_einstellung"
+                                               value="3"> 3 Tage vor Ablauf der Ausleihfrist
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="neue_einstellung"
+                                               value="7"> 1 Woche vor Ablauf der Ausleihfrist</label><br>
+                                    <label>
+                                        <input type="radio" name="neue_einstellung"
+                                               value="14"> 2 Wochen vor Ablauf der Ausleihfrist</label><br>
+                                    <label>
+                                        <input type="radio" name="neue_einstellung"
+                                               value="Sonstiges"> Sonstiges </label><br>
+                                </div>
+
+                                <div class="Sonstiges selectt">
+                                    <label>
+                                        <input style="height: 18px;width: 50px;" type="number" min=0 max=60 name="neue_einstellung_s"
+                                               value=""> Tage vor Ablauf der Ausleihfrist (Es werden Werte zwischen 0 und 60 akzeptiert)</label><br>
+                                </div>
+
                             </div>
 
-                        </div>
-
-                        <!-- Modal footer -->
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Speichern</button>
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
-                        </div>
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <input type="submit" value="Speichern" class="btn btn-primary" data-bs-dismiss="modal">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-
 
 
 
