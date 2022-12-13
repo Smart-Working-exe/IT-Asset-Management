@@ -13,7 +13,6 @@ function notif_admin()
 
     // get softwarelizenzen
     $setting_sw = $data1[0][0]; // Platzhalter
-    echo $setting_sw;
     $sw_request = "SELECT name, anzahl_gerate, DATEDIFF(ablaufdatum,NOW()) AS ablaufzeitraum 
                     FROM softwarelizenzen HAVING ablaufzeitraum <= '$setting_sw'";
     $sw = mysqli_query($link,$sw_request);
