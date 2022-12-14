@@ -112,7 +112,12 @@ class HomeController
 
     public function ausleihe(RequestData $rd)
     {
-        return view('Ausleihe_Student.ausleihe',[]);
+        if ( isset($_SESSION['login_ok']) && ($_SESSION['Rolle'] == 3)) {
+
+
+            return view('Ausleihe_Student.ausleihe',[]);
+        }
+
     }
 
     public function get_color($max, $cur){
