@@ -125,9 +125,9 @@ class HomeController
         //$cur = get_raum_belegung( $rd->query['raum'] ?? 'a001')['cur'];
         $diff = $cur/$max;
         if($diff <= 1/5){
-            return 'green';
-        }elseif ($diff > 1/5 && $diff <= 2/5){
             return '.bg-gradient-info';
+        }elseif ($diff > 1/5 && $diff <= 2/5){
+            return 'green';
         }elseif ($diff > 2/5 && $diff <= 3/5){
             return 'yellow';
         }elseif ($diff > 3/5 && $diff <= 4/5){

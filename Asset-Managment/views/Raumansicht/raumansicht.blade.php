@@ -28,7 +28,7 @@
                     <div class="progress-bar progress-bar-striped progress-bar-animated"
                          style="width:{{((int)$cur_belegung/(int)$max_belegung)*100}}%; background-color: red"
                          aria-valuenow="40" aria-valuemin="0" aria-valuemax="30">
-                        <small class="justify-content-center d-flex position-absolute w-100">{{$curr_belegung}}/{{$max_belegung}}</small></div>
+                        <small class="justify-content-center d-flex position-absolute w-100">{{$cur_belegung}}/{{$max_belegung}}</small></div>
                     <div class="progress-bar" style="width:100%; background-color: black"></div>
                 </div>
             </div>
