@@ -22,7 +22,7 @@
     @yield('header')
 
     <div class="row mt-4 ">
-        <p class="display-6 col-3">Softwarelizenzen</p class="display-6 col-3">
+        <p class="display-6 col-3">Softwarelizenzen class="display-6 col-3"</p>
 
         <div class="form-group">
             <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal" data-bs-target="#addSoftware">
@@ -36,7 +36,7 @@
 
         @yield('content')
 
-            <a href="dashboard_admin.php">
+            <a href="/dashboard">
                 <button type="submit" class="btn btn-primary sub">Zurück zum Dashboard</button>
             </a>
         </div>
@@ -75,5 +75,6 @@
     </script>
     <script type="text/javascript" src="../js/custom.js"></script>
     <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
+</div>
 </body>
 </html>

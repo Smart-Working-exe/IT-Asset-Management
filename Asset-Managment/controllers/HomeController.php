@@ -69,7 +69,7 @@ class HomeController
 
     public function systemlogs(RequestData $rd)
     {
-        if (!isset($_SESSION['login_ok']) && !($_SESSION['Rolle'] == 1)) {
+        if (!isset($_SESSION['login_ok']) || !($_SESSION['Rolle'] == 1)) {
             $_SESSION['target'] = '/systemlogs';
             header('Location: /login');
         }
@@ -81,7 +81,7 @@ class HomeController
 
     public function softwarelizenzen(RequestData $rd)
     {
-        if (!isset($_SESSION['login_ok']) && !($_SESSION['Rolle'] == 1)) {
+        if (!isset($_SESSION['login_ok']) || !($_SESSION['Rolle'] == 1)) {
             $_SESSION['target'] = '/softwarelizenzen';
             header('Location: /login');
         }
@@ -127,7 +127,7 @@ class HomeController
         if($diff <= 1/5){
             return 'darkgreen';
         }elseif ($diff > 1/5 && $diff <= 2/5){
-            return '#00ff00';
+            return '#00a300';
         }elseif ($diff > 2/5 && $diff <= 3/5){
             return 'yellow';
         }elseif ($diff > 3/5 && $diff <= 4/5){
@@ -153,7 +153,9 @@ class HomeController
             $_SESSION['target'] = '/raumansicht';
             header('Location: /login');
         }
-
+        if(isset($_POST['belegung'])){
+            set_raum_belegung($_POST['belegung'], $rd->query['raum']);
+        }
         if($_SESSION['Rolle'] >= 3) {
             return view('Raumansicht.studenten.raumansicht_studenten', [
                 'gebaeude' => $rd->query['gebaeude'] ?? 'a',
@@ -179,7 +181,7 @@ class HomeController
 
     public function eigeneGeraete(RequestData $rd)
     {
-        if (!isset($_SESSION['login_ok']) && !($_SESSION['Rolle'] == 2)) {
+        if (!isset($_SESSION['login_ok']) || !($_SESSION['Rolle'] == 2)) {
             $_SESSION['target'] = '/eigeneGeraete';
             header('Location: /login');
         }
@@ -198,7 +200,7 @@ class HomeController
 
     public function datenbank(RequestData $rd)
     {
-        if (!isset($_SESSION['login_ok']) && !($_SESSION['Rolle'] == 1)) {
+        if (!isset($_SESSION['login_ok']) || !($_SESSION['Rolle'] == 1)) {
             $_SESSION['target'] = '/datenbank';
             header('Location: /login');
         }

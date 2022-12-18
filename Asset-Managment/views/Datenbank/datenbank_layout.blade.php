@@ -92,7 +92,7 @@
 
         @yield('content')
 
-        <a href="dashboard_admin.php">
+        <a href="/dashboard">
             <button type="submit" class="btn btn-primary sub">Zurück zum Dashboard</button>
         </a>
     </div>
