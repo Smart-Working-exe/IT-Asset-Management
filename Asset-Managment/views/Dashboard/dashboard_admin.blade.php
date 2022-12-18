@@ -20,7 +20,7 @@
             <a style="padding: 3%;" href="/softwarelizenzen" type="button"
                class="btn btn-primary staticButton sub mt-2">Softwarelizenzen</a>
             <a style="padding: 3%;" href="/systemlogs" type="button"
-               class="btn btn-primary staticButton sub mt-2">System-logs</a>
+               class="btn btn-primary staticButton sub mt-2">System-Logs</a>
             <a style="padding: 3%;" href="/einstellungen" type="button"
                class="btn btn-primary staticButton sub mt-2">Einstellungen</a>
         </div>
@@ -41,15 +41,21 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
                                 </div>
                                 <div class="toast-body">
-                                    @if($benachrichtigung['ablaufzeitraum'] < 0)
+                                    @if($benachrichtigung['ablaufzeitraum'] < -1)
                                         Die Lizenz von {{ $benachrichtigung['name'] }} ist auf {{ $benachrichtigung['anzahl_gerate'] }}
-                                        Gerät(en) vor {{ -1*$benachrichtigung['ablaufzeitraum'] }} Tag(en) abgelaufen.
+                                        Gerät(en) vor {{ -1*$benachrichtigung['ablaufzeitraum'] }} Tagen abgelaufen.
+                                    @elseif($benachrichtigung['ablaufzeitraum'] == -1)
+                                        Die Lizenz von {{ $benachrichtigung['name'] }} ist auf {{ $benachrichtigung['anzahl_gerate'] }}
+                                        Gerät(en) vor {{ -1*$benachrichtigung['ablaufzeitraum'] }} Tag abgelaufen.
                                     @elseif($benachrichtigung['ablaufzeitraum'] == 0)
                                         Die Lizenz von {{ $benachrichtigung['name'] }} läuft auf {{ $benachrichtigung['anzahl_gerate'] }}
                                         Gerät(en) heute ab.
-                                    @elseif($benachrichtigung['ablaufzeitraum'] > 0)
+                                    @elseif($benachrichtigung['ablaufzeitraum'] == 1)
                                         Die Lizenz von {{ $benachrichtigung['name'] }} läuft auf {{ $benachrichtigung['anzahl_gerate'] }}
-                                        Gerät(en) in {{ $benachrichtigung['ablaufzeitraum'] }} Tag(en) ab.
+                                        Gerät(en) in {{ $benachrichtigung['ablaufzeitraum'] }} Tag ab.
+                                    @elseif($benachrichtigung['ablaufzeitraum'] > 1)
+                                        Die Lizenz von {{ $benachrichtigung['name'] }} läuft auf {{ $benachrichtigung['anzahl_gerate'] }}
+                                        Gerät(en) in {{ $benachrichtigung['ablaufzeitraum'] }} Tagen ab.
                                     @endif
                                 </div>
                             </div>

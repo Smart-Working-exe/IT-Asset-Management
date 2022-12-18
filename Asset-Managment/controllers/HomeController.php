@@ -33,6 +33,7 @@ class HomeController
             return view('Dashboard.dashboard_mitarbeiter', ['rq'=>$rd, 'notifs'=>$notifs]);
         }
         elseif($_SESSION['Rolle'] == 3){
+            delete_notif_loan($_GET['delete']);
             $notifs = notif_student();
             return view('Dashboard.dashboard_student', ['rq'=>$rd, 'notifs'=>$notifs]);
         }
@@ -106,8 +107,8 @@ class HomeController
         if($_SESSION['Rolle'] >= 3)
              return view('Raumauswahl.raumauswahl_studenten',[]);
         else
-            return view('Raumauswahl.raumauswahl',[]);
-
+            $raume = get_raume();
+            return view('Raumauswahl.raumauswahl',['raume' => $raume]);
     }
 
     public function ausleihe(RequestData $rd)

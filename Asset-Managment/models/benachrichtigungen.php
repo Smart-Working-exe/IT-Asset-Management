@@ -5,10 +5,11 @@ function notif_admin()
 {
     $self = $_SESSION['name'];
     $link = connectdb();
+    mysqli_begin_transaction($link);
     // get einstellungen
     $settings_request = "SELECT benachrichtigung, benachrichtigung_ip from personen where fh_kuerzel = '$self'";
     $settings = mysqli_query($link,$settings_request);
-    $data1 = mysqli_fetch_all($settings, MYSQLI_NUM);
+    $data1 = mysqli_fetch_all($settings);
 
     // get softwarelizenzen
     $setting_sw = $data1[0][0];
@@ -24,6 +25,7 @@ function notif_admin()
     $data2 = mysqli_fetch_all($sw, MYSQLI_ASSOC);
     $data3 = mysqli_fetch_all($ip,MYSQLI_ASSOC);
 
+    mysqli_commit($link);
     mysqli_close($link);
     return array_merge($data2, $data3);
 }
@@ -31,15 +33,16 @@ function notif_admin()
 function notif_employee()
 {
     $self = $_SESSION['name'];
-
     $link = connectdb();
+    mysqli_begin_transaction($link);
+
     // get einstellungen
     $settings_request = "SELECT benachrichtigung from personen where fh_kuerzel = '$self'";
     $settings = mysqli_query($link, $settings_request);
-    $data1 = mysqli_fetch_all($settings, MYSQLI_ASSOC);
+    $data1 = mysqli_fetch_all($settings);
 
     // get softwarelizenzen
-    $setting_sw = $data1['benachrichtigung'];
+    $setting_sw = $data1[0][0];
     $sw_request = "SELECT g.name, s.name, DATEDIFF(s.ablaufdatum,NOW()) AS ablaufzeitraum 
                 FROM geraet g, softwarelizenzen s WHERE g.personen_id = '.$self.' 
                 HAVING ablaufzeitraum <= '$setting_sw' AND -'$setting_sw' <= ablaufzeitraum ORDER BY ablaufzeitraum";
@@ -52,6 +55,7 @@ function notif_employee()
     $data2 = mysqli_fetch_all($sw, MYSQLI_ASSOC);
     $data3 = mysqli_fetch_all($loan,MYSQLI_ASSOC);
 
+    mysqli_commit($link);
     mysqli_close($link);
     return array_merge($data2, $data3);
 }
@@ -59,26 +63,35 @@ function notif_employee()
 function notif_student()
 {
     $self = $_SESSION['name'];
-
     $link = connectdb();
+    mysqli_begin_transaction($link);
 
     // get einstellungen
     $settings_request = "SELECT benachrichtigung from personen where fh_kuerzel = '$self'";
     $settings = mysqli_query($link, $settings_request);
-    $data1 = mysqli_fetch_all($settings, MYSQLI_ASSOC);
-
+    $data1 = mysqli_fetch_all($settings);
 
     // get Ausleihbenachrichtigungen
-    $setting = $data1['benachrichtiung'];
-    echo $setting;
-    /*$loan_request = "SELECT art, geraet, status, DATEDIFF(rueckgabedatum, NOW()) AS ablaufzeitraum FROM ausleihanfragen where student = '$self' AND status > 0
-                    HAVING ablaufzeitraum <= '$setting' AND -'$setting' <= ablaufzeitraum ORDER BY ablaufzeitraum";*/
+    $setting = $data1[0][0];
     $loan_request = "SELECT art, geraet, status, DATEDIFF(rueckgabedatum,NOW()) AS zeitraum FROM ausleihanfragen where student = '$self' AND status > 0
-                     ORDER BY zeitraum";
+                     HAVING zeitraum <= '$setting' AND -'$setting' <= zeitraum ORDER BY zeitraum";
     $loan = mysqli_query($link,$loan_request);
 
     $data2 = mysqli_fetch_all($loan, MYSQLI_ASSOC);
 
+    mysqli_commit($link);
     mysqli_close($link);
     return $data2;
+}
+
+function delete_notif_loan($geraet) {
+
+    $self = $_SESSION['name'];
+    $link = connectdb();
+
+    // delete Benachrichtigung
+    $delete_request = "DELETE FROM ausleihanfragen where student = '$self' AND geraet = '$geraet' AND art = 1 AND status > 0";
+    $sql = mysqli_query($link, $delete_request);
+
+    mysqli_close($link);
 }

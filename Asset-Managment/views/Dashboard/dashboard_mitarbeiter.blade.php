@@ -33,14 +33,20 @@
                         <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
                     </div>
                     <div class="toast-body">
-                        @if($benachrichtigung['ablaufzeitraum'] < 0)
+                        @if($benachrichtigung['ablaufzeitraum'] < -1)
                             Die Lizenz von {{ $benachrichtigung['s.name'] }} auf {{ $benachrichtigung['g.name'] }}
-                            ist vor {{ -1*$benachrichtigung['ablaufzeitraum'] }} Tag(en) abgelaufen.
+                            ist vor {{ -1*$benachrichtigung['ablaufzeitraum'] }} Tagen abgelaufen.
+                        @elseif($benachrichtigung['ablaufzeitraum'] == -1)
+                            Die Lizenz von {{ $benachrichtigung['s.name'] }} auf {{ $benachrichtigung['g.name'] }}
+                            ist vor {{ -1*$benachrichtigung['ablaufzeitraum'] }} Tag abgelaufen.
                         @elseif($benachrichtigung['ablaufzeitraum'] == 0)
                             Die Lizenz von {{ $benachrichtigung['s.name'] }} läuft auf {{ $benachrichtigung['g.name'] }} heute ab.
-                        @else($benachrichtigung['ablaufzeitraum'] < 0)
+                        @elseif($benachrichtigung['ablaufzeitraum'] == 1)
                             Die Lizenz von {{ $benachrichtigung['s.name'] }} läuft auf {{ $benachrichtigung['g.name'] }}
-                            in {{ $benachrichtigung['ablaufzeitraum'] }} Tag(en) ab.
+                            in {{ $benachrichtigung['ablaufzeitraum'] }} Tag ab.
+                        @else($benachrichtigung['ablaufzeitraum'] < 1)
+                            Die Lizenz von {{ $benachrichtigung['s.name'] }} läuft auf {{ $benachrichtigung['g.name'] }}
+                            in {{ $benachrichtigung['ablaufzeitraum'] }} Tagen ab.
                         @endif
                     </div>
                 </div>
@@ -54,7 +60,7 @@
                         @if($benachrichtigung['anzahl'] == 1)
                         Es gibt {{ $benachrichtigung['anzahl'] }} <a href="/verleihung">unbeantwortete Anfrage</a> von Studierenden.
                         @else
-                        Es gibt {{ $benachrichtigung['anzahl'] }} <a href="/verleihung">unbeantworteten Anfrage</a> von Studierenden.
+                        Es gibt {{ $benachrichtigung['anzahl'] }} <a href="/verleihung">unbeantworteten Anfragen</a> von Studierenden.
                         @endif
                     </div>
                 </div>

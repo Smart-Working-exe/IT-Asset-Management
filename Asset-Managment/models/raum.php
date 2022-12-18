@@ -23,3 +23,17 @@ function get_belegung_gebaude($gebaude)
     mysqli_close($link);
     return $data;
 }
+
+function get_raume(){
+
+    $link = connectdb();
+
+    $sql = "select raumnummer, gebaude from raum order by gebaude";
+    $result = mysqli_query($link, $sql);
+
+    $data = mysqli_fetch_all($result, MYSQLI_BOTH);
+
+    mysqli_close($link);
+    return $data;
+
+}

@@ -2,7 +2,6 @@
 @extends('header_footer')
 
 
-
 @section('content')
     <div class="card">
         <div class="card-header">
@@ -10,16 +9,15 @@
                 Gebäude A
             </a>
         </div>
-        <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
+        <div id="collapseOne" class="collapse" data-bs-parent="#accordion">
             <div class="card-body">
-                <a href="/raumansicht?raum=a001"> Raum A001</a>
-                <a href="/raumansicht?raum=a002"> Raum A002</a>
-                <a href="/raumansicht?raum=a003"> Raum A003</a>
-                <a href="/raumansicht?raum=a004"> Raum A004</a>
-                <a href="/raumansicht?raum=a101"> Raum A101</a>
-                <a href="/raumansicht?raum=a102"> Raum A102</a>
-                <a href="/raumansicht?raum=a103"> Raum A103</a>
-                <a href="/raumansicht?raum=a104"> Raum A104</a>
+                @foreach($raume as $raum)
+                    @if($raum['gebaude'] == 'a' || $raum['gebaude'] == 'A')
+                        <a href={{'/raumansicht?raum=' . $raum['raumnummer']}}  > {{$raum['raumnummer']}}</a>
+                    @else
+                        @break
+                    @endif
+                @endforeach
             </div>
         </div>
     </div>
@@ -32,7 +30,13 @@
         </div>
         <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
             <div class="card-body">
-                Lorem ipsum..
+                @foreach($raume as $raum)
+                    @if($raum['gebaude'] == 'b' || $raum['gebaude'] == 'B')
+                        <a href={{'/raumansicht?raum=' . $raum['raumnummer']}}  > {{$raum['raumnummer']}}</a>
+                    @else
+                        @break
+                    @endif
+                @endforeach
             </div>
         </div>
     </div>
@@ -45,7 +49,13 @@
         </div>
         <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
             <div class="card-body">
-                Lorem ipsum..
+                @foreach($raume as $raum)
+                    @if($raum['gebaude'] == 'c' || $raum['gebaude'] == 'C')
+                        <a href={{'/raumansicht?raum=' . $raum['raumnummer']}}  > {{$raum['raumnummer']}}</a>
+                    @else
+                        @break
+                    @endif
+                @endforeach
             </div>
         </div>
     </div>
@@ -56,9 +66,15 @@
                 Gebäude D
             </a>
         </div>
-        <div id="collapseFour" class="collapse show" data-bs-parent="#accordion">
+        <div id="collapseFour" class="collapse" data-bs-parent="#accordion">
             <div class="card-body">
-                Lorem ipsum..
+                @foreach($raume as $raum)
+                    @if($raum['gebaude'] == 'd' || $raum['gebaude'] == 'D')
+                        <a href={{'/raumansicht?raum=' . $raum['raumnummer']}}  > {{$raum['raumnummer']}}</a>
+                    @else
+                        @break
+                    @endif
+                @endforeach
             </div>
         </div>
     </div>
@@ -71,7 +87,13 @@
         </div>
         <div id="collapseFive" class="collapse" data-bs-parent="#accordion">
             <div class="card-body">
-                Lorem ipsum..
+                @foreach($raume as $raum)
+                    @if($raum['gebaude'] == 'e' || $raum['gebaude'] == 'E')
+                        <a href={{'/raumansicht?raum=' . $raum['raumnummer']}}  > {{$raum['raumnummer']}}</a>
+                    @else
+                        @break
+                    @endif
+                @endforeach
             </div>
         </div>
     </div>
@@ -84,7 +106,13 @@
         </div>
         <div id="collapse6" class="collapse" data-bs-parent="#accordion">
             <div class="card-body">
-                Lorem ipsum..
+                @foreach($raume as $raum)
+                    @if($raum['gebaude'] == 'f' || $raum['gebaude'] == 'F')
+                        <a href={{'/raumansicht?raum=' . $raum['raumnummer']}}  > {{$raum['raumnummer']}}</a>
+                    @else
+                        @break
+                    @endif
+                @endforeach
             </div>
         </div>
     </div>
@@ -95,9 +123,15 @@
                 Gebäude G
             </a>
         </div>
-        <div id="collapse7" class="collapse show" data-bs-parent="#accordion">
+        <div id="collapse7" class="collapse" data-bs-parent="#accordion">
             <div class="card-body">
-                Lorem ipsum..
+                @foreach($raume as $raum)
+                    @if($raum['gebaude'] == 'g' || $raum['gebaude'] == 'G')
+                        <a href={{'/raumansicht?raum=' . $raum['raumnummer']}}  > {{$raum['raumnummer']}}</a>
+                    @else
+                        @break
+                    @endif
+                @endforeach
             </div>
         </div>
     </div>
@@ -110,7 +144,13 @@
         </div>
         <div id="collapse8" class="collapse" data-bs-parent="#accordion">
             <div class="card-body">
-                Lorem ipsum..
+                @foreach($raume as $raum)
+                    @if($raum['gebaude'] == 'h' || $raum['gebaude'] == 'H')
+                        <a href={{'/raumansicht?raum=' . $raum['raumnummer']}}  > {{$raum['raumnummer']}}</a>
+                    @else
+                        @break
+                    @endif
+                @endforeach
             </div>
         </div>
     </div>
@@ -123,7 +163,13 @@
         </div>
         <div id="collapse9" class="collapse" data-bs-parent="#accordion">
             <div class="card-body">
-                Lorem ipsum..
+                @foreach($raume as $raum)
+                    @if($raum['gebaude'] == 'w' || $raum['gebaude'] == 'W')
+                        <a href={{'/raumansicht?raum=' . $raum['raumnummer']}}  > {{$raum['raumnummer']}}</a>
+                    @else
+                        @break
+                    @endif
+                @endforeach
             </div>
         </div>
     </div>
@@ -131,12 +177,18 @@
     <div class="card">
         <div class="card-header">
             <a class="collapsed btn" data-bs-toggle="collapse" href="#collapse10">
-                Home-Office
+                Lager
             </a>
         </div>
         <div id="collapse10" class="collapse" data-bs-parent="#accordion">
             <div class="card-body">
-                Lorem ipsum..
+                @foreach($raume as $raum)
+                    @if($raum['gebaude'] == 'lager' || $raum['gebaude'] == 'Lager')
+                        <a href={{'/raumansicht?raum=' . $raum['raumnummer']}}  > {{$raum['raumnummer']}}</a>
+                    @else
+                        @break
+                    @endif
+                @endforeach
             </div>
         </div>
     </div>

@@ -28,29 +28,49 @@
                 <div style="overflow-y: scroll;margin-right:20%; height:300px;">
                     @foreach ($notifs as $benachrichtigung)
                         @if(isset($benachrichtigung['art']))
-                            <div class="toast show col-6 mt-2">
-                                <div class="toast-header ">
-                                    Ausleihfrist
-                                    <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
-                                </div>
-                                <div class="toast-body">
-                                    {{-- Angenommene Anfrage -> Ausleihfrist --}}
-                                    @if($benachrichtigung['art'] == 0 && $benachrichtigung['status'] == 1)
-                                        @if($benachrichtigung['zeitraum'] < 0)
-                                            Die Ausleihfrist für das Gerät "{{ $benachrichtigung['geraet'] }}" ist vor {{ -1*$benachrichtigung['zeitraum'] }} Tag(en) abgelaufen.
-                                        @elseif($benachrichtigung['zeitraum'] == 0)
-                                            Die Ausleihfrist für das Gerät "{{ $benachrichtigung['geraet'] }}" läuft heute ab.
-                                        @else($benachrichtigung['zeitraum'] > 0)
-                                            Die Ausleihfrist für das Gerät "{{ $benachrichtigung['geraet'] }}" läuft in {{ $benachrichtigung['zeitraum'] }} Tag(en) ab.
-                                        @endif
-                                        {{-- Angenommene Rückgabe -> Glückwunsch --}}
-                                    @elseif($benachrichtigung['art'] == 1 && $benachrichtigung['status'] == 1)
-                                        Die Rückgabe-Anfrage für "{{ $benachrichtigung['geraet'] }}" wurde angenommen.
-                                        {{-- Abgelehnte Rückgabe -> Sorry --}}
-                                    @elseif($benachrichtigung['art'] == 1 && $benachrichtigung['status'] == 2)
-                                        Die Rückgabe-Anfrage für "{{ $benachrichtigung['geraet'] }}" wurde abgelehnt.
-                                        Wenden Sie sich an Mitarbeitende der Fachhochschule Aachen für genauere Informationen.
+                            {{-- Angenommene Anfrage -> Ausleihfrist --}}
+                            @if($benachrichtigung['art'] == 0 && $benachrichtigung['status'] == 1)
+                                <div class="toast show col-6 mt-2">
+                                    <div class="toast-header ">
+                                        Ausleihfrist
+                                        <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+                                    </div>
+                                    <div class="toast-body">
+                                    @if($benachrichtigung['zeitraum'] < -1)
+                                        Die Ausleihfrist für das Gerät "{{ $benachrichtigung['geraet'] }}" ist vor {{ -1*$benachrichtigung['zeitraum'] }} Tagen abgelaufen.
+                                    @elseif($benachrichtigung['zeitraum'] == -1)
+                                        Die Ausleihfrist für das Gerät "{{ $benachrichtigung['geraet'] }}" ist vor {{ -1*$benachrichtigung['zeitraum'] }} Tag abgelaufen.
+                                    @elseif($benachrichtigung['zeitraum'] == 0)
+                                        Die Ausleihfrist für das Gerät "{{ $benachrichtigung['geraet'] }}" läuft heute ab.
+                                    @elseif($benachrichtigung['zeitraum'] == 1)
+                                            Die Ausleihfrist für das Gerät "{{ $benachrichtigung['geraet'] }}" läuft in {{ $benachrichtigung['zeitraum'] }} Tag ab.
+                                    @else($benachrichtigung['zeitraum'] > 1)
+                                            Die Ausleihfrist für das Gerät "{{ $benachrichtigung['geraet'] }}" läuft in {{ $benachrichtigung['zeitraum'] }} Tagen ab.
                                     @endif
+                            {{-- Angenommene Rückgabe -> Glückwunsch --}}
+                            @elseif($benachrichtigung['art'] == 1 && $benachrichtigung['status'] == 1)
+                                <div class="toast show col-6 mt-2">
+                                    <div class="toast-header ">
+                                        Ausleihfrist
+                                        <form>
+                                            <button type="submit" action="/dashboard" method="get" name="delete" value={{$benachrichtigung['geraet']}} class="btn-close" data-bs-dismiss="toast"></button>
+                                        </form>
+                                    </div>
+                                    <div class="toast-body">
+                                    Die Rückgabe-Anfrage für "{{ $benachrichtigung['geraet'] }}" wurde angenommen.
+                            {{-- Abgelehnte Rückgabe -> Sorry --}}
+                            @elseif($benachrichtigung['art'] == 1 && $benachrichtigung['status'] == 2)
+                                <div class="toast show col-6 mt-2">
+                                    <div class="toast-header ">
+                                        Ausleihfrist
+                                        <form>
+                                            <button type="submit" action="/dashboard" method="get" name="delete" value={{$benachrichtigung['geraet']}} class="btn-close" data-bs-dismiss="toast"></button>
+                                        </form>
+                                    </div>
+                                    <div class="toast-body">
+                                    Die Rückgabe-Anfrage für "{{ $benachrichtigung['geraet'] }}" wurde abgelehnt.
+                                    Wenden Sie sich an Mitarbeitende der Fachhochschule Aachen für genauere Informationen.
+                            @endif
                                 </div>
                             </div>
                         @elseif(empty($benachrichtigung))
