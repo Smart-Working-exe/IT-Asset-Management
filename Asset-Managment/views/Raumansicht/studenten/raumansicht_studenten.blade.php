@@ -23,12 +23,10 @@
             <td><div class=" mt-1 col-10">
                     <div class="progress position-relative">
                         <div class="progress-bar" role="progressbar"
-                             style="width:{{((int)$belegung[$i]['cur']/(int)$belegung[$i]['max'])*100}}%; background-color: {{$color[$i]}}" aria-valuenow="86.7" aria-valuemin="0"
+                             style="width:{{((int)$belegung[$i]['cur']/(int)$belegung[$i]['max'])*100}}%; background-color: {{$color[$i]}};"  aria-valuenow="86.7" aria-valuemin="0"
                              aria-valuemax="100">
-                            <small class="justify-content-center d-flex position-absolute w-100">{{$belegung[$i]['cur']}}/{{$belegung[$i]['max']}}</small>
+                            <small class="justify-content-center d-flex position-absolute w-100" style="color: black">{{$belegung[$i]['cur']}}/{{$belegung[$i]['max']}}</small>
                         </div>
-                        <div class="progress-bar" role="progressbar"
-                             style="width:100%; background-color: black"></div>
                     </div>
                 </div></td>
 

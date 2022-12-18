@@ -37,3 +37,12 @@ function get_raume(){
     return $data;
 
 }
+
+function set_raum_belegung($num,$raum){
+    $link = connectdb();
+
+    $sql = "UPDATE raum SET belegte_ws = '$num' where raumnummer='$raum'";
+    mysqli_query($link, $sql);
+    mysqli_close($link);
+}
+

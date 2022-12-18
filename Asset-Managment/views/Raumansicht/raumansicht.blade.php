@@ -18,8 +18,7 @@
                 <div class="progress position-relative">
                     <div class="progress-bar" style="width:20%; background-color: green"
                          aria-valuenow="40" aria-valuemin="0" aria-valuemax="30">
-                        <small class="justify-content-center d-flex position-absolute w-100">6/30</small></div>
-                    <div class="progress-bar" style="width:80%; background-color: black"></div>
+                        <small class="justify-content-center d-flex position-absolute w-100" style="color: black">6/30</small></div>
                 </div>
             </div>
             <p class="col-2 offset-1"><b>Belegung Workstations:</b></p>
@@ -28,8 +27,7 @@
                     <div class="progress-bar"
                          style="width:{{((int)$cur_belegung/(int)$max_belegung)*100}}%; background-color: {{$color}}"
                          aria-valuenow="40" aria-valuemin="0" aria-valuemax="30">
-                        <small class="justify-content-center d-flex position-absolute w-100">{{$cur_belegung}}/{{$max_belegung}}</small></div>
-                    <div class="progress-bar" style="width:100%; background-color: black"></div>
+                        <small class="justify-content-center d-flex position-absolute w-100" style="color: black">{{$cur_belegung}}/{{$max_belegung}}</small></div>
                 </div>
             </div>
 
@@ -52,8 +50,7 @@
             <div class="progress position-relative">
                 <div class="progress-bar" style="width:20%; background-color: green"
                      aria-valuenow="40" aria-valuemin="0" aria-valuemax="30">
-                    <small class="justify-content-center d-flex position-absolute w-100">6/30</small></div>
-                <div class="progress-bar" style="width:80%; background-color: black"></div>
+                    <small class="justify-content-center d-flex position-absolute w-100" style="color: black">6/30</small></div>
             </div>
         </div>
     </div>
@@ -62,15 +59,17 @@
             </b>
         </p>
         <div class="col-2">
-            <input style="height:25px; width:120px;" class="form-control" type="number" id="deviceName" placeholder="6">
+           <form action="/raumansicht?raum={{$room}}" method="post">
+               <input style="height:25px; width:120px;" class="form-control" type="number" id="deviceName" placeholder="6" name="belegung" min="0" max="{{$max_belegung}}">
+               <input style="background: transparent; border: none !important; font-size:0;" class="form-control" type="submit">
+           </form>
         </div>
         <div class=" mt-1 col-2">
             <div class="progress position-relative">
                 <div class="progress-bar"
-                     style="width:{{((int)$cur_belegung/(int)$max_belegung)*100}}%; background-color: {{$color}}"
-                     aria-valuenow="10" aria-valuemin="0" aria-valuemax="20">
-                    <small class="justify-content-center d-flex position-absolute w-100">{{$cur_belegung}}/{{$max_belegung}}</small></div>
-                <div class="progress-bar" style="width:100%; background-color: black"></div>
+                     style="width:{{((int)$cur_belegung/(int)$max_belegung)*100}}%; background-color: {{$color}};"
+                     aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                    <small class="justify-content-center d-flex position-absolute w-100" style="color: black">{{$cur_belegung}}/{{$max_belegung}}</small></div>
             </div>
         </div>
 
