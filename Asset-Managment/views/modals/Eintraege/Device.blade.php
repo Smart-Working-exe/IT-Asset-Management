@@ -12,43 +12,43 @@
                 <!-- Modal Body -->
                 <div class="modal-body">
                     <div class="row">
+                        <form action="/addDevice" method="post">
                         <div class="row mt-3">
                             <div class="col">
-                                <select class="form-select" aria-label="Default select example" id="deviceTyp">
+                                <select class="form-select" aria-label="Default select example" id="deviceTyp" name="addDevicedeviceTyp">
                                     <option selected>Typ*</option>
-                                    <option value="1" id="deviceTyp">Computer</option>
-                                    <option value="2" id="deviceTyp">Accessoir</option>
-                                    <option value="3" id="deviceTyp">Eigener Typ</option>
+                                    <option value="1"  >Computer</option>
+                                    <option value="2"  >Accessoir</option>
+                                    <option value="3"  >Eigener Typ</option>
                                 </select>
                             </div>
                             <div class="col">
-                                <select class="form-select" aria-label="Default select example" id="deviceTyp">
-                                    <option selected disabled>Typ*</option>
-                                    <option value="1" id="deviceTyp">Windows</option>
-                                    <option value="2" id="deviceTyp">Ubuntu</option>
-                                    <option value="3" id="deviceTyp">Debian</option>
-                                    <option value="3" id="deviceTyp">MacOS</option>
-                                    <option value="3" id="deviceTyp">Neues Betriebssystem</option>
+                                <select class="form-select" aria-label="Default select example" id="deviceTyp" name="addDeviceBetriebssystem">
+                                    <option selected disabled>Betriebssystem*</option>
+                                    <option value="1" id="addDeviceBetriebssystem"  >Windows</option>
+                                    <option value="2" id="addDeviceBetriebssystem"  >Ubuntu</option>
+                                    <option value="3" id="addDeviceBetriebssystem"  >Debian</option>
+                                    <option value="4" id="addDeviceBetriebssystem"  >MacOS</option>
                                 </select>
                             </div>
 
                         </div>
                         <div class="row mt-3">
                             <div class="col">
-                                <input class="form-control" type="text" id="deviceName" placeholder="Name*"></div>
+                                <input class="form-control" type="text" id="deviceName" name="addDeviceName" placeholder="Name*"></div>
                             <div class="col">
-                                <input class="form-control" type="text" id="deviceName" placeholder="IP-Adresse"></div>
+                                <input class="form-control" type="text" id="deviceName" name="addDeviceIP" placeholder="IP-Adresse"></div>
                         </div>
                         <div class="row mt-3">
                             <div class="col">
-                                <input class="form-control" type="text" id="deviceName" placeholder="Hersteller"></div>
+                                <input class="form-control" type="text" id="deviceName" name="addDeviceHersteller" placeholder="Hersteller"></div>
                             <div class="col">
                                 <select class="form-select" data-mdb-clear-button="true"
-                                        placeholder="Software des Gerätes">
+                                        placeholder="Software des Gerätes" name="addDeviceSoftware">
                                     <option selected>Software des Gerätes</option>
-                                    <option value="1">Microsoft Visual Studio 2022</option>
-                                    <option value="2">Intel Quartus Prime</option>
-                                    <option value="3">MS Office</option>
+                                    <option value="1" id="addDeviceSoftware">Microsoft Visual Studio 2022</option>
+                                    <option value="2"  id="addDeviceSoftware">Intel Quartus Prime</option>
+                                    <option value="3"  id="addDeviceSoftware">MS Office</option>
                                 </select>
                             </div>
                         </div>
@@ -56,7 +56,8 @@
                             <div class="col">
                                 <div class="form-group">
                                     <div class="input-group date" id="datepickerUsage">
-                                        <input type="text" class="form-control" placeholder="erste Inbetriebname*">
+                                        <input type="text" class="form-control" placeholder="erste Inbetriebname*"
+                                                name="addDeviceersteInbetriebname">
                                         <span class="input-group-append">
                             <span class="input-group-text bg-white d-block">
                                 <i class="fa fa-calendar"></i>
@@ -68,7 +69,8 @@
                             <div class="col">
                                 <div class="form-group">
                                     <div class="input-group date" id="datepickerBuild">
-                                        <input type="text" class="form-control" placeholder="alter des Gerätes">
+                                        <input type="text" class="form-control" placeholder="alter des Gerätes"
+                                                name="addDevicealterGerat">
                                         <span class="input-group-append">
                             <span class="input-group-text bg-white d-block">
                                 <i class="fa fa-calendar"></i>
@@ -81,17 +83,19 @@
                         <div class="row mt-3">
                             <div class="col">
                     <textarea class="form-control" id="technischeEckdaten" rows="5"
-                              placeholder="Technische Eckdaten"></textarea>
+                              placeholder="Technische Eckdaten" name="addDevicetechnischeEckdaten"></textarea>
                             </div>
                             <div class="col">
                     <textarea class="form-control" id="comment" rows="5"
-                              placeholder="Kommentar zum Geräte"></textarea>
+                              placeholder="Kommentar zum Geräte" name="addDeviceKommentarGerat"></textarea>
                             </div>
                         </div>
                         <div class="mt-3">
                             <label for="dataImport" class="form-label">Aus Datei importieren</label>
                             <input class="form-control" type="file" id="dataImport" placeholder="Aus Datei importieren">
                         </div>
+                            <input type="submit" value="abschicken">
+                        </form>
                     </div>
 
                 </div>
@@ -285,3 +289,6 @@
 
 @endsection
 
+@section('jsextra')
+    <script src="../js/multiselect-dropdown.js"></script>
+@endsection

@@ -22,8 +22,15 @@ return array(
     '/ausleihe'             => "HomeController@ausleihe",
     '/raumansicht'          => "HomeController@raumansicht",
     '/eigeneGeraete'        => "HomeController@eigeneGeraete",
-    '/datenbank'            => 'HomeController@datenbank',
-    '/lizenzhinzufugen'     => "HomeController@softwarelizenzen",
+    '/datenbank'            => "HomeController@datenbank",
 
-    '/test'                 => 'HomeController@test'
+    // Alle Hinzufügen Controller
+    '/addSoftware'          => "AddController@addSoftware",
+
+    '/addUser'              => "AddController@addUser",
+
+
+    '/addDevice'            => "AddController@addDevice",
+
+    '/test'                 => "HomeController@test"
 );
