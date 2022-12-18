@@ -125,9 +125,9 @@ class HomeController
         //$cur = get_raum_belegung( $rd->query['raum'] ?? 'a001')['cur'];
         $diff = $cur/$max;
         if($diff <= 1/5){
-            return '.bg-gradient-info';
+            return 'darkgreen';
         }elseif ($diff > 1/5 && $diff <= 2/5){
-            return 'green';
+            return '#00ff00';
         }elseif ($diff > 2/5 && $diff <= 3/5){
             return 'yellow';
         }elseif ($diff > 3/5 && $diff <= 4/5){
@@ -135,6 +135,14 @@ class HomeController
         }elseif ($diff > 4/5 && $diff <= 5/5){
             return 'red';
         }
+    }
+
+    public function get_color_build($gebaude){
+
+        for($i = 0; $i<count($gebaude); $i++){
+            $data[$i] = $this->get_color( $gebaude[$i]['max'],$gebaude[$i]['cur']);
+        }
+        return $data;
     }
 
     public function raumansicht(RequestData $rd)
@@ -148,7 +156,9 @@ class HomeController
 
         if($_SESSION['Rolle'] >= 3) {
             return view('Raumansicht.studenten.raumansicht_studenten', [
-                'gebaeude' => $rd->query['gebaeude'] ?? 'a'
+                'gebaeude' => $rd->query['gebaeude'] ?? 'a',
+                'belegung' => get_belegung_gebaude($rd->query['gebaeude'] ?? 'a'),
+                'color' => $this->get_color_build(get_belegung_gebaude($rd->query['gebaeude'] ?? 'a'))
             ]);
         }
 
