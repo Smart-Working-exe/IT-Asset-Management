@@ -13,7 +13,6 @@ class LoginController
     {
         session_destroy();
         header('Location: /dashboard');
-
     }
 
     public function check_passwort($name, $pwd): bool{

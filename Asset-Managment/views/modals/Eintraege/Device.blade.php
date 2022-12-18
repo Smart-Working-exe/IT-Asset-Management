@@ -289,3 +289,6 @@
 
 @endsection
 
+@section('jsextra')
+    <script src="../js/multiselect-dropdown.js"></script>
+@endsection
