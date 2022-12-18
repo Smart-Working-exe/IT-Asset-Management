@@ -6,6 +6,7 @@
 @section('content')
     <div class="row mt-5 row justify-content-between">
         <div class="btn-group-vertical col-lg-6 mt-3 tbodyDiv">
+            <h5> Verfuegbare Geräte </h5>
             <table class="table table-bordered table-striped" id="verfuegbareGeräte">
                 <thead class="sticky-top bg-white">
                 <tr>
@@ -107,6 +108,7 @@
             </table>
         </div>
         <div class="btn-group-vertical col-lg-6 mt-3 tbodyDiv">
+            <h5> Eigene Geräte </h5>
             <table class="table table-bordered table-striped" id="gelieheneGeraete">
                 <thead class="sticky-top bg-white">
                 <tr>
@@ -131,7 +133,7 @@
                     <td>Werkzeug</td>
                     <td>27.10.2022</td>
                     <td>10.11.2022</td>
-                    <td class="text-center"><input class="form-check-input" type="checkbox" id="flexCheckChecked"></td>
+                    <td class="text-center"><input class="form-check-input" type="checkbox" id="flexCheckChecked"{{$geraet[id]}}></td>
                 </tr>
                 <tr>
                     <td></td>

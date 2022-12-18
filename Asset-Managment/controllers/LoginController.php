@@ -34,6 +34,15 @@ class LoginController
         return false;
     }
 
+    public function get_hash($pw){
+        $passwort = $pw;
+        $salt = 'dontedit';
+
+        $hash = sha1($salt.$passwort);
+
+        return $hash;
+    }
+
     public function login_verify(RequestData $rq){
         $username = $_POST['username'] ?? false;
         $password = $_POST['password'] ?? false;

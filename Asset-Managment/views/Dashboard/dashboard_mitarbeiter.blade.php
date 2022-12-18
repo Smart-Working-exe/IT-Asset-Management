@@ -51,7 +51,11 @@
                         <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
                     </div>
                     <div class="toast-body">
-                        Es gibt {{ $benachrichtigung['anzahl'] }} <a href="/verleihung">unbeantwortete Anfragen</a> von Studierenden.
+                        @if($benachrichtigung['anzahl'] == 1)
+                        Es gibt {{ $benachrichtigung['anzahl'] }} <a href="/verleihung">unbeantwortete Anfrage</a> von Studierenden.
+                        @else
+                        Es gibt {{ $benachrichtigung['anzahl'] }} <a href="/verleihung">unbeantworteten Anfrage</a> von Studierenden.
+                        @endif
                     </div>
                 </div>
             @else

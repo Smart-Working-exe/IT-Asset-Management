@@ -8,6 +8,8 @@ require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/hinzufuegen.php');
 require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/benachrichtigungen.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/../models/benutzer.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/../models/logs.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/../models/raum.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/../models/einstellungen.php');
 
 /* Datei: controllers/HomeController.php */
 class HomeController
@@ -41,7 +43,21 @@ class HomeController
             $_SESSION['target'] = '/einstellungen';
             header('Location: /login');
         }
-        return view ('Einstellungen.einstellungen',['user' => $_SESSION['Rolle']]);
+        if($_SESSION['Rolle'] == 1){
+            if($_POST["neue_einstellung_s"] != "") {change_setting($_POST["neue_einstellung_s"]);}
+            else if(isset($_POST["neue_einstellung"])) {change_setting($_POST["neue_einstellung"]);}
+            if($_POST["neue_einstellung_ip_s"] != "") {change_setting_ip($_POST["neue_einstellung_ip_s"]);}
+            else if(isset($_POST["neue_einstellung_ip"])) {change_setting_ip($_POST["neue_einstellung_ip"]);}
+            $setting = get_setting();
+            $setting_ip = get_setting_ip();
+            return view('Einstellungen.einstellungen', ['user' => $_SESSION['Rolle'], 'setting' => $setting, 'setting_ip' => $setting_ip]);
+        }
+        else{
+            if($_POST["neue_einstellung_s"] != "") {change_setting($_POST["neue_einstellung_s"]);}
+            else if(isset($_POST["neue_einstellung"])) {change_setting($_POST["neue_einstellung"]);}
+            $setting = get_setting();
+            return view ('Einstellungen.einstellungen',['user' => $_SESSION['Rolle'], 'setting' => $setting]);
+        }
     }
 
     public function verleihung(RequestData $rd)
@@ -86,7 +102,37 @@ class HomeController
 
     public function ausleihe(RequestData $rd)
     {
-        return view('Ausleihe_Student.ausleihe',[]);
+        if ( isset($_SESSION['login_ok']) && ($_SESSION['Rolle'] == 3)) {
+
+
+            return view('Ausleihe_Student.ausleihe',[]);
+        }
+
+    }
+
+    public function get_color($max, $cur){
+        //$max = get_raum_belegung( $rd->query['raum'] ?? 'a001')['max'];
+        //$cur = get_raum_belegung( $rd->query['raum'] ?? 'a001')['cur'];
+        $diff = $cur/$max;
+        if($diff <= 1/5){
+            return 'darkgreen';
+        }elseif ($diff > 1/5 && $diff <= 2/5){
+            return '#00ff00';
+        }elseif ($diff > 2/5 && $diff <= 3/5){
+            return 'yellow';
+        }elseif ($diff > 3/5 && $diff <= 4/5){
+            return 'orange';
+        }elseif ($diff > 4/5 && $diff <= 5/5){
+            return 'red';
+        }
+    }
+
+    public function get_color_build($gebaude){
+
+        for($i = 0; $i<count($gebaude); $i++){
+            $data[$i] = $this->get_color( $gebaude[$i]['max'],$gebaude[$i]['cur']);
+        }
+        return $data;
     }
 
     public function raumansicht(RequestData $rd)
@@ -100,9 +146,13 @@ class HomeController
 
         if($_SESSION['Rolle'] >= 3) {
             return view('Raumansicht.studenten.raumansicht_studenten', [
-                'gebaeude' => $rd->query['gebaeude'] ?? 'a'
+                'gebaeude' => $rd->query['gebaeude'] ?? 'a',
+                'belegung' => get_belegung_gebaude($rd->query['gebaeude'] ?? 'a'),
+                'color' => $this->get_color_build(get_belegung_gebaude($rd->query['gebaeude'] ?? 'a'))
             ]);
         }
+
+
 
         return view('Raumansicht.raumansicht',[
                 'room' => $rd->query['raum'] ?? 'a001',
@@ -110,7 +160,10 @@ class HomeController
                 'database_filter' => false,
                 'data' => getGeraeteData(get_filter_data($rd,1)),
                 'filter_variable_data' => get_softwarelizenzen_betriessystem(), //Variable filter Daten wie zmb. softwarelizenzen
-                'selected_filter' => get_filter_data($rd,1)
+                'selected_filter' => get_filter_data($rd,1),
+                'max_belegung' => get_raum_belegung( $rd->query['raum'] ?? 'a001')['max'],
+                'cur_belegung' => get_raum_belegung( $rd->query['raum'] ?? 'a001')['cur'],
+                'color' => $this->get_color(get_raum_belegung( $rd->query['raum'] ?? 'a001')['max'],get_raum_belegung( $rd->query['raum'] ?? 'a001')['cur'])
         ]);
     }
 

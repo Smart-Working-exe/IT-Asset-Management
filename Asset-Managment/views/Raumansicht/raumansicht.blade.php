@@ -25,11 +25,11 @@
             <p class="col-2 offset-1"><b>Belegung Workstations:</b></p>
             <div class=" mt-1 col-2">
                 <div class="progress position-relative">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated"
-                         style="width:100%; background-color: red"
+                    <div class="progress-bar"
+                         style="width:{{((int)$cur_belegung/(int)$max_belegung)*100}}%; background-color: {{$color}}"
                          aria-valuenow="40" aria-valuemin="0" aria-valuemax="30">
-                        <small class="justify-content-center d-flex position-absolute w-100">6/6</small></div>
-                    <div class="progress-bar" style="width:0%; background-color: black"></div>
+                        <small class="justify-content-center d-flex position-absolute w-100">{{$cur_belegung}}/{{$max_belegung}}</small></div>
+                    <div class="progress-bar" style="width:100%; background-color: black"></div>
                 </div>
             </div>
 
@@ -66,11 +66,11 @@
         </div>
         <div class=" mt-1 col-2">
             <div class="progress position-relative">
-                <div class="progress-bar progress-bar-striped progress-bar-animated"
-                     style="width:100%; background-color: red"
-                     aria-valuenow="40" aria-valuemin="0" aria-valuemax="30">
-                    <small class="justify-content-center d-flex position-absolute w-100">6/6</small></div>
-                <div class="progress-bar" style="width:0%; background-color: black"></div>
+                <div class="progress-bar"
+                     style="width:{{((int)$cur_belegung/(int)$max_belegung)*100}}%; background-color: {{$color}}"
+                     aria-valuenow="10" aria-valuemin="0" aria-valuemax="20">
+                    <small class="justify-content-center d-flex position-absolute w-100">{{$cur_belegung}}/{{$max_belegung}}</small></div>
+                <div class="progress-bar" style="width:100%; background-color: black"></div>
             </div>
         </div>
 
