@@ -39,12 +39,6 @@ function get_SoftwarlizenzenTabledata($filter = [] ) :array
 
     foreach ($data as $key => $value)
     {
-        $name = $value['name'] ;
-
-        if(!empty($value['version']))
-            $name .=  " " . $value['version'];
-
-        $data[$key]['name'] = $name;
         $data[$key]['erwerbsdatum'] = date_create($value['erwerbsdatum']) ->format('d.m.Y');
         $data[$key]['ablaufdatum'] = date_create($value['ablaufdatum']) ->format('d.m.Y');
 
@@ -66,18 +60,14 @@ function get_SoftwarlizenzenTabledata($filter = [] ) :array
     mysqli_close($link);
 
     return $data;
-
-
-
 }
-
 
 function update_licences(RequestData $rd){
     $link = connectdb();
 
-    $sql = 'UPDATE softwarelizenzen SET name = "' . $rd->query['form_lizenzname'] . '", hersteller = "' . $rd->query['form_lizenzhersteller'] . '", anzahl_gerate = ' . $rd->query['form_lizenzanzahl']  . ' WHERE id = ' .$rd->query['form_id'].'; ';
-    //
-    $result = mysqli_query($link, $sql);
+    $sql = 'UPDATE softwarelizenzen SET name = "' . $rd->query['form_lizenzname'] . '", version = "' . $rd->query['form_softwareversion'] . '", hersteller = "' . $rd->query['form_lizenzhersteller'] . '", anzahl_gerate = ' . $rd->query['form_lizenzanzahl']  . ' WHERE id = ' .$rd->query['form_id'].'; ';
+
+    mysqli_query($link, $sql);
 
     mysqli_close($link);
 }
