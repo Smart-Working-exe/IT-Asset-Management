@@ -69,8 +69,6 @@ function getGeraeteData($filter = [])
 
         }
 
-
-
         //technische_eckdaten von string zu array
         if(!empty($data[$key]['technische_eckdaten']))
             $data[$key]['technische_eckdaten'] = explode(SEPERATOR,$value['technische_eckdaten']);
@@ -83,5 +81,19 @@ function getGeraeteData($filter = [])
 
     return $data;
 
-
 }
+
+function editGeraete(RequestData $rd){
+
+    $link = connectdb();
+
+    $sql = 'UPDATE geraet SET NAME = "' . $rd->query['form_name123'] . '", typ = ' . $rd->query['form_deviceType'] . ', hersteller = "' . $rd->query['form_hersteller'] . '", ip_adresse = "' . $rd->query['form_ipAdress'] . '", technische_eckdaten = "' . $rd->query['form_technischeEckdaten'] . '", kommentar = "' . $rd->query['form_comment'] . '" WHERE id =' .$rd->query['form_id'].' ; ';
+    //
+
+    $result = mysqli_query($link, $sql);
+
+    mysqli_close($link);
+
+
+
+};

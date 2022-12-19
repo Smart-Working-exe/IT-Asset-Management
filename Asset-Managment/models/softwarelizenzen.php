@@ -27,7 +27,7 @@ function get_SoftwarlizenzenTabledata($filter = [] ) :array
     $link = connectdb();
 
 
-    $sql = 'SELECT id,name, version,erwerbsdatum, ablaufdatum, anzahl_gerate FROM softwarelizenzen';
+    $sql = 'SELECT id,name,hersteller, version,erwerbsdatum, ablaufdatum, anzahl_gerate FROM softwarelizenzen';
 
     $sql = filter_to_sql($sql,3,$filter);
 
@@ -69,4 +69,15 @@ function get_SoftwarlizenzenTabledata($filter = [] ) :array
 
 
 
+}
+
+
+function update_licences(RequestData $rd){
+    $link = connectdb();
+
+    $sql = 'UPDATE softwarelizenzen SET name = "' . $rd->query['form_lizenzname'] . '", hersteller = "' . $rd->query['form_lizenzhersteller'] . '", anzahl_gerate = ' . $rd->query['form_lizenzanzahl']  . ' WHERE id = ' .$rd->query['form_id'].'; ';
+    //
+    $result = mysqli_query($link, $sql);
+
+    mysqli_close($link);
 }

@@ -147,6 +147,11 @@ class HomeController
         if(isset($_POST['belegung'])){
             set_raum_belegung($_POST['belegung'], $rd->query['raum']);
         }
+
+        if(isset($_POST['submit'])){
+            editGeraete($rd);
+        }
+
         if($_SESSION['Rolle'] >= 3) {
             return view('Raumansicht.studenten.raumansicht_studenten', [
                 'gebaeude' => $rd->query['gebaeude'] ?? 'a',
@@ -197,12 +202,20 @@ class HomeController
         }
         if(isset($rd->query['database'])) {
             if ($rd->query['database'] == 'personen') {
+                if(isset($_POST['submit']) and $_POST['submit']== 2){
+                    update_User($rd);
+                }
+
                 return view('Datenbank.datenbank_personen', [
                     'typ' => 'personen',
                     'data' => get_user_tabledata(get_filter_data($rd,2)),
                     'selected_filter' => get_filter_data($rd,2)
                 ]);
             } elseif ($rd->query['database'] == 'lizenzen') {
+                if(isset($_POST['submit']) and $_POST['submit']== 3){
+                    update_licences($rd);
+                }
+
                 return view('Datenbank.datenbank_lizenzen', [
                     'typ' => 'lizenzen',
                     'data' => get_SoftwarlizenzenTabledata(get_filter_data($rd,3)),
@@ -210,6 +223,11 @@ class HomeController
                 ]);
             }
         }
+
+        if(isset($_POST['submit']) and $_POST['submit']== 1){
+            editGeraete($rd);
+        }
+
 
         return view('Datenbank.datenbank_geraete',[
             'typ' => 'geraete',

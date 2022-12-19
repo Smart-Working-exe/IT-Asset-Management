@@ -1,5 +1,3 @@
-
-
 @section('userfilter')
     <form method="post">
         <div class="row" style="padding-right: 50%">
@@ -43,8 +41,4 @@
         </div>
 
     </form>
-
-
-
-
 @endsection
