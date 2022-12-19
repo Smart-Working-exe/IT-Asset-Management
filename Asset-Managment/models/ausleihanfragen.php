@@ -19,14 +19,34 @@ function send_ruckanfrage ( $geraetname, $student) {
     mysqli_close($link);
 }
 
-function show_ausgeraete () {
+
+function get_open_request() {
+
     $link = connectdb();
-    $sql = " SELECT name,typ,
-           ";
 
+    $open_requests = "SELECT student, art, geraet FROM ausleihanfragen WHERE status = 0;";
+    $requests = mysqli_query($link,$open_requests);
 
+    $data = mysqli_fetch_all($requests, MYSQLI_ASSOC);
+
+    mysqli_close($link);
+    return $data;
 }
 
-function show_vergeraete () {
+function accept($device) {
+    $link = connectdb();
 
+    $request = "UPDATE ausleihanfragen SET status = 1 WHERE geraet = '$device' AND status = 0";
+    $sql = mysqli_query($link,$request);
+
+    mysqli_close($link);
+}
+
+function reject($device) {
+    $link = connectdb();
+
+    $request = "UPDATE ausleihanfragen SET status = 2 WHERE geraet = '$device' AND status = 0";
+    $sql = mysqli_query($link,$request);
+
+    mysqli_close($link);
 }

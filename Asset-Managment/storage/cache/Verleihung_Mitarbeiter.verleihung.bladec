@@ -2,197 +2,75 @@
 <?php $_shouldextend[2]=1; ?>
 
 
-
 <?php $this->startSection('content'); ?>
  <div class=" row mt-5 justify-content-between">
  <div class="btn-group-vertical col-6 mt-3 tbodyDiv">
 
- <h3> Ausleihen </h3>
+ <h3> Ausleihe </h3>
  <table class="table table-bordered table-striped" id="Anfrage">
  <thead class="sticky-top bg-white">
  <tr>
- <th>Anfragender</th>
- <th>Geräte</th>
+ <th>Student*in</th>
+ <th>Gerat</th>
  <th></th>
  <th></th>
  </tr>
  </thead>
  <tbody>
+ <?php $__currentLoopData = $anfragen; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $anfrage): $loop = $this->incrementLoopIndices();  ?>
+ <?php if($anfrage['art'] == 0): ?>
  <tr>
- <td>ok7698s</td>
- <td>Praktikumsboard ARBKVS</td>
+ <td><?php echo \htmlentities($anfrage['student']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td><?php echo \htmlentities($anfrage['geraet']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
  <td>
- <button type="submit" class="btn btn-primary sub">Annehmen</button>
+ <form>
+ <button type="submit" class="btn btn-primary sub" action="/verleihung" method="get" name="accept" value=<?php echo \htmlentities($anfrage['geraet']??'', ENT_QUOTES, 'UTF-8', false); ?>  >Annehmen</button>
+ </form>
  </td>
  <td>
- <button type="submit" class="btn btn-danger">Ablehnen</button>
+ <form>
+ <button type="submit" class="btn btn-danger" action="/verleihung" method="get" name="reject" value=<?php echo \htmlentities($anfrage['geraet']??'', ENT_QUOTES, 'UTF-8', false); ?>  >Ablehnen</button>
+ </form>
  </td>
  </tr>
- <tr>
- <td>Ackerman Levi</td>
- <td>TI-Board</td>
- <td>
- <button type="submit" class="btn btn-primary sub">Annehmen</button>
- </td>
- <td>
- <button type="submit" class="btn btn-danger">Ablehnen</button>
- </td>
- </tr>
- <tr>
- <td>&nbsp;</td>
- <td></td>
- <td>
-
- </td>
- <td></td>
- </tr><tr>
- <td>&nbsp;</td>
- <td></td>
- <td>
-
- </td>
- <td></td>
- </tr>
- <tr>
- <td>&nbsp;</td>
- <td></td>
- <td>
-
- </td>
- <td></td>
- </tr>
- <tr>
- <td>&nbsp;</td>
- <td></td>
- <td>
-
- </td>
- <td></td>
- </tr>
+ <?php endif; ?>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
  </tbody>
  </table>
  </div>
- <div class="btn-group-vertical col-6 mt-3 tbodyDiv">
- <h3>Verlängern</h3>
- <table class="table table-bordered table-striped" id="Anfrage">
- <thead class="sticky-top bg-white">
- <tr>
- <th>Anfragender</th>
- <th>Geräte</th>
- <th>Ausgeliehen am</th>
- <th></th>
- <th></th>
- </tr>
- </thead>
- <tbody>
- <tr>
- <td>mm5475s</td>
- <td>Praktikumsboard ARBKVS</td>
- <td type="date">25.08.2022</td>
- <td>
-
- <button type="submit" class="btn btn-primary sub">4 Wochen Verlängern</button>
- </td>
- <td>
- <button type="submit" class="btn btn-danger">Ablehnen</button>
- </td>
- </tr>
- <tr>
- <td>ku2243s</td>
- <td>Praktikumsboard ARBKVS</td>
- <td type="date">17.11.2022</td>
- <td>
- <button type="submit" class="btn btn-primary sub">4 Wochen Verlängern</button>
- </td>
- <td>
- <button type="submit" class="btn btn-danger">Ablehnen</button>
- </td>
- </tr>
- <tr>
- <td>&nbsp;</td>
- <td></td>
- <td></td>
- <td></td>
- <td></td>
- </tr>
- <tr>
- <td>&nbsp;</td>
- <td></td>
- <td></td>
- <td></td>
- <td></td>
- </tr><tr>
- <td>&nbsp;</td>
- <td></td>
- <td></td>
- <td></td>
- <td></td>
- </tr>
- <tr>
- <td>&nbsp;</td>
- <td></td>
- <td></td>
- <td></td>
- <td></td>
- </tr>
- </tbody>
- </table>
- </div>
+ <br>
  <div class="btn-group-vertical col-6 mt-3 tbodyDiv">
  <h3>Rückgabe</h3>
  <table class="table table-bordered table-striped" id="Anfrage">
  <thead class="sticky-top bg-white">
  <tr>
- <th>Anfragender</th>
- <th>Geräte</th>
+ <th>Student*in</th>
+ <th>Gerat</th>
  <th></th>
  <th></th>
  </tr>
  </thead>
  <tbody>
+ <?php $__currentLoopData = $anfragen; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $anfrage): $loop = $this->incrementLoopIndices();  ?>
+ <?php if($anfrage['art'] == 1): ?>
  <tr>
- <td>mm5475s</td>
- <td>Praktikumsboard ARBKVS</td>
+ <td><?php echo \htmlentities($anfrage['student']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td><?php echo \htmlentities($anfrage['geraet']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
  <td>
- <button type="submit" class="btn btn-primary sub">Gerät ohne Probleme</button>
+ <form>
+ <button type="submit" class="btn btn-primary sub" action="/verleihung" method="get" name="accept" value=<?php echo \htmlentities($anfrage['geraet']??'', ENT_QUOTES, 'UTF-8', false); ?>  >Annehmen</button>
+ </form>
  </td>
  <td>
- <button type="submit" class="btn btn-danger">Gerät beschädigt</button>
+ <form>
+ <button type="submit" class="btn btn-danger" action="/verleihung" method="get" name="reject" value=<?php echo \htmlentities($anfrage['geraet']??'', ENT_QUOTES, 'UTF-8', false); ?>  >Ablehnen</button>
+ </form>
  </td>
  </tr>
- <tr>
- <td>ku2243s</td>
- <td>Praktikumsboard ARBKVS</td>
- <td>
- <button type="submit" class="btn btn-primary sub">Gerät ohne Probleme</button>
- </td>
- <td>
- <button type="submit" class="btn btn-danger">Gerät beschädigt</button>
- </td>
- </tr>
- <tr>
- <td>&nbsp;</td>
- <td></td>
- <td></td>
- <td></td>
- </tr>
- <tr>
- <td>&nbsp;</td>
- <td></td>
- <td></td>
- <td></td>
- </tr><tr>
- <td>&nbsp;</td>
- <td></td>
- <td></td>
- <td></td>
- </tr>
- <tr>
- <td>&nbsp;</td>
- <td></td>
- <td></td>
- <td></td>
- </tr>
+ <?php endif; ?>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
  </tbody>
  </table>
  </div>

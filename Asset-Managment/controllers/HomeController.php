@@ -10,6 +10,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/../models/benutzer.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/../models/logs.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/../models/raum.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/../models/einstellungen.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/../models/ausleihanfragen.php');
 
 /* Datei: controllers/HomeController.php */
 class HomeController
@@ -33,7 +34,7 @@ class HomeController
             return view('Dashboard.dashboard_mitarbeiter', ['rq'=>$rd, 'notifs'=>$notifs]);
         }
         elseif($_SESSION['Rolle'] == 3){
-            delete_notif_loan($_GET['delete']);
+            if(isset($_GET['delete'])) { delete_notif_loan($_GET['delete']); }
             $notifs = notif_student();
             return view('Dashboard.dashboard_student', ['rq'=>$rd, 'notifs'=>$notifs]);
         }
@@ -63,9 +64,10 @@ class HomeController
 
     public function verleihung(RequestData $rd)
     {
-
-        //ist das nur für mitarbeiter?
-        return view('Verleihung_Mitarbeiter.verleihung',[]);
+        if(isset($_GET['accept'])) { accept($_GET['accept']);}
+        if(isset($_GET['reject'])) { reject($_GET['reject']);}
+        $requests = get_open_request();
+        return view('Verleihung_Mitarbeiter.verleihung',['anfragen' => $requests]);
     }
 
     public function systemlogs(RequestData $rd)

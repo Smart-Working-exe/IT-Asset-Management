@@ -9,7 +9,7 @@
 
 <?php $this->startSection('content'); ?>
 
- <table class="table table-striped table-bordered fixed" id="devices">
+ <table class="table table-striped table-bordered" id="devices">
  <thead>
  <tr>
  <th onclick="sortTable(0, devices)">Name <img src="/img/up-and-down-arrows-svgrepo-com.svg"
