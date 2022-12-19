@@ -19,6 +19,8 @@ class HomeController
         return view('home', ['rd' => $request ]);
     }
 
+
+
     public function dashboard(RequestData $rd){
 
         if (!isset($_SESSION['login_ok'])) {
