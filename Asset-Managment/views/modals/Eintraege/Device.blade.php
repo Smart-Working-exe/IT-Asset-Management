@@ -16,19 +16,23 @@
                         <div class="row mt-3">
                             <div class="col">
                                 <select class="form-select" aria-label="Default select example" id="deviceTyp" name="addDevicedeviceTyp">
-                                    <option selected>Typ*</option>
-                                    <option value="1"  >Computer</option>
-                                    <option value="2"  >Accessoir</option>
-                                    <option value="3"  >Eigener Typ</option>
+                                    <option disabled selected>Typ*</option>
+                                    <option value="1">Computer</option>
+                                    <option value="2">Laptop</option>
+                                    <option value="3">Monitor</option>
+                                    <option value="4">Tastatur</option>
+                                    <option value="5">Maus</option>
+                                    <option value="6">Praktikum Utensilien</option>
+                                    <option value="7">Accessoires</option>
                                 </select>
                             </div>
                             <div class="col">
                                 <select class="form-select" aria-label="Default select example" id="deviceTyp" name="addDeviceBetriebssystem">
                                     <option selected disabled>Betriebssystem*</option>
-                                    <option value="1" id="addDeviceBetriebssystem"  >Windows</option>
-                                    <option value="2" id="addDeviceBetriebssystem"  >Ubuntu</option>
-                                    <option value="3" id="addDeviceBetriebssystem"  >Debian</option>
-                                    <option value="4" id="addDeviceBetriebssystem"  >MacOS</option>
+                                    <option value="1" id="addDeviceBetriebssystem" >Windows</option>
+                                    <option value="2" id="addDeviceBetriebssystem" >Ubuntu</option>
+                                    <option value="3" id="addDeviceBetriebssystem" >Debian</option>
+                                    <option value="4" id="addDeviceBetriebssystem" >MacOS</option>
                                 </select>
                             </div>
 
@@ -128,10 +132,14 @@
                         <div class="row mt-3">
                             <div class="col">
                                 <select class="form-select" aria-label="Default select example" id="deviceTyp">
-                                    <option>Typ*</option>
-                                    <option value="1" id="deviceTyp" selected>Computer</option>
-                                    <option value="2" id="deviceTyp">Accessoir</option>
-                                    <option value="3" id="deviceTyp">Eigener Typ</option>
+                                    <option disabled>Typ*</option>
+                                    <option value="1" selected>Computer</option>
+                                    <option value="2">Laptop</option>
+                                    <option value="3">Monitor</option>
+                                    <option value="4">Tastatur</option>
+                                    <option value="5">Maus</option>
+                                    <option value="6">Praktikum Utensilien</option>
+                                    <option value="7">Accessoires</option>
                                 </select>
                             </div>
                             <div class="col">
@@ -225,7 +233,6 @@
         </div>
     </div>
 
-
 @endsection
 
 @section('editKommentar')
@@ -292,3 +299,4 @@
 @section('jsextra')
     <script src="../js/multiselect-dropdown.js"></script>
 @endsection
+1 = Computer, 2 = Laptop, 3 = Monitor, 4 = Tastatur, 5 = Maus, 6 = Praktikum Utensilien, 7 = Accessoires
