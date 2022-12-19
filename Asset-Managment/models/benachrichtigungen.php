@@ -92,23 +92,23 @@ function delete_notif_loan($geraet) {
 
     // get request data
     $request = "SELECT art, status from ausleihanfragen where student = '$self' AND geraet = '$geraet'";
-    $settings = mysqli_query($link, $request);
-    $data = mysqli_fetch_all($settings,MYSQLI_BOTH);
+    $sql = mysqli_query($link, $request);
+    $data = mysqli_fetch_all($sql,MYSQLI_BOTH);
     $art = $data['art'];
     $status = $data['status'];
 
     // delete Benachrichtigung
-    $request = "";
     if(($art == 0 && $status == 2) || ($art == 1 && $status == 1)) {
         $request = "DELETE FROM ausleihanfragen where student = '$self' 
                     AND geraet = '$geraet'";
+        mysqli_query($link, $request);
     }
     else if($art == 0 && $status == 2) {
         $request = "UPDATE ausleihanfragen SET art = 0, status = 1 
                     where student = '$self' AND geraet = '$geraet'";
+        mysqli_query($link, $request);
     }
 
-    mysqli_query($link, $request);
     mysqli_commit($link);
     mysqli_close($link);
 

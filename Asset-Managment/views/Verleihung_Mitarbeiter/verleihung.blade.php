@@ -24,7 +24,7 @@
                             <td>{{$anfrage['geraet']}}</td>
                             <td>
                                 <form>
-                                    <button type="submit" class="btn btn-primary sub" action="/verleihung" method="get" name="accept" value={{$anfrage['geraet']}}  >Annehmen</button>
+                                    <button type="submit" class="btn btn-primary sub" action="/verleihung" method="get" name="accept_loan" value={{$anfrage['geraet']}}  >Annehmen</button>
                                 </form>
                             </td>
                             <td>
@@ -58,7 +58,7 @@
                         <td>{{$anfrage['geraet']}}</td>
                         <td>
                             <form>
-                                <button type="submit" class="btn btn-primary sub" action="/verleihung" method="get" name="accept" value={{$anfrage['geraet']}}  >Annehmen</button>
+                                <button type="submit" class="btn btn-primary sub" action="/verleihung" method="get" name="accept_return" value={{$anfrage['geraet']}}  >Annehmen</button>
                             </form>
                         </td>
                         <td>

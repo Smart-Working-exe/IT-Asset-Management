@@ -37,6 +37,7 @@ class HomeController
         }
         elseif($_SESSION['Rolle'] == 3){
             if(isset($_GET['delete'])) { delete_notif_loan($_GET['delete']); }
+            unset($_GET['delete']);
             $notifs = notif_student();
             return view('Dashboard.dashboard_student', ['rq'=>$rd, 'notifs'=>$notifs]);
         }
@@ -66,9 +67,10 @@ class HomeController
 
     public function verleihung(RequestData $rd)
     {
-        if(isset($_GET['accept'])) { accept($_GET['accept']);}
+        if(isset($_GET['accept_loan'])) { accept_loan($_GET['accept_loan']);}
+        if(isset($_GET['accept_return'])) { accept_return($_GET['accept_return']);}
         if(isset($_GET['reject'])) { reject($_GET['reject']);}
-        $requests = get_open_request();
+        $requests = get_open_requests();
         return view('Verleihung_Mitarbeiter.verleihung',['anfragen' => $requests]);
     }
 
@@ -109,8 +111,11 @@ class HomeController
     {
         if ( isset($_SESSION['login_ok']) && ($_SESSION['Rolle'] == 3)) {
 
-
-            return view('Ausleihe_Student.ausleihe',[]);
+            if(isset($_POST['loan'])) { request_loan($_POST['loan']); }
+            if(isset($_POST['return'])) { request_return($_POST['return']); }
+            $eigene_geraete = get_own_devices();
+            $ausleihbare_geraete = get_rentable_devices();
+            return view('Ausleihe_Student.ausleihe',['owndevices' => $eigene_geraete, 'rentables' => $ausleihbare_geraete]);
         }
 
     }
