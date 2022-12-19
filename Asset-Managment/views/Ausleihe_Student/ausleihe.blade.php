@@ -133,7 +133,7 @@
                     <td>Werkzeug</td>
                     <td>27.10.2022</td>
                     <td>10.11.2022</td>
-                    <td class="text-center"><input class="form-check-input" type="checkbox" id="flexCheckChecked"{{$geraet[id]}}></td>
+                    <td class="text-center"><input class="form-check-input" type="checkbox" id="flexCheckChecked"{{$geraet['id']}}></td>
                 </tr>
                 <tr>
                     <td></td>
