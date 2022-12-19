@@ -22,7 +22,7 @@
     @yield('header')
 
     <div class="row mt-4 ">
-        <p class="display-6 col-3">Softwarelizenzen class="display-6 col-3"</p>
+        <p class="display-6 col-3">Softwarelizenzen</p>
 
         <div class="form-group">
             <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal" data-bs-target="#addSoftware">
