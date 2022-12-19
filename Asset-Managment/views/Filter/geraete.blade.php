@@ -43,7 +43,7 @@
             </div>
 
             <div class="col mt-2">
-                <input type="search" class="form-control rounded" placeholder="Alter" aria-label="Search"
+                <input type="search" class="form-control rounded" placeholder="Alter in Jahren" aria-label="Search"
                        name="filter_age" id="filter_age" @if(!empty($selected_filter['age'])) value="{{$selected_filter['age']}}"@endif>
             </div>
 
