@@ -18,10 +18,7 @@ class HomeController
         return view('home', ['rd' => $request ]);
     }
 
-    public function log($user, $attribute){
-        $file = fopen('./log.log','a');
 
-    }
 
     public function dashboard(RequestData $rd){
 
