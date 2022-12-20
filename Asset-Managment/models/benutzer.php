@@ -102,3 +102,12 @@ function update_User(RequestData $rd){
 
     mysqli_close($link);
 }
+
+function get_hash($pw){
+    $passwort = $pw;
+    $salt = 'dontedit';
+
+    $hash = sha1($salt.$passwort);
+
+    return $hash;
+}

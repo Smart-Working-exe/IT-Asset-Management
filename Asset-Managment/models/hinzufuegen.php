@@ -1,4 +1,5 @@
 <?php
+
 function db_add_device($var)
 {
     $db = connectdb();
@@ -39,7 +40,7 @@ function db_add_user($var)
     $vorname = $var['user_add_vorname'];
     $nachname = $var['user_add_nachname'];
     $rolle = $var['user_add_rolle'];
-    $passwort = $var['user_add_passwort'];
+    $passwort = 'f7e45b03e124f58c149a52b32af49a4da0694131';
     $absenden = $db->prepare("INSERT INTO personen(fh_kuerzel, vorname, nachname, rolle, passwort) VALUES(?,?,?,?,?)");
     $absenden->bind_param('sssis', $fh_kuerzel, $vorname, $nachname, $rolle, $passwort);
     $absenden->execute();
