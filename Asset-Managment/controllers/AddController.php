@@ -1,6 +1,7 @@
 <?php
 
 require_once ($_SERVER['DOCUMENT_ROOT'].'/../models/hinzufuegen.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/../models/logs.php');
 
 /* Datei: controllers/AddController.php */
 class AddController
@@ -20,8 +21,10 @@ class AddController
             'software_add_ablaufdatum'   => filter_input(INPUT_POST,'software_add_ablaufdatum')
         ];
         //print_r($var);
-        if ($var['software_add_name'] != null)
+        if ($var['software_add_name'] != null) {
+            logger($_SESSION['name'], 12, "Lizenz: " . $var['software_add_name'] . "wurde hinzugefügt.");
             db_add_software($var);
+        }
         //print_r('Location: ' . $_SERVER["HTTP_REFERER"]);
 
         if (isset($_SERVER["HTTP_REFERER"]))
@@ -43,8 +46,10 @@ class AddController
             'user_add_passwort' => filter_input(INPUT_POST, 'user_add_passwort')
         ];
         //print_r($var);
-        if ($var['user_add_vorname'] != null)
+        if ($var['user_add_vorname'] != null) {
+            logger($_SESSION['name'], 9, "Benutzer: " . $var['user_add_vorname'] . "wurde hinzugefügt.");
             db_add_user($var);
+        }
         //print_r('Location: ' . $_SERVER["HTTP_REFERER"]);
 
         if (isset($_SERVER["HTTP_REFERER"]))
@@ -78,8 +83,10 @@ class AddController
             $var['addDeviceAusleihbar']=0;
         print_r($var);
 
-        if ($var['addDeviceName'] != null)
+        if ($var['addDeviceName'] != null) {
+            logger($_SESSION['name'], 9, "Gerät: " . $var['addDeviceName'] . "wurde hinzugefügt.");
             db_add_device($var);
+        }
         //print_r('Location: ' . $_SERVER["HTTP_REFERER"]);
 
         if (isset($_SERVER["HTTP_REFERER"]))

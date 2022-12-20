@@ -53,15 +53,14 @@ function get_logs($filter = []) : array
             $data[$key]['aktion'] = 'Softwarelizenz hinzugefügt';
         elseif ($value['aktion'] == 13)
             $data[$key]['aktion'] = 'Softwarelizenz gelöscht';
-
-
-
-
-
     }
-
-
     return $data;
+}
 
+function logger($user, $aktion,$desc){
+    $link = connectdb();
 
+    $sql = "INSERT INTO logs (datum, benutzer, aktion, beschreibung) VALUES (NOW(), '$user', '$aktion', '$desc')";
+    mysqli_query($link, $sql);
+    mysqli_close($link);
 }

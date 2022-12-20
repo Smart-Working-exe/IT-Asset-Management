@@ -74,8 +74,12 @@ class HomeController
 
     public function verleihung(RequestData $rd)
     {
-        if(isset($_GET['accept_loan'])) { accept_loan($_GET['accept_loan']);}
-        if(isset($_GET['accept_return'])) { accept_return($_GET['accept_return']);}
+        if(isset($_GET['accept_loan'])) {
+            logger($_SESSION['name'], 3, "Leihe wurde angenommen");
+            accept_loan($_GET['accept_loan']);}
+        if(isset($_GET['accept_return'])) {
+            logger($_SESSION['name'], 3, "Gerät wurde zurückgenommen");
+            accept_return($_GET['accept_return']);}
         if(isset($_GET['reject'])) { reject($_GET['reject']);}
         $requests = get_open_requests();
         return view('Verleihung_Mitarbeiter.verleihung',['anfragen' => $requests]);
@@ -122,9 +126,11 @@ class HomeController
         if (isset($_SESSION['login_ok']) && ($_SESSION['Rolle'] == 3)) {
             if (isset($_SESSION['login_ok']) && ($_SESSION['Rolle'] == 3)) {
                 if (isset($_POST['loan'])) {
+                    logger($_SESSION['name'], 3, "Ausleihe wurde für ".$_POST['loan']." angefragt.");
                     request_loan($_POST['loan']);
                 }
                 if (isset($_POST['return'])) {
+                    logger($_SESSION['name'], 3, $_POST['return']."wurde zurückgegeben angefragt.");
                     request_return($_POST['return']);
                 }
                 $eigene_geraete = get_own_devices();

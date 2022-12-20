@@ -1,5 +1,6 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'].'/../models/benutzer.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/../models/logs.php');
 
 class LoginController
 {
@@ -11,6 +12,7 @@ class LoginController
 
     public function logout(RequestData $rq)
     {
+        logger($_SESSION['name'], 2, "Erfolgreich abgemeldet");
         session_destroy();
         header('Location: /dashboard');
     }
@@ -26,7 +28,7 @@ class LoginController
         $hash = sha1($salt.$pwd);//$name
         for($i = 0; $i < count($user_data);$i++){
             if($user_data[$i]['fh_kuerzel'] == $name && $user_data[$i]['passwort'] == $hash){
-                header('Location: https://www.fh-aachen.de/');
+                header('Location: /dashboard');  // https://www.fh-aachen.de/');
                 $_SESSION['Rolle'] = $user_data[$i]['rolle'];
                 return true;
             }
@@ -51,6 +53,7 @@ class LoginController
         if ($this->check_passwort($username, $password)) {//db op
             $_SESSION['login_ok'] = true;
             $_SESSION['name'] = $username;
+           logger($_SESSION['name'], 1, "Erfolgreich angemeldet");
             $insert = 'Location: '.$_SESSION['target'];
             header($insert);
         } else {
