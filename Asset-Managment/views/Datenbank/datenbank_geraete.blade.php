@@ -305,7 +305,6 @@
     </table>
 
 @endsection
-
 @section('export')
 
     <button class="btn btn-primary sub" type="button" onclick="tableToCSV() ">
@@ -413,26 +412,26 @@
         }
     </script>
 
-  <!--  <div> /*    if(j==7){
+    <!--  <div> /*    if(j==7){
 
-        var Stringzumspalten=cols[j].innerHTML;
-        var help=Stringzumspalten.replace("\n","");
-        var arrayzumkillen=Stringzumspalten.split(">");
-        var arrayzumkillen2=arrayzumkillen.split("<");
-        var Werte=[];
+          var Stringzumspalten=cols[j].innerHTML;
+          var help=Stringzumspalten.replace("\n","");
+          var arrayzumkillen=Stringzumspalten.split(">");
+          var arrayzumkillen2=arrayzumkillen.split("<");
+          var Werte=[];
 
-        for(var k=0;k<arrayzumkillen2.length;k++){
+          for(var k=0;k<arrayzumkillen2.length;k++){
 
-        if(arrayzumkillen2[k].includes("li") && arrayzumkillen2[k].length()<=3){
+          if(arrayzumkillen2[k].includes("li") && arrayzumkillen2[k].length()<=3){
 
-        }
-        else if (arrayzumkillen2[k].includes("ul") && arrayzumkillen2[k].length()<=3){
+          }
+          else if (arrayzumkillen2[k].includes("ul") && arrayzumkillen2[k].length()<=3){
 
-        }
-        else{
-        Werte.push(arrayzumkillen2[k]);
-        }
-        var reinda=Werte.toString();
-        csvrow.push(reinda);
-        }*/</div>-->
+          }
+          else{
+          Werte.push(arrayzumkillen2[k]);
+          }
+          var reinda=Werte.toString();
+          csvrow.push(reinda);
+          }*/</div>-->
 @endsection

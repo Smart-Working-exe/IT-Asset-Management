@@ -145,7 +145,6 @@
         </tbody>
     </table>
 @endsection
-
 @section('export')
 
     <button class="btn btn-primary sub" type="button" onclick="tableToCSV() ">
@@ -183,7 +182,8 @@
                         var bitte=rein.split('<');
                         var funktionier=bitte[0];
                         var letsgo=funktionier.replace('/', ' von ');
-                        csvrow.push(letsgo);
+                        var neu=letsgo.replaceAll("\n","");
+                        csvrow.push(neu);
                     }
                     else{
                         csvrow.push(cols[j].innerHTML);
@@ -195,20 +195,14 @@
                     csv_data.push(csvrow.join(","));
                 }
             }
-
             // Combine each row data with new line character
-
-                csv_data = csv_data.join('\n');
-
-
+            csv_data = csv_data.join('\n');
 
             // Call this function to download csv file
             downloadCSVFile(csv_data);
-
         }
 
         function downloadCSVFile(csv_data) {
-
             // Create CSV file object and feed
             // our csv_data into it
             CSVFile = new Blob([csv_data], {

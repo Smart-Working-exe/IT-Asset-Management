@@ -43,7 +43,7 @@
 
 
  <!-- Hier spaeter href aendern aktuell nur auf admin -->
- <a href="/dashboard_admin">
+ <a href="/dashboard">
  <button type="submit" class="btn btn-primary sub">Zurück zum Dashboard</button>
  </a>
  </div>
@@ -154,8 +154,6 @@
  </div>
 
 
-
-
  <div class="modal" id="ausleihfrist_benarichtigungen">
  <div class="modal-dialog modal-dialog-centered">
  <div class="modal-content">
@@ -203,9 +201,6 @@
  </div>
  </div>
  </div>
-
-
-
 
 
  <?php $this->stopSection(); ?>

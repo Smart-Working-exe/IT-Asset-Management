@@ -36,7 +36,6 @@ class HomeController
         }
         elseif($_SESSION['Rolle'] == 3){
             if(isset($_GET['delete'])) { delete_notif_loan($_GET['delete']); }
-            unset($_GET['delete']);
             $notifs = notif_student();
             return view('Dashboard.dashboard_student', ['rq' => $rd, 'notifs' => $notifs]);
         }
@@ -121,19 +120,29 @@ class HomeController
     public function ausleihe(RequestData $rd)
     {
         if (isset($_SESSION['login_ok']) && ($_SESSION['Rolle'] == 3)) {
-            if(isset($_POST['loan'])) { request_loan($_POST['loan']); }
-            if(isset($_POST['return'])) { request_return($_POST['return']); }
-            $eigene_geraete = get_own_devices();
-            $ausleihbare_geraete = get_rentable_devices();
-            return view('Ausleihe_Student.ausleihe',['owndevices' => $eigene_geraete, 'rentables' => $ausleihbare_geraete]);
+            if (isset($_SESSION['login_ok']) && ($_SESSION['Rolle'] == 3)) {
+                if (isset($_POST['loan'])) {
+                    request_loan($_POST['loan']);
+                }
+                if (isset($_POST['return'])) {
+                    request_return($_POST['return']);
+                }
+                $eigene_geraete = get_own_devices();
+                $ausleihbare_geraete = get_rentable_devices();
+                return view('Ausleihe_Student.ausleihe', ['owndevices' => $eigene_geraete, 'rentables' => $ausleihbare_geraete]);
+            }
         }
-
     }
 
     public function get_color($max, $cur)
     {
         //$max = get_raum_belegung( $rd->query['raum'] ?? 'a001')['max'];
         //$cur = get_raum_belegung( $rd->query['raum'] ?? 'a001')['cur'];
+
+        // Damit nie durch null geteilt werden kann
+        if($max <= 0)
+            return 'white';
+
         $diff = $cur / $max;
         if ($diff <= 1 / 5) {
             return 'darkgreen';

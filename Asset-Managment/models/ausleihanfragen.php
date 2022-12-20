@@ -15,8 +15,8 @@ function get_own_devices() {
     $self = $_SESSION['name'];
     $link = connectdb();
 
-    $devices = "SELECT geraet, ausleihdatum, rueckgabedatum, typ FROM ausleihanfragen a left join geraet g ON a.geraet = g.name
-                WHERE student = '$self' AND ((art = 0 AND status = 1) OR (art = 1 AND status = 0) OR (art = 1 & status = 2))";
+    $devices = "SELECT geraet, art, status, ausleihdatum, rueckgabedatum, typ FROM ausleihanfragen a left join geraet g ON a.geraet = g.name
+                WHERE student = '$self' AND ((art = 0 AND status = 1) OR (art = 1 AND status = 0) OR (art = 1 AND status = 2))";
     $requests = mysqli_query($link,$devices);
     $data = mysqli_fetch_all($requests, MYSQLI_ASSOC);
 
@@ -28,7 +28,6 @@ function request_loan($devices) {
     $self = $_SESSION['name'];
     $link = connectdb();
     mysqli_begin_transaction($link);
-
     if(is_array($devices)) {
         foreach($devices as $device) {
             $request = "INSERT INTO ausleihanfragen(student, geraet) values('$self','$device')";
@@ -83,7 +82,7 @@ function accept_loan($device) {
     mysqli_begin_transaction($link);
 
     // Update Status
-    $request = "UPDATE ausleihanfragen SET status = 1 , ausleihdatum = NOW(), rueckgabedatum = NOW()+30 WHERE geraet = '$device' AND status = 0";
+    $request = "UPDATE ausleihanfragen SET status = 1 , ausleihdatum = NOW(), rueckgabedatum = DATE_ADD(NOW(), INTERVAL 30 DAY) WHERE geraet = '$device' AND status = 0";
     mysqli_query($link,$request);
     // Get Student
     $request2 = "SELECT student from ausleihanfragen where geraet = '$device'";

@@ -112,7 +112,6 @@
 
 
 @endsection
-
 @section('export')
 
     <button class="btn btn-primary sub" type="button" onclick="tableToCSV() ">
@@ -141,7 +140,7 @@
 
                     // Get the text data of each cell
                     // of a row and push it to csvrow
-                        csvrow.push(cols[j].innerHTML);
+                    csvrow.push(cols[j].innerHTML);
                 }
 
                 // Combine each column value with comma
