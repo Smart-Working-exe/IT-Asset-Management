@@ -68,9 +68,15 @@ class AddController
             'addDeviceSoftware'             => filter_input(INPUT_POST,'addDeviceSoftware'),
             'addDeviceersteInbetriebname'   => filter_input(INPUT_POST,'addDeviceersteInbetriebname'),
             'addDevicealterGerat'           => filter_input(INPUT_POST,'addDevicealterGerat'),
+            'addDeviceAusleihbar'           => filter_input(INPUT_POST,'addDeviceAusleihbar'),
             'addDevicetechnischeEckdaten'   => filter_input(INPUT_POST,'addDevicetechnischeEckdaten'),
             'addDeviceKommentarGerat'       => filter_input(INPUT_POST,'addDeviceKommentarGerat')
         ];
+        if ($var['addDeviceAusleihbar']=="on")
+            $var['addDeviceAusleihbar']=1;
+        else
+            $var['addDeviceAusleihbar']=0;
+        print_r($var);
 
         if ($var['addDeviceName'] != null)
             db_add_device($var);
@@ -79,6 +85,5 @@ class AddController
         if (isset($_SERVER["HTTP_REFERER"]))
             header('Location: ' . $_SERVER["HTTP_REFERER"]);
         return view($_SERVER["HTTP_REFERER"],[]);
-
     }
 }

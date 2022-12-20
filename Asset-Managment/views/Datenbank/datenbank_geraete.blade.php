@@ -40,16 +40,37 @@
         @foreach($data as $geraet)
             <tr>
                 <td>{{$geraet['name']}}</td>
-                <td>{{$geraet['typ']}}</td>
+                @switch($geraet['typ'])
+                    @case(1)
+                        <td>Computer</td>
+                        @break(1)
+                    @case(2)
+                        <td>Laptop</td>
+                        @break(1)
+                    @case(3)
+                        <td>Monitor</td>
+                        @break(1)
+                    @case(4)
+                        <td>Tastatur</td>
+                        @break(1)
+                    @case(5)
+                        <td>Maus</td>
+                        @break(1)
+                    @case(6)
+                        <td>Praktikum Utensilien</td>
+                        @break(1)
+                    @case(7)
+                        <td>Accessoires</td>
+                @endswitch
                 <td>{{$geraet['hersteller']}}</td>
-                <td>{{$geraet['age']}} Jahre</td>
+                <td>{{$geraet['alter']}} Jahre</td>
                 <td>{{$geraet['ip_adresse']}}</td>
                 <td>
                     @if(isset($geraet['betriebssystem']))
                         <ul>
-                        @foreach($geraet['betriebssystem'] as $value)
-                            <li>{{$value}} </li>
-                        @endforeach
+                            @foreach($geraet['betriebssystem'] as $value)
+                                <li>{{$value}} </li>
+                            @endforeach
                         </ul>
                     @endif
                 </td>
@@ -63,9 +84,9 @@
                     @endif
                 </td>
                 <td>
-                    @if(!empty($geraet['technische_eckdaten'][0]))
+                    @if(!empty($geraet['technische_eckdaten_liste'][0]))
                         <ul>
-                            @foreach($geraet['technische_eckdaten'] as $value)
+                            @foreach($geraet['technische_eckdaten_liste'] as $value)
                                 <li>{{$value}} </li>
                             @endforeach
                         </ul>
@@ -75,16 +96,16 @@
                 <td>{{$geraet['raumnummer']}}</td>
                 <td>
                     <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                                   data-bs-target="#editDevice{{$geraet['id']}}">Bearbeiten
+                            data-bs-target="#editDevice{{$geraet['id']}}">Bearbeiten
                     </button>
                 </td>
 
 
-
             </tr>
-            <form action="/datenbank" method="post" role="form" >
+            <form action="/datenbank" method="post" role="form">
                 <input type="hidden" name="form_id" value="{{$geraet['id']}}">
-                <div class="modal fade" id="editDevice{{$geraet['id']}}" tabindex="-1" aria-labelledby="editDevice" aria-hidden="true">
+                <div class="modal fade" id="editDevice{{$geraet['id']}}" tabindex="-1" aria-labelledby="editDevice"
+                     aria-hidden="true">
                     <div class="modal-dialog modal-xl modal-dialog-centered">
                         <div class="modal-content">
 
@@ -99,70 +120,72 @@
                                 <div class="row">
                                     <div class="row mt-3">
                                         <div class="col">
-                                            <select class="form-select" aria-label="Default select example" name="form_deviceType">
+                                            <select class="form-select" aria-label="Default select example"
+                                                    name="form_deviceType">
                                                 <option>Typ*</option>
                                                 @if($geraet['typ'] == 1)
-                                                    <option value="1" id="deviceTyp1111" selected>PC</option>
+                                                    <option value="1" id="deviceTyp1111" selected>Computer</option>
                                                     <option value="2" id="deviceTyp1111">Laptop</option>
-                                                    <option value="3" id="deviceTyp1111" >Monitor</option>
+                                                    <option value="3" id="deviceTyp1111">Monitor</option>
                                                     <option value="4" id="deviceTyp1111">Tastatur</option>
                                                     <option value="5" id="deviceTyp1111">Maus</option>
-                                                    <option value="6" id="deviceTyp1111">Praktikumsmaterial</option>
-                                                    <option value="7" id="deviceTyp1111">Sonstiges</option>
+                                                    <option value="6" id="deviceTyp1111">Praktikum Utensilien</option>
+                                                    <option value="7" id="deviceTyp1111">Accessoires</option>
                                                 @elseif($geraet['typ'] == 2)
-                                                    <option value="1" id="deviceTyp" >PC</option>
+                                                    <option value="1" id="deviceTyp">Computer</option>
                                                     <option value="2" id="deviceTyp" selected>Laptop</option>
-                                                    <option value="3" id="deviceTyp" >Monitor</option>
+                                                    <option value="3" id="deviceTyp">Monitor</option>
                                                     <option value="4" id="deviceTyp">Tastatur</option>
                                                     <option value="5" id="deviceTyp">Maus</option>
-                                                    <option value="6" id="deviceTyp">Praktikumsmaterial</option>
-                                                    <option value="7" id="deviceTyp">Sonstiges</option>
+                                                    <option value="6" id="deviceTyp">Praktikum Utensilien</option>
+                                                    <option value="7" id="deviceTyp">Accessoires</option>
                                                 @elseif($geraet['typ'] == 3)
-                                                    <option value="1" id="deviceTyp" >PC</option>
+                                                    <option value="1" id="deviceTyp">Computer</option>
                                                     <option value="2" id="deviceTyp">Laptop</option>
                                                     <option value="3" id="deviceTyp" selected>Monitor</option>
                                                     <option value="4" id="deviceTyp">Tastatur</option>
                                                     <option value="5" id="deviceTyp">Maus</option>
-                                                    <option value="6" id="deviceTyp">Praktikumsmaterial</option>
-                                                    <option value="7" id="deviceTyp">Sonstiges</option>
+                                                    <option value="6" id="deviceTyp">Praktikum Utensilien</option>
+                                                    <option value="7" id="deviceTyp">Accessoires</option>
                                                 @elseif($geraet['typ'] == 4)
-                                                    <option value="1" id="deviceTyp" >PC</option>
+                                                    <option value="1" id="deviceTyp">Computer</option>
                                                     <option value="2" id="deviceTyp">Laptop</option>
-                                                    <option value="3" id="deviceTyp" >Monitor</option>
-                                                    <option value="4" id="deviceTyp"selected>Tastatur</option>
+                                                    <option value="3" id="deviceTyp">Monitor</option>
+                                                    <option value="4" id="deviceTyp" selected>Tastatur</option>
                                                     <option value="5" id="deviceTyp">Maus</option>
-                                                    <option value="6" id="deviceTyp">Praktikumsmaterial</option>
-                                                    <option value="7" id="deviceTyp">Sonstiges</option>
+                                                    <option value="6" id="deviceTyp">Praktikum Utensilien</option>
+                                                    <option value="7" id="deviceTyp">Accessoires</option>
                                                 @elseif($geraet['typ'] == 5)
-                                                    <option value="1" id="deviceTyp" >PC</option>
+                                                    <option value="1" id="deviceTyp">Computer</option>
                                                     <option value="2" id="deviceTyp">Laptop</option>
-                                                    <option value="3" id="deviceTyp" >Monitor</option>
+                                                    <option value="3" id="deviceTyp">Monitor</option>
                                                     <option value="4" id="deviceTyp">Tastatur</option>
-                                                    <option value="5" id="deviceTyp"selected>Maus</option>
-                                                    <option value="6" id="deviceTyp">Praktikumsmaterial</option>
-                                                    <option value="7" id="deviceTyp">Sonstiges</option>
+                                                    <option value="5" id="deviceTyp" selected>Maus</option>
+                                                    <option value="6" id="deviceTyp">Praktikum Utensilien</option>
+                                                    <option value="7" id="deviceTyp">Accessoires</option>
                                                 @elseif($geraet['typ'] == 6)
-                                                    <option value="1" id="deviceTyp" >PC</option>
+                                                    <option value="1" id="deviceTyp">Computer</option>
                                                     <option value="2" id="deviceTyp">Laptop</option>
-                                                    <option value="3" id="deviceTyp" >Monitor</option>
+                                                    <option value="3" id="deviceTyp">Monitor</option>
                                                     <option value="4" id="deviceTyp">Tastatur</option>
                                                     <option value="5" id="deviceTyp">Maus</option>
-                                                    <option value="6" id="deviceTyp"selected>Praktikumsmaterial</option>
-                                                    <option value="7" id="deviceTyp">Sonstiges</option>
+                                                    <option value="6" id="deviceTyp" selected>Praktikum Utensilien</option>
+                                                    <option value="7" id="deviceTyp">Accessoires</option>
                                                 @else
-                                                    <option value="1" id="deviceTyp" >PC</option>
+                                                    <option value="1" id="deviceTyp">Computer</option>
                                                     <option value="2" id="deviceTyp">Laptop</option>
-                                                    <option value="3" id="deviceTyp" >Monitor</option>
+                                                    <option value="3" id="deviceTyp">Monitor</option>
                                                     <option value="4" id="deviceTyp">Tastatur</option>
                                                     <option value="5" id="deviceTyp">Maus</option>
-                                                    <option value="6" id="deviceTyp">Praktikumsmaterial</option>
-                                                    <option value="7" id="deviceTyp"selected>Sonstiges</option>
+                                                    <option value="6" id="deviceTyp">Praktikum Utensilien</option>
+                                                    <option value="7" id="deviceTyp" selected>Accessoires</option>
                                                 @endif
 
                                             </select>
                                         </div>
                                         <div class="col">
-                                            <select class="form-select" aria-label="Default select example" name="form_OperationSystem">
+                                            <select class="form-select" aria-label="Default select example"
+                                                    name="form_OperationSystem">
                                                 <option disabled>Typ*</option>
                                                 <option value="1" id="deviceTyp" selected>Windows 10</option>
                                                 <option value="2" id="deviceTyp">Ubuntu</option>
@@ -175,15 +198,18 @@
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col">
-                                            <input class="form-control" type="text" name="form_name123" placeholder="Name*"
+                                            <input class="form-control" type="text" name="form_name123"
+                                                   placeholder="Name*"
                                                    value="{{$geraet['name']}}"></div>
                                         <div class="col">
-                                            <input class="form-control" type="text" name="form_ipAdress" placeholder="IP-Adresse"
+                                            <input class="form-control" type="text" name="form_ipAdress"
+                                                   placeholder="IP-Adresse"
                                                    value="{{$geraet['ip_adresse']}}"></div>
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col">
-                                            <input class="form-control" type="text" name="form_hersteller" placeholder="Hersteller"
+                                            <input class="form-control" type="text" name="form_hersteller"
+                                                   placeholder="Hersteller"
                                                    value="{{$geraet['hersteller']}}"></div>
                                         <div class="col">
                                             <select class="form-select" data-mdb-clear-button="true"
@@ -199,43 +225,56 @@
                                         <div class="col">
                                             <div class="form-group">
                                                 <div class="input-group date" id="datepickerEditUsage">
-                                                    <input type="text" class="form-control" placeholder="erste Inbetriebname*"
+                                                    <input type="text" class="form-control"
+                                                           placeholder="erste Inbetriebname*"
                                                            value="{{$geraet['betrieb']}}" name="form_betrieb">
                                                     <span class="input-group-append">
-                                            <span class="input-group-text bg-white d-block">
-                                                <i class="fa fa-calendar"></i>
-                                            </span>
-                                        </span>
+                                                        <span class="input-group-text bg-white d-block">
+                                                            <i class="fa fa-calendar"></i>
+                                                        </span>
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="form-group">
                                                 <div class="input-group date" id="datepickerEditBuild">
-                                                    <input type="text" class="form-control" placeholder="alter des Gerätes"
+                                                    <input type="text" class="form-control"
+                                                           placeholder="alter des Gerätes"
                                                            value="{{$geraet['age']}}" name="form_age">
                                                     <span class="input-group-append">
-                                            <span class="input-group-text bg-white d-block">
-                                                <i class="fa fa-calendar"></i>
-                                            </span>
-                                        </span>
+                                                        <span class="input-group-text bg-white d-block">
+                                                            <i class="fa fa-calendar"></i>
+                                                        </span>
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    @if($geraet['ausleihbar']==1)
+                                        <div class="col mt-3">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="form_Ausleihbar" name="form_Ausleihbar" checked>
+                                                <label class="form-check-label" for="flexSwitchCheckDefault">Ausleihbar</label>
+                                            </div>
+                                        </div>
+                                    @else
+                                        <div class="col mt-3">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="form_Ausleihbar" name="form_Ausleihbar">
+                                                <label class="form-check-label" for="flexSwitchCheckDefault">Ausleihbar</label>
+                                            </div>
+                                        </div>
+                                    @endif
                                     <div class="row mt-3">
                                         <div class="col">
                                     <textarea class="form-control" name="form_technischeEckdaten" rows="5"
-                                              placeholder="Technische Eckdaten, mit Semikolon trennen">16GB RAM; 1000GB SSD; NVIDIA RTX3070</textarea>
+                                              placeholder="Technische Eckdaten, mit Semikolon trennen">{{$geraet['technische_eckdaten']}}</textarea>
                                         </div>
                                         <div class="col">
-                                    <textarea class="form-control" name="form_comment" rows="5"
-                                              placeholder="Kommentar zum Gerät">{{$geraet['kommentar']}}</textarea>
+                                            <textarea class="form-control" name="form_comment" rows="5"
+                                                      placeholder="Kommentar zum Gerät">{{$geraet['kommentar']}}</textarea>
                                         </div>
-                                    </div>
-                                    <div class="mt-3">
-                                        <label for="dataImport" class="form-label">Aus Datei importieren</label>
-                                        <input class="form-control" type="file" name="form_dataImport" placeholder="Aus Datei importieren">
                                     </div>
                                 </div>
 
@@ -244,8 +283,11 @@
                             <div class="modal-footer justify-content-between">
                                 <button type="button" class="btn btn-danger">Gerät Löschen</button>
                                 <div>
-                                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"  name="submit" value="1">Speichern</button>
-                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" >Abbrechen</button>
+                                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" name="submit"
+                                            value="1">Speichern
+                                    </button>
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -254,10 +296,6 @@
             </form>
 
         @endforeach
-
-
-
-
         </tbody>
     </table>
 

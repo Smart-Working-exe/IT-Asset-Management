@@ -2,19 +2,22 @@
 function db_add_device($var)
 {
     $db = connectdb();
-    $name=$var['addDeviceName'];
-    $typ =$var['addDevicedeviceTyp'];
-    $hersteller=$var['addDeviceHersteller'];
-    $age= date('Y-m-d', strtotime($var['addDevicealterGerat']));
-    $betrieb= date('Y-m-d', strtotime($var['addDeviceersteInbetriebname']));
-    $ip=$var['addDeviceIP'];
-    $technischeEckdaten=$var['addDevicetechnischeEckdaten'];
-    $kommentar=$var['addDeviceKommentarGerat'];
-    $betriebssystem=$var['addDeviceBetriebssystem'];
-    print_r($age);
-    print_r($betrieb);
-    $absenden = $db->prepare("INSERT INTO geraet(name, typ, hersteller, age, betrieb,ip_adresse,technische_eckdaten,kommentar) VALUES(?,?,?,?,?,?,?,?)");
-    $absenden->bind_param('ssssssss', $name, $typ, $hersteller, $age, $betrieb, $ip, $technischeEckdaten,$kommentar);
+    $name = $var['addDeviceName'];
+    $typ = $var['addDevicedeviceTyp'];
+    $hersteller = $var['addDeviceHersteller'];
+    $age = date('Y-m-d', strtotime($var['addDevicealterGerat']));
+    $betrieb = date('Y-m-d', strtotime($var['addDeviceersteInbetriebname']));
+    if (empty($var['addDeviceRoom']))
+        $room = "Lager";
+    else
+        $room = $var['addDeviceRoom'];
+    $ausleihbar = $var['addDeviceAusleihbar'];
+    $technischeEckdaten = $var['addDevicetechnischeEckdaten'];
+    $kommentar = $var['addDeviceKommentarGerat'];
+    $betriebssystem = $var['addDeviceBetriebssystem'];
+
+    $absenden = $db->prepare("INSERT INTO geraet(name, typ, hersteller, age, betrieb,raumnummer,technische_eckdaten,kommentar) VALUES(?,?,?,?,?,?,?,?)");
+    $absenden->bind_param('ssssssss', $name, $typ, $hersteller, $age, $betrieb, $room, $technischeEckdaten, $kommentar);
     $absenden->execute();
 
     $order_id = $db->insert_id;
@@ -22,9 +25,9 @@ function db_add_device($var)
     //$result=$db->query($fremdkeyID);
     //$db = connectdb();
     //$result=51;
-    $betriebssystem=2;
-    $absenden2=$db->prepare("INSERT INTO geraet_hat_betriebssystem(geraetid,betriebssystemid)VALUES (?,?)");
-    $absenden2->bind_param('ii',$order_id,$betriebssystem);
+    $betriebssystem = 2;
+    $absenden2 = $db->prepare("INSERT INTO geraet_hat_betriebssystem(geraetid,betriebssystemid)VALUES (?,?)");
+    $absenden2->bind_param('ii', $order_id, $betriebssystem);
     $absenden2->execute();
     $db->close();
 }
