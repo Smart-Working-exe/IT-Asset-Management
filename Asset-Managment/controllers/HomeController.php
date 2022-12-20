@@ -129,7 +129,8 @@ class HomeController
                 }
                 $eigene_geraete = get_own_devices();
                 $ausleihbare_geraete = get_rentable_devices();
-                return view('Ausleihe_Student.ausleihe', ['owndevices' => $eigene_geraete, 'rentables' => $ausleihbare_geraete]);
+                $typen = ['','PC','Laptop','Maus','Monitor','Tastatur','Praktikumsmaterial','Sonstiges'];
+                return view('Ausleihe_Student.ausleihe', ['owndevices' => $eigene_geraete, 'rentables' => $ausleihbare_geraete, 'typen' => $typen]);
             }
         }
     }

@@ -39,12 +39,11 @@
  </button>
  <?php endif; ?>
 
-
  <?php echo $this->yieldContent('export'); ?>
- <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
+ <!-- <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
  data-bs-target="#importConfirmation">
  Import
- </button>
+ </button> -->
 
  </div>
 
