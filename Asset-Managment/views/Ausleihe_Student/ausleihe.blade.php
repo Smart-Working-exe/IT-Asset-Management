@@ -1,6 +1,9 @@
 @extends('Ausleihe_Student.layout_ausleihe')
 @extends('header_footer')
 
+<?php
+    $typen = ['','PC','Laptop','Maus','Monitor','Tastatur','Praktikumsmaterial','Sonstiges'];
+    ?>
 
 
 @section('content')
@@ -21,7 +24,7 @@
                 @foreach($rentables as $device)
                     <tr>
                         <td>{{$device['name']}}</td>
-                        <td>{{$device['typ']}}</td>
+                        <td>{{$typen[$device['typ']]}}</td>
                         <td>{{$device['kommentar']}}</td>
                         <td class="text-center"><input class="form-check-input" name="loan[]" value={{$device['name']}} type="checkbox" id="flexCheckChecked" ></td>
                     </tr>
@@ -46,15 +49,17 @@
                 </tbody>
             </table>
         </div>
+        <br>
         <div class="btn-group-vertical col-lg-6 mt-3 tbodyDiv">
             <h5> Eigene Geräte </h5>
             <table class="table table-bordered table-striped" id="gelieheneGeraete">
                 <thead class="sticky-top bg-white">
                 <tr>
-                    <th onclick="sortTable(0, gelieheneGeraete)">Name<img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
-                    <th onclick="sortTable(2, gelieheneGeraete)">Ausgeliehen<img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
-                    <th onclick="sortTable(3, gelieheneGeraete)">Rückgabefrist<img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
-                    <th onclick="sortTable(4, gelieheneGeraete)">Zurückgeben<img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                    <th onclick="sortTable(0, gelieheneGeraete)">Gerät<img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                    <th onclick="sortTable(1, gelieheneGeraete)">Ausgeliehen<img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                    <th onclick="sortTable(2, gelieheneGeraete)">Rückgabefrist<img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                    <th onclick="sortTable(3, gelieheneGeraete)">Zurückgeben<img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+                    <th onclick="sortTable(4, gelieheneGeraete)">Status<img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -64,6 +69,19 @@
                         <td>{{$device['ausleihdatum']}}</td>
                         <td>{{$device['rueckgabedatum']}}</td>
                         <td class="text-center"><input name="return" value="{{$device['geraet']}}" class="form-check-input" type="checkbox" id="flexCheckChecked"></td>
+                        <td>
+                            @if($device['art'] == 1)
+                                @if($device['status'] == 0)
+                                    Rückgabe angefragt
+                                @elseif($device['status'] == 1)
+                                    Rückgabe angenommen
+                                @elseif($device['status'] == 2)
+                                    Rückgabe abgelehnt
+                                @endif
+                            @elseif($device['art'] == 0)
+                                Ausgeliehen
+                            @endif
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

@@ -15,7 +15,7 @@ function get_own_devices() {
     $self = $_SESSION['name'];
     $link = connectdb();
 
-    $devices = "SELECT geraet, ausleihdatum, rueckgabedatum, typ FROM ausleihanfragen a left join geraet g ON a.geraet = g.name
+    $devices = "SELECT geraet, art, status, ausleihdatum, rueckgabedatum, typ FROM ausleihanfragen a left join geraet g ON a.geraet = g.name
                 WHERE student = '$self' AND ((art = 0 AND status = 1) OR (art = 1 AND status = 0) OR (art = 1 AND status = 2))";
     $requests = mysqli_query($link,$devices);
     $data = mysqli_fetch_all($requests, MYSQLI_ASSOC);
