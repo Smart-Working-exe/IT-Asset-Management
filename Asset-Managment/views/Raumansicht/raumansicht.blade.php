@@ -12,7 +12,9 @@
 
     @if($user == 1) <!-- admin -->
 
+
         <div class="row"> <!-- Wegen Row ist die Progressbar abgeschnitten -->
+            @if($room != 'Lager')
             <p class="col-3"><b>IP-Adressbereich: 111.111.111.000/27</b></p>
             <div class=" mt-1 col-2">
                 <div class="progress position-relative">
@@ -37,6 +39,7 @@
                 </div>
             </div>
 
+            @endif
 
             <div class="form-group">
                 <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal" data-bs-target="#addDevice">
@@ -51,6 +54,7 @@
         </div>
     @elseif($user == 2)<!-- mitarbeiter -->
     <div class="row"> <!-- Wegen Row ist die Progressbar abgeschnitten -->
+        @if($room != 'Lager')
         <p class="col-4"><b>IP-Adressbereich: 111.111.111.000/27</b></p>
         <div class=" mt-1 col-2">
             <div class="progress position-relative">
@@ -79,8 +83,11 @@
             </div>
         </div>
 
+
+        @endif
+
         @if(!empty($selected_filter['suche']) || !empty($selected_filter['Typ']) || !empty($selected_filter['hersteller']) || !empty($selected_filter['age']) || !empty($selected_filter['betriebssystemid']) || !empty($selected_filter['softwarelizenzid'])  )
-            <div class="col" style="margin-left: 32%">
+            <div class="col" style="margin-left: 72%">
              <a href="" class="btn  btn-primary sub  text-nowrap" role="button" aria-disabled="true">Filter Zurücksetzten</a>
             </div>
         @endif

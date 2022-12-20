@@ -40,7 +40,7 @@ function getGeraeteData($filter = [])
 
         $value_id = $value['id'];
 
-        if($value['typ'] == 'PC' || $value['typ'] == 'Laptop') {
+        if($value['typ'] == 1 || $value['typ'] == 2) {
             //get betriebssystem
             $sql = "SELECT  b.name FROM geraet_hat_betriebssystem gb LEFT JOIN betriebssystem b On gb.betriebssystemid = b.id where gb.geraetid = $value_id ";
             $result_betriebssystem = mysqli_query($link, $sql);
@@ -78,6 +78,40 @@ function getGeraeteData($filter = [])
     }
 
     mysqli_close($link);
+
+//1 = Computer, 2 = Laptop, 3 = Monitor, 4 = Tastatur, 5 = Maus, 6 = Praktikum Utensilien, 7 = Accessoires
+
+    foreach ($data as $key => $value)
+    {
+        switch ($value['typ']){
+
+            case 1:
+                $data[$key]['typ'] = "PC";
+                break;
+            case 2:
+                $data[$key]['typ'] = "Laptop";
+                break;
+            case 3:
+                $data[$key]['typ'] = "Monitor";
+                break;
+            case 4:
+                $data[$key]['typ'] = "Tastatur";
+                break;
+            case 5:
+                $data[$key]['typ'] = "Maus";
+                break;
+            case 6:
+                $data[$key]['typ'] = "Praktikumsmaterial";
+                break;
+            case 7:
+                $data[$key]['typ'] = "Accessoires";
+                break;
+
+        }
+
+
+    }
+
 
     return $data;
 

@@ -134,6 +134,11 @@ class HomeController
     {
         //$max = get_raum_belegung( $rd->query['raum'] ?? 'a001')['max'];
         //$cur = get_raum_belegung( $rd->query['raum'] ?? 'a001')['cur'];
+
+        // Damit nie durch null geteilt werden kann
+        if($max <= 0)
+            return 'white';
+
         $diff = $cur / $max;
         if ($diff <= 1 / 5) {
             return 'darkgreen';
