@@ -107,7 +107,6 @@
             </form>
 
         @endforeach
-
         </tbody>
     </table>
 

@@ -77,7 +77,7 @@ function get_filter_data(RequestData &$rd,$eintrag) : array
 
 
         if ($rd->query['filter_age'] ?? false)
-            $filter_search['age'] = $rd->query['filter_age'];
+            $filter_search['age'] = (int)$rd->query['filter_age'];
 
 
         if ($rd->query['filter_betriebssystem'] ?? false)
@@ -129,6 +129,9 @@ function get_filter_data(RequestData &$rd,$eintrag) : array
     }
 
 
+    foreach ($filter_search as $key => $value)
+        $filter_search[$key] = str_replace('%','\%',$value);
+
     return $filter_search;
 }
 
@@ -153,7 +156,7 @@ function filter_to_sql($sql,$eintrag, &$filter =[] ) : string
 
 
             if (!empty($filter['raum']))
-                $where_sql .= " And raumnummer = '$filter[raum]'";
+                $where_sql .= " And raumnummer like '%$filter[raum]%'";
 
             if(!empty($filter['Typ']))
                 $where_sql .= " And Typ = '$filter[Typ]'";
@@ -196,7 +199,7 @@ function filter_to_sql($sql,$eintrag, &$filter =[] ) : string
                 $where_sql .= " And rolle = '$filter[rolle]' ";
 
             if(!empty($filter['suche']))
-                $where_sql .= " And (vorname like '%$filter[suche]%' OR nachname like '%$filter[suche]%')";
+                $where_sql .= " And (vorname like '%$filter[suche]%' OR nachname like '%$filter[suche]%' OR fh_kuerzel like '%$filter[suche]%')";
 
         }
         elseif ($eintrag == 3)
