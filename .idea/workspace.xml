@@ -2,27 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d756e1b7-c047-45a2-9b0a-4ddb20a8875b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/controllers/AddController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/controllers/AddController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/models/geraete.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/models/geraete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/models/hinzufuegen.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/models/hinzufuegen.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/public/styles/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/public/styles/custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Dashboard.dashboard_admin.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Dashboard.dashboard_admin.bladec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_geraete.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_geraete.bladec" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_layout.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_layout.bladec" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_lizenzen.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_lizenzen.bladec" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_personen.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_personen.bladec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Filter.geraete.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Filter.geraete.bladec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Raumansicht.raumansicht.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Raumansicht.raumansicht.bladec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Raumauswahl.raumauswahl.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Raumauswahl.raumauswahl.bladec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/modals.Eintraege.Device.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/modals.Eintraege.Device.bladec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/modals.Eintraege.User.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/modals.Eintraege.User.bladec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/views/Datenbank/datenbank_geraete.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/Datenbank/datenbank_geraete.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Asset-Managment/views/Datenbank/datenbank_layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/Datenbank/datenbank_layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/views/Filter/geraete.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/Filter/geraete.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/views/Raumansicht/raumansicht.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/Raumansicht/raumansicht.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/views/Datenbank/datenbank_lizenzen.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/Datenbank/datenbank_lizenzen.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Asset-Managment/views/modals/Eintraege/Device.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/modals/Eintraege/Device.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/views/modals/Eintraege/User.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/modals/Eintraege/User.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

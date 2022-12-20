@@ -39,11 +39,7 @@
                 </button>
             @endif
 
-
-            <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                    data-bs-target="#exportConfirmation">
-                Export
-            </button>
+            @yield('export')
             <!-- <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
                     data-bs-target="#importConfirmation">
                 Import

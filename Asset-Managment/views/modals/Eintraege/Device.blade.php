@@ -90,8 +90,8 @@
                             </div>
                             <div class="col mt-3">
                                 <div class="form-check form-switch green">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="addDeviceAusleihbar">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Ausleihbar</label>
+                                    <input class="form-check-input" type="checkbox" id="addDeviceAusleihbar" name="addDeviceAusleihbar">
+                                    <label class="form-check-label" for="addDeviceAusleihbar">Ausleihbar</label>
                                 </div>
                             </div>
                             <div class="row mt-3">
