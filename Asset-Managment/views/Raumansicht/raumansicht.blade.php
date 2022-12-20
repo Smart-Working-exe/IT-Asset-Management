@@ -354,7 +354,7 @@
                                 </div>
                                 <!-- Modal footer -->
                                 <div class="modal-footer justify-content-between">
-                                    <button type="button" class="btn btn-danger">Gerät Löschen</button>
+                                    <button type="submit"  name="submit_delete" value="{{$geraet['id']}}" class="btn btn-danger">Gerät Löschen</button>
                                     <div>
                                         <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"  name="submit" value="submitted">Speichern</button>
                                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal" >Abbrechen</button>

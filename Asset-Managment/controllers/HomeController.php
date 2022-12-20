@@ -189,6 +189,10 @@ class HomeController
             editGeraete($rd);
         }
 
+        if (isset($_POST['submit_delete'])) {
+            deleteDevice($rd);
+        }
+
         if ($_SESSION['Rolle'] >= 3) {
             return view('Raumansicht.studenten.raumansicht_studenten', [
                 'gebaeude' => $rd->query['gebaeude'] ?? 'a',
@@ -271,6 +275,10 @@ class HomeController
 
         if (isset($_POST['submit']) and $_POST['submit'] == 1) {
             editGeraete($rd);
+        }
+
+        if (isset($_POST['submit_delete'])) {
+            deleteDevice($rd);
         }
 
 
