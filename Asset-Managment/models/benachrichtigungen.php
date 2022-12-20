@@ -96,7 +96,6 @@ function delete_notif_loan($geraet) {
     $data = mysqli_fetch_all($sql,MYSQLI_BOTH);
     $art = $data[0][0];
     $status = $data[0][1];
-    var_dump($art,$status,$geraet,$self);
     // delete Benachrichtigung
     if(($art == 0 && $status == 2) || ($art == 1 && $status == 1)) {
         $request = "DELETE FROM ausleihanfragen where student = '$self' 
