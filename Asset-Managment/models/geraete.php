@@ -147,3 +147,14 @@ function addComment(RequestData $rd){
     mysqli_close($link);
 
 }
+
+function getGeraeteID_name(){
+    $link = connectdb();
+
+    // get geräte
+    $sql = 'SELECT id,name FROM geraet';
+    $result = mysqli_query($link, $sql);
+
+    $data = mysqli_fetch_all($result, MYSQLI_BOTH);
+    return $data;
+}

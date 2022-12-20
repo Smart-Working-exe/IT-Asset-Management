@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d756e1b7-c047-45a2-9b0a-4ddb20a8875b" name="Changes" comment="Logs again but better">
+    <list default="true" id="d756e1b7-c047-45a2-9b0a-4ddb20a8875b" name="Changes" comment="Add User Working but very ugly">
+      <change afterPath="$PROJECT_DIR$/Asset-Managment/views/modals/Eintraege/chooseDevice.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/controllers/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/models/benutzer.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/models/benutzer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/models/hinzufuegen.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/models/hinzufuegen.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/config/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/config/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/controllers/AddController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/controllers/AddController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/models/geraete.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/models/geraete.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/views/EigeneGeraete/eigeneGeraete.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/EigeneGeraete/eigeneGeraete.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/views/EigeneGeraete/layout_eigeneGeraete.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/EigeneGeraete/layout_eigeneGeraete.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +72,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671567189922</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add User Working but very ugly">
+      <created>1671568212552</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1671568212552</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -87,6 +98,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Logs again but better" />
-    <option name="LAST_COMMIT_MESSAGE" value="Logs again but better" />
+    <MESSAGE value="Add User Working but very ugly" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add User Working but very ugly" />
   </component>
 </project>

@@ -30,6 +30,9 @@ return array(
     '/addUser'              => "AddController@addUser",
 
 
+    '/chooseDevice'              => "AddController@chooseDevice",
+
+
     '/addDevice'            => "AddController@addDevice",
 
     '/test'                 => "HomeController@test"
