@@ -268,6 +268,11 @@ function connectdb()
     return $link;
 }
 
+//function log($user, $attribute){
+//    $file = fopen('/logs/log.log','a');
+//
+//}
+
 function view($viewname, $viewargs = array())
 {
     $views = dirname(__DIR__) . '/views';
@@ -276,3 +281,4 @@ function view($viewname, $viewargs = array())
 
     return $blade->run($viewname, $viewargs);
 }
+

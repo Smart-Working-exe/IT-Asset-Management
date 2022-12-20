@@ -22,6 +22,12 @@
                 </div>
             </div>
             <p class="col-2 offset-1"><b>Belegung Workstations:</b></p>
+            <div class="col-2">
+                <form action="/raumansicht?raum={{$room}}" method="post">
+                    <input style="height:25px; width:120px;" class="form-control" type="number" id="deviceName" placeholder="Menge" name="belegung" min="0" max="{{$max_belegung}}">
+                    <input style="background: transparent; border: none !important; font-size:0;" class="form-control" type="submit">
+                </form>
+            </div>
             <div class=" mt-1 col-2">
                 <div class="progress position-relative">
                     <div class="progress-bar"
@@ -60,7 +66,7 @@
         </p>
         <div class="col-2">
            <form action="/raumansicht?raum={{$room}}" method="post">
-               <input style="height:25px; width:120px;" class="form-control" type="number" id="deviceName" placeholder="6" name="belegung" min="0" max="{{$max_belegung}}">
+               <input style="height:25px; width:120px;" class="form-control" type="number" id="deviceName" placeholder="Menge" name="belegung" min="0" max="{{$max_belegung}}">
                <input style="background: transparent; border: none !important; font-size:0;" class="form-control" type="submit">
            </form>
         </div>

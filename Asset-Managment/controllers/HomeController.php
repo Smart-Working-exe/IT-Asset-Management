@@ -10,6 +10,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/../models/benutzer.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/../models/logs.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/../models/raum.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/../models/einstellungen.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/../models/ausleihanfragen.php');
 
 /* Datei: controllers/HomeController.php */
 
@@ -22,7 +23,6 @@ class HomeController
 
     public function dashboard(RequestData $rd)
     {
-
         if (!isset($_SESSION['login_ok'])) {
             $_SESSION['target'] = '/dashboard';
             header('Location: /login');
@@ -32,9 +32,11 @@ class HomeController
             return view('Dashboard.dashboard_admin', ['rq' => $rd, 'notifs' => $notifs]);
         } elseif ($_SESSION['Rolle'] == 2) {
             $notifs = notif_employee();
-            return view('Dashboard.dashboard_mitarbeiter', ['rq' => $rd, 'notifs' => $notifs]);
-        } elseif ($_SESSION['Rolle'] == 3) {
-            delete_notif_loan($_GET['delete']);
+            return view('Dashboard.dashboard_mitarbeiter', ['rq'=>$rd, 'notifs'=>$notifs]);
+        }
+        elseif($_SESSION['Rolle'] == 3){
+            if(isset($_GET['delete'])) { delete_notif_loan($_GET['delete']); }
+            unset($_GET['delete']);
             $notifs = notif_student();
             return view('Dashboard.dashboard_student', ['rq' => $rd, 'notifs' => $notifs]);
         }
@@ -73,9 +75,11 @@ class HomeController
 
     public function verleihung(RequestData $rd)
     {
-
-        //ist das nur für mitarbeiter?
-        return view('Verleihung_Mitarbeiter.verleihung', []);
+        if(isset($_GET['accept_loan'])) { accept_loan($_GET['accept_loan']);}
+        if(isset($_GET['accept_return'])) { accept_return($_GET['accept_return']);}
+        if(isset($_GET['reject'])) { reject($_GET['reject']);}
+        $requests = get_open_requests();
+        return view('Verleihung_Mitarbeiter.verleihung',['anfragen' => $requests]);
     }
 
     public function systemlogs(RequestData $rd)
@@ -117,9 +121,11 @@ class HomeController
     public function ausleihe(RequestData $rd)
     {
         if (isset($_SESSION['login_ok']) && ($_SESSION['Rolle'] == 3)) {
-
-
-            return view('Ausleihe_Student.ausleihe', []);
+            if(isset($_POST['loan'])) { request_loan($_POST['loan']); }
+            if(isset($_POST['return'])) { request_return($_POST['return']); }
+            $eigene_geraete = get_own_devices();
+            $ausleihbare_geraete = get_rentable_devices();
+            return view('Ausleihe_Student.ausleihe',['owndevices' => $eigene_geraete, 'rentables' => $ausleihbare_geraete]);
         }
 
     }
