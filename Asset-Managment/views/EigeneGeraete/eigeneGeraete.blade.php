@@ -64,7 +64,7 @@
                     <td>{{$geraet['name']}}</td>
                     <td>{{$geraet['typ']}}</td>
                     <td>{{$geraet['hersteller']}}</td>
-                    <td>{{$geraet['age']}} Jahre</td>
+                    <td>{{$geraet['alter']}} Jahre</td>
                     <td>
                         @if(isset($geraet['betriebssystem']))
                             <ul>
@@ -84,9 +84,9 @@
                         @endif
                     </td>
                     <td>
-                        @if(!empty($geraet['technische_eckdaten'][0]))
+                        @if(!empty($geraet['technische_eckdaten_liste'][0]))
                             <ul>
-                                @foreach($geraet['technische_eckdaten'] as $value)
+                                @foreach($geraet['technische_eckdaten_liste'] as $value)
                                     <li>{{$value}} </li>
                                 @endforeach
                             </ul>

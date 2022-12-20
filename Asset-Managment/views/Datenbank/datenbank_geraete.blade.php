@@ -40,28 +40,7 @@
         @foreach($data as $geraet)
             <tr>
                 <td>{{$geraet['name']}}</td>
-                @switch($geraet['typ'])
-                    @case(1)
-                        <td>Computer</td>
-                        @break(1)
-                    @case(2)
-                        <td>Laptop</td>
-                        @break(1)
-                    @case(3)
-                        <td>Monitor</td>
-                        @break(1)
-                    @case(4)
-                        <td>Tastatur</td>
-                        @break(1)
-                    @case(5)
-                        <td>Maus</td>
-                        @break(1)
-                    @case(6)
-                        <td>Praktikum Utensilien</td>
-                        @break(1)
-                    @case(7)
-                        <td>Accessoires</td>
-                @endswitch
+                <td>{{$geraet['typ']}}</td>
                 <td>{{$geraet['hersteller']}}</td>
                 <td>{{$geraet['alter']}} Jahre</td>
                 <td>{{$geraet['ip_adresse']}}</td>
@@ -434,4 +413,7 @@
           var reinda=Werte.toString();
           csvrow.push(reinda);
           }*/</div>-->
+
+
+
 @endsection

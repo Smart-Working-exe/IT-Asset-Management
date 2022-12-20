@@ -18,8 +18,8 @@
  <option value="1" >PC</option>
  <option value="2">Laptop</option>
  <option value="3">Monitor</option>
- <option value="4">Maus</option>
- <option value="5">Tastatur</option>
+ <option value="4">Tastatur</option>
+ <option value="5">Maus</option>
  <option value="6">Praktikumsmaterial</option>
  <option value="7">Accessoires</option>
  <?php else: ?>
@@ -27,8 +27,8 @@
  <option value="1" <?php if($selected_filter['Typ'] == 1): ?> selected <?php endif; ?>>PC</option>
  <option value="2" <?php if($selected_filter['Typ'] == 2): ?> selected <?php endif; ?>>Laptop</option>
  <option value="3" <?php if($selected_filter['Typ'] == 3): ?> selected <?php endif; ?>>Monitor</option>
- <option value="4" <?php if($selected_filter['Typ'] == 4): ?> selected <?php endif; ?>>Maus</option>
- <option value="5" <?php if($selected_filter['Typ'] == 5): ?> selected <?php endif; ?>>Tastatur</option>
+ <option value="4" <?php if($selected_filter['Typ'] == 4): ?> selected <?php endif; ?>>Tastatur</option>
+ <option value="5" <?php if($selected_filter['Typ'] == 5): ?> selected <?php endif; ?>>Maus</option>
  <option value="6" <?php if($selected_filter['Typ'] == 6): ?> selected <?php endif; ?>>Praktikumsmaterial</option>
  <option value="7" <?php if($selected_filter['Typ'] == 7): ?> selected <?php endif; ?>>Accessoires</option>
  <?php endif; ?>

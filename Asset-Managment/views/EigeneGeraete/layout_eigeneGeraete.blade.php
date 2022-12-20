@@ -27,7 +27,7 @@
     @yield('geraetefilter')
 
     @yield('content')
-    <a href="dashboard_mitglieder.php">
+    <a href="/dashboard">
         <button type="submit" class="btn btn-primary sub">Zurück zum Dashboard</button>
     </a>
 

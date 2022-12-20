@@ -41,28 +41,7 @@
  foreach($__currentLoopData as $geraet): $loop = $this->incrementLoopIndices();  ?>
  <tr>
  <td><?php echo \htmlentities($geraet['name']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
- <?php switch ($geraet['typ']) {
- case (1): ?>
- <td>Computer</td>
- <?php if(1) break; ?>
- <?php case (2): ?>
- <td>Laptop</td>
- <?php if(1) break; ?>
- <?php case (3): ?>
- <td>Monitor</td>
- <?php if(1) break; ?>
- <?php case (4): ?>
- <td>Tastatur</td>
- <?php if(1) break; ?>
- <?php case (5): ?>
- <td>Maus</td>
- <?php if(1) break; ?>
- <?php case (6): ?>
- <td>Praktikum Utensilien</td>
- <?php if(1) break; ?>
- <?php case (7): ?>
- <td>Accessoires</td>
- <?php } // end switch ?>
+ <td><?php echo \htmlentities($geraet['typ']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
  <td><?php echo \htmlentities($geraet['hersteller']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
  <td><?php echo \htmlentities($geraet['alter']??'', ENT_QUOTES, 'UTF-8', false); ?> Jahre</td>
  <td><?php echo \htmlentities($geraet['ip_adresse']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
@@ -438,6 +417,9 @@
  var reinda=Werte.toString();
  csvrow.push(reinda);
  }*/</div>-->
+
+
+
 <?php $this->stopSection(); ?>
 <?php if (isset($_shouldextend[5])) { echo $this->runChild('modals.export_import'); } ?>
 <?php if (isset($_shouldextend[4])) { echo $this->runChild('Filter.geraete'); } ?>

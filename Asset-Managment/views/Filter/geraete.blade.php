@@ -18,8 +18,8 @@
                         <option value="1" >PC</option>
                         <option value="2">Laptop</option>
                         <option value="3">Monitor</option>
-                        <option value="4">Maus</option>
-                        <option value="5">Tastatur</option>
+                        <option value="4">Tastatur</option>
+                        <option value="5">Maus</option>
                         <option value="6">Praktikumsmaterial</option>
                         <option value="7">Accessoires</option>
                     @else
@@ -27,8 +27,8 @@
                         <option value="1" @if($selected_filter['Typ'] == 1) selected @endif>PC</option>
                         <option value="2" @if($selected_filter['Typ'] == 2) selected @endif>Laptop</option>
                         <option value="3" @if($selected_filter['Typ'] == 3) selected @endif>Monitor</option>
-                        <option value="4" @if($selected_filter['Typ'] == 4) selected @endif>Maus</option>
-                        <option value="5" @if($selected_filter['Typ'] == 5) selected @endif>Tastatur</option>
+                        <option value="4" @if($selected_filter['Typ'] == 4) selected @endif>Tastatur</option>
+                        <option value="5" @if($selected_filter['Typ'] == 5) selected @endif>Maus</option>
                         <option value="6" @if($selected_filter['Typ'] == 6) selected @endif>Praktikumsmaterial</option>
                         <option value="7" @if($selected_filter['Typ'] == 7) selected @endif>Accessoires</option>
                     @endif
