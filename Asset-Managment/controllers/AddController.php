@@ -77,11 +77,11 @@ class AddController
             'addDevicetechnischeEckdaten'   => filter_input(INPUT_POST,'addDevicetechnischeEckdaten'),
             'addDeviceKommentarGerat'       => filter_input(INPUT_POST,'addDeviceKommentarGerat')
         ];
-        if ($var['addDeviceAusleihbar']=="on")
-            $var['addDeviceAusleihbar']=1;
-        else
+        if (empty($var['addDeviceAusleihbar'])==1)
             $var['addDeviceAusleihbar']=0;
-        print_r($var);
+        else
+            $var['addDeviceAusleihbar']=1;
+
 
         if ($var['addDeviceName'] != null) {
             logger($_SESSION['name'], 9, "Gerät: " . $var['addDeviceName'] . "wurde hinzugefügt.");

@@ -43,8 +43,7 @@
                                     <input class="form-control" type="text" id="deviceName" name="addDeviceName"
                                            placeholder="Name*"></div>
                                 <div class="col">
-                                    <input class="form-control" type="text" id="deviceRoom" name="addDeviceRoom"
-                                           placeholder="Raum"></div>
+                                    <input class="form-control" type="text" id="addDeviceRoom" name="addDeviceRoom" placeholder="Raum"></div>
                             </div>
                             <div class="row mt-3">
                                 <div class="col">
@@ -152,7 +151,6 @@
     </div>
 
 @endsection
-
 
 @section('jsextra')
     <script src="../js/multiselect-dropdown.js"></script>

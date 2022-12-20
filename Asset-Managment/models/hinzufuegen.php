@@ -8,17 +8,17 @@ function db_add_device($var)
     $hersteller = $var['addDeviceHersteller'];
     $age = date('Y-m-d', strtotime($var['addDevicealterGerat']));
     $betrieb = date('Y-m-d', strtotime($var['addDeviceersteInbetriebname']));
-    if (empty($var['addDeviceRoom']))
-        $room = "Lager";
-    else
+    if (!empty($var['addDeviceRoom']))
         $room = $var['addDeviceRoom'];
+    else
+        $room = "Lager";
     $ausleihbar = $var['addDeviceAusleihbar'];
     $technischeEckdaten = $var['addDevicetechnischeEckdaten'];
     $kommentar = $var['addDeviceKommentarGerat'];
     $betriebssystem = $var['addDeviceBetriebssystem'];
 
-    $absenden = $db->prepare("INSERT INTO geraet(name, typ, hersteller, age, betrieb,raumnummer,technische_eckdaten,kommentar) VALUES(?,?,?,?,?,?,?,?)");
-    $absenden->bind_param('ssssssss', $name, $typ, $hersteller, $age, $betrieb, $room, $technischeEckdaten, $kommentar);
+    $absenden = $db->prepare("INSERT INTO geraet(name, typ, hersteller, age, betrieb,raumnummer,technische_eckdaten,kommentar,ausleihbar) VALUES(?,?,?,?,?,?,?,?,?)");
+    $absenden->bind_param('ssssssssi', $name, $typ, $hersteller, $age, $betrieb, $room, $technischeEckdaten, $kommentar, $ausleihbar);
     $absenden->execute();
 
     $order_id = $db->insert_id;

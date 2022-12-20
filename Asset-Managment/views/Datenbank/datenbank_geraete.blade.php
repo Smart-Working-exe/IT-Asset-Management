@@ -186,9 +186,9 @@
                                                    placeholder="Name*"
                                                    value="{{$geraet['name']}}"></div>
                                         <div class="col">
-                                            <input class="form-control" type="text" name="form_ipAdress"
-                                                   placeholder="IP-Adresse"
-                                                   value="{{$geraet['ip_adresse']}}"></div>
+                                            <input class="form-control" type="text" name="form_room"
+                                                   placeholder="Raum"
+                                                   value="{{$geraet['raumnummer']}}"></div>
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col">
