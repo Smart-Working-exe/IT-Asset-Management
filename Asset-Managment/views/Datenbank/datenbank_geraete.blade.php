@@ -47,9 +47,9 @@
                 <td>
                     @if(isset($geraet['betriebssystem']))
                         <ul>
-                        @foreach($geraet['betriebssystem'] as $value)
-                            <li>{{$value}} </li>
-                        @endforeach
+                            @foreach($geraet['betriebssystem'] as $value)
+                                <li>{{$value}} </li>
+                            @endforeach
                         </ul>
                     @endif
                 </td>
@@ -75,16 +75,16 @@
                 <td>{{$geraet['raumnummer']}}</td>
                 <td>
                     <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                                   data-bs-target="#editDevice{{$geraet['id']}}">Bearbeiten
+                            data-bs-target="#editDevice{{$geraet['id']}}">Bearbeiten
                     </button>
                 </td>
 
 
-
             </tr>
-            <form action="/datenbank" method="post" role="form" >
+            <form action="/datenbank" method="post" role="form">
                 <input type="hidden" name="form_id" value="{{$geraet['id']}}">
-                <div class="modal fade" id="editDevice{{$geraet['id']}}" tabindex="-1" aria-labelledby="editDevice" aria-hidden="true">
+                <div class="modal fade" id="editDevice{{$geraet['id']}}" tabindex="-1" aria-labelledby="editDevice"
+                     aria-hidden="true">
                     <div class="modal-dialog modal-xl modal-dialog-centered">
                         <div class="modal-content">
 
@@ -99,26 +99,27 @@
                                 <div class="row">
                                     <div class="row mt-3">
                                         <div class="col">
-                                            <select class="form-select" aria-label="Default select example" name="form_deviceType">
+                                            <select class="form-select" aria-label="Default select example"
+                                                    name="form_deviceType">
                                                 <option>Typ*</option>
                                                 @if($geraet['typ'] == 1)
                                                     <option value="1" id="deviceTyp1111" selected>PC</option>
                                                     <option value="2" id="deviceTyp1111">Laptop</option>
-                                                    <option value="3" id="deviceTyp1111" >Monitor</option>
+                                                    <option value="3" id="deviceTyp1111">Monitor</option>
                                                     <option value="4" id="deviceTyp1111">Tastatur</option>
                                                     <option value="5" id="deviceTyp1111">Maus</option>
                                                     <option value="6" id="deviceTyp1111">Praktikumsmaterial</option>
                                                     <option value="7" id="deviceTyp1111">Sonstiges</option>
                                                 @elseif($geraet['typ'] == 2)
-                                                    <option value="1" id="deviceTyp" >PC</option>
+                                                    <option value="1" id="deviceTyp">PC</option>
                                                     <option value="2" id="deviceTyp" selected>Laptop</option>
-                                                    <option value="3" id="deviceTyp" >Monitor</option>
+                                                    <option value="3" id="deviceTyp">Monitor</option>
                                                     <option value="4" id="deviceTyp">Tastatur</option>
                                                     <option value="5" id="deviceTyp">Maus</option>
                                                     <option value="6" id="deviceTyp">Praktikumsmaterial</option>
                                                     <option value="7" id="deviceTyp">Sonstiges</option>
                                                 @elseif($geraet['typ'] == 3)
-                                                    <option value="1" id="deviceTyp" >PC</option>
+                                                    <option value="1" id="deviceTyp">PC</option>
                                                     <option value="2" id="deviceTyp">Laptop</option>
                                                     <option value="3" id="deviceTyp" selected>Monitor</option>
                                                     <option value="4" id="deviceTyp">Tastatur</option>
@@ -126,43 +127,45 @@
                                                     <option value="6" id="deviceTyp">Praktikumsmaterial</option>
                                                     <option value="7" id="deviceTyp">Sonstiges</option>
                                                 @elseif($geraet['typ'] == 4)
-                                                    <option value="1" id="deviceTyp" >PC</option>
+                                                    <option value="1" id="deviceTyp">PC</option>
                                                     <option value="2" id="deviceTyp">Laptop</option>
-                                                    <option value="3" id="deviceTyp" >Monitor</option>
-                                                    <option value="4" id="deviceTyp"selected>Tastatur</option>
+                                                    <option value="3" id="deviceTyp">Monitor</option>
+                                                    <option value="4" id="deviceTyp" selected>Tastatur</option>
                                                     <option value="5" id="deviceTyp">Maus</option>
                                                     <option value="6" id="deviceTyp">Praktikumsmaterial</option>
                                                     <option value="7" id="deviceTyp">Sonstiges</option>
                                                 @elseif($geraet['typ'] == 5)
-                                                    <option value="1" id="deviceTyp" >PC</option>
+                                                    <option value="1" id="deviceTyp">PC</option>
                                                     <option value="2" id="deviceTyp">Laptop</option>
-                                                    <option value="3" id="deviceTyp" >Monitor</option>
+                                                    <option value="3" id="deviceTyp">Monitor</option>
                                                     <option value="4" id="deviceTyp">Tastatur</option>
-                                                    <option value="5" id="deviceTyp"selected>Maus</option>
+                                                    <option value="5" id="deviceTyp" selected>Maus</option>
                                                     <option value="6" id="deviceTyp">Praktikumsmaterial</option>
                                                     <option value="7" id="deviceTyp">Sonstiges</option>
                                                 @elseif($geraet['typ'] == 6)
-                                                    <option value="1" id="deviceTyp" >PC</option>
+                                                    <option value="1" id="deviceTyp">PC</option>
                                                     <option value="2" id="deviceTyp">Laptop</option>
-                                                    <option value="3" id="deviceTyp" >Monitor</option>
+                                                    <option value="3" id="deviceTyp">Monitor</option>
                                                     <option value="4" id="deviceTyp">Tastatur</option>
                                                     <option value="5" id="deviceTyp">Maus</option>
-                                                    <option value="6" id="deviceTyp"selected>Praktikumsmaterial</option>
+                                                    <option value="6" id="deviceTyp" selected>Praktikumsmaterial
+                                                    </option>
                                                     <option value="7" id="deviceTyp">Sonstiges</option>
                                                 @else
-                                                    <option value="1" id="deviceTyp" >PC</option>
+                                                    <option value="1" id="deviceTyp">PC</option>
                                                     <option value="2" id="deviceTyp">Laptop</option>
-                                                    <option value="3" id="deviceTyp" >Monitor</option>
+                                                    <option value="3" id="deviceTyp">Monitor</option>
                                                     <option value="4" id="deviceTyp">Tastatur</option>
                                                     <option value="5" id="deviceTyp">Maus</option>
                                                     <option value="6" id="deviceTyp">Praktikumsmaterial</option>
-                                                    <option value="7" id="deviceTyp"selected>Sonstiges</option>
+                                                    <option value="7" id="deviceTyp" selected>Sonstiges</option>
                                                 @endif
 
                                             </select>
                                         </div>
                                         <div class="col">
-                                            <select class="form-select" aria-label="Default select example" name="form_OperationSystem">
+                                            <select class="form-select" aria-label="Default select example"
+                                                    name="form_OperationSystem">
                                                 <option disabled>Typ*</option>
                                                 <option value="1" id="deviceTyp" selected>Windows 10</option>
                                                 <option value="2" id="deviceTyp">Ubuntu</option>
@@ -175,15 +178,18 @@
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col">
-                                            <input class="form-control" type="text" name="form_name123" placeholder="Name*"
+                                            <input class="form-control" type="text" name="form_name123"
+                                                   placeholder="Name*"
                                                    value="{{$geraet['name']}}"></div>
                                         <div class="col">
-                                            <input class="form-control" type="text" name="form_ipAdress" placeholder="IP-Adresse"
+                                            <input class="form-control" type="text" name="form_ipAdress"
+                                                   placeholder="IP-Adresse"
                                                    value="{{$geraet['ip_adresse']}}"></div>
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col">
-                                            <input class="form-control" type="text" name="form_hersteller" placeholder="Hersteller"
+                                            <input class="form-control" type="text" name="form_hersteller"
+                                                   placeholder="Hersteller"
                                                    value="{{$geraet['hersteller']}}"></div>
                                         <div class="col">
                                             <select class="form-select" data-mdb-clear-button="true"
@@ -199,7 +205,8 @@
                                         <div class="col">
                                             <div class="form-group">
                                                 <div class="input-group date" id="datepickerEditUsage">
-                                                    <input type="text" class="form-control" placeholder="erste Inbetriebname*"
+                                                    <input type="text" class="form-control"
+                                                           placeholder="erste Inbetriebname*"
                                                            value="{{$geraet['betrieb']}}" name="form_betrieb">
                                                     <span class="input-group-append">
                                             <span class="input-group-text bg-white d-block">
@@ -212,7 +219,8 @@
                                         <div class="col">
                                             <div class="form-group">
                                                 <div class="input-group date" id="datepickerEditBuild">
-                                                    <input type="text" class="form-control" placeholder="alter des Gerätes"
+                                                    <input type="text" class="form-control"
+                                                           placeholder="alter des Gerätes"
                                                            value="{{$geraet['age']}}" name="form_age">
                                                     <span class="input-group-append">
                                             <span class="input-group-text bg-white d-block">
@@ -235,7 +243,8 @@
                                     </div>
                                     <div class="mt-3">
                                         <label for="dataImport" class="form-label">Aus Datei importieren</label>
-                                        <input class="form-control" type="file" name="form_dataImport" placeholder="Aus Datei importieren">
+                                        <input class="form-control" type="file" name="form_dataImport"
+                                               placeholder="Aus Datei importieren">
                                     </div>
                                 </div>
 
@@ -244,8 +253,11 @@
                             <div class="modal-footer justify-content-between">
                                 <button type="button" class="btn btn-danger">Gerät Löschen</button>
                                 <div>
-                                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"  name="submit" value="1">Speichern</button>
-                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" >Abbrechen</button>
+                                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" name="submit"
+                                            value="1">Speichern
+                                    </button>
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -256,9 +268,138 @@
         @endforeach
 
 
-
-
         </tbody>
     </table>
 
+@endsection
+
+@section('export')
+
+    <button class="btn btn-primary sub" type="button" onclick="tableToCSV() ">
+        Export
+    </button>
+    <script type="text/javascript">
+        function tableToCSV() {
+
+            // Variable to store the final csv data
+            var csv_data = [];
+            var test=["Name","Typ","Hersteller", "Alter","IP-Adresse","Betriebsystem","Software","Technische Daten","Kommentar","Raum"];
+            csv_data.push(test);
+            // Get each row data
+            var rows = document.getElementsByTagName('tr')
+
+
+            for (var i = 0; i < rows.length; i++) {
+
+                // Get each column data
+                var cols = rows[i].querySelectorAll('td');
+
+                // Stores each csv row data
+                var csvrow = [];
+
+                for (var j = 0; j < cols.length-1; j++) {
+
+                    // Get the text data of each cell
+                    // of a row and push it to csvrow
+
+                    if(j==7){
+                        var Stringzumspalten=cols[j].innerHTML;
+                        var help=Stringzumspalten.replace("\n","");
+                        var arrayzumkillen=Stringzumspalten.split('<').join(',').split('>').join(',').split(',');
+                        var Werte=[];
+
+                        for(var k=0;k < arrayzumkillen.length;k++){
+
+                            if(arrayzumkillen[k].includes("li") && arrayzumkillen[k].length<=3){
+                            }
+                            else if (arrayzumkillen[k].includes("ul") && arrayzumkillen[k].length<=3){
+                            }
+                            else{
+                                Werte.push(arrayzumkillen[k]);
+                            }
+
+                        }
+                        var reinda=Werte.toString();
+                        var rein=reinda.substring(4);
+                        var plz=rein.replaceAll(",","");
+                        var plz2=plz.replaceAll("\n","");
+
+                        csvrow.push(plz2);
+                       // csvrow.push(arrayzumkillen);
+
+                    }
+                    else{
+                        csvrow.push(cols[j].innerHTML);
+                    }
+
+
+                }
+
+                // Combine each column value with comma
+                if(i!=0) {
+                    csv_data.push(csvrow.join(","));
+                }
+            }
+
+            // Combine each row data with new line character
+
+            csv_data = csv_data.join('\n');
+
+
+
+            // Call this function to download csv file
+            downloadCSVFile(csv_data);
+
+        }
+
+        function downloadCSVFile(csv_data) {
+
+            // Create CSV file object and feed
+            // our csv_data into it
+            CSVFile = new Blob([csv_data], {
+                type: "text/csv"
+            });
+
+            // Create to temporary link to initiate
+            // download process
+            var temp_link = document.createElement('a');
+
+            // Download csv file
+            temp_link.download = "Geräte.csv";
+            var url = window.URL.createObjectURL(CSVFile);
+            temp_link.href = url;
+
+            // This link should not be displayed
+            temp_link.style.display = "none";
+            document.body.appendChild(temp_link);
+
+            // Automatically click the link to
+            // trigger download
+            temp_link.click();
+            document.body.removeChild(temp_link);
+        }
+    </script>
+
+  <!--  <div> /*    if(j==7){
+
+        var Stringzumspalten=cols[j].innerHTML;
+        var help=Stringzumspalten.replace("\n","");
+        var arrayzumkillen=Stringzumspalten.split(">");
+        var arrayzumkillen2=arrayzumkillen.split("<");
+        var Werte=[];
+
+        for(var k=0;k<arrayzumkillen2.length;k++){
+
+        if(arrayzumkillen2[k].includes("li") && arrayzumkillen2[k].length()<=3){
+
+        }
+        else if (arrayzumkillen2[k].includes("ul") && arrayzumkillen2[k].length()<=3){
+
+        }
+        else{
+        Werte.push(arrayzumkillen2[k]);
+        }
+        var reinda=Werte.toString();
+        csvrow.push(reinda);
+        }*/</div>-->
 @endsection
