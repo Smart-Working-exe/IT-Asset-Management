@@ -134,7 +134,16 @@ function editGeraete(RequestData $rd){
     mysqli_query($link, $sql);
 
     mysqli_close($link);
-
-
-
 };
+
+function addComment(RequestData $rd){
+    $link = connectdb();
+
+    $sql = 'UPDATE geraet SET kommentar = "' . $rd->query['form_comment'] . '" WHERE id =' .$rd->query['form_deviceID'].' ; ';
+    //
+
+    $result = mysqli_query($link, $sql);
+
+    mysqli_close($link);
+
+}
