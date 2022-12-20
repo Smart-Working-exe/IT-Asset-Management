@@ -12,7 +12,9 @@
 
     @if($user == 1) <!-- admin -->
 
+
         <div class="row"> <!-- Wegen Row ist die Progressbar abgeschnitten -->
+            @if($room != 'Lager')
             <p class="col-3"><b>IP-Adressbereich: 111.111.111.000/27</b></p>
             <div class=" mt-1 col-2">
                 <div class="progress position-relative">
@@ -37,6 +39,7 @@
                 </div>
             </div>
 
+            @endif
 
             <div class="form-group">
                 <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal" data-bs-target="#addDevice">
@@ -51,6 +54,7 @@
         </div>
     @elseif($user == 2)<!-- mitarbeiter -->
     <div class="row"> <!-- Wegen Row ist die Progressbar abgeschnitten -->
+        @if($room != 'Lager')
         <p class="col-4"><b>IP-Adressbereich: 111.111.111.000/27</b></p>
         <div class=" mt-1 col-2">
             <div class="progress position-relative">
@@ -79,8 +83,11 @@
             </div>
         </div>
 
+
+        @endif
+
         @if(!empty($selected_filter['suche']) || !empty($selected_filter['Typ']) || !empty($selected_filter['hersteller']) || !empty($selected_filter['age']) || !empty($selected_filter['betriebssystemid']) || !empty($selected_filter['softwarelizenzid'])  )
-            <div class="col" style="margin-left: 32%">
+            <div class="col" style="margin-left: 72%">
              <a href="" class="btn  btn-primary sub  text-nowrap" role="button" aria-disabled="true">Filter Zurücksetzten</a>
             </div>
         @endif
@@ -154,9 +161,9 @@
                         @endif
                     </td>
                     <td>
-                        @if(!empty($geraet['technische_eckdaten'][0]))
+                        @if(!empty($geraet['technische_eckdaten_liste'][0]))
                             <ul>
-                                @foreach($geraet['technische_eckdaten'] as $value)
+                                @foreach($geraet['technische_eckdaten_liste'] as $value)
                                     <li>{{$value}} </li>
                                 @endforeach
                             </ul>
@@ -312,30 +319,38 @@
                                                         <input type="text" class="form-control" placeholder="alter des Gerätes"
                                                                value="{{$geraet['age']}}" name="form_age">
                                                         <span class="input-group-append">
-                                            <span class="input-group-text bg-white d-block">
-                                                <i class="fa fa-calendar"></i>
-                                            </span>
-                                        </span>
+                                                            <span class="input-group-text bg-white d-block">
+                                                                <i class="fa fa-calendar"></i>
+                                                            </span>
+                                                        </span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        @if($geraet['ausleihbar']==1)
+                                            <div class="col mt-3">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="form_Ausleihbar" name="form_Ausleihbar" checked>
+                                                    <label class="form-check-label" for="flexSwitchCheckDefault">Ausleihbar</label>
+                                                </div>
+                                            </div>
+                                        @else
+                                            <div class="col mt-3">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="form_Ausleihbar" name="form_Ausleihbar">
+                                                    <label class="form-check-label" for="flexSwitchCheckDefault">Ausleihbar</label>
+                                                </div>
+                                            </div>
+                                        @endif
                                         <div class="row mt-3">
                                             <div class="col">
-                                    <textarea class="form-control" name="form_technischeEckdaten" rows="5"
-                                              placeholder="Technische Eckdaten, mit Semikolon trennen">16GB RAM; 1000GB SSD; NVIDIA RTX3070</textarea>
+                                                <textarea class="form-control" name="form_technischeEckdaten" rows="5" placeholder="Technische Eckdaten, mit Semikolon trennen">{{$geraet['technischeEckdaten']}}</textarea>
                                             </div>
                                             <div class="col">
-                                    <textarea class="form-control" name="form_comment" rows="5"
-                                              placeholder="Kommentar zum Gerät">{{$geraet['kommentar']}}</textarea>
+                                                <textarea class="form-control" name="form_comment" rows="5" placeholder="Kommentar zum Gerät">{{$geraet['kommentar']}}</textarea>
                                             </div>
                                         </div>
-                                        <div class="mt-3">
-                                            <label for="dataImport" class="form-label">Aus Datei importieren</label>
-                                            <input class="form-control" type="file" name="form_dataImport" placeholder="Aus Datei importieren">
-                                        </div>
                                     </div>
-
                                 </div>
                                 <!-- Modal footer -->
                                 <div class="modal-footer justify-content-between">

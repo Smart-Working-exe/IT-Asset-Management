@@ -20,7 +20,7 @@
  <?php echo $this->yieldContent('header'); ?>
 
  <div class="row mt-4 ">
- <p class="display-6 col-3"> Datenbank</p>
+ <p class="display-6 col-3">Datenbank</p>
  </div>
 
  <div>
@@ -40,10 +40,7 @@
  <?php endif; ?>
 
 
- <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
- data-bs-target="#exportConfirmation">
- Export
- </button>
+ <?php echo $this->yieldContent('export'); ?>
  <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
  data-bs-target="#importConfirmation">
  Import

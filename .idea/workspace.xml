@@ -1,8 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d756e1b7-c047-45a2-9b0a-4ddb20a8875b" name="Changes" comment="">
+    <list default="true" id="3c201437-f86e-4755-ac9e-f449bb16f38e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/7b1e1ff9-2e24-41d3-be8b-0d0cc800d6f9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/7b1e1ff9-2e24-41d3-be8b-0d0cc800d6f9/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/7b1e1ff9-2e24-41d3-be8b-0d0cc800d6f9/storage_v2/_src_/schema/swe.gb4BAA.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/7b1e1ff9-2e24-41d3-be8b-0d0cc800d6f9/storage_v2/_src_/schema/swe.gb4BAA.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/models/ausleihanfragen.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/models/ausleihanfragen.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/models/benachrichtigungen.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/models/benachrichtigungen.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/models/geraete.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/models/geraete.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Ausleihe_Student.ausleihe.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Ausleihe_Student.ausleihe.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_geraete.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_geraete.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_lizenzen.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_lizenzen.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_personen.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_personen.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Einstellungen.einstellungen.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Einstellungen.einstellungen.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Filter.geraete.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Filter.geraete.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Raumansicht.raumansicht.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Raumansicht.raumansicht.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Raumauswahl.raumauswahl.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Raumauswahl.raumauswahl.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/modals.Eintraege.Device.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/modals.Eintraege.Device.bladec" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Asset-Managment/views/Ausleihe_Student/ausleihe.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/Ausleihe_Student/ausleihe.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/views/Datenbank/datenbank_geraete.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/Datenbank/datenbank_geraete.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/views/Datenbank/datenbank_layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/Datenbank/datenbank_layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/views/Datenbank/datenbank_lizenzen.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/Datenbank/datenbank_lizenzen.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/views/Datenbank/datenbank_personen.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/Datenbank/datenbank_personen.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/views/Filter/geraete.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/Filter/geraete.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/views/Raumansicht/raumansicht.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/Raumansicht/raumansicht.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/views/Raumauswahl/raumauswahl.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/Raumauswahl/raumauswahl.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,43 +44,28 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.1" />
-  <component name="ProjectId" id="2IgFMfXKSTCRZsX5JpKuFrcwnLr" />
+  <component name="ProjectId" id="2JB7lAGgxYYdAkWf7UA33I14res" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/moham/Documents/GitHub/IT-Asset-Management&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager">
-    <configuration name="SWEWebserver" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$/Asset-Managment/public">
-      <method v="2" />
-    </configuration>
-  </component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d756e1b7-c047-45a2-9b0a-4ddb20a8875b" name="Changes" comment="" />
-      <created>1670595275365</created>
+      <changelist id="3c201437-f86e-4755-ac9e-f449bb16f38e" name="Changes" comment="" />
+      <created>1671539772731</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1670595275365</updated>
-      <workItem from="1670595278477" duration="28000" />
-      <workItem from="1671016418225" duration="5337000" />
-      <workItem from="1671093471200" duration="486000" />
-      <workItem from="1671132071971" duration="187000" />
-      <workItem from="1671140987078" duration="193000" />
-      <workItem from="1671141370324" duration="75000" />
-      <workItem from="1671141585468" duration="68000" />
-      <workItem from="1671144927516" duration="70000" />
-      <workItem from="1671461140516" duration="79000" />
+      <updated>1671539772731</updated>
+      <workItem from="1671539775989" duration="1568000" />
     </task>
     <servers />
   </component>

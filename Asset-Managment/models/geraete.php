@@ -25,7 +25,7 @@ function getGeraeteData($filter = [])
     $link = connectdb();
 
     // get geräte
-    $sql = 'SELECT id,name,typ,hersteller,age,raumnummer,`ip_adresse`,technische_eckdaten,kommentar FROM geraet';
+    $sql = 'SELECT id,name,typ,hersteller,age,raumnummer,`ip_adresse`,ausleihbar,technische_eckdaten,kommentar FROM geraet';
 
     $sql = filter_to_sql($sql, 1, $filter);
 
@@ -40,7 +40,7 @@ function getGeraeteData($filter = [])
 
         $value_id = $value['id'];
 
-        if($value['typ'] == 'PC' || $value['typ'] == 'Laptop') {
+        if($value['typ'] == 1 || $value['typ'] == 2) {
             //get betriebssystem
             $sql = "SELECT  b.name FROM geraet_hat_betriebssystem gb LEFT JOIN betriebssystem b On gb.betriebssystemid = b.id where gb.geraetid = $value_id ";
             $result_betriebssystem = mysqli_query($link, $sql);
@@ -71,13 +71,49 @@ function getGeraeteData($filter = [])
 
         //technische_eckdaten von string zu array
         if(!empty($data[$key]['technische_eckdaten']))
-            $data[$key]['technische_eckdaten'] = explode(SEPERATOR,$value['technische_eckdaten']);
+            $data[$key]['technische_eckdaten_liste'] = explode(SEPERATOR,$value['technische_eckdaten']);
 
+        $data[$key]['alter'] = floor((time()- strtotime($value['age']))/31556926 );
 
-        $data[$key]['age'] = floor((time()- strtotime($value['age']))/31556926 );
+        //$data[$key]['age'] = date_create($value['age']) ->format('d.m.Y');
+        //$data[$key]['betrieb'] = date_create($value['betrieb']) ->format('d.m.Y');
     }
 
     mysqli_close($link);
+
+//1 = Computer, 2 = Laptop, 3 = Monitor, 4 = Tastatur, 5 = Maus, 6 = Praktikum Utensilien, 7 = Accessoires
+
+    foreach ($data as $key => $value)
+    {
+        switch ($value['typ']){
+
+            case 1:
+                $data[$key]['typ'] = "PC";
+                break;
+            case 2:
+                $data[$key]['typ'] = "Laptop";
+                break;
+            case 3:
+                $data[$key]['typ'] = "Monitor";
+                break;
+            case 4:
+                $data[$key]['typ'] = "Tastatur";
+                break;
+            case 5:
+                $data[$key]['typ'] = "Maus";
+                break;
+            case 6:
+                $data[$key]['typ'] = "Praktikumsmaterial";
+                break;
+            case 7:
+                $data[$key]['typ'] = "Accessoires";
+                break;
+
+        }
+
+
+    }
+
 
     return $data;
 
@@ -86,11 +122,16 @@ function getGeraeteData($filter = [])
 function editGeraete(RequestData $rd){
 
     $link = connectdb();
+    $ausleihbar = $rd->query['form_Ausleihbar'];
+    if ($ausleihbar=='on')
+        $ausleihbar=1;
+    else
+        $ausleihbar=0;
 
-    $sql = 'UPDATE geraet SET NAME = "' . $rd->query['form_name123'] . '", typ = ' . $rd->query['form_deviceType'] . ', hersteller = "' . $rd->query['form_hersteller'] . '", ip_adresse = "' . $rd->query['form_ipAdress'] . '", technische_eckdaten = "' . $rd->query['form_technischeEckdaten'] . '", kommentar = "' . $rd->query['form_comment'] . '" WHERE id =' .$rd->query['form_id'].' ; ';
+    $sql = 'UPDATE geraet SET NAME = "' . $rd->query['form_name123'] . '", typ = ' . $rd->query['form_deviceType'] . ', hersteller = "' . $rd->query['form_hersteller'] . '", ip_adresse = "' . $rd->query['form_ipAdress'] . '", ausleihbar = "' . $ausleihbar . '", technische_eckdaten = "' . $rd->query['form_technischeEckdaten'] . '", kommentar = "' . $rd->query['form_comment'] . '" WHERE id =' .$rd->query['form_id'].' ; ';
     //
 
-    $result = mysqli_query($link, $sql);
+    mysqli_query($link, $sql);
 
     mysqli_close($link);
 };

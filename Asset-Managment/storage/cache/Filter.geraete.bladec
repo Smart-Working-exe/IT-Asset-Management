@@ -16,22 +16,22 @@
  <select class="form-select" name="filter_Typ" id="filter_Typ">
  <?php if(empty($selected_filter['Typ'])): ?>
  <option value="" selected>Typ</option>
- <option value="PC" >PC</option>
- <option value="Laptop">Laptop</option>
- <option value="Monitor">Monitor</option>
- <option value="Maus">Maus</option>
- <option value="Tastatur">Tastatur</option>
- <option value="Praktikumsmaterial">Praktikumsmaterial</option>
- <option value="Sontiges">Sonstiges</option>
+ <option value="1" >PC</option>
+ <option value="2">Laptop</option>
+ <option value="3">Monitor</option>
+ <option value="4">Maus</option>
+ <option value="5">Tastatur</option>
+ <option value="6">Praktikumsmaterial</option>
+ <option value="7">Accessoires</option>
  <?php else: ?>
  <option value="">Typ</option>
- <option value="PC" <?php if($selected_filter['Typ'] == 'PC'): ?> selected <?php endif; ?>>PC</option>
- <option value="Laptop" <?php if($selected_filter['Typ'] == 'Laptop'): ?> selected <?php endif; ?>>Laptop</option>
- <option value="Monitor" <?php if($selected_filter['Typ'] == 'Monitor'): ?> selected <?php endif; ?>>Monitor</option>
- <option value="Maus" <?php if($selected_filter['Typ'] == 'Maus'): ?> selected <?php endif; ?>>Maus</option>
- <option value="Tastatur" <?php if($selected_filter['Typ'] == 'Tastatur'): ?> selected <?php endif; ?>>Tastatur</option>
- <option value="Praktikumsmaterial" <?php if($selected_filter['Typ'] == 'Praktikumsmaterial'): ?> selected <?php endif; ?>>Praktikumsmaterial</option>
- <option value="Sontiges" <?php if($selected_filter['Typ'] == 'Sontiges'): ?> selected <?php endif; ?>>Sonstiges</option>
+ <option value="1" <?php if($selected_filter['Typ'] == 1): ?> selected <?php endif; ?>>PC</option>
+ <option value="2" <?php if($selected_filter['Typ'] == 2): ?> selected <?php endif; ?>>Laptop</option>
+ <option value="3" <?php if($selected_filter['Typ'] == 3): ?> selected <?php endif; ?>>Monitor</option>
+ <option value="4" <?php if($selected_filter['Typ'] == 4): ?> selected <?php endif; ?>>Maus</option>
+ <option value="5" <?php if($selected_filter['Typ'] == 5): ?> selected <?php endif; ?>>Tastatur</option>
+ <option value="6" <?php if($selected_filter['Typ'] == 6): ?> selected <?php endif; ?>>Praktikumsmaterial</option>
+ <option value="7" <?php if($selected_filter['Typ'] == 7): ?> selected <?php endif; ?>>Accessoires</option>
  <?php endif; ?>
  </select>
 
