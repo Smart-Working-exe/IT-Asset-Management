@@ -1,11 +1,6 @@
 @extends('Ausleihe_Student.layout_ausleihe')
 @extends('header_footer')
 
-<?php
-    $typen = ['','PC','Laptop','Maus','Monitor','Tastatur','Praktikumsmaterial','Sonstiges'];
-    ?>
-
-
 @section('content')
     <form method="post" action="/ausleihe">
     <div class="row mt-5 row justify-content-between">
@@ -21,15 +16,15 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($rentables as $device)
+                @foreach($rentables as $i => $device)
                     <tr>
                         <td>{{$device['name']}}</td>
                         <td>{{$typen[$device['typ']]}}</td>
                         <td>{{$device['kommentar']}}</td>
-                        <td class="text-center"><input class="form-check-input" name="loan[]" value={{$device['name']}} type="checkbox" id="flexCheckChecked" ></td>
+                        <td class="text-center"><input class="form-check-input" name="loan[<?php $i ?>]" value={{$device['name']}} type="checkbox" id="flexCheckChecked" ></td>
                     </tr>
                 @endforeach
-                <tr>
+                {{--<tr>
                     <td>Laptop</td>
                     <td>Computer</td>
                     <td>
@@ -45,7 +40,7 @@
                         </div>
                     </td>
                     <td class="text-center"><input class="form-check-input" type="checkbox" id="flexCheckChecked"></td>
-                </tr>
+                </tr>--}}
                 </tbody>
             </table>
         </div>
@@ -63,12 +58,12 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($owndevices as $device)
+                @foreach($owndevices as $i => $device)
                     <tr>
                         <td>{{$device['geraet']}}</td>
                         <td>{{$device['ausleihdatum']}}</td>
                         <td>{{$device['rueckgabedatum']}}</td>
-                        <td class="text-center"><input name="return" value="{{$device['geraet']}}" class="form-check-input" type="checkbox" id="flexCheckChecked"></td>
+                        <td class="text-center"><input name="return[<?php $i ?>]" value="{{$device['geraet']}}" class="form-check-input" type="checkbox" id="flexCheckChecked"></td>
                         <td>
                             @if($device['art'] == 1)
                                 @if($device['status'] == 0)

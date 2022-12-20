@@ -25,7 +25,7 @@ function getGeraeteData($filter = [])
     $link = connectdb();
 
     // get geräte
-    $sql = 'SELECT id,name,typ,hersteller,age,raumnummer,`ip_adresse`,technische_eckdaten,kommentar FROM geraet';
+    $sql = 'SELECT id,name,typ,hersteller,age,raumnummer,`ip_adresse`,ausleihbar,technische_eckdaten,kommentar FROM geraet';
 
     $sql = filter_to_sql($sql, 1, $filter);
 
@@ -71,10 +71,12 @@ function getGeraeteData($filter = [])
 
         //technische_eckdaten von string zu array
         if(!empty($data[$key]['technische_eckdaten']))
-            $data[$key]['technische_eckdaten'] = explode(SEPERATOR,$value['technische_eckdaten']);
+            $data[$key]['technische_eckdaten_liste'] = explode(SEPERATOR,$value['technische_eckdaten']);
 
+        $data[$key]['alter'] = floor((time()- strtotime($value['age']))/31556926 );
 
-        $data[$key]['age'] = floor((time()- strtotime($value['age']))/31556926 );
+        //$data[$key]['age'] = date_create($value['age']) ->format('d.m.Y');
+        //$data[$key]['betrieb'] = date_create($value['betrieb']) ->format('d.m.Y');
     }
 
     mysqli_close($link);
@@ -120,14 +122,28 @@ function getGeraeteData($filter = [])
 function editGeraete(RequestData $rd){
 
     $link = connectdb();
+    $ausleihbar = $rd->query['form_Ausleihbar'];
+    if ($ausleihbar=='on')
+        $ausleihbar=1;
+    else
+        $ausleihbar=0;
 
-    $sql = 'UPDATE geraet SET NAME = "' . $rd->query['form_name123'] . '", typ = ' . $rd->query['form_deviceType'] . ', hersteller = "' . $rd->query['form_hersteller'] . '", ip_adresse = "' . $rd->query['form_ipAdress'] . '", technische_eckdaten = "' . $rd->query['form_technischeEckdaten'] . '", kommentar = "' . $rd->query['form_comment'] . '" WHERE id =' .$rd->query['form_id'].' ; ';
+    $sql = 'UPDATE geraet SET NAME = "' . $rd->query['form_name123'] . '", typ = ' . $rd->query['form_deviceType'] . ', hersteller = "' . $rd->query['form_hersteller'] . '", ip_adresse = "' . $rd->query['form_ipAdress'] . '", ausleihbar = "' . $ausleihbar . '", technische_eckdaten = "' . $rd->query['form_technischeEckdaten'] . '", kommentar = "' . $rd->query['form_comment'] . '" WHERE id =' .$rd->query['form_id'].' ; ';
+    //
+
+    mysqli_query($link, $sql);
+
+    mysqli_close($link);
+};
+
+function addComment(RequestData $rd){
+    $link = connectdb();
+
+    $sql = 'UPDATE geraet SET kommentar = "' . $rd->query['form_comment'] . '" WHERE id =' .$rd->query['form_deviceID'].' ; ';
     //
 
     $result = mysqli_query($link, $sql);
 
     mysqli_close($link);
 
-
-
-};
+}

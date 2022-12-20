@@ -122,7 +122,7 @@
 
             // Variable to store the final csv data
             var csv_data = [];
-            var test=["Name","Vorname","Rolle", "KÃ¼rzel"];
+            var test=["Name","Vorname","Rolle", "Kürzel"];
             csv_data.push(test);
             // Get each row data
             var rows = document.getElementsByTagName('tr')

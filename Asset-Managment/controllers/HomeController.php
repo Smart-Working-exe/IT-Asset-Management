@@ -129,7 +129,8 @@ class HomeController
                 }
                 $eigene_geraete = get_own_devices();
                 $ausleihbare_geraete = get_rentable_devices();
-                return view('Ausleihe_Student.ausleihe', ['owndevices' => $eigene_geraete, 'rentables' => $ausleihbare_geraete]);
+                $typen = ['','PC','Laptop','Maus','Monitor','Tastatur','Praktikumsmaterial','Sonstiges'];
+                return view('Ausleihe_Student.ausleihe', ['owndevices' => $eigene_geraete, 'rentables' => $ausleihbare_geraete, 'typen' => $typen]);
             }
         }
     }
@@ -215,6 +216,14 @@ class HomeController
         if (empty($rd->query['kuerzel']) || $rd->query['kuerzel'] != $_SESSION['name']) {
             header('Location: /eigeneGeraete?kuerzel=' . $_SESSION['name']);
         }
+
+        if(isset($_POST['submit']) and $_POST['submit'] == "Submit"){
+            isRoomnumberValid($rd);
+        }
+        if(isset($_POST['submit']) and $_POST['submit'] == "Submit2"){
+            addComment($rd);
+        }
+
         return view('EigeneGeraete.eigeneGeraete', [
             'database_filter' => true,
             'data' => getGeraeteData(get_filter_data($rd, 1)),

@@ -27,7 +27,7 @@
  <?php echo $this->yieldContent('geraetefilter'); ?>
 
  <?php echo $this->yieldContent('content'); ?>
- <a href="dashboard_mitglieder.php">
+ <a href="/dashboard">
  <button type="submit" class="btn btn-primary sub">Zurück zum Dashboard</button>
  </a>
 

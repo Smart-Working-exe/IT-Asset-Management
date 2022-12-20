@@ -33,11 +33,11 @@
                                 <div class="col">
                                     <input class="form-control" type="text" id="user_add_nachname" name="user_add_nachname" placeholder="Name*" required></div>
                             </div>
-                            <div class="row mt-3">
+                            <!-- <div class="row mt-3">
                                 <div class="col">
                                     <input class="form-control" type="password" id="user_add_passwort" name="user_add_passwort" placeholder="Passwort*" required>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
 
                     </div>

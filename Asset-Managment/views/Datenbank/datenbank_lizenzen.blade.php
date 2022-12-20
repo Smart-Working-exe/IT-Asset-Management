@@ -38,8 +38,7 @@
                              aria-valuenow="{{$lizenz['anzahl_installationen']}}" aria-valuemin="0"
                              aria-valuemax="{{$lizenz['anzahl_gerate']}}">
                             <small class="justify-content-center d-flex position-absolute w-100"
-                                   style="color: black">{{$lizenz['anzahl_installationen']}}
-                                /{{$lizenz['anzahl_gerate']}}</small>
+                                   style="color: black">{{$lizenz['anzahl_installationen']}}/{{$lizenz['anzahl_gerate']}}</small>
                         </div>
                     </div>
 
@@ -196,20 +195,14 @@
                     csv_data.push(csvrow.join(","));
                 }
             }
-
             // Combine each row data with new line character
-
             csv_data = csv_data.join('\n');
-
-
 
             // Call this function to download csv file
             downloadCSVFile(csv_data);
-
         }
 
         function downloadCSVFile(csv_data) {
-
             // Create CSV file object and feed
             // our csv_data into it
             CSVFile = new Blob([csv_data], {

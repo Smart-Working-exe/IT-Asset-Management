@@ -64,7 +64,7 @@
                     <td>{{$geraet['name']}}</td>
                     <td>{{$geraet['typ']}}</td>
                     <td>{{$geraet['hersteller']}}</td>
-                    <td>{{$geraet['age']}} Jahre</td>
+                    <td>{{$geraet['alter']}} Jahre</td>
                     <td>
                         @if(isset($geraet['betriebssystem']))
                             <ul>
@@ -84,9 +84,9 @@
                         @endif
                     </td>
                     <td>
-                        @if(!empty($geraet['technische_eckdaten'][0]))
+                        @if(!empty($geraet['technische_eckdaten_liste'][0]))
                             <ul>
-                                @foreach($geraet['technische_eckdaten'] as $value)
+                                @foreach($geraet['technische_eckdaten_liste'] as $value)
                                     <li>{{$value}} </li>
                                 @endforeach
                             </ul>
@@ -94,14 +94,68 @@
                     </td>
                     <td class="no_nowrap">{{$geraet['kommentar']}}</td>
                     <td><button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                                data-bs-target="#editKommentar">Kommentieren
+                                data-bs-target="#editComment{{$geraet['name']}}">Kommentieren
                         </button></td>
                     <td>{{$geraet['raumnummer']}}
                         <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                                data-bs-target="#editRoom">Ändern
+                                data-bs-target="#editRoom{{$geraet['name']}}">Ändern
                         </button></td>
                 </tr>
 
+                <form action="eigeneGeraete?kuerzel={{$_SESSION['name']}}" method="POST">
+                    <input type="hidden" name="form_deviceID" value="{{$geraet['id']}}">
+                    <div class="modal fade" id="editRoom{{$geraet['name']}}">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Raum von Gerät {{$geraet['name']}} ändern</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+
+                                <!-- Modal Body -->
+                                <div class="modal-body">
+                                   <input type="text" id="inputroom" name="form_room" value="{{$geraet['raumnummer']}}"  onkeyup="this.value = this.value.toUpperCase();">
+
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="submit" name="submit" value="Submit" class="btn btn-primary" data-bs-dismiss="modal">Speichern</button>
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <form action="eigeneGeraete?kuerzel={{$_SESSION['name']}}" method="POST">
+                    <input type="hidden" name="form_deviceID" value="{{$geraet['id']}}">
+                    <div class="modal fade" id="editComment{{$geraet['name']}}">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Kommentar von Gerät {{$geraet['name']}} ändern</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+
+                                <!-- Modal Body -->
+                                <div class="modal-body">
+                                    <textarea name="form_comment" rows="10" cols="30">{{$geraet['kommentar']}}</textarea>
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="submit" name="submit" value="Submit2" class="btn btn-primary" data-bs-dismiss="modal">Speichern</button>
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             @endforeach
 
             </tbody>
