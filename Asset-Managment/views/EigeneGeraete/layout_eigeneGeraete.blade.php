@@ -34,7 +34,7 @@
 
 </div>
 
-@yield('addDevice')
+@yield('chooseDevice')
 @yield('editDevice')
 @yield('editKommentar')
 @yield('editRoom')

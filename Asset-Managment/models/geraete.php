@@ -122,11 +122,11 @@ function getGeraeteData($filter = [])
 function editGeraete(RequestData $rd){
 
     $link = connectdb();
-    $ausleihbar = $rd->query['form_Ausleihbar'];
-    if ($ausleihbar=='on')
-        $ausleihbar=1;
-    else
+
+    if (empty($rd->query['form_Ausleihbar'])==1)
         $ausleihbar=0;
+    else
+        $ausleihbar=1;
 
     $sql = 'UPDATE geraet SET NAME = "' . $rd->query['form_name123'] . '", typ = ' . $rd->query['form_deviceType'] . ', hersteller = "' . $rd->query['form_hersteller'] . '", ip_adresse = "' . $rd->query['form_ipAdress'] . '", ausleihbar = "' . $ausleihbar . '", technische_eckdaten = "' . $rd->query['form_technischeEckdaten'] . '", kommentar = "' . $rd->query['form_comment'] . '" WHERE id =' .$rd->query['form_id'].' ; ';
     //
@@ -146,4 +146,29 @@ function addComment(RequestData $rd){
 
     mysqli_close($link);
 
+}
+
+function getGeraeteID_name(){
+    $link = connectdb();
+
+    // get geräte
+    $sql = 'SELECT id,name FROM geraet';
+    $result = mysqli_query($link, $sql);
+
+    $data = mysqli_fetch_all($result, MYSQLI_BOTH);
+
+    mysqli_close($link);
+
+    return $data;
+}
+
+
+function deleteDevice(RequestData $rd){
+    $link = connectdb();
+
+    $sql = 'DELETE FROM geraet WHERE id = ' . $rd->query['submit_delete'] . ';';
+
+    mysqli_query($link, $sql);
+
+    mysqli_close($link);
 }

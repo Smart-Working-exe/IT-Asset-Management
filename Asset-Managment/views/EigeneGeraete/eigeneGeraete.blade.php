@@ -1,6 +1,7 @@
 @extends('EigeneGeraete.layout_eigeneGeraete')
 @extends('header_footer')
 @extends('modals.Eintraege.Device')
+@extends('modals.Eintraege.chooseDevice')
 @extends('Filter.geraete')
 @extends('modals.export_import')
 
@@ -13,7 +14,7 @@
     </div>
 
     <div class="form-group">
-        <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal" data-bs-target="#addDevice">
+        <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal" data-bs-target="#chooseDevice">
             Gerät hinzufügen
         </button>
         <button class="btn btn-primary sub" type="button" onclick="tableToCSV() ">

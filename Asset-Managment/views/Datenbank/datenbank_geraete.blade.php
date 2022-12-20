@@ -186,9 +186,9 @@
                                                    placeholder="Name*"
                                                    value="{{$geraet['name']}}"></div>
                                         <div class="col">
-                                            <input class="form-control" type="text" name="form_ipAdress"
-                                                   placeholder="IP-Adresse"
-                                                   value="{{$geraet['ip_adresse']}}"></div>
+                                            <input class="form-control" type="text" name="form_room"
+                                                   placeholder="Raum"
+                                                   value="{{$geraet['raumnummer']}}"></div>
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col">
@@ -265,7 +265,7 @@
                             </div>
                             <!-- Modal footer -->
                             <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-danger">Gerät Löschen</button>
+                                <button type="submit"  name="submit_delete" value="{{$geraet['id']}}" class="btn btn-danger">Gerät Löschen</button>
                                 <div>
                                     <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" name="submit"
                                             value="1">Speichern
