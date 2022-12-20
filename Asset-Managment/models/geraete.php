@@ -147,3 +147,28 @@ function addComment(RequestData $rd){
     mysqli_close($link);
 
 }
+
+function getGeraeteID_name(){
+    $link = connectdb();
+
+    // get geräte
+    $sql = 'SELECT id,name FROM geraet';
+    $result = mysqli_query($link, $sql);
+
+    $data = mysqli_fetch_all($result, MYSQLI_BOTH);
+
+    mysqli_close($link);
+
+    return $data;
+}
+
+
+function deleteDevice(RequestData $rd){
+    $link = connectdb();
+
+    $sql = 'DELETE FROM geraet WHERE id = ' . $rd->query['submit_delete'] . ';';
+
+    mysqli_query($link, $sql);
+
+    mysqli_close($link);
+}
