@@ -14,7 +14,7 @@
                                                               width="20px"></th>
                 <th onclick="sortTable(1, license)">Erworben am <img src="/img/up-and-down-arrows-svgrepo-com.svg"
                                                                      width="20px"></th>
-                <th onclick="sortTable(2, license)">Ablauf am <img src="/img/up-and-down-arrows-svgrepo-com.svg"
+                <th onclick="sortTable(2, license)">Ablaufdatum <img src="/img/up-and-down-arrows-svgrepo-com.svg"
                                                                    width="20px"></th>
                 <th onclick="sortTable(3, license)">Installationen <img
                             src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>

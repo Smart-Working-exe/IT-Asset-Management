@@ -15,7 +15,7 @@
                                                           width="20px"></th>
             <th onclick="sortTable(1, devices)">Erworben am <img src="/img/up-and-down-arrows-svgrepo-com.svg"
                                                                  width="20px"></th>
-            <th onclick="sortTable(2, devices)">Ablauf am <img src="/img/up-and-down-arrows-svgrepo-com.svg"
+            <th onclick="sortTable(2, devices)">Ablaufdatum <img src="/img/up-and-down-arrows-svgrepo-com.svg"
                                                                width="20px"></th>
             <th onclick="sortTable(3, devices)">Installationen <img src="/img/up-and-down-arrows-svgrepo-com.svg"
                                                                     width="20px"></th>

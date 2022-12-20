@@ -28,14 +28,16 @@
                 <div style="overflow-y: scroll;margin-right:20%; height:300px;">
                     @foreach ($notifs as $benachrichtigung)
                         @if(isset($benachrichtigung['art']))
+                        <div class="toast show col-6 mt-2">
+                            <div class="toast-header ">
+                                Ausleihfrist
+                                <form>
+                                    <button type="submit" action="/dashboard" method="get" name="delete" value={{$benachrichtigung['geraet']}} class="btn-close" data-bs-dismiss="toast"></button>
+                                </form>
+                            </div>
+                            <div class="toast-body">
                             {{-- Angenommene Anfrage -> Ausleihfrist --}}
                             @if($benachrichtigung['art'] == 0 && $benachrichtigung['status'] == 1)
-                                <div class="toast show col-6 mt-2">
-                                    <div class="toast-header ">
-                                        Ausleihfrist
-                                        <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
-                                    </div>
-                                    <div class="toast-body">
                                     @if($benachrichtigung['zeitraum'] < -1)
                                         Die Ausleihfrist für das Gerät "{{ $benachrichtigung['geraet'] }}" ist vor {{ -1*$benachrichtigung['zeitraum'] }} Tagen abgelaufen.
                                     @elseif($benachrichtigung['zeitraum'] == -1)
@@ -49,27 +51,11 @@
                                     @endif
                             {{-- Angenommene Rückgabe -> Glückwunsch --}}
                             @elseif($benachrichtigung['art'] == 1 && $benachrichtigung['status'] == 1)
-                                <div class="toast show col-6 mt-2">
-                                    <div class="toast-header ">
-                                        Ausleihfrist
-                                        <form>
-                                            <button type="submit" action="/dashboard" method="get" name="delete" value={{$benachrichtigung['geraet']}} class="btn-close" data-bs-dismiss="toast"></button>
-                                        </form>
-                                    </div>
-                                    <div class="toast-body">
                                     Die Rückgabe-Anfrage für "{{ $benachrichtigung['geraet'] }}" wurde angenommen.
                             {{-- Abgelehnte Rückgabe -> Sorry --}}
                             @elseif($benachrichtigung['art'] == 1 && $benachrichtigung['status'] == 2)
-                                <div class="toast show col-6 mt-2">
-                                    <div class="toast-header ">
-                                        Ausleihfrist
-                                        <form>
-                                            <button type="submit" action="/dashboard" method="get" name="delete" value={{$benachrichtigung['geraet']}} class="btn-close" data-bs-dismiss="toast"></button>
-                                        </form>
-                                    </div>
-                                    <div class="toast-body">
                                     Die Rückgabe-Anfrage für "{{ $benachrichtigung['geraet'] }}" wurde abgelehnt.
-                                    Wenden Sie sich an Mitarbeitende der Fachhochschule Aachen für genauere Informationen.
+                                    Wenden Sie sich an Mitarbeitende der Fachhochschule Aachen.
                             @endif
                                 </div>
                             </div>
