@@ -46,3 +46,25 @@ function set_raum_belegung($num,$raum){
     mysqli_close($link);
 }
 
+//TODO: Fehlermeldung wenn Raum nicht bekannt ist im System, Fall wird abgefangen aber es fehlt eine Schöne Ausgabe an den Benutzer
+function isRoomnumberValid(RequestData $rd){
+    $link = connectdb();
+
+    $sql = 'select raumnummer from raum WHERE raumnummer = "'. $rd->query['form_room'] . '"';
+
+    $data = mysqli_fetch_all(mysqli_query($link, $sql), MYSQLI_BOTH);
+
+    if( empty($data)){
+        echo "Unbekannte Raumnummer";
+        return;
+    }
+
+    if($data[0]['raumnummer'] == $rd->query['form_room']) {
+        $sql = 'UPDATE geraet SET raumnummer = "' . $rd->query['form_room'] . '" WHERE id =' .$rd->query['form_deviceID'].' ; ';
+        mysqli_query($link, $sql);
+
+    }
+
+    mysqli_close($link);
+
+}
