@@ -16,19 +16,23 @@
                         <div class="row mt-3">
                             <div class="col">
                                 <select class="form-select" aria-label="Default select example" id="deviceTyp" name="addDevicedeviceTyp">
-                                    <option selected>Typ*</option>
-                                    <option value="1"  >Computer</option>
-                                    <option value="2"  >Accessoir</option>
-                                    <option value="3"  >Eigener Typ</option>
+                                    <option disabled selected>Typ*</option>
+                                    <option value="1">Computer</option>
+                                    <option value="2">Laptop</option>
+                                    <option value="3">Monitor</option>
+                                    <option value="4">Tastatur</option>
+                                    <option value="5">Maus</option>
+                                    <option value="6">Praktikum Utensilien</option>
+                                    <option value="7">Accessoires</option>
                                 </select>
                             </div>
                             <div class="col">
                                 <select class="form-select" aria-label="Default select example" id="deviceTyp" name="addDeviceBetriebssystem">
                                     <option selected disabled>Betriebssystem*</option>
-                                    <option value="1" id="addDeviceBetriebssystem"  >Windows</option>
-                                    <option value="2" id="addDeviceBetriebssystem"  >Ubuntu</option>
-                                    <option value="3" id="addDeviceBetriebssystem"  >Debian</option>
-                                    <option value="4" id="addDeviceBetriebssystem"  >MacOS</option>
+                                    <option value="1" id="addDeviceBetriebssystem" >Windows</option>
+                                    <option value="2" id="addDeviceBetriebssystem" >Ubuntu</option>
+                                    <option value="3" id="addDeviceBetriebssystem" >Debian</option>
+                                    <option value="4" id="addDeviceBetriebssystem" >MacOS</option>
                                 </select>
                             </div>
 
@@ -110,123 +114,6 @@
     </div>
 @endsection
 
-@section('editDevice')
-    <!-- The Modal -->
-    <div class="modal fade" id="editDevice" tabindex="-1" aria-labelledby="editDevice" aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-centered">
-            <div class="modal-content">
-
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Gerät bearbeiten</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-
-                <!-- Modal Body -->
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="row mt-3">
-                            <div class="col">
-                                <select class="form-select" aria-label="Default select example" id="deviceTyp">
-                                    <option>Typ*</option>
-                                    <option value="1" id="deviceTyp" selected>Computer</option>
-                                    <option value="2" id="deviceTyp">Accessoir</option>
-                                    <option value="3" id="deviceTyp">Eigener Typ</option>
-                                </select>
-                            </div>
-                            <div class="col">
-                                <select class="form-select" aria-label="Default select example" id="deviceTyp">
-                                    <option disabled>Typ*</option>
-                                    <option value="1" id="deviceTyp" selected>Windows 10</option>
-                                    <option value="2" id="deviceTyp">Ubuntu</option>
-                                    <option value="3" id="deviceTyp">Debian</option>
-                                    <option value="3" id="deviceTyp">MacOS</option>
-                                    <option value="3" id="deviceTyp">Neues Betriebssystem</option>
-                                </select>
-                            </div>
-
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col">
-                                <input class="form-control" type="text" id="deviceName" placeholder="Name*"
-                                       value="PC-2"></div>
-                            <div class="col">
-                                <input class="form-control" type="text" id="deviceName" placeholder="IP-Adresse"
-                                       value="111.111.111.3"></div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col">
-                                <input class="form-control" type="text" id="deviceName" placeholder="Hersteller"
-                                       value="Dell"></div>
-                            <div class="col">
-                                <select class="form-select" data-mdb-clear-button="true"
-                                        placeholder="Software des Gerätes">
-                                    <option>Software des Gerätes</option>
-                                    <option value="1" selected>Microsoft Visual Studio 2022</option>
-                                    <option value="2">Intel Quartus Prime</option>
-                                    <option value="3" selected>MS Office</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col">
-                                <div class="form-group">
-                                    <div class="input-group date" id="datepickerEditUsage">
-                                        <input type="text" class="form-control" placeholder="erste Inbetriebname*"
-                                               value="27/07/2017">
-                                        <span class="input-group-append">
-                                        <span class="input-group-text bg-white d-block">
-                                            <i class="fa fa-calendar"></i>
-                                        </span>
-                                    </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <div class="input-group date" id="datepickerEditBuild">
-                                        <input type="text" class="form-control" placeholder="alter des Gerätes"
-                                               value="27/07/2017">
-                                        <span class="input-group-append">
-                                        <span class="input-group-text bg-white d-block">
-                                            <i class="fa fa-calendar"></i>
-                                        </span>
-                                    </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col">
-                                <textarea class="form-control" id="technischeEckdaten" rows="5"
-                                          placeholder="Technische Eckdaten, mit Semikolon trennen">16GB RAM; 1000GB SSD; NVIDIA RTX3070</textarea>
-                            </div>
-                            <div class="col">
-                                <textarea class="form-control" id="comment" rows="5"
-                                          placeholder="Kommentar zum Gerät">Virtualization geeignet; </textarea>
-                            </div>
-                        </div>
-                        <div class="mt-3">
-                            <label for="dataImport" class="form-label">Aus Datei importieren</label>
-                            <input class="form-control" type="file" id="dataImport" placeholder="Aus Datei importieren">
-                        </div>
-                    </div>
-
-                </div>
-                <!-- Modal footer -->
-                <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-danger">Gerät Löschen</button>
-                    <div>
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Speichern</button>
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-@endsection
 
 @section('editKommentar')
     <!-- The Modal -->
@@ -260,7 +147,6 @@
 
 @endsection
 
-
 @section('editRoom')
     <div class="modal fade" id="editRoom">
         <div class="modal-dialog modal-dialog-centered">
@@ -292,3 +178,4 @@
 @section('jsextra')
     <script src="../js/multiselect-dropdown.js"></script>
 @endsection
+1 = Computer, 2 = Laptop, 3 = Monitor, 4 = Tastatur, 5 = Maus, 6 = Praktikum Utensilien, 7 = Accessoires

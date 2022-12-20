@@ -1,5 +1,3 @@
-
-
 <?php $this->startSection('userfilter'); ?>
  <form method="post">
  <div class="row" style="padding-right: 50%">
@@ -43,8 +41,4 @@
  </div>
 
  </form>
-
-
-
-
 <?php $this->stopSection(); ?>

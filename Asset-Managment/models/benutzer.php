@@ -90,3 +90,15 @@ function update_anmeldung_zeit_fehler($mail){
     mysqli_commit($link);
     mysqli_close($link);
 }*/
+
+
+function update_User(RequestData $rd){
+    $link = connectdb();
+
+    $sql = 'UPDATE personen SET fh_kuerzel = "' . $rd->query['form_personIdentifier'] . '", vorname = "' . $rd->query['form_firstName'] . '", nachname = "' . $rd->query['form_SurName'] . '", rolle = ' . $rd->query['form_role']  . ' WHERE fh_kuerzel = "' .$rd->query['form_oldIdentifier'].'" ; ';
+    //
+
+    $result = mysqli_query($link, $sql);
+
+    mysqli_close($link);
+}

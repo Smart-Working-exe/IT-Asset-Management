@@ -16,22 +16,22 @@
                 <select class="form-select" name="filter_Typ" id="filter_Typ">
                  @if(empty($selected_filter['Typ']))
                         <option value="" selected>Typ</option>
-                        <option value="PC" >PC</option>
-                        <option value="Laptop">Laptop</option>
-                        <option value="Monitor">Monitor</option>
-                        <option value="Maus">Maus</option>
-                        <option value="Tastatur">Tastatur</option>
-                        <option value="Praktikumsmaterial">Praktikumsmaterial</option>
-                        <option value="Sontiges">Sonstiges</option>
+                        <option value="1" >PC</option>
+                        <option value="2">Laptop</option>
+                        <option value="3">Monitor</option>
+                        <option value="4">Maus</option>
+                        <option value="5">Tastatur</option>
+                        <option value="6">Praktikumsmaterial</option>
+                        <option value="7">Accessoires</option>
                     @else
                         <option value="">Typ</option>
-                        <option value="PC" @if($selected_filter['Typ'] == 'PC') selected @endif>PC</option>
-                        <option value="Laptop" @if($selected_filter['Typ'] == 'Laptop') selected @endif>Laptop</option>
-                        <option value="Monitor" @if($selected_filter['Typ'] == 'Monitor') selected @endif>Monitor</option>
-                        <option value="Maus" @if($selected_filter['Typ'] == 'Maus') selected @endif>Maus</option>
-                        <option value="Tastatur" @if($selected_filter['Typ'] == 'Tastatur') selected @endif>Tastatur</option>
-                        <option value="Praktikumsmaterial" @if($selected_filter['Typ'] == 'Praktikumsmaterial') selected @endif>Praktikumsmaterial</option>
-                        <option value="Sontiges" @if($selected_filter['Typ'] == 'Sontiges') selected @endif>Sonstiges</option>
+                        <option value="1" @if($selected_filter['Typ'] == 1) selected @endif>PC</option>
+                        <option value="2" @if($selected_filter['Typ'] == 2) selected @endif>Laptop</option>
+                        <option value="3" @if($selected_filter['Typ'] == 3) selected @endif>Monitor</option>
+                        <option value="4" @if($selected_filter['Typ'] == 4) selected @endif>Maus</option>
+                        <option value="5" @if($selected_filter['Typ'] == 5) selected @endif>Tastatur</option>
+                        <option value="6" @if($selected_filter['Typ'] == 6) selected @endif>Praktikumsmaterial</option>
+                        <option value="7" @if($selected_filter['Typ'] == 7) selected @endif>Accessoires</option>
                     @endif
                 </select>
 

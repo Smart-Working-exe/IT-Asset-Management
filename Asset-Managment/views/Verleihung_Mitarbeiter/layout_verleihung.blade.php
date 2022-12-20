@@ -21,7 +21,7 @@
 
     @yield('header')
     <div class="row mt-4">
-        <p class="display-6 col-3"> Verleihung an den Studenten</p>
+        <p class="display-6 col-3"> Verleihung an Studierende</p>
     </div>
 
     @yield('content')

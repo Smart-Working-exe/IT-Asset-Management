@@ -268,10 +268,10 @@ function connectdb()
     return $link;
 }
 
-function log($user, $attribute){
-    $file = fopen('/logs/log.log','a');
-
-}
+//function log($user, $attribute){
+//    $file = fopen('/logs/log.log','a');
+//
+//}
 
 function view($viewname, $viewargs = array())
 {

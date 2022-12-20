@@ -71,7 +71,7 @@ function notif_student()
     $settings = mysqli_query($link, $settings_request);
     $data1 = mysqli_fetch_all($settings);
 
-    // get Ausleihbenachrichtigungen
+    // Löschen oder Status ändern
     $setting = $data1[0][0];
     $loan_request = "SELECT art, geraet, status, DATEDIFF(rueckgabedatum,NOW()) AS zeitraum FROM ausleihanfragen where student = '$self' AND status > 0
                      HAVING zeitraum <= '$setting' AND -'$setting' <= zeitraum ORDER BY zeitraum";
@@ -88,10 +88,28 @@ function delete_notif_loan($geraet) {
 
     $self = $_SESSION['name'];
     $link = connectdb();
+    mysqli_begin_transaction($link);
+
+    // get request data
+    $request = "SELECT art, status from ausleihanfragen where student = '$self' AND geraet = '$geraet'";
+    $sql = mysqli_query($link, $request);
+    $data = mysqli_fetch_all($sql,MYSQLI_BOTH);
+    $art = $data['art'];
+    $status = $data['status'];
 
     // delete Benachrichtigung
-    $delete_request = "DELETE FROM ausleihanfragen where student = '$self' AND geraet = '$geraet' AND art = 1 AND status > 0";
-    $sql = mysqli_query($link, $delete_request);
+    if(($art == 0 && $status == 2) || ($art == 1 && $status == 1)) {
+        $request = "DELETE FROM ausleihanfragen where student = '$self' 
+                    AND geraet = '$geraet'";
+        mysqli_query($link, $request);
+    }
+    else if($art == 0 && $status == 2) {
+        $request = "UPDATE ausleihanfragen SET art = 0, status = 1 
+                    where student = '$self' AND geraet = '$geraet'";
+        mysqli_query($link, $request);
+    }
 
+    mysqli_commit($link);
     mysqli_close($link);
+
 }
