@@ -23,7 +23,7 @@
 
 
     @yield('sub_header')
-
+    @yield('export')
     @yield('geraetefilter')
 
     @yield('content')

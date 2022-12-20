@@ -23,7 +23,7 @@
 
 
  <?php echo $this->yieldContent('sub_header'); ?>
-
+ <?php echo $this->yieldContent('export'); ?>
  <?php echo $this->yieldContent('geraetefilter'); ?>
 
  <?php echo $this->yieldContent('content'); ?>
