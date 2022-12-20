@@ -20,7 +20,7 @@
  <?php echo $this->yieldContent('header'); ?>
 
  <div class="row mt-4 ">
- <p class="display-6 col-3"> Datenbank</p>
+ <p class="display-6 col-3">Datenbank</p>
  </div>
 
  <div>

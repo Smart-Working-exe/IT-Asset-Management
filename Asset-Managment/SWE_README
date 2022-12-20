@@ -8,9 +8,9 @@
         * Es gibt folgende Typen für Geräte:      (sollte hier im Lastenheft etwas festgehalten wurden sein bitte anpassen)
             - 'PC'
             - 'Laptop'
-            - 'Maus'
             - 'Monitor'
             - 'Tastatur'
+            - 'Maus'
             - 'Praktikumsmaterial'
             - 'Sonstiges'
         * Logs Aktionen
