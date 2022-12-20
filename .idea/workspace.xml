@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9e0bbee9-8144-4648-9bf8-8fd808eec86f" name="Changes" comment="Gitignore Test 3">
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/controllers/AddController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/controllers/AddController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/controllers/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/models/logs.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/models/logs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/public/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Dashboard.dashboard_student.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Dashboard.dashboard_student.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_geraete.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_geraete.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Softwarelizenzen.softwarelizenzen.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Softwarelizenzen.softwarelizenzen.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Systemlogs.systemlogs.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Systemlogs.systemlogs.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Systemlogs.systemlogs_layout.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Systemlogs.systemlogs_layout.bladec" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
+  <component name="ProjectId" id="2IK0GvRR4hirXlGWnLOrRGrKDIK" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Studium/Documents/Core/Studium/3. Semester/SWE/Asset-ManagementMCV/Asset-Managment/controllers/LoginController.php&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.webide.settings.project.settings.php&quot;,
+    &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/Studium/Documents/Core/Studium/3. Semester/SWE/Asset-ManagementMCV/Asset-Managment/controllers/LoginController.php&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
+    ]
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="Main" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$/Asset-Managment/public" port="9060">
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9e0bbee9-8144-4648-9bf8-8fd808eec86f" name="Changes" comment="" />
+      <created>1669914875130</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1669914875130</updated>
+      <workItem from="1669914876713" duration="1538000" />
+      <workItem from="1669917511313" duration="7165000" />
+      <workItem from="1670418394850" duration="13810000" />
+      <workItem from="1670440570059" duration="2647000" />
+      <workItem from="1670492128735" duration="85000" />
+      <workItem from="1670492301231" duration="934000" />
+      <workItem from="1670499063924" duration="9000" />
+      <workItem from="1670499699556" duration="30000" />
+      <workItem from="1670716227078" duration="66000" />
+      <workItem from="1670787470103" duration="11000" />
+      <workItem from="1670844580794" duration="185000" />
+      <workItem from="1670878053043" duration="4498000" />
+      <workItem from="1670923432367" duration="1585000" />
+      <workItem from="1670939370023" duration="20000" />
+      <workItem from="1671095035558" duration="1770000" />
+      <workItem from="1671128659142" duration="57000" />
+      <workItem from="1671128797064" duration="15000" />
+      <workItem from="1671376463617" duration="16929000" />
+      <workItem from="1671437167444" duration="1770000" />
+      <workItem from="1671450597763" duration="1720000" />
+      <workItem from="1671452555966" duration="8520000" />
+    </task>
+    <task id="LOCAL-00001" summary="Colors are cool">
+      <created>1671386077398</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1671386077398</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Better Colors und a working Login Restriction">
+      <created>1671395831850</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1671395831850</updated>
+    </task>
+    <task id="LOCAL-00003" summary="No Color Update but Login Fail Message and Admin Room change">
+      <created>1671438582598</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1671438582598</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Again no Color but Logs">
+      <created>1671450639075</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1671450639075</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Gitignore Test">
+      <created>1671451165883</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1671451165883</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Gitignore Test 2">
+      <created>1671452844174</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1671452844174</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Gitignore Test 3">
+      <created>1671453095376</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1671453095376</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Colors are cool" />
+    <MESSAGE value="Better Colors und a working Login Restriction" />
+    <MESSAGE value="No Color Update but Login Fail Message and Admin Room change" />
+    <MESSAGE value="Again no Color but Logs" />
+    <MESSAGE value="Gitignore Test" />
+    <MESSAGE value="Gitignore Test 2" />
+    <MESSAGE value="Gitignore Test 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gitignore Test 3" />
+  </component>
+</project>

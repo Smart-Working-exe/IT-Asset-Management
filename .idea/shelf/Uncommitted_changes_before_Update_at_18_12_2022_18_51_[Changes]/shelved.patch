@@ -1,0 +1,504 @@
+Index: Asset-Managment/controllers/LoginController.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\nrequire_once($_SERVER['DOCUMENT_ROOT'].'/../models/benutzer.php');\r\n\r\nclass LoginController\r\n{\r\n    public function login(RequestData $rq)\r\n    {\r\n        $msg = $_SESSION['login_result_message'] ?? null;\r\n        return view('Login.login', ['msg' => $msg]);\r\n    }\r\n\r\n    public function logout(RequestData $rq)\r\n    {\r\n        session_destroy();\r\n        header('Location: /dashboard');\r\n\r\n    }\r\n\r\n    public function check_passwort($name, $pwd): bool{\r\n        $user_data = get_user_data();\r\n        //$passwort = 'admin';\r\n        //$passwort = 'mitarbeiter';\r\n        //$passwort = 'student';\r\n\r\n        $salt = 'dontedit';\r\n\r\n        $hash = sha1($salt.$pwd);//$name\r\n        for($i = 0; $i < count($user_data);$i++){\r\n            if($user_data[$i]['fh_kuerzel'] == $name && $user_data[$i]['passwort'] == $hash){\r\n                header('Location: https://www.fh-aachen.de/');\r\n                $_SESSION['Rolle'] = $user_data[$i]['rolle'];\r\n                return true;\r\n            }\r\n        }\r\n        return false;\r\n    }\r\n\r\n    public function login_verify(RequestData $rq){\r\n        $username = $_POST['username'] ?? false;\r\n        $password = $_POST['password'] ?? false;\r\n        // Überprüfung Eingabedaten\r\n        $_SESSION['login_result_message'] = null;\r\n        if ($this->check_passwort($username, $password)) {//db op\r\n            $_SESSION['login_ok'] = true;\r\n            $_SESSION['name'] = $username;\r\n            $insert = 'Location: '.$_SESSION['target'];\r\n            header($insert);\r\n        } else {\r\n            $_SESSION['login_result_message'] =\r\n                'Name oder Passwort falsch';\r\n            header('Location: /login');\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Asset-Managment/controllers/LoginController.php b/Asset-Managment/controllers/LoginController.php
+--- a/Asset-Managment/controllers/LoginController.php	(revision 477eca8a5a023ef4ea039b22bdd604e35277b877)
++++ b/Asset-Managment/controllers/LoginController.php	(date 1671381005277)
+@@ -35,6 +35,15 @@
+         return false;
+     }
+ 
++    public function get_hash($pw){
++        $passwort = $pw;
++        $salt = 'dontedit';
++
++        $hash = sha1($salt.$passwort);
++
++        return $hash;
++    }
++
+     public function login_verify(RequestData $rq){
+         $username = $_POST['username'] ?? false;
+         $password = $_POST['password'] ?? false;
+Index: Asset-Managment/controllers/HomeController.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\nrequire_once ($_SERVER['DOCUMENT_ROOT'].'/../models/geraete.php');\r\nrequire_once ($_SERVER['DOCUMENT_ROOT'].'/../models/betriessystem.php');\r\nrequire_once ($_SERVER['DOCUMENT_ROOT'].'/../models/softwarelizenzen.php');\r\nrequire_once ($_SERVER['DOCUMENT_ROOT'].'/../models/filter.php');\r\nrequire_once ($_SERVER['DOCUMENT_ROOT'].'/../models/hinzufuegen.php');\r\nrequire_once ($_SERVER['DOCUMENT_ROOT'].'/../models/benachrichtigungen.php');\r\nrequire_once($_SERVER['DOCUMENT_ROOT'].'/../models/benutzer.php');\r\nrequire_once($_SERVER['DOCUMENT_ROOT'].'/../models/logs.php');\r\nrequire_once($_SERVER['DOCUMENT_ROOT'].'/../models/raum.php');\r\nrequire_once($_SERVER['DOCUMENT_ROOT'].'/../models/einstellungen.php');\r\n\r\n/* Datei: controllers/HomeController.php */\r\nclass HomeController\r\n{\r\n    public function index(RequestData $request) {\r\n        return view('home', ['rd' => $request ]);\r\n    }\r\n\r\n    public function dashboard(RequestData $rd){\r\n\r\n        if (!isset($_SESSION['login_ok'])) {\r\n            $_SESSION['target'] = '/dashboard';\r\n            header('Location: /login');\r\n        }\r\n        if($_SESSION['Rolle'] == 1){\r\n            $notifs = notif_admin();\r\n            return view('Dashboard.dashboard_admin', ['rq'=>$rd, 'notifs'=>$notifs]);\r\n        }\r\n        elseif ($_SESSION['Rolle'] == 2){\r\n            $notifs = notif_employee();\r\n            return view('Dashboard.dashboard_mitarbeiter', ['rq'=>$rd, 'notifs'=>$notifs]);\r\n        }\r\n        elseif($_SESSION['Rolle'] == 3){\r\n            $notifs = notif_student();\r\n            return view('Dashboard.dashboard_student', ['rq'=>$rd, 'notifs'=>$notifs]);\r\n        }\r\n    }\r\n\r\n    public function einstellungen(RequestData $rd){\r\n        if (!isset($_SESSION['login_ok'])) {\r\n            $_SESSION['target'] = '/einstellungen';\r\n            header('Location: /login');\r\n        }\r\n        if($_SESSION['Rolle'] == 1){\r\n            if($_POST[\"neue_einstellung_s\"] != \"\") {change_setting($_POST[\"neue_einstellung_s\"]);}\r\n            else if(isset($_POST[\"neue_einstellung\"])) {change_setting($_POST[\"neue_einstellung\"]);}\r\n            if($_POST[\"neue_einstellung_ip_s\"] != \"\") {change_setting_ip($_POST[\"neue_einstellung_ip_s\"]);}\r\n            else if(isset($_POST[\"neue_einstellung_ip\"])) {change_setting_ip($_POST[\"neue_einstellung_ip\"]);}\r\n            $setting = get_setting();\r\n            $setting_ip = get_setting_ip();\r\n            return view('Einstellungen.einstellungen', ['user' => $_SESSION['Rolle'], 'setting' => $setting, 'setting_ip' => $setting_ip]);\r\n        }\r\n        else{\r\n            if($_POST[\"neue_einstellung_s\"] != \"\") {change_setting($_POST[\"neue_einstellung_s\"]);}\r\n            else if(isset($_POST[\"neue_einstellung\"])) {change_setting($_POST[\"neue_einstellung\"]);}\r\n            $setting = get_setting();\r\n            return view ('Einstellungen.einstellungen',['user' => $_SESSION['Rolle'], 'setting' => $setting]);\r\n        }\r\n    }\r\n\r\n    public function verleihung(RequestData $rd)\r\n    {\r\n\r\n        //ist das nur für mitarbeiter?\r\n        return view('Verleihung_Mitarbeiter.verleihung',[]);\r\n    }\r\n\r\n    public function systemlogs(RequestData $rd)\r\n    {\r\n        if (!isset($_SESSION['login_ok']) && !($_SESSION['Rolle'] == 1)) {\r\n            $_SESSION['target'] = '/systemlogs';\r\n            header('Location: /login');\r\n        }\r\n        return view('Systemlogs.systemlogs',[\r\n                    'data' => get_logs(get_filter_data($rd,4)),\r\n                    'selected_filter' => get_filter_data($rd,4)\r\n        ]);\r\n    }\r\n\r\n    public function softwarelizenzen(RequestData $rd)\r\n    {\r\n        if (!isset($_SESSION['login_ok']) && !($_SESSION['Rolle'] == 1)) {\r\n            $_SESSION['target'] = '/softwarelizenzen';\r\n            header('Location: /login');\r\n        }\r\n        $var=[\r\n            'software_add_hersteller'    => filter_input(INPUT_POST,'software_add_hersteller'),\r\n            'software_add_name'          => filter_input(INPUT_POST,'software_add_lizenzname'),\r\n            'software_add_version'       => filter_input(INPUT_POST,'software_add_softwareversion'),\r\n            'software_add_anzahl_gerate' => filter_input(INPUT_POST,'software_add_anzahl_gerate'),\r\n            'software_add_erwerbsdatum'  => filter_input(INPUT_POST,'software_add_erwerbedatum'),\r\n            'software_add_ablaufdatum'   => filter_input(INPUT_POST,'software_add_ablaufdatum')\r\n        ];\r\n        if ($var['software_add_name'] != null)\r\n            db_add_software($var);\r\n        return view('Softwarelizenzen.softwarelizenzen',[\r\n                    'data' => get_SoftwarlizenzenTabledata(get_filter_data($rd,3)),\r\n                    'selected_filter' => get_filter_data($rd,3)\r\n        ]);\r\n    }\r\n\r\n    public function raumauswahl(RequestData $rd)\r\n    {\r\n        if($_SESSION['Rolle'] >= 3)\r\n             return view('Raumauswahl.raumauswahl_studenten',[]);\r\n        else\r\n            return view('Raumauswahl.raumauswahl',[]);\r\n\r\n    }\r\n\r\n    public function ausleihe(RequestData $rd)\r\n    {\r\n        if ( isset($_SESSION['login_ok']) && ($_SESSION['Rolle'] == 3)) {\r\n\r\n\r\n            return view('Ausleihe_Student.ausleihe',[]);\r\n        }\r\n\r\n    }\r\n\r\n    public function get_color($max, $cur){\r\n        //$max = get_raum_belegung( $rd->query['raum'] ?? 'a001')['max'];\r\n        //$cur = get_raum_belegung( $rd->query['raum'] ?? 'a001')['cur'];\r\n        $diff = $cur/$max;\r\n        if($diff <= 1/5){\r\n            return '.bg-gradient-info';\r\n        }elseif ($diff > 1/5 && $diff <= 2/5){\r\n            return 'green';\r\n        }elseif ($diff > 2/5 && $diff <= 3/5){\r\n            return 'yellow';\r\n        }elseif ($diff > 3/5 && $diff <= 4/5){\r\n            return 'orange';\r\n        }elseif ($diff > 4/5 && $diff <= 5/5){\r\n            return 'red';\r\n        }\r\n    }\r\n\r\n    public function raumansicht(RequestData $rd)\r\n    {\r\n        // 1 = Admin, 2 = Mitarbeiter, 3 = Student\r\n\r\n        if (!isset($_SESSION['login_ok'])) {\r\n            $_SESSION['target'] = '/raumansicht';\r\n            header('Location: /login');\r\n        }\r\n\r\n        if($_SESSION['Rolle'] >= 3) {\r\n            return view('Raumansicht.studenten.raumansicht_studenten', [\r\n                'gebaeude' => $rd->query['gebaeude'] ?? 'a'\r\n            ]);\r\n        }\r\n\r\n\r\n\r\n        return view('Raumansicht.raumansicht',[\r\n                'room' => $rd->query['raum'] ?? 'a001',\r\n                'user' => $_SESSION['Rolle'],\r\n                'database_filter' => false,\r\n                'data' => getGeraeteData(get_filter_data($rd,1)),\r\n                'filter_variable_data' => get_softwarelizenzen_betriessystem(), //Variable filter Daten wie zmb. softwarelizenzen\r\n                'selected_filter' => get_filter_data($rd,1),\r\n                'max_belegung' => get_raum_belegung( $rd->query['raum'] ?? 'a001')['max'],\r\n                'cur_belegung' => get_raum_belegung( $rd->query['raum'] ?? 'a001')['cur'],\r\n                'color' => $this->get_color(get_raum_belegung( $rd->query['raum'] ?? 'a001')['max'],get_raum_belegung( $rd->query['raum'] ?? 'a001')['cur'])\r\n        ]);\r\n    }\r\n\r\n    public function eigeneGeraete(RequestData $rd)\r\n    {\r\n        if (!isset($_SESSION['login_ok']) && !($_SESSION['Rolle'] == 2)) {\r\n            $_SESSION['target'] = '/eigeneGeraete';\r\n            header('Location: /login');\r\n        }\r\n\r\n        //damit, sollte jemand die url im Browser bearbeiten man immer nur auf seine eigenen Geräte kommt\r\n        if(empty($rd->query['kuerzel']) ||$rd->query['kuerzel'] != $_SESSION['name'] ) {\r\n            header('Location: /eigeneGeraete?kuerzel='.$_SESSION['name']);\r\n        }\r\n        return view('EigeneGeraete.eigeneGeraete', [\r\n            'database_filter' => true,\r\n            'data' => getGeraeteData(get_filter_data($rd,1)),\r\n            'filter_variable_data' => get_softwarelizenzen_betriessystem(), //Variable filter Daten wie zmb. softwarelizenzen\r\n            'selected_filter' => get_filter_data($rd,1)\r\n        ]);\r\n    }\r\n\r\n    public function datenbank(RequestData $rd)\r\n    {\r\n        if (!isset($_SESSION['login_ok']) && !($_SESSION['Rolle'] == 1)) {\r\n            $_SESSION['target'] = '/datenbank';\r\n            header('Location: /login');\r\n        }\r\n        if(isset($rd->query['database'])) {\r\n            if ($rd->query['database'] == 'personen') {\r\n                return view('Datenbank.datenbank_personen', [\r\n                    'typ' => 'personen',\r\n                    'data' => get_user_tabledata(get_filter_data($rd,2)),\r\n                    'selected_filter' => get_filter_data($rd,2)\r\n                ]);\r\n            } elseif ($rd->query['database'] == 'lizenzen') {\r\n                return view('Datenbank.datenbank_lizenzen', [\r\n                    'typ' => 'lizenzen',\r\n                    'data' => get_SoftwarlizenzenTabledata(get_filter_data($rd,3)),\r\n                    'selected_filter' => get_filter_data($rd,3)\r\n                ]);\r\n            }\r\n        }\r\n\r\n        return view('Datenbank.datenbank_geraete',[\r\n            'typ' => 'geraete',\r\n            'database_filter' => true,\r\n            'data' => getGeraeteData(get_filter_data($rd,1)),\r\n            'filter_variable_data' => get_softwarelizenzen_betriessystem(), //Variable filter Daten wie zmb. softwarelizenzen\r\n            'selected_filter' => get_filter_data($rd,1)\r\n        ]);\r\n    }\r\n\r\n\r\n    // zum testen, im browser einfach /test aufrufen\r\n    public function test(RequestData $rd)\r\n    {\r\n        return view('test',[\r\n            'data' => get_softwarelizenzen_betriessystem()\r\n        ]);\r\n    }\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Asset-Managment/controllers/HomeController.php b/Asset-Managment/controllers/HomeController.php
+--- a/Asset-Managment/controllers/HomeController.php	(revision 477eca8a5a023ef4ea039b22bdd604e35277b877)
++++ b/Asset-Managment/controllers/HomeController.php	(date 1671385207838)
+@@ -125,9 +125,9 @@
+         //$cur = get_raum_belegung( $rd->query['raum'] ?? 'a001')['cur'];
+         $diff = $cur/$max;
+         if($diff <= 1/5){
+-            return '.bg-gradient-info';
++            return 'darkgreen';
+         }elseif ($diff > 1/5 && $diff <= 2/5){
+-            return 'green';
++            return '#00ff00';
+         }elseif ($diff > 2/5 && $diff <= 3/5){
+             return 'yellow';
+         }elseif ($diff > 3/5 && $diff <= 4/5){
+@@ -137,6 +137,14 @@
+         }
+     }
+ 
++    public function get_color_build($gebaude){
++
++        for($i = 0; $i<count($gebaude); $i++){
++            $data[$i] = $this->get_color( $gebaude[$i]['max'],$gebaude[$i]['cur']);
++        }
++        return $data;
++    }
++
+     public function raumansicht(RequestData $rd)
+     {
+         // 1 = Admin, 2 = Mitarbeiter, 3 = Student
+@@ -148,7 +156,9 @@
+ 
+         if($_SESSION['Rolle'] >= 3) {
+             return view('Raumansicht.studenten.raumansicht_studenten', [
+-                'gebaeude' => $rd->query['gebaeude'] ?? 'a'
++                'gebaeude' => $rd->query['gebaeude'] ?? 'a',
++                'belegung' => get_belegung_gebaude($rd->query['gebaeude'] ?? 'a'),
++                'color' => $this->get_color_build(get_belegung_gebaude($rd->query['gebaeude'] ?? 'a'))
+             ]);
+         }
+ 
+Index: Asset-Managment/views/Raumansicht/studenten/raumansicht_studenten.blade.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@extends('Raumansicht.studenten.layout_raumansicht_studenten')\r\n@extends('header_footer')\r\n\r\n\r\n\r\n@section('content')\r\n\r\n    <table class=\"table table-striped table-bordered\" id=\"Raumansicht_studenten\" >\r\n        <thead>\r\n        <tr>\r\n            <th>Raum</th>\r\n            <th>Anzahl Workstations</th>\r\n            <th>Belegte Workstations</th>\r\n            <th>Auslastung</th>\r\n        </tr>\r\n        </thead>\r\n\r\n        <tr>\r\n            <td>A001</td>\r\n            <td>15</td>\r\n            <td>13</td>\r\n            <td><div class=\" mt-1 col-10\">\r\n                    <div class=\"progress position-relative\">\r\n                        <div class=\"progress-bar\" role=\"progressbar\"\r\n                             style=\"width:86.7%; background-color: red\" aria-valuenow=\"86.7\" aria-valuemin=\"0\"\r\n                             aria-valuemax=\"100\">\r\n                            <small class=\"justify-content-center d-flex position-absolute w-100\">13/15</small>\r\n                        </div>\r\n                        <div class=\"progress-bar\" role=\"progressbar\"\r\n                             style=\"width:13.3%; background-color: black\"></div>\r\n                    </div>\r\n                </div></td>\r\n\r\n        </tr>\r\n        <tr>\r\n            <td>A002</td>\r\n            <td>15</td>\r\n            <td>2</td>\r\n            <td><div class=\" mt-1 col-10\">\r\n                    <div class=\"progress position-relative\">\r\n                        <div class=\"progress-bar\" role=\"progressbar\"\r\n                             style=\"width:13.3%; background-color: green\" aria-valuenow=\"13.3\" aria-valuemin=\"0\"\r\n                             aria-valuemax=\"100\">\r\n                            <small class=\"justify-content-center d-flex position-absolute w-100\">2/15</small>\r\n                        </div>\r\n                        <div class=\"progress-bar\" role=\"progressbar\"\r\n                             style=\"width:86.7%; background-color: black\"></div>\r\n                    </div>\r\n                </div>\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>A003</td>\r\n            <td>10</td>\r\n            <td>9</td>\r\n            <td>\r\n                <div class=\" mt-1 col-10\">\r\n                    <div class=\"progress position-relative\">\r\n                        <div class=\"progress-bar\" role=\"progressbar\"\r\n                             style=\"width:90%; background-color: red\" aria-valuenow=\"90\" aria-valuemin=\"0\"\r\n                             aria-valuemax=\"100\">\r\n                            <small class=\"justify-content-center d-flex position-absolute w-100\">9/10</small>\r\n                        </div>\r\n                        <div class=\"progress-bar\" role=\"progressbar\"\r\n                             style=\"width:10%; background-color: black\"></div>\r\n                    </div>\r\n                </div>\r\n            </td>\r\n        </tr>\r\n\r\n        <tr>\r\n            <td>A004</td>\r\n            <td>16</td>\r\n            <td>0</td>\r\n            <td>\r\n                <div class=\" mt-1 col-10\">\r\n                    <div class=\"progress position-relative\">\r\n                        <div class=\"progress-bar\" role=\"progressbar\"\r\n                             style=\"width:0%; background-color: limegreen\" aria-valuenow=\"0\" aria-valuemin=\"0\"\r\n                             aria-valuemax=\"100\">\r\n                            <small class=\"justify-content-center d-flex position-absolute w-100\">0/16</small>\r\n                        </div>\r\n                        <div class=\"progress-bar\" role=\"progressbar\"\r\n                             style=\"width:100%; background-color: black\"></div>\r\n                    </div>\r\n                </div>\r\n            </td>\r\n        </tr>\r\n\r\n        <tr>\r\n            <td>A101</td>\r\n            <td>20</td>\r\n            <td>15</td>\r\n            <td>\r\n                <div class=\" mt-1 col-10\">\r\n                    <div class=\"progress position-relative\">\r\n                        <div class=\"progress-bar\" role=\"progressbar\"\r\n                             style=\"width:75%; background-color: orange\" aria-valuenow=\"75\" aria-valuemin=\"0\"\r\n                             aria-valuemax=\"100\">\r\n                            <small class=\"justify-content-center d-flex position-absolute w-100\">15/20</small>\r\n                        </div>\r\n                        <div class=\"progress-bar\" role=\"progressbar\"\r\n                             style=\"width:25%; background-color: black\"></div>\r\n                    </div>\r\n                </div>\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>A102</td>\r\n            <td>16</td>\r\n            <td>6</td>\r\n            <td>\r\n                <div class=\" mt-1 col-10\">\r\n                    <div class=\"progress position-relative\">\r\n                        <div class=\"progress-bar\" role=\"progressbar\"\r\n                             style=\"width:37.5%; background-color: yellowgreen\" aria-valuenow=\"37.5\" aria-valuemin=\"0\"\r\n                             aria-valuemax=\"100\">\r\n                            <small class=\"justify-content-center d-flex position-absolute w-100\">6/16</small>\r\n                        </div>\r\n                        <div class=\"progress-bar\" role=\"progressbar\"\r\n                             style=\"width:62.5%; background-color: black\"></div>\r\n                    </div>\r\n                </div>\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>A103</td>\r\n            <td>12</td>\r\n            <td>6</td>\r\n            <td>\r\n                <div class=\" mt-1 col-10\">\r\n                    <div class=\"progress position-relative\">\r\n                        <div class=\"progress-bar\" role=\"progressbar\"\r\n                             style=\"width:50%; background-color: #ffe135\" aria-valuenow=\"50\" aria-valuemin=\"0\"\r\n                             aria-valuemax=\"100\">\r\n                            <small class=\"justify-content-center d-flex position-absolute w-100\">6/12</small>\r\n                        </div>\r\n                        <div class=\"progress-bar\" role=\"progressbar\"\r\n                             style=\"width:50%; background-color: black\"></div>\r\n                    </div>\r\n                </div>\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>A104</td>\r\n            <td>10</td>\r\n            <td>7</td>\r\n            <td>\r\n                <div class=\" mt-1 col-10\">\r\n                    <div class=\"progress position-relative\">\r\n                        <div class=\"progress-bar\" role=\"progressbar\"\r\n                             style=\"width:70%; background-color: orange\" aria-valuenow=\"70\" aria-valuemin=\"0\"\r\n                             aria-valuemax=\"100\">\r\n                            <small class=\"justify-content-center d-flex position-absolute w-100\">7/10</small>\r\n                        </div>\r\n                        <div class=\"progress-bar\" role=\"progressbar\"\r\n                             style=\"width:30%; background-color: black\"></div>\r\n                    </div>\r\n                </div>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n\r\n@endsection
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Asset-Managment/views/Raumansicht/studenten/raumansicht_studenten.blade.php b/Asset-Managment/views/Raumansicht/studenten/raumansicht_studenten.blade.php
+--- a/Asset-Managment/views/Raumansicht/studenten/raumansicht_studenten.blade.php	(revision 477eca8a5a023ef4ea039b22bdd604e35277b877)
++++ b/Asset-Managment/views/Raumansicht/studenten/raumansicht_studenten.blade.php	(date 1671385409003)
+@@ -15,150 +15,25 @@
+         </tr>
+         </thead>
+ 
++        @for($i = 0; $i < count($belegung); $i++)
+         <tr>
+-            <td>A001</td>
+-            <td>15</td>
+-            <td>13</td>
++            <td>{{$belegung[$i]['name']}}</td>
++            <td>{{$belegung[$i]['cur']}}</td>
++            <td>{{$belegung[$i]['max']}}</td>
+             <td><div class=" mt-1 col-10">
+                     <div class="progress position-relative">
+                         <div class="progress-bar" role="progressbar"
+-                             style="width:86.7%; background-color: red" aria-valuenow="86.7" aria-valuemin="0"
++                             style="width:{{((int)$belegung[$i]['cur']/(int)$belegung[$i]['max'])*100}}%; background-color: {{$color[$i]}}" aria-valuenow="86.7" aria-valuemin="0"
+                              aria-valuemax="100">
+-                            <small class="justify-content-center d-flex position-absolute w-100">13/15</small>
+-                        </div>
+-                        <div class="progress-bar" role="progressbar"
+-                             style="width:13.3%; background-color: black"></div>
+-                    </div>
+-                </div></td>
+-
+-        </tr>
+-        <tr>
+-            <td>A002</td>
+-            <td>15</td>
+-            <td>2</td>
+-            <td><div class=" mt-1 col-10">
+-                    <div class="progress position-relative">
+-                        <div class="progress-bar" role="progressbar"
+-                             style="width:13.3%; background-color: green" aria-valuenow="13.3" aria-valuemin="0"
+-                             aria-valuemax="100">
+-                            <small class="justify-content-center d-flex position-absolute w-100">2/15</small>
+-                        </div>
+-                        <div class="progress-bar" role="progressbar"
+-                             style="width:86.7%; background-color: black"></div>
+-                    </div>
+-                </div>
+-            </td>
+-        </tr>
+-        <tr>
+-            <td>A003</td>
+-            <td>10</td>
+-            <td>9</td>
+-            <td>
+-                <div class=" mt-1 col-10">
+-                    <div class="progress position-relative">
+-                        <div class="progress-bar" role="progressbar"
+-                             style="width:90%; background-color: red" aria-valuenow="90" aria-valuemin="0"
+-                             aria-valuemax="100">
+-                            <small class="justify-content-center d-flex position-absolute w-100">9/10</small>
+-                        </div>
+-                        <div class="progress-bar" role="progressbar"
+-                             style="width:10%; background-color: black"></div>
+-                    </div>
+-                </div>
+-            </td>
+-        </tr>
+-
+-        <tr>
+-            <td>A004</td>
+-            <td>16</td>
+-            <td>0</td>
+-            <td>
+-                <div class=" mt-1 col-10">
+-                    <div class="progress position-relative">
+-                        <div class="progress-bar" role="progressbar"
+-                             style="width:0%; background-color: limegreen" aria-valuenow="0" aria-valuemin="0"
+-                             aria-valuemax="100">
+-                            <small class="justify-content-center d-flex position-absolute w-100">0/16</small>
++                            <small class="justify-content-center d-flex position-absolute w-100">{{$belegung[$i]['cur']}}/{{$belegung[$i]['max']}}</small>
+                         </div>
+                         <div class="progress-bar" role="progressbar"
+                              style="width:100%; background-color: black"></div>
+                     </div>
+-                </div>
+-            </td>
+-        </tr>
+-
+-        <tr>
+-            <td>A101</td>
+-            <td>20</td>
+-            <td>15</td>
+-            <td>
+-                <div class=" mt-1 col-10">
+-                    <div class="progress position-relative">
+-                        <div class="progress-bar" role="progressbar"
+-                             style="width:75%; background-color: orange" aria-valuenow="75" aria-valuemin="0"
+-                             aria-valuemax="100">
+-                            <small class="justify-content-center d-flex position-absolute w-100">15/20</small>
+-                        </div>
+-                        <div class="progress-bar" role="progressbar"
+-                             style="width:25%; background-color: black"></div>
+-                    </div>
+-                </div>
+-            </td>
++                </div></td>
++
+         </tr>
+-        <tr>
+-            <td>A102</td>
+-            <td>16</td>
+-            <td>6</td>
+-            <td>
+-                <div class=" mt-1 col-10">
+-                    <div class="progress position-relative">
+-                        <div class="progress-bar" role="progressbar"
+-                             style="width:37.5%; background-color: yellowgreen" aria-valuenow="37.5" aria-valuemin="0"
+-                             aria-valuemax="100">
+-                            <small class="justify-content-center d-flex position-absolute w-100">6/16</small>
+-                        </div>
+-                        <div class="progress-bar" role="progressbar"
+-                             style="width:62.5%; background-color: black"></div>
+-                    </div>
+-                </div>
+-            </td>
+-        </tr>
+-        <tr>
+-            <td>A103</td>
+-            <td>12</td>
+-            <td>6</td>
+-            <td>
+-                <div class=" mt-1 col-10">
+-                    <div class="progress position-relative">
+-                        <div class="progress-bar" role="progressbar"
+-                             style="width:50%; background-color: #ffe135" aria-valuenow="50" aria-valuemin="0"
+-                             aria-valuemax="100">
+-                            <small class="justify-content-center d-flex position-absolute w-100">6/12</small>
+-                        </div>
+-                        <div class="progress-bar" role="progressbar"
+-                             style="width:50%; background-color: black"></div>
+-                    </div>
+-                </div>
+-            </td>
+-        </tr>
+-        <tr>
+-            <td>A104</td>
+-            <td>10</td>
+-            <td>7</td>
+-            <td>
+-                <div class=" mt-1 col-10">
+-                    <div class="progress position-relative">
+-                        <div class="progress-bar" role="progressbar"
+-                             style="width:70%; background-color: orange" aria-valuenow="70" aria-valuemin="0"
+-                             aria-valuemax="100">
+-                            <small class="justify-content-center d-flex position-absolute w-100">7/10</small>
+-                        </div>
+-                        <div class="progress-bar" role="progressbar"
+-                             style="width:30%; background-color: black"></div>
+-                    </div>
+-                </div>
+-            </td>
+-        </tr>
++        @endfor
+     </table>
+ 
+ @endsection
+\ No newline at end of file
+Index: Asset-Managment/views/Raumansicht/raumansicht.blade.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@extends('Raumansicht.layout_raumansicht')\r\n@extends('header_footer')\r\n@extends('modals.Eintraege.Device')\r\n@extends('Filter.geraete')\r\n\r\n\r\n@section('sub_header')\r\n\r\n    <div class=\"row mt-4 \">\r\n        <p class=\"display-6 col-3\"> Raum {{strtoupper($room)}}</p>\r\n    </div>\r\n\r\n    @if($user == 1) <!-- admin -->\r\n\r\n        <div class=\"row\"> <!-- Wegen Row ist die Progressbar abgeschnitten -->\r\n            <p class=\"col-3\"><b>IP-Adressbereich: 111.111.111.000/27</b></p>\r\n            <div class=\" mt-1 col-2\">\r\n                <div class=\"progress position-relative\">\r\n                    <div class=\"progress-bar\" style=\"width:20%; background-color: green\"\r\n                         aria-valuenow=\"40\" aria-valuemin=\"0\" aria-valuemax=\"30\">\r\n                        <small class=\"justify-content-center d-flex position-absolute w-100\">6/30</small></div>\r\n                    <div class=\"progress-bar\" style=\"width:80%; background-color: black\"></div>\r\n                </div>\r\n            </div>\r\n            <p class=\"col-2 offset-1\"><b>Belegung Workstations:</b></p>\r\n            <div class=\" mt-1 col-2\">\r\n                <div class=\"progress position-relative\">\r\n                    <div class=\"progress-bar progress-bar-striped progress-bar-animated\"\r\n                         style=\"width:{{((int)$cur_belegung/(int)$max_belegung)*100}}%; background-color: red\"\r\n                         aria-valuenow=\"40\" aria-valuemin=\"0\" aria-valuemax=\"30\">\r\n                        <small class=\"justify-content-center d-flex position-absolute w-100\">{{$cur_belegung}}/{{$max_belegung}}</small></div>\r\n                    <div class=\"progress-bar\" style=\"width:100%; background-color: black\"></div>\r\n                </div>\r\n            </div>\r\n\r\n\r\n            <div class=\"form-group\">\r\n                <button type=\"submit\" class=\"btn btn-primary sub\" data-bs-toggle=\"modal\" data-bs-target=\"#addDevice\">\r\n                    Gerät hinzufügen\r\n                </button>\r\n\r\n                @if(!empty($selected_filter['suche']) || !empty($selected_filter['Typ']) || !empty($selected_filter['hersteller']) || !empty($selected_filter['age']) || !empty($selected_filter['betriebssystemid']) || !empty($selected_filter['softwarelizenzid'])  )\r\n                        <a href=\"\" class=\"btn  btn-primary sub  text-nowrap\" style=\"margin-left: 72%\" role=\"button\" aria-disabled=\"true\">Filter Zurücksetzten</a>\r\n                @endif\r\n\r\n            </div>\r\n        </div>\r\n    @elseif($user == 2)<!-- mitarbeiter -->\r\n    <div class=\"row\"> <!-- Wegen Row ist die Progressbar abgeschnitten -->\r\n        <p class=\"col-4\"><b>IP-Adressbereich: 111.111.111.000/27</b></p>\r\n        <div class=\" mt-1 col-2\">\r\n            <div class=\"progress position-relative\">\r\n                <div class=\"progress-bar\" style=\"width:20%; background-color: green\"\r\n                     aria-valuenow=\"40\" aria-valuemin=\"0\" aria-valuemax=\"30\">\r\n                    <small class=\"justify-content-center d-flex position-absolute w-100\">6/30</small></div>\r\n                <div class=\"progress-bar\" style=\"width:80%; background-color: black\"></div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <p class=\"col-2 \"><b>Belegung Workstations:\r\n            </b>\r\n        </p>\r\n        <div class=\"col-2\">\r\n            <input style=\"height:25px; width:120px;\" class=\"form-control\" type=\"number\" id=\"deviceName\" placeholder=\"6\">\r\n        </div>\r\n        <div class=\" mt-1 col-2\">\r\n            <div class=\"progress position-relative\">\r\n                <div class=\"progress-bar progress-bar-striped progress-bar-animated\"\r\n                     style=\"width:{{((int)$cur_belegung/(int)$max_belegung)*100}}%; background-color: {{$color}}\"\r\n                     aria-valuenow=\"10\" aria-valuemin=\"0\" aria-valuemax=\"20\">\r\n                    <small class=\"justify-content-center d-flex position-absolute w-100\">{{$cur_belegung}}/{{$max_belegung}}</small></div>\r\n                <div class=\"progress-bar\" style=\"width:100%; background-color: black\"></div>\r\n            </div>\r\n        </div>\r\n\r\n        @if(!empty($selected_filter['suche']) || !empty($selected_filter['Typ']) || !empty($selected_filter['hersteller']) || !empty($selected_filter['age']) || !empty($selected_filter['betriebssystemid']) || !empty($selected_filter['softwarelizenzid'])  )\r\n            <div class=\"col\" style=\"margin-left: 32%\">\r\n             <a href=\"\" class=\"btn  btn-primary sub  text-nowrap\" role=\"button\" aria-disabled=\"true\">Filter Zurücksetzten</a>\r\n            </div>\r\n        @endif\r\n\r\n    </div>\r\n    @endif\r\n\r\n\r\n\r\n\r\n@endsection\r\n\r\n\r\n\r\n@section('content')\r\n    <div class=\"container mt-3\">\r\n        <table class=\"table table-striped table-bordered\" id=\"devices\">\r\n            <thead>\r\n            <tr>\r\n                <th onclick=\"sortTable(0, devices)\">Name<img src=\"/img/up-and-down-arrows-svgrepo-com.svg\" width=\"20px\">\r\n                </th>\r\n                <th onclick=\"sortTable(1, devices)\">Typ<img src=\"/img/up-and-down-arrows-svgrepo-com.svg\" width=\"20px\">\r\n                </th>\r\n                <th onclick=\"sortTable(2, devices)\">Hersteller<img src=\"/img/up-and-down-arrows-svgrepo-com.svg\"\r\n                                                                   width=\"20px\"></th>\r\n                <th onclick=\"sortTable(3, devices)\">Alter<img src=\"/img/up-and-down-arrows-svgrepo-com.svg\"\r\n                                                              width=\"20px\"></th>\r\n                <th onclick=\"sortTable(4, devices)\">IP-Adresse<img src=\"/img/up-and-down-arrows-svgrepo-com.svg\"\r\n                                                                   width=\"20px\"></th>\r\n                <th onclick=\"sortTable(5, devices)\">Betriebssystem<img src=\"/img/up-and-down-arrows-svgrepo-com.svg\"\r\n                                                                       width=\"20px\"></th>\r\n                <th onclick=\"sortTable(6, devices)\">Software<img src=\"/img/up-and-down-arrows-svgrepo-com.svg\"\r\n                                                                 width=\"20px\"></th>\r\n                <th onclick=\"sortTable(7, devices)\">Technische Daten<img src=\"/img/up-and-down-arrows-svgrepo-com.svg\"\r\n                                                                         width=\"20px\"></th>\r\n                <th onclick=\"sortTable(8, devices)\">Kommentar<img src=\"/img/up-and-down-arrows-svgrepo-com.svg\"\r\n                                                                  width=\"20px\"></th>\r\n                <th >  @if($user == 1)\r\n                            Bearbeiten\r\n                         @else\r\n                           Kommentar\r\n                         @endif\r\n                </th>\r\n\r\n            </tr>\r\n            </thead>\r\n            <tbody>\r\n            @foreach($data as $geraet)\r\n                <tr>\r\n                    <td>{{$geraet['name']}}</td>\r\n                    <td>{{$geraet['typ']}}</td>\r\n                    <td>{{$geraet['hersteller']}}</td>\r\n                    <td>{{$geraet['age']}} Jahre</td>\r\n                    <td>{{$geraet['ip_adresse']}}</td>\r\n                    <td>\r\n                        @if(isset($geraet['betriebssystem']))\r\n                            <ul>\r\n                                @foreach($geraet['betriebssystem'] as $value)\r\n                                    <li>{{$value}} </li>\r\n                                @endforeach\r\n                            </ul>\r\n                        @endif\r\n                    </td>\r\n                    <td>\r\n                        @if(isset($geraet['software']))\r\n                            <ul>\r\n                                @foreach($geraet['software'] as $value)\r\n                                    <li>{{$value}} </li>\r\n                                @endforeach\r\n                            </ul>\r\n                        @endif\r\n                    </td>\r\n                    <td>\r\n                        @if(!empty($geraet['technische_eckdaten'][0]))\r\n                            <ul>\r\n                                @foreach($geraet['technische_eckdaten'] as $value)\r\n                                    <li>{{$value}} </li>\r\n                                @endforeach\r\n                            </ul>\r\n                        @endif\r\n                    </td>\r\n                    <td class=\"no_nowrap\">{{$geraet['kommentar']}}</td>\r\n                    <td>\r\n\r\n                        @if($user == 1)\r\n                        <button type=\"submit\" class=\"btn btn-primary sub\" data-bs-toggle=\"modal\"\r\n                                data-bs-target=\"#editDevice\">Bearbeiten\r\n                        </button>\r\n                        @else\r\n                            <button type=\"submit\" class=\"btn btn-primary sub\" data-bs-toggle=\"modal\"\r\n                                    data-bs-target=\"#editKommentar\">Kommentieren\r\n                            </button>\r\n                        @endif\r\n                    </td>\r\n\r\n\r\n\r\n                </tr>\r\n\r\n            @endforeach\r\n            </tbody>\r\n        </table>\r\n\r\n    </div>\r\n\r\n\r\n\r\n@endsection
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Asset-Managment/views/Raumansicht/raumansicht.blade.php b/Asset-Managment/views/Raumansicht/raumansicht.blade.php
+--- a/Asset-Managment/views/Raumansicht/raumansicht.blade.php	(revision 477eca8a5a023ef4ea039b22bdd604e35277b877)
++++ b/Asset-Managment/views/Raumansicht/raumansicht.blade.php	(date 1671377349687)
+@@ -25,8 +25,8 @@
+             <p class="col-2 offset-1"><b>Belegung Workstations:</b></p>
+             <div class=" mt-1 col-2">
+                 <div class="progress position-relative">
+-                    <div class="progress-bar progress-bar-striped progress-bar-animated"
+-                         style="width:{{((int)$cur_belegung/(int)$max_belegung)*100}}%; background-color: red"
++                    <div class="progress-bar"
++                         style="width:{{((int)$cur_belegung/(int)$max_belegung)*100}}%; background-color: {{$color}}"
+                          aria-valuenow="40" aria-valuemin="0" aria-valuemax="30">
+                         <small class="justify-content-center d-flex position-absolute w-100">{{$cur_belegung}}/{{$max_belegung}}</small></div>
+                     <div class="progress-bar" style="width:100%; background-color: black"></div>
+@@ -66,7 +66,7 @@
+         </div>
+         <div class=" mt-1 col-2">
+             <div class="progress position-relative">
+-                <div class="progress-bar progress-bar-striped progress-bar-animated"
++                <div class="progress-bar"
+                      style="width:{{((int)$cur_belegung/(int)$max_belegung)*100}}%; background-color: {{$color}}"
+                      aria-valuenow="10" aria-valuemin="0" aria-valuemax="20">
+                     <small class="justify-content-center d-flex position-absolute w-100">{{$cur_belegung}}/{{$max_belegung}}</small></div>
+Index: Asset-Managment/models/raum.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\nfunction get_raum_belegung($raum)\r\n{\r\n    $link = connectdb();\r\n\r\n    $sql = \"select belegte_ws as cur, anzahl_ws as max from raum where raumnummer = '$raum'\";\r\n    $result = mysqli_query($link, $sql);\r\n\r\n //   return mysqli_fetch_assoc($result);\r\n   return mysqli_fetch_assoc($result);\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Asset-Managment/models/raum.php b/Asset-Managment/models/raum.php
+--- a/Asset-Managment/models/raum.php	(revision 477eca8a5a023ef4ea039b22bdd604e35277b877)
++++ b/Asset-Managment/models/raum.php	(date 1671382254280)
+@@ -9,4 +9,17 @@
+ 
+  //   return mysqli_fetch_assoc($result);
+    return mysqli_fetch_assoc($result);
++}
++
++function get_belegung_gebaude($gebaude)
++{
++    $link = connectdb();
++
++    $sql = "select raumnummer as name, belegte_ws as cur, anzahl_ws as max from raum where gebaude = '$gebaude'";
++    $result = mysqli_query($link, $sql);
++
++    $data = mysqli_fetch_all($result, MYSQLI_BOTH);
++
++    mysqli_close($link);
++    return $data;
+ }
+\ No newline at end of file
+Index: Asset-Managment/storage/cache/Raumansicht.studenten.raumansicht_studenten.bladec
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php $_shouldextend[1]=1; ?>\r\n<?php $_shouldextend[2]=1; ?>\r\n\r\n\r\n\r\n<?php $this->startSection('content'); ?>\r\n\r\n <table class=\"table table-striped table-bordered\" id=\"Raumansicht_studenten\" >\r\n <thead>\r\n <tr>\r\n <th>Raum</th>\r\n <th>Anzahl Workstations</th>\r\n <th>Belegte Workstations</th>\r\n <th>Auslastung</th>\r\n </tr>\r\n </thead>\r\n\r\n <tr>\r\n <td>A001</td>\r\n <td>15</td>\r\n <td>13</td>\r\n <td><div class=\" mt-1 col-10\">\r\n <div class=\"progress position-relative\">\r\n <div class=\"progress-bar\" role=\"progressbar\"\r\n style=\"width:86.7%; background-color: red\" aria-valuenow=\"86.7\" aria-valuemin=\"0\"\r\n aria-valuemax=\"100\">\r\n <small class=\"justify-content-center d-flex position-absolute w-100\">13/15</small>\r\n </div>\r\n <div class=\"progress-bar\" role=\"progressbar\"\r\n style=\"width:13.3%; background-color: black\"></div>\r\n </div>\r\n </div></td>\r\n\r\n </tr>\r\n <tr>\r\n <td>A002</td>\r\n <td>15</td>\r\n <td>2</td>\r\n <td><div class=\" mt-1 col-10\">\r\n <div class=\"progress position-relative\">\r\n <div class=\"progress-bar\" role=\"progressbar\"\r\n style=\"width:13.3%; background-color: green\" aria-valuenow=\"13.3\" aria-valuemin=\"0\"\r\n aria-valuemax=\"100\">\r\n <small class=\"justify-content-center d-flex position-absolute w-100\">2/15</small>\r\n </div>\r\n <div class=\"progress-bar\" role=\"progressbar\"\r\n style=\"width:86.7%; background-color: black\"></div>\r\n </div>\r\n </div>\r\n </td>\r\n </tr>\r\n <tr>\r\n <td>A003</td>\r\n <td>10</td>\r\n <td>9</td>\r\n <td>\r\n <div class=\" mt-1 col-10\">\r\n <div class=\"progress position-relative\">\r\n <div class=\"progress-bar\" role=\"progressbar\"\r\n style=\"width:90%; background-color: red\" aria-valuenow=\"90\" aria-valuemin=\"0\"\r\n aria-valuemax=\"100\">\r\n <small class=\"justify-content-center d-flex position-absolute w-100\">9/10</small>\r\n </div>\r\n <div class=\"progress-bar\" role=\"progressbar\"\r\n style=\"width:10%; background-color: black\"></div>\r\n </div>\r\n </div>\r\n </td>\r\n </tr>\r\n\r\n <tr>\r\n <td>A004</td>\r\n <td>16</td>\r\n <td>0</td>\r\n <td>\r\n <div class=\" mt-1 col-10\">\r\n <div class=\"progress position-relative\">\r\n <div class=\"progress-bar\" role=\"progressbar\"\r\n style=\"width:0%; background-color: limegreen\" aria-valuenow=\"0\" aria-valuemin=\"0\"\r\n aria-valuemax=\"100\">\r\n <small class=\"justify-content-center d-flex position-absolute w-100\">0/16</small>\r\n </div>\r\n <div class=\"progress-bar\" role=\"progressbar\"\r\n style=\"width:100%; background-color: black\"></div>\r\n </div>\r\n </div>\r\n </td>\r\n </tr>\r\n\r\n <tr>\r\n <td>A101</td>\r\n <td>20</td>\r\n <td>15</td>\r\n <td>\r\n <div class=\" mt-1 col-10\">\r\n <div class=\"progress position-relative\">\r\n <div class=\"progress-bar\" role=\"progressbar\"\r\n style=\"width:75%; background-color: orange\" aria-valuenow=\"75\" aria-valuemin=\"0\"\r\n aria-valuemax=\"100\">\r\n <small class=\"justify-content-center d-flex position-absolute w-100\">15/20</small>\r\n </div>\r\n <div class=\"progress-bar\" role=\"progressbar\"\r\n style=\"width:25%; background-color: black\"></div>\r\n </div>\r\n </div>\r\n </td>\r\n </tr>\r\n <tr>\r\n <td>A102</td>\r\n <td>16</td>\r\n <td>6</td>\r\n <td>\r\n <div class=\" mt-1 col-10\">\r\n <div class=\"progress position-relative\">\r\n <div class=\"progress-bar\" role=\"progressbar\"\r\n style=\"width:37.5%; background-color: yellowgreen\" aria-valuenow=\"37.5\" aria-valuemin=\"0\"\r\n aria-valuemax=\"100\">\r\n <small class=\"justify-content-center d-flex position-absolute w-100\">6/16</small>\r\n </div>\r\n <div class=\"progress-bar\" role=\"progressbar\"\r\n style=\"width:62.5%; background-color: black\"></div>\r\n </div>\r\n </div>\r\n </td>\r\n </tr>\r\n <tr>\r\n <td>A103</td>\r\n <td>12</td>\r\n <td>6</td>\r\n <td>\r\n <div class=\" mt-1 col-10\">\r\n <div class=\"progress position-relative\">\r\n <div class=\"progress-bar\" role=\"progressbar\"\r\n style=\"width:50%; background-color: #ffe135\" aria-valuenow=\"50\" aria-valuemin=\"0\"\r\n aria-valuemax=\"100\">\r\n <small class=\"justify-content-center d-flex position-absolute w-100\">6/12</small>\r\n </div>\r\n <div class=\"progress-bar\" role=\"progressbar\"\r\n style=\"width:50%; background-color: black\"></div>\r\n </div>\r\n </div>\r\n </td>\r\n </tr>\r\n <tr>\r\n <td>A104</td>\r\n <td>10</td>\r\n <td>7</td>\r\n <td>\r\n <div class=\" mt-1 col-10\">\r\n <div class=\"progress position-relative\">\r\n <div class=\"progress-bar\" role=\"progressbar\"\r\n style=\"width:70%; background-color: orange\" aria-valuenow=\"70\" aria-valuemin=\"0\"\r\n aria-valuemax=\"100\">\r\n <small class=\"justify-content-center d-flex position-absolute w-100\">7/10</small>\r\n </div>\r\n <div class=\"progress-bar\" role=\"progressbar\"\r\n style=\"width:30%; background-color: black\"></div>\r\n </div>\r\n </div>\r\n </td>\r\n </tr>\r\n </table>\r\n\r\n<?php $this->stopSection(); ?>\r\n<?php if (isset($_shouldextend[2])) { echo $this->runChild('header_footer'); } ?>\r\n<?php if (isset($_shouldextend[1])) { echo $this->runChild('Raumansicht.studenten.layout_raumansicht_studenten'); } ?>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Asset-Managment/storage/cache/Raumansicht.studenten.raumansicht_studenten.bladec b/Asset-Managment/storage/cache/Raumansicht.studenten.raumansicht_studenten.bladec
+--- a/Asset-Managment/storage/cache/Raumansicht.studenten.raumansicht_studenten.bladec	(revision 477eca8a5a023ef4ea039b22bdd604e35277b877)
++++ b/Asset-Managment/storage/cache/Raumansicht.studenten.raumansicht_studenten.bladec	(date 1671385414297)
+@@ -15,150 +15,25 @@
+  </tr>
+  </thead>
+ 
++ <?php for($i = 0; $i < count($belegung); $i++): ?>
+  <tr>
+- <td>A001</td>
+- <td>15</td>
+- <td>13</td>
++ <td><?php echo \htmlentities($belegung[$i]['name']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
++ <td><?php echo \htmlentities($belegung[$i]['cur']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
++ <td><?php echo \htmlentities($belegung[$i]['max']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+  <td><div class=" mt-1 col-10">
+  <div class="progress position-relative">
+  <div class="progress-bar" role="progressbar"
+- style="width:86.7%; background-color: red" aria-valuenow="86.7" aria-valuemin="0"
++ style="width:<?php echo \htmlentities(((int)$belegung[$i]['cur']/(int)$belegung[$i]['max'])*100??'', ENT_QUOTES, 'UTF-8', false); ?>%; background-color: <?php echo \htmlentities($color[$i]??'', ENT_QUOTES, 'UTF-8', false); ?>" aria-valuenow="86.7" aria-valuemin="0"
+  aria-valuemax="100">
+- <small class="justify-content-center d-flex position-absolute w-100">13/15</small>
+- </div>
+- <div class="progress-bar" role="progressbar"
+- style="width:13.3%; background-color: black"></div>
+- </div>
+- </div></td>
+-
+- </tr>
+- <tr>
+- <td>A002</td>
+- <td>15</td>
+- <td>2</td>
+- <td><div class=" mt-1 col-10">
+- <div class="progress position-relative">
+- <div class="progress-bar" role="progressbar"
+- style="width:13.3%; background-color: green" aria-valuenow="13.3" aria-valuemin="0"
+- aria-valuemax="100">
+- <small class="justify-content-center d-flex position-absolute w-100">2/15</small>
+- </div>
+- <div class="progress-bar" role="progressbar"
+- style="width:86.7%; background-color: black"></div>
+- </div>
+- </div>
+- </td>
+- </tr>
+- <tr>
+- <td>A003</td>
+- <td>10</td>
+- <td>9</td>
+- <td>
+- <div class=" mt-1 col-10">
+- <div class="progress position-relative">
+- <div class="progress-bar" role="progressbar"
+- style="width:90%; background-color: red" aria-valuenow="90" aria-valuemin="0"
+- aria-valuemax="100">
+- <small class="justify-content-center d-flex position-absolute w-100">9/10</small>
+- </div>
+- <div class="progress-bar" role="progressbar"
+- style="width:10%; background-color: black"></div>
+- </div>
+- </div>
+- </td>
+- </tr>
+-
+- <tr>
+- <td>A004</td>
+- <td>16</td>
+- <td>0</td>
+- <td>
+- <div class=" mt-1 col-10">
+- <div class="progress position-relative">
+- <div class="progress-bar" role="progressbar"
+- style="width:0%; background-color: limegreen" aria-valuenow="0" aria-valuemin="0"
+- aria-valuemax="100">
+- <small class="justify-content-center d-flex position-absolute w-100">0/16</small>
++ <small class="justify-content-center d-flex position-absolute w-100"><?php echo \htmlentities($belegung[$i]['cur']??'', ENT_QUOTES, 'UTF-8', false); ?>/<?php echo \htmlentities($belegung[$i]['max']??'', ENT_QUOTES, 'UTF-8', false); ?></small>
+  </div>
+  <div class="progress-bar" role="progressbar"
+  style="width:100%; background-color: black"></div>
+  </div>
+- </div>
+- </td>
+- </tr>
+-
+- <tr>
+- <td>A101</td>
+- <td>20</td>
+- <td>15</td>
+- <td>
+- <div class=" mt-1 col-10">
+- <div class="progress position-relative">
+- <div class="progress-bar" role="progressbar"
+- style="width:75%; background-color: orange" aria-valuenow="75" aria-valuemin="0"
+- aria-valuemax="100">
+- <small class="justify-content-center d-flex position-absolute w-100">15/20</small>
+- </div>
+- <div class="progress-bar" role="progressbar"
+- style="width:25%; background-color: black"></div>
+- </div>
+- </div>
+- </td>
++ </div></td>
++
+  </tr>
+- <tr>
+- <td>A102</td>
+- <td>16</td>
+- <td>6</td>
+- <td>
+- <div class=" mt-1 col-10">
+- <div class="progress position-relative">
+- <div class="progress-bar" role="progressbar"
+- style="width:37.5%; background-color: yellowgreen" aria-valuenow="37.5" aria-valuemin="0"
+- aria-valuemax="100">
+- <small class="justify-content-center d-flex position-absolute w-100">6/16</small>
+- </div>
+- <div class="progress-bar" role="progressbar"
+- style="width:62.5%; background-color: black"></div>
+- </div>
+- </div>
+- </td>
+- </tr>
+- <tr>
+- <td>A103</td>
+- <td>12</td>
+- <td>6</td>
+- <td>
+- <div class=" mt-1 col-10">
+- <div class="progress position-relative">
+- <div class="progress-bar" role="progressbar"
+- style="width:50%; background-color: #ffe135" aria-valuenow="50" aria-valuemin="0"
+- aria-valuemax="100">
+- <small class="justify-content-center d-flex position-absolute w-100">6/12</small>
+- </div>
+- <div class="progress-bar" role="progressbar"
+- style="width:50%; background-color: black"></div>
+- </div>
+- </div>
+- </td>
+- </tr>
+- <tr>
+- <td>A104</td>
+- <td>10</td>
+- <td>7</td>
+- <td>
+- <div class=" mt-1 col-10">
+- <div class="progress position-relative">
+- <div class="progress-bar" role="progressbar"
+- style="width:70%; background-color: orange" aria-valuenow="70" aria-valuemin="0"
+- aria-valuemax="100">
+- <small class="justify-content-center d-flex position-absolute w-100">7/10</small>
+- </div>
+- <div class="progress-bar" role="progressbar"
+- style="width:30%; background-color: black"></div>
+- </div>
+- </div>
+- </td>
+- </tr>
++ <?php endfor; ?>
+  </table>
+ 
+ <?php $this->stopSection(); ?>
+Index: Asset-Managment/storage/cache/Raumansicht.raumansicht.bladec
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php $_shouldextend[1]=1; ?>\r\n<?php $_shouldextend[2]=1; ?>\r\n<?php $_shouldextend[3]=1; ?>\r\n<?php $_shouldextend[4]=1; ?>\r\n\r\n\r\n<?php $this->startSection('sub_header'); ?>\r\n\r\n <div class=\"row mt-4 \">\r\n <p class=\"display-6 col-3\"> Raum <?php echo \\htmlentities(strtoupper($room)??'', ENT_QUOTES, 'UTF-8', false); ?></p>\r\n </div>\r\n\r\n <?php if($user == 1): ?> <!-- admin -->\r\n\r\n <div class=\"row\"> <!-- Wegen Row ist die Progressbar abgeschnitten -->\r\n <p class=\"col-3\"><b>IP-Adressbereich: 111.111.111.000/27</b></p>\r\n <div class=\" mt-1 col-2\">\r\n <div class=\"progress position-relative\">\r\n <div class=\"progress-bar\" style=\"width:20%; background-color: green\"\r\n aria-valuenow=\"40\" aria-valuemin=\"0\" aria-valuemax=\"30\">\r\n <small class=\"justify-content-center d-flex position-absolute w-100\">6/30</small></div>\r\n <div class=\"progress-bar\" style=\"width:80%; background-color: black\"></div>\r\n </div>\r\n </div>\r\n <p class=\"col-2 offset-1\"><b>Belegung Workstations:</b></p>\r\n <div class=\" mt-1 col-2\">\r\n <div class=\"progress position-relative\">\r\n <div class=\"progress-bar progress-bar-striped progress-bar-animated\"\r\n style=\"width:<?php echo \\htmlentities(((int)$cur_belegung/(int)$max_belegung)*100??'', ENT_QUOTES, 'UTF-8', false); ?>%; background-color: red\"\r\n aria-valuenow=\"40\" aria-valuemin=\"0\" aria-valuemax=\"30\">\r\n <small class=\"justify-content-center d-flex position-absolute w-100\"><?php echo \\htmlentities($cur_belegung??'', ENT_QUOTES, 'UTF-8', false); ?>/<?php echo \\htmlentities($max_belegung??'', ENT_QUOTES, 'UTF-8', false); ?></small></div>\r\n <div class=\"progress-bar\" style=\"width:100%; background-color: black\"></div>\r\n </div>\r\n </div>\r\n\r\n\r\n <div class=\"form-group\">\r\n <button type=\"submit\" class=\"btn btn-primary sub\" data-bs-toggle=\"modal\" data-bs-target=\"#addDevice\">\r\n Gerät hinzufügen\r\n </button>\r\n\r\n <?php if(!empty($selected_filter['suche']) || !empty($selected_filter['Typ']) || !empty($selected_filter['hersteller']) || !empty($selected_filter['age']) || !empty($selected_filter['betriebssystemid']) || !empty($selected_filter['softwarelizenzid'])  ): ?>\r\n <a href=\"\" class=\"btn  btn-primary sub  text-nowrap\" style=\"margin-left: 72%\" role=\"button\" aria-disabled=\"true\">Filter Zurücksetzten</a>\r\n <?php endif; ?>\r\n\r\n </div>\r\n </div>\r\n <?php elseif($user == 2): ?><!-- mitarbeiter -->\r\n <div class=\"row\"> <!-- Wegen Row ist die Progressbar abgeschnitten -->\r\n <p class=\"col-4\"><b>IP-Adressbereich: 111.111.111.000/27</b></p>\r\n <div class=\" mt-1 col-2\">\r\n <div class=\"progress position-relative\">\r\n <div class=\"progress-bar\" style=\"width:20%; background-color: green\"\r\n aria-valuenow=\"40\" aria-valuemin=\"0\" aria-valuemax=\"30\">\r\n <small class=\"justify-content-center d-flex position-absolute w-100\">6/30</small></div>\r\n <div class=\"progress-bar\" style=\"width:80%; background-color: black\"></div>\r\n </div>\r\n </div>\r\n </div>\r\n <div class=\"row\">\r\n <p class=\"col-2 \"><b>Belegung Workstations:\r\n </b>\r\n </p>\r\n <div class=\"col-2\">\r\n <input style=\"height:25px; width:120px;\" class=\"form-control\" type=\"number\" id=\"deviceName\" placeholder=\"6\">\r\n </div>\r\n <div class=\" mt-1 col-2\">\r\n <div class=\"progress position-relative\">\r\n <div class=\"progress-bar progress-bar-striped progress-bar-animated\"\r\n style=\"width:<?php echo \\htmlentities(((int)$cur_belegung/(int)$max_belegung)*100??'', ENT_QUOTES, 'UTF-8', false); ?>%; background-color: <?php echo \\htmlentities($color??'', ENT_QUOTES, 'UTF-8', false); ?>\"\r\n aria-valuenow=\"10\" aria-valuemin=\"0\" aria-valuemax=\"20\">\r\n <small class=\"justify-content-center d-flex position-absolute w-100\"><?php echo \\htmlentities($cur_belegung??'', ENT_QUOTES, 'UTF-8', false); ?>/<?php echo \\htmlentities($max_belegung??'', ENT_QUOTES, 'UTF-8', false); ?></small></div>\r\n <div class=\"progress-bar\" style=\"width:100%; background-color: black\"></div>\r\n </div>\r\n </div>\r\n\r\n <?php if(!empty($selected_filter['suche']) || !empty($selected_filter['Typ']) || !empty($selected_filter['hersteller']) || !empty($selected_filter['age']) || !empty($selected_filter['betriebssystemid']) || !empty($selected_filter['softwarelizenzid'])  ): ?>\r\n <div class=\"col\" style=\"margin-left: 32%\">\r\n <a href=\"\" class=\"btn  btn-primary sub  text-nowrap\" role=\"button\" aria-disabled=\"true\">Filter Zurücksetzten</a>\r\n </div>\r\n <?php endif; ?>\r\n\r\n </div>\r\n <?php endif; ?>\r\n\r\n\r\n\r\n\r\n<?php $this->stopSection(); ?>\r\n\r\n\r\n\r\n<?php $this->startSection('content'); ?>\r\n <div class=\"container mt-3\">\r\n <table class=\"table table-striped table-bordered\" id=\"devices\">\r\n <thead>\r\n <tr>\r\n <th onclick=\"sortTable(0, devices)\">Name<img src=\"/img/up-and-down-arrows-svgrepo-com.svg\" width=\"20px\">\r\n </th>\r\n <th onclick=\"sortTable(1, devices)\">Typ<img src=\"/img/up-and-down-arrows-svgrepo-com.svg\" width=\"20px\">\r\n </th>\r\n <th onclick=\"sortTable(2, devices)\">Hersteller<img src=\"/img/up-and-down-arrows-svgrepo-com.svg\"\r\n width=\"20px\"></th>\r\n <th onclick=\"sortTable(3, devices)\">Alter<img src=\"/img/up-and-down-arrows-svgrepo-com.svg\"\r\n width=\"20px\"></th>\r\n <th onclick=\"sortTable(4, devices)\">IP-Adresse<img src=\"/img/up-and-down-arrows-svgrepo-com.svg\"\r\n width=\"20px\"></th>\r\n <th onclick=\"sortTable(5, devices)\">Betriebssystem<img src=\"/img/up-and-down-arrows-svgrepo-com.svg\"\r\n width=\"20px\"></th>\r\n <th onclick=\"sortTable(6, devices)\">Software<img src=\"/img/up-and-down-arrows-svgrepo-com.svg\"\r\n width=\"20px\"></th>\r\n <th onclick=\"sortTable(7, devices)\">Technische Daten<img src=\"/img/up-and-down-arrows-svgrepo-com.svg\"\r\n width=\"20px\"></th>\r\n <th onclick=\"sortTable(8, devices)\">Kommentar<img src=\"/img/up-and-down-arrows-svgrepo-com.svg\"\r\n width=\"20px\"></th>\r\n <th >  <?php if($user == 1): ?>\r\n Bearbeiten\r\n <?php else: ?>\r\n Kommentar\r\n <?php endif; ?>\r\n </th>\r\n\r\n </tr>\r\n </thead>\r\n <tbody>\r\n <?php $__currentLoopData = $data; $this->addLoop($__currentLoopData);$this->getFirstLoop();\r\n foreach($__currentLoopData as $geraet): $loop = $this->incrementLoopIndices();  ?>\r\n <tr>\r\n <td><?php echo \\htmlentities($geraet['name']??'', ENT_QUOTES, 'UTF-8', false); ?></td>\r\n <td><?php echo \\htmlentities($geraet['typ']??'', ENT_QUOTES, 'UTF-8', false); ?></td>\r\n <td><?php echo \\htmlentities($geraet['hersteller']??'', ENT_QUOTES, 'UTF-8', false); ?></td>\r\n <td><?php echo \\htmlentities($geraet['age']??'', ENT_QUOTES, 'UTF-8', false); ?> Jahre</td>\r\n <td><?php echo \\htmlentities($geraet['ip_adresse']??'', ENT_QUOTES, 'UTF-8', false); ?></td>\r\n <td>\r\n <?php if(isset($geraet['betriebssystem'])): ?>\r\n <ul>\r\n <?php $__currentLoopData = $geraet['betriebssystem']; $this->addLoop($__currentLoopData);$this->getFirstLoop();\r\n foreach($__currentLoopData as $value): $loop = $this->incrementLoopIndices();  ?>\r\n <li><?php echo \\htmlentities($value??'', ENT_QUOTES, 'UTF-8', false); ?> </li>\r\n <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>\r\n </ul>\r\n <?php endif; ?>\r\n </td>\r\n <td>\r\n <?php if(isset($geraet['software'])): ?>\r\n <ul>\r\n <?php $__currentLoopData = $geraet['software']; $this->addLoop($__currentLoopData);$this->getFirstLoop();\r\n foreach($__currentLoopData as $value): $loop = $this->incrementLoopIndices();  ?>\r\n <li><?php echo \\htmlentities($value??'', ENT_QUOTES, 'UTF-8', false); ?> </li>\r\n <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>\r\n </ul>\r\n <?php endif; ?>\r\n </td>\r\n <td>\r\n <?php if(!empty($geraet['technische_eckdaten'][0])): ?>\r\n <ul>\r\n <?php $__currentLoopData = $geraet['technische_eckdaten']; $this->addLoop($__currentLoopData);$this->getFirstLoop();\r\n foreach($__currentLoopData as $value): $loop = $this->incrementLoopIndices();  ?>\r\n <li><?php echo \\htmlentities($value??'', ENT_QUOTES, 'UTF-8', false); ?> </li>\r\n <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>\r\n </ul>\r\n <?php endif; ?>\r\n </td>\r\n <td class=\"no_nowrap\"><?php echo \\htmlentities($geraet['kommentar']??'', ENT_QUOTES, 'UTF-8', false); ?></td>\r\n <td>\r\n\r\n <?php if($user == 1): ?>\r\n <button type=\"submit\" class=\"btn btn-primary sub\" data-bs-toggle=\"modal\"\r\n data-bs-target=\"#editDevice\">Bearbeiten\r\n </button>\r\n <?php else: ?>\r\n <button type=\"submit\" class=\"btn btn-primary sub\" data-bs-toggle=\"modal\"\r\n data-bs-target=\"#editKommentar\">Kommentieren\r\n </button>\r\n <?php endif; ?>\r\n </td>\r\n\r\n\r\n\r\n </tr>\r\n\r\n <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>\r\n </tbody>\r\n </table>\r\n\r\n </div>\r\n\r\n\r\n\r\n<?php $this->stopSection(); ?>\r\n<?php if (isset($_shouldextend[4])) { echo $this->runChild('Filter.geraete'); } ?>\r\n<?php if (isset($_shouldextend[3])) { echo $this->runChild('modals.Eintraege.Device'); } ?>\r\n<?php if (isset($_shouldextend[2])) { echo $this->runChild('header_footer'); } ?>\r\n<?php if (isset($_shouldextend[1])) { echo $this->runChild('Raumansicht.layout_raumansicht'); } ?>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Asset-Managment/storage/cache/Raumansicht.raumansicht.bladec b/Asset-Managment/storage/cache/Raumansicht.raumansicht.bladec
+--- a/Asset-Managment/storage/cache/Raumansicht.raumansicht.bladec	(revision 477eca8a5a023ef4ea039b22bdd604e35277b877)
++++ b/Asset-Managment/storage/cache/Raumansicht.raumansicht.bladec	(date 1671385457606)
+@@ -25,8 +25,8 @@
+  <p class="col-2 offset-1"><b>Belegung Workstations:</b></p>
+  <div class=" mt-1 col-2">
+  <div class="progress position-relative">
+- <div class="progress-bar progress-bar-striped progress-bar-animated"
+- style="width:<?php echo \htmlentities(((int)$cur_belegung/(int)$max_belegung)*100??'', ENT_QUOTES, 'UTF-8', false); ?>%; background-color: red"
++ <div class="progress-bar"
++ style="width:<?php echo \htmlentities(((int)$cur_belegung/(int)$max_belegung)*100??'', ENT_QUOTES, 'UTF-8', false); ?>%; background-color: <?php echo \htmlentities($color??'', ENT_QUOTES, 'UTF-8', false); ?>"
+  aria-valuenow="40" aria-valuemin="0" aria-valuemax="30">
+  <small class="justify-content-center d-flex position-absolute w-100"><?php echo \htmlentities($cur_belegung??'', ENT_QUOTES, 'UTF-8', false); ?>/<?php echo \htmlentities($max_belegung??'', ENT_QUOTES, 'UTF-8', false); ?></small></div>
+  <div class="progress-bar" style="width:100%; background-color: black"></div>
+@@ -66,7 +66,7 @@
+  </div>
+  <div class=" mt-1 col-2">
+  <div class="progress position-relative">
+- <div class="progress-bar progress-bar-striped progress-bar-animated"
++ <div class="progress-bar"
+  style="width:<?php echo \htmlentities(((int)$cur_belegung/(int)$max_belegung)*100??'', ENT_QUOTES, 'UTF-8', false); ?>%; background-color: <?php echo \htmlentities($color??'', ENT_QUOTES, 'UTF-8', false); ?>"
+  aria-valuenow="10" aria-valuemin="0" aria-valuemax="20">
+  <small class="justify-content-center d-flex position-absolute w-100"><?php echo \htmlentities($cur_belegung??'', ENT_QUOTES, 'UTF-8', false); ?>/<?php echo \htmlentities($max_belegung??'', ENT_QUOTES, 'UTF-8', false); ?></small></div>
