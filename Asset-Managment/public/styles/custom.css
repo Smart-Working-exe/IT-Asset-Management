@@ -62,3 +62,8 @@ table{
 {
     white-space: normal;
 }
+
+.form-check-input:checked {
+    background-color: #40BEA9;
+    border-color: #40BEA9;
+}
