@@ -13,8 +13,6 @@
                 @foreach($raume as $raum)
                     @if($raum['gebaude'] == 'a' || $raum['gebaude'] == 'A')
                         <a href={{'/raumansicht?raum=' . $raum['raumnummer']}}  > {{$raum['raumnummer']}}</a>
-                    @else
-                        @break
                     @endif
                 @endforeach
             </div>
@@ -32,8 +30,6 @@
                 @foreach($raume as $raum)
                     @if($raum['gebaude'] == 'b' || $raum['gebaude'] == 'B')
                         <a href={{'/raumansicht?raum=' . $raum['raumnummer']}}  > {{$raum['raumnummer']}}</a>
-                    @else
-                        @break
                     @endif
                 @endforeach
             </div>
