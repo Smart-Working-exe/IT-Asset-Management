@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d756e1b7-c047-45a2-9b0a-4ddb20a8875b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/views/Ausleihe_Student/ausleihe.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/Ausleihe_Student/ausleihe.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/views/Datenbank/datenbank_lizenzen.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/Datenbank/datenbank_lizenzen.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

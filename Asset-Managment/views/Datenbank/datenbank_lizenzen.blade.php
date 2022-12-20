@@ -147,8 +147,9 @@
 @endsection
 
 @section('export')
-    <button type="button" onclick="tableToCSV()">
-        download CSV
+
+    <button class="btn btn-primary sub" type="button" onclick="tableToCSV() ">
+        Export
     </button>
     <script type="text/javascript">
         function tableToCSV() {
@@ -219,7 +220,7 @@
             var temp_link = document.createElement('a');
 
             // Download csv file
-            temp_link.download = "GfG.csv";
+            temp_link.download = "Softwarelizenzen.csv";
             var url = window.URL.createObjectURL(CSVFile);
             temp_link.href = url;
 
