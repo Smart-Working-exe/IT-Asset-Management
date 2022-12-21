@@ -15,8 +15,10 @@ function db_add_device($var)
     $ausleihbar = $var['addDeviceAusleihbar'];
     $technischeEckdaten = $var['addDevicetechnischeEckdaten'];
     $kommentar = $var['addDeviceKommentarGerat'];
-    $betriebssystem = $var['addDeviceBetriebssystem'];
+    //$betriebssystem = $var['addDeviceBetriebssystem'];
 
+
+    print_r($var);
     $absenden = $db->prepare("INSERT INTO geraet(name, typ, hersteller, age, betrieb,raumnummer,technische_eckdaten,kommentar,ausleihbar) VALUES(?,?,?,?,?,?,?,?,?)");
     $absenden->bind_param('ssssssssi', $name, $typ, $hersteller, $age, $betrieb, $room, $technischeEckdaten, $kommentar, $ausleihbar);
     $absenden->execute();
@@ -31,8 +33,6 @@ function db_add_device($var)
     $absenden2->bind_param('ii', $order_id, $betriebssystem);
     $absenden2->execute();
     $db->close();
-
-    mysqli_close($db);
 }
 
 function db_add_user($var)
@@ -69,7 +69,7 @@ function getAll_Betriebssysteme()
 {
     $db = connectdb();
 
-    $sql = 'SELECT * FROM betriebssystem';
+    $sql = 'SELECT * FROM betriebssystem ORDER BY name ASC';
     $result = mysqli_query($db,$sql);
 
     $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -82,7 +82,7 @@ function getAll_Rooms()
 {
     $db = connectdb();
 
-    $sql = 'SELECT * FROM raum';
+    $sql = 'SELECT * FROM raum ORDER BY raumnummer ASC';
     $result = mysqli_query($db,$sql);
 
     $data = mysqli_fetch_all($result, MYSQLI_ASSOC);

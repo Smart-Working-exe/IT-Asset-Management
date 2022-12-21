@@ -282,37 +282,57 @@
                                                 </select>
                                             </div>
                                             <div class="col">
-                                                <select class="form-select" aria-label="Default select example" name="form_OperationSystem">
-                                                    <option disabled>Typ*</option>
-                                                    <option value="1" id="deviceTyp" selected>Windows 10</option>
-                                                    <option value="2" id="deviceTyp">Ubuntu</option>
-                                                    <option value="3" id="deviceTyp">Debian</option>
-                                                    <option value="3" id="deviceTyp">MacOS</option>
-                                                    <option value="3" id="deviceTyp">Neues Betriebssystem</option>
-                                                </select>
+                                                <div class="dropdown">
+                                                    <button class="form-select" data-mdb-clear-button="true" type="button" id="form_OperationSystem" name="form_OperationSystem[]" multiple="multiple" data-bs-toggle="dropdown">Betriebssystem</button>
+                                                    <ul class="dropdown-menu form-select" aria-labelledby="form_OperationSystem" style="max-height: 280px; overflow-y: auto">
+                                                        <li><h6 class="dropdown-header">Betriebssystem</h6></li>
+                                                        @foreach(getAll_Betriebssysteme() as $betriebssystem)
+                                                            <li>
+                                                                <a class="dropdown-item" href="#">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" value="{{$betriebssystem['id']}}" id="Checkme {{$betriebssystem['id']}}" />
+                                                                        <label class="form-check-label" for="Checkme {{$betriebssystem['id']}}">{{$betriebssystem['name']}} @if(!empty($betriebssystem['version'])) {{$betriebssystem['version']}}  @endif</label>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
                                             </div>
-
                                         </div>
                                         <div class="row mt-3">
                                             <div class="col">
                                                 <input class="form-control" type="text" name="form_name123" placeholder="Name*"
                                                        value="{{$geraet['name']}}"></div>
                                             <div class="col">
-                                                <input class="form-control" type="text" name="form_ipAdress" placeholder="IP-Adresse"
-                                                       value="{{$geraet['ip_adresse']}}"></div>
+                                                <select class="form-select" data-mdb-clear-button="true" placeholder="Raum" name="form_room" style="max-height: 180px; overflow-y: auto">
+                                                    @foreach(getAll_Rooms() as $room_tablee)
+                                                        <option value="{{$room_tablee['raumnummer']}}" @if($room_tablee['raumnummer'] == $geraet['raumnummer']) selected @endif>{{$room_tablee['raumnummer']}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
                                         </div>
                                         <div class="row mt-3">
                                             <div class="col">
                                                 <input class="form-control" type="text" name="form_hersteller" placeholder="Hersteller"
                                                        value="{{$geraet['hersteller']}}"></div>
                                             <div class="col">
-                                                <select class="form-select" data-mdb-clear-button="true"
-                                                        placeholder="Software des Gerätes" name="form_Software">
-                                                    <option>Software des Gerätes</option>
-                                                    <option value="1" selected>Microsoft Visual Studio 2022</option>
-                                                    <option value="2">Intel Quartus Prime</option>
-                                                    <option value="3" selected>MS Office</option>
-                                                </select>
+                                                <div class="dropdown">
+                                                    <button class="form-select" data-mdb-clear-button="true" type="button" id="form_Software" name="form_Software[]" multiple="multiple" data-bs-toggle="dropdown">Software des Gerätes</button>
+                                                    <ul class="dropdown-menu form-select" aria-labelledby="form_Software" style="max-height: 280px; overflow-y: auto">
+                                                        <li><h6 class="dropdown-header">Software des Gerätes</h6></li>
+                                                        @foreach(db_getAll_Softwarelizenzen() as $software)
+                                                            <li>
+                                                                <a class="dropdown-item" href="#">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" name="addDeviceSoftware[]" value="{{$software['id']}}" id="Checkme {{$software['id']}}" />
+                                                                        <label class="form-check-label" for="Checkme {{$software['id']}}">{{$software['name']}} @if(!empty($software['version'])) {{$software['version']}}  @endif</label>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="row mt-3">

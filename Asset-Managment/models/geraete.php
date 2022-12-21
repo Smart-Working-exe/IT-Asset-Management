@@ -128,7 +128,7 @@ function editGeraete(RequestData $rd){
     else
         $ausleihbar=1;
 
-    $sql = 'UPDATE geraet SET NAME = "' . $rd->query['form_name123'] . '", typ = ' . $rd->query['form_deviceType'] . ', hersteller = "' . $rd->query['form_hersteller'] . '", ip_adresse = "' . $rd->query['form_ipAdress'] . '", ausleihbar = "' . $ausleihbar . '", technische_eckdaten = "' . $rd->query['form_technischeEckdaten'] . '", kommentar = "' . $rd->query['form_comment'] . '" WHERE id =' .$rd->query['form_id'].' ; ';
+    $sql = 'UPDATE geraet SET NAME = "' . $rd->query['form_name123'] . '", typ = ' . $rd->query['form_deviceType'] . ', hersteller = "' . $rd->query['form_hersteller'] . '", raumnummer = "' . $rd->query['form_room'] . '", ausleihbar = "' . $ausleihbar . '", technische_eckdaten = "' . $rd->query['form_technischeEckdaten'] . '", kommentar = "' . $rd->query['form_comment'] . '" WHERE id =' .$rd->query['form_id'].' ; ';
     //
 
     mysqli_query($link, $sql);

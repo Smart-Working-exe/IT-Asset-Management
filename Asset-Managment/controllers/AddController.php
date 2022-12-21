@@ -65,6 +65,7 @@ class AddController
             $_SESSION['target'] = $_SERVER["HTTP_REFERER"];
             header('Location: /login');
         }
+
         $var=[
             'addDevicedeviceTyp'            => filter_input(INPUT_POST,'addDevicedeviceTyp'),
             'addDeviceName'                 => filter_input(INPUT_POST,'addDeviceName'),

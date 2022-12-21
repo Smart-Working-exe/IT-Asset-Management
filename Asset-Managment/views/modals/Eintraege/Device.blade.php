@@ -28,29 +28,18 @@
                                 </div>
                                 <div class="col">
                                     <div class="dropdown">
-                                        <button class="form-select" data-mdb-clear-button="true" type="button" id="addDeviceSoftware_dropdown" data-bs-toggle="dropdown">Betriebssystem</button>
-                                        <ul class="dropdown-menu form-select" aria-labelledby="addDeviceSoftware_dropdown" style="max-height: 280px; overflow-y: auto">
+                                        <button class="form-select" data-mdb-clear-button="true" type="button" id="addDeviceBetriebssystem" name="addDeviceBetriebssystem[]" multiple="multiple" data-bs-toggle="dropdown">Betriebssystem</button>
+                                        <ul class="dropdown-menu form-select" aria-labelledby="addDeviceBetriebssystem" style="max-height: 280px; overflow-y: auto">
                                             <li><h6 class="dropdown-header">Betriebssystem</h6></li>
                                             @foreach(getAll_Betriebssysteme() as $betriebssystem)
-                                                @if(isset($_POST['addDeviceSoftware']))
-                                                    <li>
-                                                        <a class="dropdown-item" href="#">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" name="labels[]" value="{{$betriebssystem['id']}}" id="Checkme {{$betriebssystem['id']}}" checked />
-                                                                <label class="form-check-label" for="Checkme {{$betriebssystem['id']}}">{{$betriebssystem['name']}} @if(!empty($betriebssystem['version'])) {{$betriebssystem['version']}}  @endif und die ID ist {{$betriebssystem['id']}}</label>
-                                                            </div>
-                                                        </a>
-                                                    </li>
-                                                @else
-                                                    <li>
-                                                        <a class="dropdown-item" href="#">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" name="labels[]" value="{{$betriebssystem['id']}}" id="Checkme {{$betriebssystem['id']}}" />
-                                                                <label class="form-check-label" for="Checkme {{$betriebssystem['id']}}">{{$betriebssystem['name']}} @if(!empty($betriebssystem['version'])) {{$betriebssystem['version']}}  @endif und die ID ist {{$betriebssystem['id']}}</label>
-                                                            </div>
-                                                        </a>
-                                                    </li>
-                                                @endif
+                                                <li>
+                                                    <a class="dropdown-item" href="#">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" value="{{$betriebssystem['id']}}" id="Checkme {{$betriebssystem['id']}}" />
+                                                            <label class="form-check-label" for="Checkme {{$betriebssystem['id']}}">{{$betriebssystem['name']}} @if(!empty($betriebssystem['version'])) {{$betriebssystem['version']}}  @endif</label>
+                                                        </div>
+                                                    </a>
+                                                </li>
                                             @endforeach
                                         </ul>
                                     </div>
@@ -75,29 +64,18 @@
                                            placeholder="Hersteller"></div>
                                 <div class="col">
                                     <div class="dropdown">
-                                        <button class="form-select" data-mdb-clear-button="true" type="button" id="addDeviceSoftware_dropdown" data-bs-toggle="dropdown">Software des Gerätes</button>
-                                        <ul class="dropdown-menu form-select" aria-labelledby="addDeviceSoftware_dropdown" style="max-height: 280px; overflow-y: auto">
+                                        <button class="form-select" data-mdb-clear-button="true" type="button" id="addDeviceSoftware" name="addDeviceSoftware" multiple="multiple" data-bs-toggle="dropdown">Software des Gerätes</button>
+                                        <ul class="dropdown-menu form-select" aria-labelledby="addDeviceSoftware" style="max-height: 280px; overflow-y: auto">
                                             <li><h6 class="dropdown-header">Software des Gerätes</h6></li>
                                             @foreach(db_getAll_Softwarelizenzen() as $software)
-                                                @if(isset($_POST['addDeviceSoftware']))
-                                                    <li>
-                                                        <a class="dropdown-item" href="#">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" name="labels[]" value="{{$software['name']}}" id="Checkme {{$software['id']}}" checked />
-                                                                <label class="form-check-label" for="Checkme {{$software['id']}}">{{$software['name']}} @if(!empty($software['version'])) {{$software['version']}}  @endif  und die ID ist {{$software['id']}}</label>
-                                                            </div>
-                                                        </a>
-                                                    </li>
-                                                @else
-                                                    <li>
-                                                        <a class="dropdown-item" href="#">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" name="labels[]" value="{{$software['id']}}" id="Checkme {{$software['id']}}" />
-                                                                <label class="form-check-label" for="Checkme {{$software['id']}}">{{$software['name']}} @if(!empty($software['version'])) {{$software['version']}}  @endif  und die ID ist {{$software['id']}}</label>
-                                                            </div>
-                                                        </a>
-                                                    </li>
-                                                @endif
+                                                <li>
+                                                    <a class="dropdown-item" href="#">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" name="addDeviceSoftware[]" value="{{$software['id']}}" id="Checkme {{$software['id']}}" />
+                                                            <label class="form-check-label" for="Checkme {{$software['id']}}">{{$software['name']}} @if(!empty($software['version'])) {{$software['version']}}  @endif</label>
+                                                        </div>
+                                                    </a>
+                                                </li>
                                             @endforeach
                                         </ul>
                                     </div>
