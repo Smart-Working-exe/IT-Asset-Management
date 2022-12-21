@@ -130,11 +130,11 @@ class HomeController
         if (isset($_SESSION['login_ok']) && ($_SESSION['Rolle'] == 3)) {
             if (isset($_SESSION['login_ok']) && ($_SESSION['Rolle'] == 3)) {
                 if (isset($_POST['loan'])) {
-                    logger($_SESSION['name'], 3, "Ausleihe wurde für ".$_POST['loan']." angefragt."); //Wo stehen die User und Geräte Daten
+                    logger($_SESSION['name'], 3, "Ausleihe wurde für ".$_POST['loan'][0]." angefragt."); //Wo stehen die User und Geräte Daten
                     request_loan($_POST['loan']);
                 }
                 if (isset($_POST['return'])) {
-                    logger($_SESSION['name'], 3, $_POST['return']." wurde zurückgegeben angefragt.");
+                    logger($_SESSION['name'], 3, $_POST['return'][0]." wurde zurückgegeben angefragt.");
                     request_return($_POST['return']);
                 }
                 $eigene_geraete = get_own_devices();
