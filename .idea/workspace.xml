@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b4b27b3-58aa-4163-82f5-f269307b0798" name="Changes" comment="Logs nearly finished">
+    <list default="true" id="0b4b27b3-58aa-4163-82f5-f269307b0798" name="Changes" comment="Remove Device from User">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/models/geraete.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/models/geraete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/EigeneGeraete.eigeneGeraete.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/EigeneGeraete.eigeneGeraete.bladec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/views/EigeneGeraete/eigeneGeraete.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/EigeneGeraete/eigeneGeraete.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/views/Systemlogs/systemlogs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/Systemlogs/systemlogs.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +53,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671611897384</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Remove Device from User">
+      <created>1671613160389</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1671613160389</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -73,6 +77,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Own Devices Part two a great way to add a Device to your Repertoire" />
     <MESSAGE value="Logs nearly finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="Logs nearly finished" />
+    <MESSAGE value="Remove Device from User" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove Device from User" />
   </component>
 </project>
