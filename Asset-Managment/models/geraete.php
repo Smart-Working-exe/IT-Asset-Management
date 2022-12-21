@@ -152,7 +152,7 @@ function getGeraeteID_name(){
     $link = connectdb();
 
     // get geräte
-    $sql = 'SELECT id,name FROM geraet';
+    $sql = 'SELECT id,name, personen_id, ausleihbar FROM geraet';
     $result = mysqli_query($link, $sql);
 
     $data = mysqli_fetch_all($result, MYSQLI_BOTH);
@@ -167,6 +167,16 @@ function deleteDevice(RequestData $rd){
     $link = connectdb();
 
     $sql = 'DELETE FROM geraet WHERE id = ' . $rd->query['submit_delete'] . ';';
+
+    mysqli_query($link, $sql);
+
+    mysqli_close($link);
+}
+
+function set_user_for_device($id){
+    $link = connectdb();
+    $user = $_SESSION['name'];
+    $sql = "UPDATE geraet SET personen_id = '$user' WHERE id = '$id'";
 
     mysqli_query($link, $sql);
 

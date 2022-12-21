@@ -97,10 +97,9 @@ class AddController
     }
 
     public function chooseDevice(){
-
+        set_user_for_device($_POST['selected_device']);
         if (isset($_SERVER["HTTP_REFERER"]))
             header('Location: ' . $_SERVER["HTTP_REFERER"]);
-
         return view($_SERVER["HTTP_REFERER"], []);
     }
 }
