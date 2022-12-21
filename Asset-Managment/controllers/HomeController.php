@@ -241,6 +241,10 @@ class HomeController
             addComment($rd);
         }
 
+        if(isset($_POST['to_remove'])){
+            reset_used_by($_POST['to_remove']);
+        }
+
         return view('EigeneGeraete.eigeneGeraete', [
             'database_filter' => true,
             'data' => getGeraeteData(get_filter_data($rd, 1)),

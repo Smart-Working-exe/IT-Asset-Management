@@ -121,6 +121,8 @@
                                 <!-- Modal footer -->
                                 <div class="modal-footer">
                                     <button type="submit" name="submit" value="Submit" class="btn btn-primary" data-bs-dismiss="modal">Speichern</button>
+                                    <button type="submit"  name="to_remove" value="{{$geraet['id']}}" class="btn btn-danger">Gerät entfernen</button>
+{{--                                    <button type="submit" class="btn btn-danger mt-4" data-bs-dismiss="modal" name="to_remove" value="{{$geraet['id']}}">Gerät entfernen</button>--}}
                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
                                 </div>
                             </div>

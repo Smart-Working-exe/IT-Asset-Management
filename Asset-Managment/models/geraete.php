@@ -191,3 +191,13 @@ function id_to_name($id){
 
     return mysqli_fetch_assoc($result);
 }
+
+function reset_used_by($id){
+    $link = connectdb();
+
+    $sql = "UPDATE geraet SET personen_id = null WHERE id = '$id';";
+
+    mysqli_query($link, $sql);
+
+    mysqli_close($link);
+}
