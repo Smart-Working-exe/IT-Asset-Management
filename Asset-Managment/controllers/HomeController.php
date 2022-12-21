@@ -106,6 +106,9 @@ class HomeController
         if (isset($_POST['submit']) and $_POST['submit'] == 3) {
             update_licences($rd);
         }
+        if (isset($_POST['submit_delete_license'])) {
+            delete_license($rd);
+        }
         return view('Softwarelizenzen.softwarelizenzen', [
             'data' => get_SoftwarlizenzenTabledata(get_filter_data($rd, 3)),
             'selected_filter' => get_filter_data($rd, 3)
@@ -254,6 +257,11 @@ class HomeController
                 if (isset($_POST['submit']) and $_POST['submit'] == 2) {
                     update_User($rd);
                 }
+                if (isset($_POST['submit_delete_person'])) {
+                    print_r($_POST['submit_delete_person']);
+                    delete_user($rd);
+
+                }
 
                 return view('Datenbank.datenbank_personen', [
                     'typ' => 'personen',
@@ -264,7 +272,10 @@ class HomeController
                 if (isset($_POST['submit']) and $_POST['submit'] == 3) {
                     update_licences($rd);
                 }
-
+                if (isset($_POST['submit_delete_license'])) {
+                    print_r("Hallo ");
+                    delete_license($rd);
+                }
                 return view('Datenbank.datenbank_lizenzen', [
                     'typ' => 'lizenzen',
                     'data' => get_SoftwarlizenzenTabledata(get_filter_data($rd, 3)),

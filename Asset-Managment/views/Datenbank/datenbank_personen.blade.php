@@ -94,7 +94,8 @@
                             </div>
                             <!-- Modal footer -->
                             <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-danger">Benutzer Löschen</button>
+
+                                <button type="submit" id="submit_delete_person" name="submit_delete_person" value="{{$person['fh_kuerzel']}}" class="btn btn-danger">Person Löschen</button>
                                 <div>
                                     <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" name="submit" value="2">Speichern</button>
                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>

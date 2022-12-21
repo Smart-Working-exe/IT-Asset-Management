@@ -51,7 +51,7 @@
             </tr>
 
 
-            <form action="datenbank?database=lizenzen" method="POST">
+            <form action="datenbank?database=lizenzen" method="post">
                 <input type="hidden" name="form_id" value="{{$lizenz['id']}}">
                 <!-- The Modal -->
                 <div class="modal fade" id="editSoftware{{$lizenz['id']}}" tabindex="-1" aria-labelledby="editSoftware"
@@ -127,7 +127,9 @@
                             </div>
                             <!-- Modal footer -->
                             <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-danger">Softwarelizenz Löschen</button>
+
+                                <button type="submit" id="submit_delete_license" name="submit_delete_license" value="{{$lizenz['id']}}" class="btn btn-danger">Softwarelizenz Löschen</button>
+
                                 <div>
                                     <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" name="submit"
                                             value="3">Speichern

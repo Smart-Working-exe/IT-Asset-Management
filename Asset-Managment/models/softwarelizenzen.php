@@ -71,3 +71,14 @@ function update_licences(RequestData $rd){
 
     mysqli_close($link);
 }
+
+function delete_license(RequestData $rd){
+    $link = connectdb();
+    print_r($rd->query['submit_delete_license'] );
+
+    $sql = 'DELETE FROM softwarelizenzen WHERE id = ' . $rd->query['submit_delete_license'] . ';';
+
+    mysqli_query($link, $sql);
+
+    mysqli_close($link);
+}

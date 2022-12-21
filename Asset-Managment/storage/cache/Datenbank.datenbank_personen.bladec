@@ -1,0 +1,197 @@
+<?php $_shouldextend[1]=1; ?>
+<?php $_shouldextend[2]=1; ?>
+<?php $_shouldextend[3]=1; ?>
+<?php $_shouldextend[4]=1; ?>
+<?php $_shouldextend[5]=1; ?>
+
+
+
+<?php $this->startSection('content'); ?>
+
+ <table class="table table-striped table-bordered" id="person">
+ <thead>
+ <tr>
+ <th onclick="sortTable(0, person)">Name <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px">
+ </th>
+ <th onclick="sortTable(1, person)">Vorname <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px">
+ </th>
+ <th onclick="sortTable(2, person)">Rolle <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px">
+ </th>
+ <th onclick="sortTable(3, person)">Kürzel <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px">
+ </th>
+ <th>Bearbeiten</th>
+ </tr>
+ </thead>
+ <tbody>
+
+ <?php $__currentLoopData = $data; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $person): $loop = $this->incrementLoopIndices();  ?>
+
+ <tr>
+ <td><?php echo \htmlentities($person['nachname']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td><?php echo \htmlentities($person['vorname']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td><?php echo \htmlentities($person['rolle']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td><?php echo \htmlentities($person['fh_kuerzel']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+
+ <td>
+ <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
+ data-bs-target="#editUser<?php echo \htmlentities($person['fh_kuerzel']??'', ENT_QUOTES, 'UTF-8', false); ?>">Benutzer bearbeiten
+ </button>
+ </td>
+ </tr>
+
+ <form action="datenbank?database=personen" method="POST">
+ <input type="hidden" name="form_oldIdentifier" value="<?php echo \htmlentities($person['fh_kuerzel']??'', ENT_QUOTES, 'UTF-8', false); ?>">
+ <div class="modal fade" id="editUser<?php echo \htmlentities($person['fh_kuerzel']??'', ENT_QUOTES, 'UTF-8', false); ?>" tabindex="-1" aria-labelledby="editUser" aria-hidden="true">
+ <div class="modal-dialog modal-xl modal-dialog-centered">
+ <div class="modal-content">
+
+ <!-- Modal Header -->
+ <div class="modal-header">
+ <h4 class="modal-title">Benutzer bearbeiten</h4>
+ <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+ </div>
+
+ <!-- Modal Body -->
+ <div class="modal-body">
+ <div class="row">
+ <div class="row mt-3">
+ <div class="col">
+ <select class="form-select" aria-label="Default select example" name="form_role">
+ <option disabled>Rolle*</option>
+ <?php if($person['rolle'] == 'Admin'): ?>
+ <option value="1" id="deviceTyp" selected>Administrator</option>
+ <option value="2" id="deviceTyp" >Mitarbeiter</option>
+ <option value="3" id="deviceTyp">Student</option>
+ <?php elseif($person['rolle'] == 'Mitarbeiter'): ?>
+ <option value="1" id="deviceTyp">Administrator</option>
+ <option value="2" id="deviceTyp" selected>Mitarbeiter</option>
+ <option value="3" id="deviceTyp">Student</option>
+ <?php else: ?>
+ <option value="1" id="deviceTyp">Administrator</option>
+ <option value="2" id="deviceTyp" >Mitarbeiter</option>
+ <option value="3" id="deviceTyp" selected>Student</option>
+ <?php endif; ?>
+ </select>
+ </div>
+ </div>
+ <div class="row mt-3">
+ <div class="col">
+ <input class="form-control" type="text" name="form_firstName" placeholder="Vorname*"
+ value="<?php echo \htmlentities($person['vorname']??'', ENT_QUOTES, 'UTF-8', false); ?>">
+ </div>
+ <div class="col">
+ <input class="form-control" type="text" name="form_SurName"  placeholder="Name*"
+ value="<?php echo \htmlentities($person['nachname']??'', ENT_QUOTES, 'UTF-8', false); ?>"></div>
+ </div>
+ <div class="row mt-3">
+ <div class="col">
+ <input class="form-control" type="text" name="form_personIdentifier"  placeholder="Benutzerkennung*"
+ value="<?php echo \htmlentities($person['fh_kuerzel']??'', ENT_QUOTES, 'UTF-8', false); ?>">
+ </div>
+ </div>
+ </div>
+
+ </div>
+ <!-- Modal footer -->
+ <div class="modal-footer justify-content-between">
+
+ <button type="submit" id="submit_delete_person" name="submit_delete_person" value="<?php echo \htmlentities($person['fh_kuerzel']??'', ENT_QUOTES, 'UTF-8', false); ?>" class="btn btn-danger">Person Löschen</button>
+ <div>
+ <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" name="submit" value="2">Speichern</button>
+ <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ </form>
+
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </tbody>
+ </table>
+
+
+<?php $this->stopSection(); ?>
+<?php $this->startSection('export'); ?>
+
+ <button class="btn btn-primary sub" type="button" onclick="tableToCSV() ">
+ Export
+ </button>
+ <script type="text/javascript">
+ function tableToCSV() {
+
+ // Variable to store the final csv data
+ var csv_data = [];
+ var test=["Name","Vorname","Rolle", "Kürzel"];
+ csv_data.push(test);
+ // Get each row data
+ var rows = document.getElementsByTagName('tr')
+
+
+ for (var i = 0; i < rows.length; i++) {
+
+ // Get each column data
+ var cols = rows[i].querySelectorAll('td');
+
+ // Stores each csv row data
+ var csvrow = [];
+
+ for (var j = 0; j < cols.length-1; j++) {
+
+ // Get the text data of each cell
+ // of a row and push it to csvrow
+ csvrow.push(cols[j].innerHTML);
+ }
+
+ // Combine each column value with comma
+ if(i!=0) {
+ csv_data.push(csvrow.join(","));
+ }
+ }
+
+ // Combine each row data with new line character
+
+ csv_data = csv_data.join('\n');
+
+
+
+ // Call this function to download csv file
+ downloadCSVFile(csv_data);
+
+ }
+
+ function downloadCSVFile(csv_data) {
+
+ // Create CSV file object and feed
+ // our csv_data into it
+ CSVFile = new Blob([csv_data], {
+ type: "text/csv"
+ });
+
+ // Create to temporary link to initiate
+ // download process
+ var temp_link = document.createElement('a');
+
+ // Download csv file
+ temp_link.download = "Personen.csv";
+ var url = window.URL.createObjectURL(CSVFile);
+ temp_link.href = url;
+
+ // This link should not be displayed
+ temp_link.style.display = "none";
+ document.body.appendChild(temp_link);
+
+ // Automatically click the link to
+ // trigger download
+ temp_link.click();
+ document.body.removeChild(temp_link);
+ }
+ </script>
+<?php $this->stopSection(); ?>
+<?php if (isset($_shouldextend[5])) { echo $this->runChild('modals.export_import'); } ?>
+<?php if (isset($_shouldextend[4])) { echo $this->runChild('Filter.user'); } ?>
+<?php if (isset($_shouldextend[3])) { echo $this->runChild('modals.Eintraege.User'); } ?>
+<?php if (isset($_shouldextend[2])) { echo $this->runChild('header_footer'); } ?>
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('Datenbank.datenbank_layout'); } ?>
