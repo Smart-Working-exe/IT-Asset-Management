@@ -313,7 +313,7 @@
                     // Get the text data of each cell
                     // of a row and push it to csvrow
 
-                    if(j==7){
+                    if(j==7|j==6|j==5){
                         var Stringzumspalten=cols[j].innerHTML;
                         var help=Stringzumspalten.replace("\n","");
                         var arrayzumkillen=Stringzumspalten.split('<').join(',').split('>').join(',').split(',');
