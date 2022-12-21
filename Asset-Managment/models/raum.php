@@ -11,6 +11,16 @@ function get_raum_belegung($raum)
    return mysqli_fetch_assoc($result);
 }
 
+function get_raum_ip($raum)
+{
+    $link = connectdb();
+
+    $sql = "select `ip-adressbereich_beginn`, anzahl_ip, belegung_ip from raum where raumnummer = '$raum'";
+    $result = mysqli_query($link, $sql);
+
+    return mysqli_fetch_assoc($result);
+}
+
 function get_belegung_gebaude($gebaude)
 {
     $link = connectdb();
@@ -28,7 +38,7 @@ function get_raume(){
 
     $link = connectdb();
 
-    $sql = "select raumnummer, gebaude from raum order by gebaude";
+    $sql = "select raumnummer, gebaude from raum order by raumnummer";
     $result = mysqli_query($link, $sql);
 
     $data = mysqli_fetch_all($result, MYSQLI_BOTH);

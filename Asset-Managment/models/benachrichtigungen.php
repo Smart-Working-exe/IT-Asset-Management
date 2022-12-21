@@ -9,7 +9,7 @@ function notif_admin()
     // get einstellungen
     $settings_request = "SELECT benachrichtigung, benachrichtigung_ip from personen where fh_kuerzel = '$self'";
     $settings = mysqli_query($link,$settings_request);
-    $data1 = mysqli_fetch_all($settings);
+    $data1 = mysqli_fetch_all($settings, MYSQLI_BOTH);
 
     // get softwarelizenzen
     $setting_sw = $data1[0][0];
@@ -18,9 +18,10 @@ function notif_admin()
     $sw = mysqli_query($link,$sw_request);
 
     // get IP
-    $setting_ip = $data1[1][0];
+    $setting_ip = $data1[0][1];
     $ip_request = "SELECT raumnummer, anzahl_ip, belegung_ip FROM raum WHERE (anzahl_ip - belegung_ip) <= '$setting_ip'";
     $ip = mysqli_query($link,$ip_request);
+
 
     $data2 = mysqli_fetch_all($sw, MYSQLI_ASSOC);
     $data3 = mysqli_fetch_all($ip,MYSQLI_ASSOC);
@@ -73,15 +74,19 @@ function notif_student()
 
     // Löschen oder Status ändern
     $setting = $data1[0][0];
-    $loan_request = "SELECT art, geraet, status, DATEDIFF(rueckgabedatum,NOW()) AS zeitraum FROM ausleihanfragen where student = '$self' AND status > 0
-                     HAVING zeitraum <= '$setting' AND -'$setting' <= zeitraum ORDER BY zeitraum";
-    $loan = mysqli_query($link,$loan_request);
+    $loan_request1 = "SELECT art, geraet, status, DATEDIFF(rueckgabedatum,NOW()) AS zeitraum FROM ausleihanfragen where student = '$self' AND art = 0 AND
+                      status = 1 HAVING zeitraum <= '$setting' AND -'$setting' <= zeitraum ORDER BY zeitraum";
+    $loan_request2 = "SELECT art, geraet, status FROM ausleihanfragen where student = '$self' 
+                      AND ((art = 0 AND status = 2) OR (art = 1 AND status > 0))";
+    $loan1 = mysqli_query($link,$loan_request1);
+    $loan2 = mysqli_query($link,$loan_request2);
 
-    $data2 = mysqli_fetch_all($loan, MYSQLI_ASSOC);
+    $data2 = mysqli_fetch_all($loan1, MYSQLI_ASSOC);
+    $data3 = mysqli_fetch_all($loan2, MYSQLI_ASSOC);
 
     mysqli_commit($link);
     mysqli_close($link);
-    return $data2;
+    return array_merge($data2, $data3);
 }
 
 function delete_notif_loan($geraet) {

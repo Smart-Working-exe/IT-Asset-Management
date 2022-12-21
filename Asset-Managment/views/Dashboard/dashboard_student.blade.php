@@ -56,6 +56,9 @@
                             @elseif($benachrichtigung['art'] == 1 && $benachrichtigung['status'] == 2)
                                     Die Rückgabe-Anfrage für "{{ $benachrichtigung['geraet'] }}" wurde abgelehnt.
                                     Wenden Sie sich an Mitarbeitende der Fachhochschule Aachen.
+                                    {{-- Abgelehnte Rückgabe -> Sorry --}}
+                            @elseif($benachrichtigung['art'] == 0 && $benachrichtigung['status'] == 2)
+                                    Die Ausleih-Anfrage für "{{ $benachrichtigung['geraet'] }}" wurde abgelehnt.
                             @endif
                                 </div>
                             </div>

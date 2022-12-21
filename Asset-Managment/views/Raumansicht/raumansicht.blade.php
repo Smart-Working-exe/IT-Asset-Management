@@ -15,12 +15,20 @@
 
         <div class="row"> <!-- Wegen Row ist die Progressbar abgeschnitten -->
             @if($room != 'Lager')
-            <p class="col-3"><b>IP-Adressbereich: 111.111.111.000/27</b></p>
+            <p class="col-3"><b>IP-Adressbereich: {{$ip['ip-adressbereich_beginn']}}/@if($ip['anzahl_ip'] <= 4)30
+                @elseif($ip['anzahl_ip'] <= 8)29
+                @elseif($ip['anzahl_ip'] <= 16)28
+                @elseif($ip['anzahl_ip'] <= 32)27
+                @elseif($ip['anzahl_ip'] <= 64)26
+                @elseif($ip['anzahl_ip'] <= 128)25
+                @elseif($ip['anzahl_ip'] <= 256)24
+                @elseif($ip['anzahl_ip'] <= 512)23
+                @endif</b></p>
             <div class=" mt-1 col-2">
                 <div class="progress position-relative">
-                    <div class="progress-bar" style="width:20%; background-color: green"
+                    <div class="progress-bar" style="width:{{((int)$ip['belegung_ip']/(int)$ip['anzahl_ip'])*100}}%; background-color: {{$color}}"
                          aria-valuenow="40" aria-valuemin="0" aria-valuemax="30">
-                        <small class="justify-content-center d-flex position-absolute w-100" style="color: black">6/30</small></div>
+                        <small class="justify-content-center d-flex position-absolute w-100" style="color: black">{{$ip['belegung_ip']}}/{{$ip['anzahl_ip']}}</small></div>
                 </div>
             </div>
             <p class="col-2 offset-1"><b>Belegung Workstations:</b></p>
@@ -55,12 +63,20 @@
     @elseif($user == 2)<!-- mitarbeiter -->
     <div class="row"> <!-- Wegen Row ist die Progressbar abgeschnitten -->
         @if($room != 'Lager')
-        <p class="col-4"><b>IP-Adressbereich: 111.111.111.000/27</b></p>
+        <p class="col-4"><b>IP-Adressbereich: {{$ip['ip-adressbereich_beginn']}}/@if($ip['anzahl_ip'] <= 4)30
+                @elseif($ip['anzahl_ip'] <= 8)29
+                @elseif($ip['anzahl_ip'] <= 16)28
+                @elseif($ip['anzahl_ip'] <= 32)27
+                @elseif($ip['anzahl_ip'] <= 64)26
+                @elseif($ip['anzahl_ip'] <= 128)25
+                @elseif($ip['anzahl_ip'] <= 256)24
+                @elseif($ip['anzahl_ip'] <= 512)23
+                @endif</b></p>
         <div class=" mt-1 col-2">
             <div class="progress position-relative">
-                <div class="progress-bar" style="width:20%; background-color: green"
+                <div class="progress-bar" style="width:{{((int)$ip['belegung_ip']/(int)$ip['anzahl_ip'])*100}}%; background-color: {{$color}}"
                      aria-valuenow="40" aria-valuemin="0" aria-valuemax="30">
-                    <small class="justify-content-center d-flex position-absolute w-100" style="color: black">6/30</small></div>
+                    <small class="justify-content-center d-flex position-absolute w-100" style="color: black">{{$ip['belegung_ip']}}/{{$ip['anzahl_ip']}}</small></div>
             </div>
         </div>
     </div>

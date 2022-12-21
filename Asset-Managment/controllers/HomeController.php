@@ -197,6 +197,7 @@ class HomeController
             return view('Raumansicht.studenten.raumansicht_studenten', [
                 'gebaeude' => $rd->query['gebaeude'] ?? 'a',
                 'belegung' => get_belegung_gebaude($rd->query['gebaeude'] ?? 'a'),
+                'ip' => get_raum_ip($rd->query['raum'] ?? 'a001'),
                 'color' => $this->get_color_build(get_belegung_gebaude($rd->query['gebaeude'] ?? 'a'))
             ]);
         }
@@ -211,6 +212,7 @@ class HomeController
             'selected_filter' => get_filter_data($rd, 1),
             'max_belegung' => get_raum_belegung($rd->query['raum'] ?? 'a001')['max'],
             'cur_belegung' => get_raum_belegung($rd->query['raum'] ?? 'a001')['cur'],
+            'ip' => get_raum_ip($rd->query['raum'] ?? 'a001'),
             'color' => $this->get_color(get_raum_belegung($rd->query['raum'] ?? 'a001')['max'], get_raum_belegung($rd->query['raum'] ?? 'a001')['cur'])
         ]);
     }
