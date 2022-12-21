@@ -31,6 +31,8 @@ function db_add_device($var)
     $absenden2->bind_param('ii', $order_id, $betriebssystem);
     $absenden2->execute();
     $db->close();
+
+    mysqli_close($db);
 }
 
 function db_add_user($var)
@@ -61,4 +63,30 @@ function db_add_software($var)
     $absenden->bind_param('sssiss', $hersteller, $name, $version, $anzahl_gerate, $erwerbsdatum, $ablaufdatum);
     $absenden->execute();
     mysqli_close($db);
+}
+
+function getAll_Betriebssysteme()
+{
+    $db = connectdb();
+
+    $sql = 'SELECT * FROM betriebssystem';
+    $result = mysqli_query($db,$sql);
+
+    $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    mysqli_close($db);
+    return $data;
+}
+
+function getAll_Rooms()
+{
+    $db = connectdb();
+
+    $sql = 'SELECT * FROM raum';
+    $result = mysqli_query($db,$sql);
+
+    $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    mysqli_close($db);
+    return $data;
 }

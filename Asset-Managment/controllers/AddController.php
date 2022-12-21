@@ -69,7 +69,7 @@ class AddController
             'addDevicedeviceTyp'            => filter_input(INPUT_POST,'addDevicedeviceTyp'),
             'addDeviceName'                 => filter_input(INPUT_POST,'addDeviceName'),
             'addDeviceBetriebssystem'       => filter_input(INPUT_POST,'addDeviceBetriebssystem'),
-            'addDeviceIP'                   => filter_input(INPUT_POST,'addDeviceIP'),
+            'addDeviceRoom'                 => filter_input(INPUT_POST,'addDeviceRoom'),
             'addDeviceHersteller'           => filter_input(INPUT_POST,'addDeviceHersteller'),
             'addDeviceSoftware'             => filter_input(INPUT_POST,'addDeviceSoftware'),
             'addDeviceersteInbetriebname'   => filter_input(INPUT_POST,'addDeviceersteInbetriebname'),
