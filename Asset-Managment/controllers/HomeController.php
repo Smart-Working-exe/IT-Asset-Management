@@ -104,6 +104,7 @@ class HomeController
             header('Location: /login');
         }
         if (isset($_POST['submit']) and $_POST['submit'] == 3) {
+            logger($_SESSION['name'], 11, $rd->query['form_lizenzname']." wurde bearbeitet.");
             update_licences($rd);
         }
         if (isset($_POST['submit_delete_license'])) {
@@ -129,11 +130,11 @@ class HomeController
         if (isset($_SESSION['login_ok']) && ($_SESSION['Rolle'] == 3)) {
             if (isset($_SESSION['login_ok']) && ($_SESSION['Rolle'] == 3)) {
                 if (isset($_POST['loan'])) {
-                    logger($_SESSION['name'], 3, "Ausleihe wurde für ".$_POST['loan']." angefragt.");
+                    logger($_SESSION['name'], 3, "Ausleihe wurde für ".$_POST['loan']." angefragt."); //Wo stehen die User und Geräte Daten
                     request_loan($_POST['loan']);
                 }
                 if (isset($_POST['return'])) {
-                    logger($_SESSION['name'], 3, $_POST['return']."wurde zurückgegeben angefragt.");
+                    logger($_SESSION['name'], 3, $_POST['return']." wurde zurückgegeben angefragt.");
                     request_return($_POST['return']);
                 }
                 $eigene_geraete = get_own_devices();
@@ -185,14 +186,17 @@ class HomeController
             header('Location: /login');
         }
         if (isset($_POST['belegung'])) {
+            logger($_SESSION['name'], 14, "In Raum ". $rd->query['raum']. " wurde die Belegung auf ".$_POST['belegung']. " geändert." );
             set_raum_belegung($_POST['belegung'], $rd->query['raum']);
         }
 
         if (isset($_POST['submit'])) {
+            logger($_SESSION['name'], 4, $rd->query['form_name123']." wurde bearbeitet.");
             editGeraete($rd);
         }
 
         if (isset($_POST['submit_delete'])) {
+            logger($_SESSION['name'], 7, id_to_name($rd->query['submit_delete'])['name']." wurde gelöscht.");
             deleteDevice($rd);
         }
 
@@ -236,7 +240,12 @@ class HomeController
             isRoomnumberValid($rd);
         }
         if(isset($_POST['submit']) and $_POST['submit'] == "Submit2"){
+             logger($_SESSION['name'], 5, id_to_name($rd->query['form_deviceID'])['name']." wurde kommentiert.");
             addComment($rd);
+        }
+
+        if(isset($_POST['to_remove'])){
+            reset_used_by($_POST['to_remove']);
         }
 
         return view('EigeneGeraete.eigeneGeraete', [
@@ -257,6 +266,7 @@ class HomeController
         if (isset($rd->query['database'])) {
             if ($rd->query['database'] == 'personen') {
                 if (isset($_POST['submit']) and $_POST['submit'] == 2) {
+                    logger($_SESSION['name'], 8, $rd->query['form_personIdentifier']." wurde bearbeitet.");
                     update_User($rd);
                 }
                 if (isset($_POST['submit_delete_person'])) {
@@ -272,6 +282,7 @@ class HomeController
                 ]);
             } elseif ($rd->query['database'] == 'lizenzen') {
                 if (isset($_POST['submit']) and $_POST['submit'] == 3) {
+                    logger($_SESSION['name'], 11, $rd->query['form_lizenzname']." wurde bearbeitet.");
                     update_licences($rd);
                 }
                 if (isset($_POST['submit_delete_license'])) {
@@ -287,10 +298,12 @@ class HomeController
         }
 
         if (isset($_POST['submit']) and $_POST['submit'] == 1) {
+            logger($_SESSION['name'], 4, $rd->query['form_name123']." wurde bearbeitet.");
             editGeraete($rd);
         }
 
         if (isset($_POST['submit_delete'])) {
+            logger($_SESSION['name'], 7, id_to_name($rd->query['submit_delete'])['name']." wurde gelöscht.");
             deleteDevice($rd);
         }
 

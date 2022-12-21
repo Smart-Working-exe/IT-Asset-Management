@@ -58,8 +58,8 @@
         <li class="nav-item"><a href="https://www.fh-aachen.de/impressum/" class="nav-link px-2 text-muted" target="_blank">Impressum</a></li>
     </ul>
     <p class="text-center text-muted">© 2022 SmartWorking.exe</p>
-    tw0850m                  mitarbeiter <br>
-    ad1234a                    admin <br>
-    vm4269s                    student <br>
+{{--    tw0850m                  mitarbeiter <br>--}}
+{{--    ad1234a                    admin <br>--}}
+{{--    vm4269s                    student <br>--}}
 </footer>
 </html>

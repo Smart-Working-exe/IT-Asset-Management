@@ -23,7 +23,7 @@ class AddController
         ];
         //print_r($var);
         if ($var['software_add_name'] != null) {
-            logger($_SESSION['name'], 12, "Lizenz: " . $var['software_add_name'] . "wurde hinzugefügt.");
+            logger($_SESSION['name'], 12, "Lizenz: " . $var['software_add_name'] . " wurde hinzugefügt.");
             db_add_software($var);
         }
         //print_r('Location: ' . $_SERVER["HTTP_REFERER"]);
@@ -48,7 +48,7 @@ class AddController
         ];
         //print_r($var);
         if ($var['user_add_vorname'] != null) {
-            logger($_SESSION['name'], 9, "Benutzer: " . $var['user_add_vorname'] . "wurde hinzugefügt.");
+            logger($_SESSION['name'], 9, "Benutzer: " . $var['user_add_vorname'] . " wurde hinzugefügt.");
             db_add_user($var);
         }
         //print_r('Location: ' . $_SERVER["HTTP_REFERER"]);
@@ -86,7 +86,7 @@ class AddController
 
 
         if ($var['addDeviceName'] != null) {
-            logger($_SESSION['name'], 9, "Gerät: " . $var['addDeviceName'] . "wurde hinzugefügt.");
+            logger($_SESSION['name'], 9, "Gerät: " . $var['addDeviceName'] . " wurde hinzugefügt.");
             db_add_device($var);
         }
         //print_r('Location: ' . $_SERVER["HTTP_REFERER"]);
@@ -97,10 +97,9 @@ class AddController
     }
 
     public function chooseDevice(){
-
+        set_user_for_device($_POST['selected_device']);
         if (isset($_SERVER["HTTP_REFERER"]))
             header('Location: ' . $_SERVER["HTTP_REFERER"]);
-
         return view($_SERVER["HTTP_REFERER"], []);
     }
 }
