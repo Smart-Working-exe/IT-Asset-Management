@@ -3,7 +3,7 @@
 function get_rentable_devices() {
     $link = connectdb();
 
-    $devices = "SELECT name, typ, kommentar FROM geraet WHERE ausleihbar = true AND personen_id is null";
+    $devices = "SELECT name, typ, kommentar FROM geraet WHERE ausleihbar = 1 AND personen_id is null";
     $requests = mysqli_query($link,$devices);
     $data = mysqli_fetch_all($requests, MYSQLI_ASSOC);
 
@@ -32,6 +32,8 @@ function request_loan($devices) {
         foreach($devices as $device) {
             $request = "INSERT INTO ausleihanfragen(student, geraet) values('$self','$device')";
             mysqli_query($link,$request);
+            $change_device_availability = "UPDATE geraet set ausleihbar = 0 where name = '$device'";
+            mysqli_query($link,$change_device_availability);
         }
     }
     else {
@@ -90,8 +92,9 @@ function accept_loan($device) {
     $data = mysqli_fetch_all($sql,MYSQLI_BOTH);
     $student = $data['student'];
     // Update Geraet
-    $request3 = "UPDATE geraet SET personen_id = '$student' WHERE name = '$device'";
+    $request3 = "UPDATE geraet SET personen_id = '$student', ausleihbar = 1 WHERE name = '$device'";
     mysqli_query($link,$request3);
+
 
     mysqli_commit($link);
     mysqli_close($link);
@@ -116,7 +119,10 @@ function reject($device) {
     $link = connectdb();
 
     $request = "UPDATE ausleihanfragen SET status = 2 WHERE geraet = '$device' AND status = 0";
-    $sql = mysqli_query($link,$request);
+    mysqli_query($link,$request);
+
+    $change_device_availability = "UPDATE geraet set ausleihbar = 1 where name = '$device'";
+    mysqli_query($link,$change_device_availability);
 
     mysqli_close($link);
 }

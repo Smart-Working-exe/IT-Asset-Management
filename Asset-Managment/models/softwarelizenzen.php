@@ -6,7 +6,7 @@ function db_getAll_Softwarelizenzen()
     $link = connectdb();
 
 
-    $sql = 'SELECT id,name, version FROM softwarelizenzen';
+    $sql = 'SELECT * FROM softwarelizenzen ORDER BY Name ASC';
     $result = mysqli_query($link,$sql);
 
 
@@ -16,7 +16,6 @@ function db_getAll_Softwarelizenzen()
     mysqli_close($link);
     return $data;
 }
-
 
 /** Gibt die Daten zu Softwarelizenzen in passender Form für die Tabelle zurück
  * @param $filter

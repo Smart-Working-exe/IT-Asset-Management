@@ -85,10 +85,10 @@
 
 
  </tr>
+
  <form action="/datenbank" method="post" role="form">
  <input type="hidden" name="form_id" value="<?php echo \htmlentities($geraet['id']??'', ENT_QUOTES, 'UTF-8', false); ?>">
- <div class="modal fade" id="editDevice<?php echo \htmlentities($geraet['id']??'', ENT_QUOTES, 'UTF-8', false); ?>" tabindex="-1" aria-labelledby="editDevice"
- aria-hidden="true">
+ <div class="modal fade" id="editDevice<?php echo \htmlentities($geraet['id']??'', ENT_QUOTES, 'UTF-8', false); ?>" tabindex="-1" aria-labelledby="editDevice" aria-hidden="true">
  <div class="modal-dialog modal-xl modal-dialog-centered">
  <div class="modal-content">
 
@@ -172,17 +172,24 @@
  </select>
  </div>
  <div class="col">
- <select class="form-select" aria-label="Default select example"
- name="form_OperationSystem">
- <option disabled>Typ*</option>
- <option value="1" id="deviceTyp" selected>Windows 10</option>
- <option value="2" id="deviceTyp">Ubuntu</option>
- <option value="3" id="deviceTyp">Debian</option>
- <option value="3" id="deviceTyp">MacOS</option>
- <option value="3" id="deviceTyp">Neues Betriebssystem</option>
- </select>
+ <div class="dropdown">
+ <button class="form-select" data-mdb-clear-button="true" type="button" id="form_OperationSystem" name="form_OperationSystem[]" multiple="multiple" data-bs-toggle="dropdown">Betriebssystem</button>
+ <ul class="dropdown-menu form-select" aria-labelledby="form_OperationSystem" style="max-height: 280px; overflow-y: auto">
+ <li><h6 class="dropdown-header">Betriebssystem</h6></li>
+ <?php $__currentLoopData = getAll_Betriebssysteme(); $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $betriebssystem): $loop = $this->incrementLoopIndices();  ?>
+ <li>
+ <a class="dropdown-item" href="#">
+ <div class="form-check">
+ <input class="form-check-input" type="checkbox" value="<?php echo \htmlentities($betriebssystem['id']??'', ENT_QUOTES, 'UTF-8', false); ?>" id="Checkme <?php echo \htmlentities($betriebssystem['id']??'', ENT_QUOTES, 'UTF-8', false); ?>" />
+ <label class="form-check-label" for="Checkme <?php echo \htmlentities($betriebssystem['id']??'', ENT_QUOTES, 'UTF-8', false); ?>"><?php echo \htmlentities($betriebssystem['name']??'', ENT_QUOTES, 'UTF-8', false); ?> <?php if(!empty($betriebssystem['version'])): ?> <?php echo \htmlentities($betriebssystem['version']??'', ENT_QUOTES, 'UTF-8', false); ?>  <?php endif; ?></label>
  </div>
-
+ </a>
+ </li>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </ul>
+ </div>
+ </div>
  </div>
  <div class="row mt-3">
  <div class="col">
@@ -190,9 +197,13 @@
  placeholder="Name*"
  value="<?php echo \htmlentities($geraet['name']??'', ENT_QUOTES, 'UTF-8', false); ?>"></div>
  <div class="col">
- <input class="form-control" type="text" name="form_room"
- placeholder="Raum"
- value="<?php echo \htmlentities($geraet['raumnummer']??'', ENT_QUOTES, 'UTF-8', false); ?>"></div>
+ <select class="form-select" data-mdb-clear-button="true" placeholder="Raum" name="form_room" style="max-height: 180px; overflow-y: auto">
+ <?php $__currentLoopData = getAll_Rooms(); $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $room): $loop = $this->incrementLoopIndices();  ?>
+ <option value="<?php echo \htmlentities($room['raumnummer']??'', ENT_QUOTES, 'UTF-8', false); ?>" <?php if($room['raumnummer'] == $geraet['raumnummer']): ?> selected <?php endif; ?>><?php echo \htmlentities($room['raumnummer']??'', ENT_QUOTES, 'UTF-8', false); ?></option>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </select>
+ </div>
  </div>
  <div class="row mt-3">
  <div class="col">
@@ -200,13 +211,23 @@
  placeholder="Hersteller"
  value="<?php echo \htmlentities($geraet['hersteller']??'', ENT_QUOTES, 'UTF-8', false); ?>"></div>
  <div class="col">
- <select class="form-select" data-mdb-clear-button="true"
- placeholder="Software des Gerätes" name="form_Software">
- <option>Software des Gerätes</option>
- <option value="1" selected>Microsoft Visual Studio 2022</option>
- <option value="2">Intel Quartus Prime</option>
- <option value="3" selected>MS Office</option>
- </select>
+ <div class="dropdown">
+ <button class="form-select" data-mdb-clear-button="true" type="button" id="form_Software" name="form_Software[]" multiple="multiple" data-bs-toggle="dropdown">Software des Gerätes</button>
+ <ul class="dropdown-menu form-select" aria-labelledby="form_Software" style="max-height: 280px; overflow-y: auto">
+ <li><h6 class="dropdown-header">Software des Gerätes</h6></li>
+ <?php $__currentLoopData = db_getAll_Softwarelizenzen(); $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $software): $loop = $this->incrementLoopIndices();  ?>
+ <li>
+ <a class="dropdown-item" href="#">
+ <div class="form-check">
+ <input class="form-check-input" type="checkbox" name="addDeviceSoftware[]" value="<?php echo \htmlentities($software['id']??'', ENT_QUOTES, 'UTF-8', false); ?>" id="Checkme <?php echo \htmlentities($software['id']??'', ENT_QUOTES, 'UTF-8', false); ?>" />
+ <label class="form-check-label" for="Checkme <?php echo \htmlentities($software['id']??'', ENT_QUOTES, 'UTF-8', false); ?>"><?php echo \htmlentities($software['name']??'', ENT_QUOTES, 'UTF-8', false); ?> <?php if(!empty($software['version'])): ?> <?php echo \htmlentities($software['version']??'', ENT_QUOTES, 'UTF-8', false); ?>  <?php endif; ?></label>
+ </div>
+ </a>
+ </li>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </ul>
+ </div>
  </div>
  </div>
  <div class="row mt-3">
@@ -317,7 +338,7 @@
  // Get the text data of each cell
  // of a row and push it to csvrow
 
- if(j==7){
+ if(j==7|j==6|j==5){
  var Stringzumspalten=cols[j].innerHTML;
  var help=Stringzumspalten.replace("\n","");
  var arrayzumkillen=Stringzumspalten.split('<').join(',').split('>').join(',').split(',');
