@@ -113,14 +113,20 @@ function get_hash($pw){
 }
 function delete_user(RequestData $rd){
     $link = connectdb();
-    print_r($rd->query['submit_delete_person'] );
-    $fh_erkennung=$_POST['submit_delete_person'];
-    print_r($fh_erkennung);
 
-    //$sql = 'DELETE FROM personen WHERE fh_kuerzel = ' . $rd->query['submit_delete_person'] . ';';
-    $deleteAnweisung = "DELETE FROM personen WHERE fh_kuerzel = $fh_erkennung";
-    mysqli_query($link, $deleteAnweisung);
+    $kill=$rd->query['submit_delete_person'];
+    $sql = "DELETE FROM personen WHERE fh_kuerzel='$kill'";
 
+    if ($link->query($sql) === TRUE) {
+   //     echo "Record deleted successfully";
+   //     print_r("worked");
+    } else {
+        echo "Error deleting record: " . $link->error;
+        print_r('failed');
+    }
 
+    //$sql = 'DELETE FROM personen WHERE fh_kuerzel = '.$rd->query['submit_delete_person'].';';
+
+    //mysqli_query($link, $sql);
     mysqli_close($link);
 }
