@@ -182,3 +182,12 @@ function set_user_for_device($id){
 
     mysqli_close($link);
 }
+
+function id_to_name($id){
+    $link = connectdb();
+
+    $sql = "SELECT name FROM geraet where id = '$id'  ";
+    $result = mysqli_query($link, $sql);
+
+    return mysqli_fetch_assoc($result);
+}

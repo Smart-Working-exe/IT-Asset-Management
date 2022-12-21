@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b4b27b3-58aa-4163-82f5-f269307b0798" name="Changes" comment="M can only pick Devices that exist first Part">
+    <list default="true" id="0b4b27b3-58aa-4163-82f5-f269307b0798" name="Changes" comment="Own Devices Part two a great way to add a Device to your Repertoire">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Asset-Managment/controllers/AddController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/controllers/AddController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Asset-Managment/models/geraete.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/models/geraete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/EigeneGeraete.eigeneGeraete.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/EigeneGeraete.eigeneGeraete.bladec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/modals.Eintraege.chooseDevice.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/modals.Eintraege.chooseDevice.bladec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/views/modals/Eintraege/chooseDevice.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/modals/Eintraege/chooseDevice.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/models/logs.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/models/logs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_geraete.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_geraete.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Raumansicht.raumansicht.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Raumansicht.raumansicht.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Raumauswahl.raumauswahl.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Raumauswahl.raumauswahl.bladec" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +45,14 @@
     </configuration>
   </component>
   <component name="TaskManager">
+    <task id="LOCAL-00001" summary="Own Devices Part two a great way to add a Device to your Repertoire">
+      <created>1671608731207</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1671608731207</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -55,5 +65,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Own Devices Part two a great way to add a Device to your Repertoire" />
+    <option name="LAST_COMMIT_MESSAGE" value="Own Devices Part two a great way to add a Device to your Repertoire" />
   </component>
 </project>

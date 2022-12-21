@@ -53,6 +53,8 @@ function get_logs($filter = []) : array
             $data[$key]['aktion'] = 'Softwarelizenz hinzugefügt';
         elseif ($value['aktion'] == 13)
             $data[$key]['aktion'] = 'Softwarelizenz gelöscht';
+        elseif ($value['aktion'] == 14)
+            $data[$key]['aktion'] = 'Raumbelegung geändert';
     }
     return $data;
 }
