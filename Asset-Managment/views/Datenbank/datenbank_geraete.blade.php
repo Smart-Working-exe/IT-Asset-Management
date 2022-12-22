@@ -62,7 +62,7 @@
                         </ul>
                     @endif
                 </td>
-                <td>
+                <td class="no_nowrap">
                     @if(!empty($geraet['technische_eckdaten_liste'][0]))
                         <ul>
                             @foreach($geraet['technische_eckdaten_liste'] as $value)
@@ -172,12 +172,12 @@
                                                 <button class="form-select" data-mdb-clear-button="true" type="button" id="form_OperationSystem" name="form_OperationSystem[]" multiple="multiple" data-bs-toggle="dropdown">Betriebssystem</button>
                                                 <ul class="dropdown-menu form-select" aria-labelledby="form_OperationSystem" style="max-height: 280px; overflow-y: auto">
                                                     <li><h6 class="dropdown-header">Betriebssystem</h6></li>
-                                                    @foreach(getAll_Betriebssysteme() as $betriebssystem)
+                                                    @foreach($filter_variable_data['betriebssystem'] as $key_betriebssystemid => $betriebssystem_name)
                                                         <li>
                                                             <a class="dropdown-item" href="#">
                                                                 <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox" value="{{$betriebssystem['id']}}" id="Checkme {{$betriebssystem['id']}}" />
-                                                                    <label class="form-check-label" for="Checkme {{$betriebssystem['id']}}">{{$betriebssystem['name']}} @if(!empty($betriebssystem['version'])) {{$betriebssystem['version']}}  @endif</label>
+                                                                    <input class="form-check-input" type="checkbox" value="{{$key_betriebssystemid}}" id="Checkme {{$key_betriebssystemid}}" />
+                                                                    <label class="form-check-label" for="Checkme {{$key_betriebssystemid}}">{{$betriebssystem_name}}</label>
                                                                 </div>
                                                             </a>
                                                         </li>
@@ -193,8 +193,8 @@
                                                    value="{{$geraet['name']}}"></div>
                                         <div class="col">
                                             <select class="form-select" data-mdb-clear-button="true" placeholder="Raum" name="form_room" style="max-height: 180px; overflow-y: auto">
-                                                @foreach(getAll_Rooms() as $room)
-                                                    <option value="{{$room['raumnummer']}}" @if($room['raumnummer'] == $geraet['raumnummer']) selected @endif>{{$room['raumnummer']}}</option>
+                                                @foreach($raueme as $raum)
+                                                    <option value="{{$raum['raumnummer']}}" @if($raum['raumnummer'] == $geraet['raumnummer']) selected @endif>{{$raum['raumnummer']}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -209,12 +209,12 @@
                                                 <button class="form-select" data-mdb-clear-button="true" type="button" id="form_Software" name="form_Software[]" multiple="multiple" data-bs-toggle="dropdown">Software des Gerätes</button>
                                                 <ul class="dropdown-menu form-select" aria-labelledby="form_Software" style="max-height: 280px; overflow-y: auto">
                                                     <li><h6 class="dropdown-header">Software des Gerätes</h6></li>
-                                                    @foreach(db_getAll_Softwarelizenzen() as $software)
+                                                    @foreach($filter_variable_data['softwarelizenzen'] as $key_softwareid => $data_softwarename)
                                                         <li>
                                                             <a class="dropdown-item" href="#">
                                                                 <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox" name="addDeviceSoftware[]" value="{{$software['id']}}" id="Checkme {{$software['id']}}" />
-                                                                    <label class="form-check-label" for="Checkme {{$software['id']}}">{{$software['name']}} @if(!empty($software['version'])) {{$software['version']}}  @endif</label>
+                                                                    <input class="form-check-input" type="checkbox" name="addDeviceSoftware[]" value="{{$key_softwareid}}" id="Checkme {{$key_softwareid}}" />
+                                                                    <label class="form-check-label" for="Checkme {{$key_softwareid}}">{{$data_softwarename}}</label>
                                                                 </div>
                                                             </a>
                                                         </li>

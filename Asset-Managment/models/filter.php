@@ -155,8 +155,14 @@ function filter_to_sql($sql,$eintrag, &$filter =[] ) : string
         if($eintrag == 1) {
 
 
-            if (!empty($filter['raum']))
+            if (!empty($filter['raum'])) {
                 $where_sql .= " And raumnummer like '%$filter[raum]%'";
+
+                if($filter['raum'] != 'Test')
+                    $where_sql .= " And raumnummer not like '%Test%'";
+            }else
+                $where_sql .= " And raumnummer not like '%Test%'";
+
 
             if(!empty($filter['Typ']))
                 $where_sql .= " And Typ = '$filter[Typ]'";
@@ -191,6 +197,8 @@ function filter_to_sql($sql,$eintrag, &$filter =[] ) : string
                 $where_sql .= " And gb.betriebssystemid = '$filter[betriebssystemid]' ";
 
             }
+
+
         }
         elseif ($eintrag == 2)
         {

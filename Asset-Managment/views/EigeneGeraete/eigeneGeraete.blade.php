@@ -81,7 +81,7 @@
                             </ul>
                         @endif
                     </td>
-                    <td>
+                    <td class="no_nowrap">
                         @if(!empty($geraet['technische_eckdaten_liste'][0]))
                             <ul>
                                 @foreach($geraet['technische_eckdaten_liste'] as $value)

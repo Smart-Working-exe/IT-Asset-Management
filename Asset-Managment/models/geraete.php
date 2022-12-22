@@ -4,6 +4,99 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/../models/filter.php');
 
 const SEPERATOR = ';';
 
+
+
+function teste_dich_gluecklich()
+{
+    $db = connectdb();
+    for($i = 0 ; $i < 0; $i++) {
+        $name = "T_PC_V3_".$i;
+        $typ = 1;
+        $hersteller = "Matrix";
+        $age = date('Y-m-d', strtotime("22.12.2022"));
+        $betrieb = date('Y-m-d', strtotime("22.12.2022"));
+
+        $room = "Test";
+        $ausleihbar = 0;
+        $technischeEckdaten = "Ein Test" .$i." ;noch einer".$i." ; und noch einen".$i;
+        $kommentar = "Nein, ich bin der beste PC";
+
+
+        $absenden = $db->prepare("INSERT INTO geraet(name, typ, hersteller, age, betrieb,raumnummer,technische_eckdaten,kommentar,ausleihbar) VALUES(?,?,?,?,?,?,?,?,?)");
+        $absenden->bind_param('ssssssssi', $name, $typ, $hersteller, $age, $betrieb, $room, $technischeEckdaten, $kommentar, $ausleihbar);
+        $absenden->execute();
+
+        $order_id = $db->insert_id;
+
+        $used_randomNumbers = [];
+        for($b = 0; $b < random_int(1,4); $b++) {
+            $betriebssystem = random_int(1,6);
+            if(!isset($used_randomNumbers[$betriebssystem])) {
+                $absenden2 = $db->prepare("INSERT INTO geraet_hat_betriebssystem(geraetid,betriebssystemid)VALUES (?,?)");
+                $absenden2->bind_param('ii', $order_id, $betriebssystem);
+                $absenden2->execute();
+                $used_randomNumbers[$betriebssystem] = "aipsgfj";
+            }
+        }
+
+        $used_randomNumbers2 = [];
+        for($b = 0; $b < random_int(1,5); $b++) {
+            $software = random_int(35,39);
+            if(!isset($used_randomNumbers2[$software])) {
+                $absenden2 = $db->prepare("INSERT INTO geraet_hat_software(geraetid,softwarelizenzid)VALUES (?,?)");
+                $absenden2->bind_param('ii', $order_id, $software);
+                $absenden2->execute();
+                $used_randomNumbers2[$software] = "aipsgfj";
+            }
+        }
+
+    }
+    $db->close();
+
+}
+
+/**gibt die view view_get_geraet_hat_software als hashMap zurueck <br>
+ * name und version werden zusammengefasst
+ * @return array die keys fuer die hashmap sind die geraete id's
+ */
+function get_geraet_hat_software() :array{
+    $link = connectdb();
+    $sql = "SELECT * FROM view_geraet_hat_software";
+
+    $result = mysqli_query($link, $sql);
+
+    $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    // zur hashmap
+    foreach ($data as $value)
+        $return_data[$value['geraetid']][] = $value['name'];
+
+    return $return_data;
+
+}
+
+/**gibt die view view_get_geraet_hat_betriebssystem als hashMap zurueck <br>
+ * name und version werden zusammengefasst
+ * @return array die keys fuer die hashmap sind die geraete id's
+ */
+function get_geraet_hat_betriebssystem() :array
+{
+    $link = connectdb();
+    $sql = "SELECT * FROM view_geraet_hat_betriebssystem";
+
+    $result = mysqli_query($link, $sql);
+
+    $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+
+    // zur hashmap
+    foreach ($data as $value)
+        $return_data[$value['geraetid']][] = $value['name'];
+
+    return $return_data;
+
+}
+
 /**
  * Gibt alle Geräte aus der Datenbank wieder, auf den den $filter passen
  * @param $filter array der Schlüssel gibt an, nach welcher Eigenschaft gefiltert wird, diese MÜSSEN der Eigenschafts-Namen in der Datenbank entsprechen! Für Namen und technische Daten als Schlüssel 'suche'<br>
@@ -35,39 +128,21 @@ function getGeraeteData($filter = [])
 
     $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
+    $geraet_hat_betriebssystem = get_geraet_hat_betriebssystem();
+    $geraet_hat_software = get_geraet_hat_software();
 
     foreach ($data as $key => $value) {
 
-        $value_id = $value['id'];
 
-        if($value['typ'] == 1 || $value['typ'] == 2) {
-            //get betriebssystem
-            $sql = "SELECT  b.name FROM geraet_hat_betriebssystem gb LEFT JOIN betriebssystem b On gb.betriebssystemid = b.id where gb.geraetid = $value_id ";
-            $result_betriebssystem = mysqli_query($link, $sql);
+        // nur pcs oder laptops, hunzufuegen von betriebssystemen und software
+        if($value['id'] >= 2) {
+            if (!empty($geraet_hat_betriebssystem[$value['id']]))
+                $data[$key]['betriebssystem'] = $geraet_hat_betriebssystem[$value['id']];
 
-
-            $data_betriebssystem = mysqli_fetch_all($result_betriebssystem, MYSQLI_NUM);
-
-            // entfernt array klammern
-            foreach ($data_betriebssystem as $value2)
-                foreach ($value2 as $value3)
-                    $data[$key]['betriebssystem'][] = $value3;
-
-
-            //get software
-            $sql = "SELECT  s.name FROM geraet_hat_software gs LEFT JOIN softwarelizenzen s On gs.softwarelizenzid = s.id where gs.geraetid = $value_id ";
-            $result_software = mysqli_query($link, $sql);
-
-
-            $data_software = mysqli_fetch_all($result_software, MYSQLI_NUM);
-
-            // entfernt array klammern
-            foreach ($data_software as $value4)
-                foreach ($value4 as $value5)
-                    $data[$key]['software'][] = $value5;
-
-
+            if (!empty($geraet_hat_software[$value['id']]))
+                $data[$key]['software'] = $geraet_hat_software[$value['id']];
         }
+
 
         //technische_eckdaten von string zu array
         if(!empty($data[$key]['technische_eckdaten']))

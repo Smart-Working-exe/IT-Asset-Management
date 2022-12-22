@@ -220,7 +220,8 @@ class HomeController
             'max_belegung' => get_raum_belegung($rd->query['raum'] ?? 'a001')['max'],
             'cur_belegung' => get_raum_belegung($rd->query['raum'] ?? 'a001')['cur'],
             'ip' => get_raum_ip($rd->query['raum'] ?? 'a001'),
-            'color' => $this->get_color(get_raum_belegung($rd->query['raum'] ?? 'a001')['max'], get_raum_belegung($rd->query['raum'] ?? 'a001')['cur'])
+            'color' => $this->get_color(get_raum_belegung($rd->query['raum'] ?? 'a001')['max'], get_raum_belegung($rd->query['raum'] ?? 'a001')['cur']),
+            'raueme' => getAll_Rooms()
         ]);
     }
 
@@ -253,7 +254,8 @@ class HomeController
             'data' => getGeraeteData(get_filter_data($rd, 1)),
             'filter_variable_data' => get_softwarelizenzen_betriessystem(), //Variable filter Daten wie zmb. softwarelizenzen
             'selected_filter' => get_filter_data($rd, 1),
-            'dev'=> getGeraeteID_name()
+            'dev'=> getGeraeteID_name(),
+            'raueme' => getAll_Rooms()
         ]);
     }
 
@@ -289,6 +291,8 @@ class HomeController
                     print_r("Hallo ");
                     delete_license($rd);
                 }
+
+
                 return view('Datenbank.datenbank_lizenzen', [
                     'typ' => 'lizenzen',
                     'data' => get_SoftwarlizenzenTabledata(get_filter_data($rd, 3)),
@@ -308,12 +312,15 @@ class HomeController
         }
 
 
+        $filter_data = get_filter_data($rd, 1);
+
         return view('Datenbank.datenbank_geraete', [
             'typ' => 'geraete',
             'database_filter' => true,
-            'data' => getGeraeteData(get_filter_data($rd, 1)),
+            'data' => getGeraeteData($filter_data),
             'filter_variable_data' => get_softwarelizenzen_betriessystem(), //Variable filter Daten wie zmb. softwarelizenzen
-            'selected_filter' => get_filter_data($rd, 1)
+            'selected_filter' => $filter_data,
+            'raueme' => getAll_Rooms()
         ]);
     }
 
@@ -322,7 +329,7 @@ class HomeController
     public function test(RequestData $rd)
     {
         return view('test', [
-            'data' => get_softwarelizenzen_betriessystem()
+            'data' => []
         ]);
     }
 

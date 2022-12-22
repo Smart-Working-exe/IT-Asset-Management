@@ -84,7 +84,7 @@
  </ul>
  <?php endif; ?>
  </td>
- <td>
+ <td class="no_nowrap">
  <?php if(!empty($geraet['technische_eckdaten_liste'][0])): ?>
  <ul>
  <?php $__currentLoopData = $geraet['technische_eckdaten_liste']; $this->addLoop($__currentLoopData);$this->getFirstLoop();

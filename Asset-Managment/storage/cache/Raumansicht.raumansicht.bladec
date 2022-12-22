@@ -179,7 +179,7 @@
  </ul>
  <?php endif; ?>
  </td>
- <td>
+ <td class="no_nowrap">
  <?php if(!empty($geraet['technische_eckdaten_liste'][0])): ?>
  <ul>
  <?php $__currentLoopData = $geraet['technische_eckdaten_liste']; $this->addLoop($__currentLoopData);$this->getFirstLoop();
@@ -290,13 +290,13 @@
  <button class="form-select" data-mdb-clear-button="true" type="button" id="form_OperationSystem" name="form_OperationSystem[]" multiple="multiple" data-bs-toggle="dropdown">Betriebssystem</button>
  <ul class="dropdown-menu form-select" aria-labelledby="form_OperationSystem" style="max-height: 280px; overflow-y: auto">
  <li><h6 class="dropdown-header">Betriebssystem</h6></li>
- <?php $__currentLoopData = getAll_Betriebssysteme(); $this->addLoop($__currentLoopData);$this->getFirstLoop();
- foreach($__currentLoopData as $betriebssystem): $loop = $this->incrementLoopIndices();  ?>
+ <?php $__currentLoopData = $filter_variable_data['betriebssystem']; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $key_betriebssystemid => $betriebssystem_name): $loop = $this->incrementLoopIndices();  ?>
  <li>
  <a class="dropdown-item" href="#">
  <div class="form-check">
- <input class="form-check-input" type="checkbox" value="<?php echo \htmlentities($betriebssystem['id']??'', ENT_QUOTES, 'UTF-8', false); ?>" id="Checkme <?php echo \htmlentities($betriebssystem['id']??'', ENT_QUOTES, 'UTF-8', false); ?>" />
- <label class="form-check-label" for="Checkme <?php echo \htmlentities($betriebssystem['id']??'', ENT_QUOTES, 'UTF-8', false); ?>"><?php echo \htmlentities($betriebssystem['name']??'', ENT_QUOTES, 'UTF-8', false); ?> <?php if(!empty($betriebssystem['version'])): ?> <?php echo \htmlentities($betriebssystem['version']??'', ENT_QUOTES, 'UTF-8', false); ?>  <?php endif; ?></label>
+ <input class="form-check-input" type="checkbox" value="<?php echo \htmlentities($key_betriebssystemid??'', ENT_QUOTES, 'UTF-8', false); ?>" id="Checkme <?php echo \htmlentities($key_betriebssystemid??'', ENT_QUOTES, 'UTF-8', false); ?>" />
+ <label class="form-check-label" for="Checkme <?php echo \htmlentities($key_betriebssystemid??'', ENT_QUOTES, 'UTF-8', false); ?>"><?php echo \htmlentities($betriebssystem_name??'', ENT_QUOTES, 'UTF-8', false); ?></label>
  </div>
  </a>
  </li>
@@ -311,9 +311,9 @@
  value="<?php echo \htmlentities($geraet['name']??'', ENT_QUOTES, 'UTF-8', false); ?>"></div>
  <div class="col">
  <select class="form-select" data-mdb-clear-button="true" placeholder="Raum" name="form_room" style="max-height: 180px; overflow-y: auto">
- <?php $__currentLoopData = getAll_Rooms(); $this->addLoop($__currentLoopData);$this->getFirstLoop();
- foreach($__currentLoopData as $room_tablee): $loop = $this->incrementLoopIndices();  ?>
- <option value="<?php echo \htmlentities($room_tablee['raumnummer']??'', ENT_QUOTES, 'UTF-8', false); ?>" <?php if($room_tablee['raumnummer'] == $geraet['raumnummer']): ?> selected <?php endif; ?>><?php echo \htmlentities($room_tablee['raumnummer']??'', ENT_QUOTES, 'UTF-8', false); ?></option>
+ <?php $__currentLoopData = $raueme; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $raum): $loop = $this->incrementLoopIndices();  ?>
+ <option value="<?php echo \htmlentities($raum['raumnummer']??'', ENT_QUOTES, 'UTF-8', false); ?>" <?php if($raum['raumnummer'] == $geraet['raumnummer']): ?> selected <?php endif; ?>><?php echo \htmlentities($raum['raumnummer']??'', ENT_QUOTES, 'UTF-8', false); ?></option>
  <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
  </select>
  </div>
@@ -327,13 +327,13 @@
  <button class="form-select" data-mdb-clear-button="true" type="button" id="form_Software" name="form_Software[]" multiple="multiple" data-bs-toggle="dropdown">Software des Gerätes</button>
  <ul class="dropdown-menu form-select" aria-labelledby="form_Software" style="max-height: 280px; overflow-y: auto">
  <li><h6 class="dropdown-header">Software des Gerätes</h6></li>
- <?php $__currentLoopData = db_getAll_Softwarelizenzen(); $this->addLoop($__currentLoopData);$this->getFirstLoop();
- foreach($__currentLoopData as $software): $loop = $this->incrementLoopIndices();  ?>
+ <?php $__currentLoopData = $filter_variable_data['softwarelizenzen']; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $key_softwareid => $data_softwarename): $loop = $this->incrementLoopIndices();  ?>
  <li>
  <a class="dropdown-item" href="#">
  <div class="form-check">
- <input class="form-check-input" type="checkbox" name="addDeviceSoftware[]" value="<?php echo \htmlentities($software['id']??'', ENT_QUOTES, 'UTF-8', false); ?>" id="Checkme <?php echo \htmlentities($software['id']??'', ENT_QUOTES, 'UTF-8', false); ?>" />
- <label class="form-check-label" for="Checkme <?php echo \htmlentities($software['id']??'', ENT_QUOTES, 'UTF-8', false); ?>"><?php echo \htmlentities($software['name']??'', ENT_QUOTES, 'UTF-8', false); ?> <?php if(!empty($software['version'])): ?> <?php echo \htmlentities($software['version']??'', ENT_QUOTES, 'UTF-8', false); ?>  <?php endif; ?></label>
+ <input class="form-check-input" type="checkbox" name="addDeviceSoftware[]" value="<?php echo \htmlentities($key_softwareid??'', ENT_QUOTES, 'UTF-8', false); ?>" id="Checkme <?php echo \htmlentities($key_softwareid??'', ENT_QUOTES, 'UTF-8', false); ?>" />
+ <label class="form-check-label" for="Checkme <?php echo \htmlentities($key_softwareid??'', ENT_QUOTES, 'UTF-8', false); ?>"><?php echo \htmlentities($data_softwarename??'', ENT_QUOTES, 'UTF-8', false); ?></label>
  </div>
  </a>
  </li>
