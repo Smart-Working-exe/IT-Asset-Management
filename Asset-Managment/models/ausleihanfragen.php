@@ -3,7 +3,7 @@
 function get_rentable_devices() {
     $link = connectdb();
 
-    $devices = "SELECT name, typ, kommentar FROM geraet WHERE ausleihbar = 1 AND personen_id is null";
+    $devices = "SELECT name, typ, kommentar FROM geraet WHERE ausleihbar = 1";
     $requests = mysqli_query($link,$devices);
     $data = mysqli_fetch_all($requests, MYSQLI_ASSOC);
 
@@ -32,13 +32,15 @@ function request_loan($devices) {
         foreach($devices as $device) {
             $request = "INSERT INTO ausleihanfragen(student, geraet) values('$self','$device')";
             mysqli_query($link,$request);
-            $change_device_availability = "UPDATE geraet set ausleihbar = 0 where name = '$device'";
+            $change_device_availability = "UPDATE geraet set ausleihbar = 2 where name = '$device'";
             mysqli_query($link,$change_device_availability);
         }
     }
     else {
         $request = "INSERT INTO ausleihanfragen(student, geraet) values('$self','$devices')";
         mysqli_query($link,$request);
+        $change_device_availability = "UPDATE geraet set ausleihbar = 2 where name = '$devices'";
+        mysqli_query($link,$change_device_availability);
     }
 
     mysqli_commit($link);
@@ -70,7 +72,7 @@ function get_open_requests() {
 
     $link = connectdb();
 
-    $open_requests = "SELECT student, art, geraet FROM ausleihanfragen WHERE status = 0;";
+    $open_requests = "SELECT id, student, art, geraet FROM ausleihanfragen WHERE status = 0;";
     $requests = mysqli_query($link,$open_requests);
 
     $data = mysqli_fetch_all($requests, MYSQLI_ASSOC);
@@ -79,50 +81,84 @@ function get_open_requests() {
     return $data;
 }
 
-function accept_loan($device) {
+function accept_loan($id) {
     $link = connectdb();
     mysqli_begin_transaction($link);
 
-    // Update Status
-    $request = "UPDATE ausleihanfragen SET status = 1 , ausleihdatum = NOW(), rueckgabedatum = DATE_ADD(NOW(), INTERVAL 30 DAY) WHERE geraet = '$device' AND status = 0";
-    mysqli_query($link,$request);
-    // Get Student
-    $request2 = "SELECT student from ausleihanfragen where geraet = '$device'";
+    // Get Student und Gerätename
+    $request = "SELECT geraet, student from ausleihanfragen where id = '$id'";
+    $sql = mysqli_query($link, $request);
+    $data = mysqli_fetch_all($sql,MYSQLI_BOTH);
+    $student = $data[0]['student'];
+    $geraet = $data[0]['geraet'];
+    // Get Gerätestatus
+    $request2 = "SELECT personen_id from geraet where name = '$geraet'";
     $sql = mysqli_query($link, $request2);
     $data = mysqli_fetch_all($sql,MYSQLI_BOTH);
-    $student = $data['student'];
-    // Update Geraet
-    $request3 = "UPDATE geraet SET personen_id = '$student', ausleihbar = 1 WHERE name = '$device'";
-    mysqli_query($link,$request3);
+    $status = $data[0]['personen_id'];
 
+    // Gerät noch nicht verliehen
+    if(empty($status) or $status == "") {
+        // Update Status
+        $request3 = "UPDATE ausleihanfragen SET status = 1 , ausleihdatum = NOW(), rueckgabedatum = DATE_ADD(NOW(), INTERVAL 30 DAY) WHERE id = '$id'";
+        mysqli_query($link,$request3);
+        // Update Geraet
+        $request4 = "UPDATE geraet SET personen_id = '$student' WHERE name = '$geraet'";
+        mysqli_query($link,$request4);
+    }
+    // Gerät schon verliehen
+    else{
+        $request = "UPDATE ausleihanfragen SET status = 2 WHERE geraet = '$id' AND status = 0 AND student = '$student'";
+        mysqli_query($link,$request);
+    }
 
     mysqli_commit($link);
     mysqli_close($link);
 }
 
-function accept_return($device) {
+function accept_return($id) {
     $link = connectdb();
     mysqli_begin_transaction($link);
 
+    // Get Gerätename
+    $request = "SELECT geraet from ausleihanfragen where id = '$id'";
+    $sql = mysqli_query($link, $request);
+    $data = mysqli_fetch_all($sql,MYSQLI_BOTH);
+    $geraet = $data[0]['geraet'];
     // Update Status
-    $request = "UPDATE ausleihanfragen SET status = 1 WHERE geraet = '$device' AND status = 0";
-    mysqli_query($link,$request);
+    $request2 = "UPDATE ausleihanfragen SET status = 1 WHERE id = '$id' AND status = 0";
+    mysqli_query($link,$request2);
     // Update Geraet
-    $request3 = "UPDATE geraet SET personen_id = null WHERE name = '$device'";
+    $request3 = "UPDATE geraet SET personen_id = null, ausleihbar = 1 WHERE name = '$geraet'";
     mysqli_query($link,$request3);
 
     mysqli_commit($link);
     mysqli_close($link);
 }
 
-function reject($device) {
+function reject($id) {
     $link = connectdb();
 
-    $request = "UPDATE ausleihanfragen SET status = 2 WHERE geraet = '$device' AND status = 0";
+    $request = "UPDATE ausleihanfragen SET status = 2 WHERE id = '$id' AND status = 0";
     mysqli_query($link,$request);
 
-    $change_device_availability = "UPDATE geraet set ausleihbar = 1 where name = '$device'";
-    mysqli_query($link,$change_device_availability);
+    // Get Gerätename
+    $request2 = "SELECT geraet from ausleihanfragen where id = '$id'";
+    $sql = mysqli_query($link, $request2);
+    $data = mysqli_fetch_all($sql,MYSQLI_BOTH);
+    $geraet = $data[0]['geraet'];
+    // Get Gerätestatus
+    $request3 = "SELECT personen_id from geraet where name = '$geraet'";
+    $sql = mysqli_query($link, $request3);
+    $data = mysqli_fetch_all($sql,MYSQLI_BOTH);
+    $status = $data[0]['personen_id'];
+
+    // Gerät noch nicht verliehen, Status zurück ändern
+    if(empty($status) or $status == "" or $status == "NULL") {
+        // Update Status
+        $change_device_availability = "UPDATE geraet set ausleihbar = 1 where name = '$geraet'";
+        mysqli_query($link,$change_device_availability);
+    }
 
     mysqli_close($link);
 }

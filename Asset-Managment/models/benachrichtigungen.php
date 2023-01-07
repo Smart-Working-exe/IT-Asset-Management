@@ -71,7 +71,7 @@ function notif_student()
     $settings = mysqli_query($link, $settings_request);
     $data1 = mysqli_fetch_all($settings);
 
-    // Löschen oder Status ändern
+    // get Benachrichtigungen
     $setting = $data1[0][0];
     $loan_request1 = "SELECT art, geraet, status, DATEDIFF(rueckgabedatum,NOW()) AS zeitraum FROM ausleihanfragen where student = '$self' AND art = 0 AND
                       status = 1 HAVING zeitraum <= '$setting' AND -'$setting' <= zeitraum ORDER BY zeitraum";

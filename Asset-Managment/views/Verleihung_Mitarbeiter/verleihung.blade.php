@@ -24,12 +24,12 @@
                             <td>{{$anfrage['geraet']}}</td>
                             <td>
                                 <form>
-                                    <button type="submit" class="btn btn-primary sub" action="/verleihung" method="get" name="accept_loan" value={{$anfrage['geraet']}}  >Annehmen</button>
+                                    <button type="submit" class="btn btn-primary sub" action="/verleihung" method="get" name="accept_loan" value={{$anfrage['id']}}  >Annehmen</button>
                                 </form>
                             </td>
                             <td>
                                 <form>
-                                    <button type="submit" class="btn btn-danger" action="/verleihung" method="get" name="reject" value={{$anfrage['geraet']}}  >Ablehnen</button>
+                                    <button type="submit" class="btn btn-danger" action="/verleihung" method="get" name="reject" value={{$anfrage['id']}}  >Ablehnen</button>
                                 </form>
                             </td>
                         </tr>
@@ -58,12 +58,12 @@
                         <td>{{$anfrage['geraet']}}</td>
                         <td>
                             <form>
-                                <button type="submit" class="btn btn-primary sub" action="/verleihung" method="get" name="accept_return" value={{$anfrage['geraet']}}  >Annehmen</button>
+                                <button type="submit" class="btn btn-primary sub" action="/verleihung" method="get" name="accept_return" value={{$anfrage['id']}}  >Annehmen</button>
                             </form>
                         </td>
                         <td>
                             <form>
-                                <button type="submit" class="btn btn-danger" action="/verleihung" method="get" name="reject" value={{$anfrage['geraet']}}  >Ablehnen</button>
+                                <button type="submit" class="btn btn-danger" action="/verleihung" method="get" name="reject" value={{$anfrage['id']}}  >Ablehnen</button>
                             </form>
                         </td>
                     </tr>

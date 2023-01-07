@@ -59,11 +59,13 @@
                         @if($benachrichtigung['anzahl'] == 1)
                         Es gibt {{ $benachrichtigung['anzahl'] }} <a href="/verleihung">unbeantwortete Anfrage</a> von Studierenden.
                         @else
-                        Es gibt {{ $benachrichtigung['anzahl'] }} <a href="/verleihung">unbeantworteten Anfragen</a> von Studierenden.
+                        Es gibt {{ $benachrichtigung['anzahl'] }} <a href="/verleihung">unbeantwortete Anfragen</a> von Studierenden.
                         @endif
                     </div>
                 </div>
-            @else
+            @endif
+        @endforeach
+            @if(sizeof($notifs) == 1 & $notifs['anzahl'] == 0)
                 <div class="toast show col-6 mt-2">
                     <div class="toast-header ">
                         Info
@@ -74,7 +76,6 @@
                     </div>
                 </div>
             @endif
-        @endforeach
         </div>
     </div>
 
