@@ -1,6 +1,5 @@
 @extends('Dashboard.layout_dashboard')
 @extends('header_footer')
-@dump($notifs)
 
 @section('Navigation')
     <div class="row mt-5 row justify-content-between">
