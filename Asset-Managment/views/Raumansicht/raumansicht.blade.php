@@ -26,25 +26,25 @@
                 @endif</b></p>
             <div class=" mt-1 col-2">
                 <div class="progress position-relative">
-                    <div class="progress-bar" style="width:{{((int)$ip['belegung_ip']/(int)$ip['anzahl_ip'])*100}}%; background-color: {{$color}}"
+                    <div class="progress-bar" style="width:{{((int)$ip['belegung_ip']/(int)$ip['anzahl_ip'])*100}}%; background-color: green{{--$color--}}"
                          aria-valuenow="40" aria-valuemin="0" aria-valuemax="30">
                         <small class="justify-content-center d-flex position-absolute w-100" style="color: black">{{$ip['belegung_ip']}}/{{$ip['anzahl_ip']}}</small></div>
                 </div>
             </div>
             <p class="col-2 offset-1"><b>Belegung Workstations:</b></p>
-            <div class="col-2">
-                <form action="/raumansicht?raum={{$room}}" method="post">
-                    <input style="height:25px; width:120px;" class="form-control" type="number" id="deviceName" placeholder="Menge" name="belegung" min="0" max="{{$max_belegung}}">
-                    <input style="background: transparent; border: none !important; font-size:0;" class="form-control" type="submit">
-                </form>
-            </div>
-            <div class=" mt-1 col-2">
+            <div class="mt-1 col-2 offset-1">
                 <div class="progress position-relative">
                     <div class="progress-bar"
                          style="width:{{((int)$cur_belegung/(int)$max_belegung)*100}}%; background-color: {{$color}}"
                          aria-valuenow="40" aria-valuemin="0" aria-valuemax="30">
                         <small class="justify-content-center d-flex position-absolute w-100" style="color: black">{{$cur_belegung}}/{{$max_belegung}}</small></div>
                 </div>
+            </div>
+            <div class="col-2 offset-lg-9">
+                <form action="/raumansicht?raum={{$room}}" method="post">
+                    <input style="height:25px; width:120px;" class="form-control" type="number" id="deviceName" placeholder="Menge" name="belegung" min="0" max="{{$max_belegung}}">
+                    <input style="background: transparent; border: none !important; font-size:0; margin-left: -9999999px;{{--Bester Bugfix ever haha--}}" class="form-control" type="submit">
+                </form>
             </div>
 
             @endif
@@ -74,7 +74,7 @@
                 @endif</b></p>
         <div class=" mt-1 col-2">
             <div class="progress position-relative">
-                <div class="progress-bar" style="width:{{((int)$ip['belegung_ip']/(int)$ip['anzahl_ip'])*100}}%; background-color: {{$color}}"
+                <div class="progress-bar" style="width:{{((int)$ip['belegung_ip']/(int)$ip['anzahl_ip'])*100}}%; background-color: green{{--$color--}}"
                      aria-valuenow="40" aria-valuemin="0" aria-valuemax="30">
                     <small class="justify-content-center d-flex position-absolute w-100" style="color: black">{{$ip['belegung_ip']}}/{{$ip['anzahl_ip']}}</small></div>
             </div>
@@ -87,7 +87,7 @@
         <div class="col-2">
            <form action="/raumansicht?raum={{$room}}" method="post">
                <input style="height:25px; width:120px;" class="form-control" type="number" id="deviceName" placeholder="Menge" name="belegung" min="0" max="{{$max_belegung}}">
-               <input style="background: transparent; border: none !important; font-size:0;" class="form-control" type="submit">
+               <input style="background: transparent; border: none !important; font-size:0; margin-left: -9999999px;" class="form-control" type="submit">
            </form>
         </div>
         <div class=" mt-1 col-2">

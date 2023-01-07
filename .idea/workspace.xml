@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b4b27b3-58aa-4163-82f5-f269307b0798" name="Changes" comment="Logs Filter works and Security was increased">
+    <list default="true" id="0b4b27b3-58aa-4163-82f5-f269307b0798" name="Changes" comment="Clean Logs">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_12_2022_18_51_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_12_2022_18_51__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_lizenzen.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_lizenzen.bladec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_personen.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_personen.bladec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Softwarelizenzen.softwarelizenzen.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Softwarelizenzen.softwarelizenzen.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Raumansicht.raumansicht.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Raumansicht.raumansicht.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/views/Raumansicht/raumansicht.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/Raumansicht/raumansicht.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,12 +33,13 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Julez/PhpstormProjects/Smart-working-exe/IT-Asset-Management/Asset-Managment/views/modals",
+    "last_opened_file_path": "C:/Users/Studium/Documents/Core/Studium/3. Semester/SWE/Asset-ManagementMCV",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Studium\Documents\Core\Studium\3. Semester\SWE\Asset-ManagementMCV" />
       <recent name="C:\Users\Julez\PhpstormProjects\Smart-working-exe\IT-Asset-Management\Asset-Managment\views\modals" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -86,9 +87,18 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1671620162258</updated>
-      <workItem from="1671620166592" duration="1202000" />
+      <workItem from="1671620166592" duration="4520000" />
+      <workItem from="1671724507508" duration="82000" />
+      <workItem from="1673088999630" duration="3469000" />
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Clean Logs">
+      <created>1671621397675</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1671621397675</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,6 +120,7 @@
     <MESSAGE value="Logs nearly finished" />
     <MESSAGE value="Remove Device from User" />
     <MESSAGE value="Logs Filter works and Security was increased" />
-    <option name="LAST_COMMIT_MESSAGE" value="Logs Filter works and Security was increased" />
+    <MESSAGE value="Clean Logs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Clean Logs" />
   </component>
 </project>
