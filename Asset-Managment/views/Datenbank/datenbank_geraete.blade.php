@@ -108,7 +108,7 @@
                                                     <option value="3" id="deviceTyp1111">Monitor</option>
                                                     <option value="4" id="deviceTyp1111">Tastatur</option>
                                                     <option value="5" id="deviceTyp1111">Maus</option>
-                                                    <option value="6" id="deviceTyp1111">Praktikum Utensilien</option>
+                                                    <option value="6" id="deviceTyp1111">Praktikumsmaterial</option>
                                                     <option value="7" id="deviceTyp1111">Accessoires</option>
                                                 @elseif($geraet['typ'] == 2)
 
@@ -117,7 +117,7 @@
                                                     <option value="3" id="deviceTyp">Monitor</option>
                                                     <option value="4" id="deviceTyp">Tastatur</option>
                                                     <option value="5" id="deviceTyp">Maus</option>
-                                                    <option value="6" id="deviceTyp">Praktikum Utensilien</option>
+                                                    <option value="6" id="deviceTyp">Praktikumsmaterial</option>
                                                     <option value="7" id="deviceTyp">Accessoires</option>
                                                 @elseif($geraet['typ'] == 3)
 
@@ -126,7 +126,7 @@
                                                     <option value="3" id="deviceTyp" selected>Monitor</option>
                                                     <option value="4" id="deviceTyp">Tastatur</option>
                                                     <option value="5" id="deviceTyp">Maus</option>
-                                                    <option value="6" id="deviceTyp">Praktikum Utensilien</option>
+                                                    <option value="6" id="deviceTyp">Praktikumsmaterial</option>
                                                     <option value="7" id="deviceTyp">Accessoires</option>
                                                 @elseif($geraet['typ'] == 4)
 
@@ -136,7 +136,7 @@
                                                     <option value="3" id="deviceTyp">Monitor</option>
                                                     <option value="4" id="deviceTyp" selected>Tastatur</option>
                                                     <option value="5" id="deviceTyp">Maus</option>
-                                                    <option value="6" id="deviceTyp">Praktikum Utensilien</option>
+                                                    <option value="6" id="deviceTyp">Praktikumsmaterial</option>
                                                     <option value="7" id="deviceTyp">Accessoires</option>
                                                 @elseif($geraet['typ'] == 5)
 
@@ -145,7 +145,7 @@
                                                     <option value="3" id="deviceTyp">Monitor</option>
                                                     <option value="4" id="deviceTyp">Tastatur</option>
                                                     <option value="5" id="deviceTyp" selected>Maus</option>
-                                                    <option value="6" id="deviceTyp">Praktikum Utensilien</option>
+                                                    <option value="6" id="deviceTyp">Praktikumsmaterial</option>
                                                     <option value="7" id="deviceTyp">Accessoires</option>
                                                 @elseif($geraet['typ'] == 6)
                                                     <option value="1" id="deviceTyp">Computer</option>
@@ -153,7 +153,7 @@
                                                     <option value="3" id="deviceTyp">Monitor</option>
                                                     <option value="4" id="deviceTyp">Tastatur</option>
                                                     <option value="5" id="deviceTyp">Maus</option>
-                                                    <option value="6" id="deviceTyp" selected>Praktikum Utensilien</option>
+                                                    <option value="6" id="deviceTyp" selected>Praktikumsmaterial</option>
                                                     <option value="7" id="deviceTyp">Accessoires</option>
                                                 @else
                                                     <option value="1" id="deviceTyp">Computer</option>
@@ -161,7 +161,7 @@
                                                     <option value="3" id="deviceTyp">Monitor</option>
                                                     <option value="4" id="deviceTyp">Tastatur</option>
                                                     <option value="5" id="deviceTyp">Maus</option>
-                                                    <option value="6" id="deviceTyp">Praktikum Utensilien</option>
+                                                    <option value="6" id="deviceTyp">Praktikumsmaterial</option>
                                                     <option value="7" id="deviceTyp" selected>Accessoires</option>
                                                 @endif
 

@@ -119,7 +119,7 @@
 
  <!-- Modal Body -->
  <div class="modal-body">
- <input type="text" id="inputroom" name="form_room" value="<?php echo \htmlentities($geraet['raumnummer']??'', ENT_QUOTES, 'UTF-8', false); ?>"  onkeyup="this.value = this.value.toUpperCase();">
+ <input type="text" id="inputroom" name="form_room" value="<?php echo \htmlentities($geraet['raumnummer']??'', ENT_QUOTES, 'UTF-8', false); ?>"  <?php /*onkeyup="this.value = this.value.toUpperCase();*/ ?>">
 
  </div>
 
