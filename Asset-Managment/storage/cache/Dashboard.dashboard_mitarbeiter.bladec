@@ -1,6 +1,5 @@
 <?php $_shouldextend[1]=1; ?>
 <?php $_shouldextend[2]=1; ?>
-<?php echo $this->dump($notifs);?>
 
 <?php $this->startSection('Navigation'); ?>
  <div class="row mt-5 row justify-content-between">
