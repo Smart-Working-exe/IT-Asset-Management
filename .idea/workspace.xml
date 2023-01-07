@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b4b27b3-58aa-4163-82f5-f269307b0798" name="Changes" comment="Clean Logs">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_12_2022_18_51_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_12_2022_18_51__Changes_.xml" beforeDir="false" />
+    <list default="true" id="0b4b27b3-58aa-4163-82f5-f269307b0798" name="Changes" comment="Responsivität und Der Rote Fehler">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Raumansicht.raumansicht.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Raumansicht.raumansicht.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_geraete.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_geraete.bladec" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Asset-Managment/views/Raumansicht/raumansicht.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/Raumansicht/raumansicht.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -89,7 +87,7 @@
       <updated>1671620162258</updated>
       <workItem from="1671620166592" duration="4520000" />
       <workItem from="1671724507508" duration="82000" />
-      <workItem from="1673088999630" duration="3469000" />
+      <workItem from="1673088999630" duration="4133000" />
     </task>
     <task id="LOCAL-00005" summary="Clean Logs">
       <created>1671621397675</created>
@@ -98,7 +96,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671621397675</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Responsivität und Der Rote Fehler">
+      <created>1673092521991</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1673092521991</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -121,6 +126,7 @@
     <MESSAGE value="Remove Device from User" />
     <MESSAGE value="Logs Filter works and Security was increased" />
     <MESSAGE value="Clean Logs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Clean Logs" />
+    <MESSAGE value="Responsivität und Der Rote Fehler" />
+    <option name="LAST_COMMIT_MESSAGE" value="Responsivität und Der Rote Fehler" />
   </component>
 </project>
