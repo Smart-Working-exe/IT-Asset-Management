@@ -9,8 +9,8 @@
         <thead>
         <tr>
             <th>Raum</th>
-            <th>Anzahl Workstations</th>
             <th>Belegte Workstations</th>
+            <th>Anzahl Workstations</th>
             <th>Auslastung</th>
         </tr>
         </thead>

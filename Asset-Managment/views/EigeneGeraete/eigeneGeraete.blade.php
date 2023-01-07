@@ -114,7 +114,7 @@
 
                                 <!-- Modal Body -->
                                 <div class="modal-body">
-                                   <input type="text" id="inputroom" name="form_room" value="{{$geraet['raumnummer']}}"  onkeyup="this.value = this.value.toUpperCase();">
+                                   <input type="text" id="inputroom" name="form_room" value="{{$geraet['raumnummer']}}"  {{--onkeyup="this.value = this.value.toUpperCase();--}}">
 
                                 </div>
 

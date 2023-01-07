@@ -22,7 +22,7 @@
                                         <option value="3">Monitor</option>
                                         <option value="4">Tastatur</option>
                                         <option value="5">Maus</option>
-                                        <option value="6">Praktikum Utensilien</option>
+                                        <option value="6">Praktikumsmaterial</option>
                                         <option value="7">Accessoires</option>
                                     </select>
                                 </div>
