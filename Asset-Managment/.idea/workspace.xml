@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4589e253-8d49-4159-befd-3ace3d0cd653" name="Changes" comment="Fixes bei Ausleihe und Benachrichtigungen, IP-Adress Anzeige dynamisch">
+      <change beforePath="$PROJECT_DIR$/storage/cache/Datenbank.datenbank_geraete.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/storage/cache/Datenbank.datenbank_geraete.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/cache/Datenbank.datenbank_layout.bladec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/cache/Filter.geraete.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/storage/cache/Filter.geraete.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/cache/Filter.software.bladec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/cache/Raumansicht.raumansicht.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/storage/cache/Raumansicht.raumansicht.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/cache/Softwarelizenzen.softwarelizenzen.bladec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/cache/Softwarelizenzen.softwarelizenzen_layout.bladec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/cache/modals.Eintraege.Software.bladec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/cache/modals.export_import.bladec" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
+  <component name="ProjectId" id="2IxbsavzKIXzuErjyrTJZ2vz6bh" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/sveni/Documents/FH/Datenbanken und Webtechnologien/Praktikum/M5/emensa",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
+    ]
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="SWE" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$/public" port="9000">
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4589e253-8d49-4159-befd-3ace3d0cd653" name="Changes" comment="" />
+      <created>1671126388353</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1671126388353</updated>
+      <workItem from="1671126389795" duration="4103000" />
+      <workItem from="1671377374311" duration="14293000" />
+      <workItem from="1671400742086" duration="24000" />
+      <workItem from="1671450122235" duration="18200000" />
+      <workItem from="1671488486043" duration="5087000" />
+      <workItem from="1671535630255" duration="6973000" />
+      <workItem from="1671578962323" duration="4800000" />
+      <workItem from="1671611287310" duration="2977000" />
+      <workItem from="1671619567544" duration="212000" />
+    </task>
+    <task id="LOCAL-00001" summary="Raumauswahl dynamisch, ein paar Cosmetics">
+      <created>1671400332262</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1671400332262</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Verleihung Mitarbeiter">
+      <created>1671465392000</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1671465392000</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Verleihung Studenten (nicht vollständig)">
+      <created>1671470391227</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1671470391227</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Verleihung Studenten, Fix Raumauswahl">
+      <created>1671535788048</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1671535788048</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Status bei Ausleihe Studenten hinzugefügt">
+      <created>1671537666519</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1671537666519</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Raumauswahl Student">
+      <created>1671547775067</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1671547775067</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Fixes bei Ausleihe und Benachrichtigungen, IP-Adress Anzeige dynamisch">
+      <created>1671583485838</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1671583485838</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Raumauswahl dynamisch, ein paar Cosmetics" />
+    <MESSAGE value="Verleihung Mitarbeiter" />
+    <MESSAGE value="Verleihung Studenten (nicht vollständig)" />
+    <MESSAGE value="Verleihung Studenten, Fix Raumauswahl" />
+    <MESSAGE value="Status bei Ausleihe Studenten hinzugefügt" />
+    <MESSAGE value="Raumauswahl Student" />
+    <MESSAGE value="Fixes bei Ausleihe und Benachrichtigungen, IP-Adress Anzeige dynamisch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes bei Ausleihe und Benachrichtigungen, IP-Adress Anzeige dynamisch" />
+  </component>
+</project>
