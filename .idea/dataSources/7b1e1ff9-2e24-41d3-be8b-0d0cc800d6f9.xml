@@ -5196,7 +5196,7 @@ swe|schema||swe_praktikum||grant option|G</Grants>
       <Predicate>`status` &gt;= 0 and `status` &lt;= 2</Predicate>
     </check>
     <column id="1202" parent="407" name="id">
-      <AutoIncrement>44</AutoIncrement>
+      <AutoIncrement>48</AutoIncrement>
       <Comment>Evtl. einfach hochzählen beim Anlegen</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
@@ -5323,7 +5323,7 @@ swe|schema||swe_praktikum||grant option|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="1225" parent="409" name="id">
-      <AutoIncrement>176</AutoIncrement>
+      <AutoIncrement>1342</AutoIncrement>
       <Comment>Evtl. einfach hochzählen beim Anlegen</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
@@ -5534,7 +5534,7 @@ softwarelizenzid</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="1265" parent="412" name="id">
-      <AutoIncrement>335</AutoIncrement>
+      <AutoIncrement>444</AutoIncrement>
       <Comment>Evtl. einfach hochzählen beim Anlegen  </Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
@@ -5707,7 +5707,7 @@ softwarelizenzid</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="1297" parent="415" name="id">
-      <AutoIncrement>35</AutoIncrement>
+      <AutoIncrement>40</AutoIncrement>
       <Comment>Evtl. einfach hochzählen beim Anlegen</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>

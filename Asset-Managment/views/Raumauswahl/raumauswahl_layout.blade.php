@@ -16,7 +16,7 @@
 
 
     <div class="row p-4 mt-4">
-        <img src="../img/Lageplan.png" alt="Lageplan der FH-Aachen, Eupener Straße 33" class="col-8" style="height: 60vh;">
+        <img  src="../img/Lageplan.png" alt="Lageplan der FH-Aachen, Eupener Straße 33" class="col-8" style="height: 60vh; @media (max-width: 600px){height: 40vh}">
         <div id="accordion " class="col-4">
 
             @yield('content')
