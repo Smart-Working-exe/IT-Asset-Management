@@ -44,8 +44,8 @@ function notif_employee()
 
     // get softwarelizenzen
     $setting_sw = $data1[0][0];
-    $sw_request = "SELECT g.name, s.name, DATEDIFF(s.ablaufdatum,NOW()) AS ablaufzeitraum 
-                FROM geraet g, softwarelizenzen s WHERE g.personen_id = '.$self.' 
+    $sw_request = "SELECT g.name as geraet, s.name, DATEDIFF(s.ablaufdatum,NOW()) AS ablaufzeitraum 
+                FROM geraet g, softwarelizenzen s WHERE g.personen_id = '$self' 
                 HAVING ablaufzeitraum <= '$setting_sw' AND -'$setting_sw' <= ablaufzeitraum ORDER BY ablaufzeitraum";
     $sw = mysqli_query($link,$sw_request);
 
@@ -55,7 +55,6 @@ function notif_employee()
 
     $data2 = mysqli_fetch_all($sw, MYSQLI_ASSOC);
     $data3 = mysqli_fetch_all($loan,MYSQLI_ASSOC);
-
     mysqli_commit($link);
     mysqli_close($link);
     return array_merge($data2, $data3);

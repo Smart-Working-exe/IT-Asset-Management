@@ -1,6 +1,6 @@
 @extends('Dashboard.layout_dashboard')
 @extends('header_footer')
-
+@dump($notifs)
 
 @section('Navigation')
     <div class="row mt-5 row justify-content-between">
@@ -26,7 +26,7 @@
         <div style="overflow-y: scroll;margin-right:20%; height:300px;">
 
         @foreach ($notifs as $benachrichtigung)
-            @if(@isset($benachrichtigung['g.name']))
+            @if(@isset($benachrichtigung['geraet']))
                 <div class="toast show col-6 mt-2">
                     <div class="toast-header ">
                         Important
@@ -34,18 +34,18 @@
                     </div>
                     <div class="toast-body">
                         @if($benachrichtigung['ablaufzeitraum'] < -1)
-                            Die Lizenz von {{ $benachrichtigung['s.name'] }} auf {{ $benachrichtigung['g.name'] }}
+                            Die Lizenz von {{ $benachrichtigung['name'] }} auf {{ $benachrichtigung['geraet'] }}
                             ist vor {{ -1*$benachrichtigung['ablaufzeitraum'] }} Tagen abgelaufen.
                         @elseif($benachrichtigung['ablaufzeitraum'] == -1)
-                            Die Lizenz von {{ $benachrichtigung['s.name'] }} auf {{ $benachrichtigung['g.name'] }}
+                            Die Lizenz von {{ $benachrichtigung['name'] }} auf {{ $benachrichtigung['geraet'] }}
                             ist vor {{ -1*$benachrichtigung['ablaufzeitraum'] }} Tag abgelaufen.
                         @elseif($benachrichtigung['ablaufzeitraum'] == 0)
-                            Die Lizenz von {{ $benachrichtigung['s.name'] }} läuft auf {{ $benachrichtigung['g.name'] }} heute ab.
+                            Die Lizenz von {{ $benachrichtigung['name'] }} läuft auf {{ $benachrichtigung['geraet'] }} heute ab.
                         @elseif($benachrichtigung['ablaufzeitraum'] == 1)
-                            Die Lizenz von {{ $benachrichtigung['s.name'] }} läuft auf {{ $benachrichtigung['g.name'] }}
+                            Die Lizenz von {{ $benachrichtigung['name'] }} läuft auf {{ $benachrichtigung['geraet'] }}
                             in {{ $benachrichtigung['ablaufzeitraum'] }} Tag ab.
                         @else($benachrichtigung['ablaufzeitraum'] < 1)
-                            Die Lizenz von {{ $benachrichtigung['s.name'] }} läuft auf {{ $benachrichtigung['g.name'] }}
+                            Die Lizenz von {{ $benachrichtigung['name'] }} läuft auf {{ $benachrichtigung['geraet'] }}
                             in {{ $benachrichtigung['ablaufzeitraum'] }} Tagen ab.
                         @endif
                     </div>
