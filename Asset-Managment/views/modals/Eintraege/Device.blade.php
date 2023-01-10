@@ -26,8 +26,8 @@
                                         <option value="7">Accessoires</option>
                                     </select>
                                 </div>
-                                <div class="col">
-                                    <div class="dropdown" id="sometimesHide1">
+                                <div class="col" id="sometimesHide1">
+                                    <div class="dropdown" >
                                         <button class="form-select" data-mdb-clear-button="true" type="button" id="addDeviceBetriebssystem" name="addDeviceBetriebssystem[]" multiple="multiple" data-bs-toggle="dropdown">Betriebssystem</button>
                                         <ul class="dropdown-menu form-select" aria-labelledby="addDeviceBetriebssystem" style="max-height: 280px; overflow-y: auto">
                                             <li><h6 class="dropdown-header">Betriebssystem</h6></li>
@@ -70,8 +70,8 @@
                                     <input class="form-control" type="text" id="deviceManufacture"
                                            name="addDeviceHersteller"
                                            placeholder="Hersteller"></div>
-                                <div class="col">
-                                    <div class="dropdown" id="sometimesHide2">
+                                <div class="col" id="sometimesHide2">
+                                    <div class="dropdown" >
                                         <button class="form-select" data-mdb-clear-button="true" type="button" id="addDeviceSoftware" name="addDeviceSoftware" multiple="multiple" data-bs-toggle="dropdown">Software des Gerätes</button>
                                         <ul class="dropdown-menu form-select" aria-labelledby="addDeviceSoftware" style="max-height: 280px; overflow-y: auto">
                                             <li><h6 class="dropdown-header">Software des Gerätes</h6></li>
@@ -117,7 +117,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col mt-3">
+                            <div class="col mt-3" id="DisplaySlide" style="display:none;">
                                 <div class="form-check form-switch green">
                                     <input class="form-check-input" type="checkbox" id="addDeviceAusleihbar"
                                            name="addDeviceAusleihbar">
@@ -164,6 +164,11 @@
             else{
                 document.getElementById("sometimesHide1").style.display = "block";
                 document.getElementById("sometimesHide2").style.display = "block";
+            }
+            if(selectedOption == 6 || selectedOption == 7 ){
+                document.getElementById("DisplaySlide").style.display = "block";
+            }else{
+                document.getElementById("DisplaySlide").style.display = "none";
             }
         });
     </script>
