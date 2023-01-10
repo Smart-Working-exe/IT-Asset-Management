@@ -118,7 +118,7 @@ function getGeraeteData($filter = [])
     $link = connectdb();
 
     // get geräte
-    $sql = 'SELECT id,name,typ,hersteller,age,raumnummer,`ip_adresse`,ausleihbar,technische_eckdaten,kommentar FROM geraet';
+    $sql = 'SELECT id,name,typ,hersteller,age,betrieb,raumnummer,`ip_adresse`,ausleihbar,technische_eckdaten,kommentar FROM geraet';
 
     $sql = filter_to_sql($sql, 1, $filter);
 
@@ -150,8 +150,8 @@ function getGeraeteData($filter = [])
 
         $data[$key]['alter'] = floor((time()- strtotime($value['age']))/31556926 );
 
-        //$data[$key]['age'] = date_create($value['age']) ->format('d.m.Y');
-        //$data[$key]['betrieb'] = date_create($value['betrieb']) ->format('d.m.Y');
+        $data[$key]['age'] = date_create($value['age']) ->format('d.m.Y');
+        $data[$key]['betrieb'] = date_create($value['betrieb']) ->format('d.m.Y');
     }
 
     mysqli_close($link);
@@ -206,6 +206,12 @@ function editGeraete(RequestData $rd){
     $sql = 'UPDATE geraet SET NAME = "' . $rd->query['form_name123'] . '", typ = ' . $rd->query['form_deviceType'] . ', hersteller = "' . $rd->query['form_hersteller'] . '", raumnummer = "' . $rd->query['form_room'] . '", ausleihbar = "' . $ausleihbar . '", technische_eckdaten = "' . $rd->query['form_technischeEckdaten'] . '", kommentar = "' . $rd->query['form_comment'] . '" WHERE id =' .$rd->query['form_id'].' ; ';
     //
 
+    mysqli_query($link, $sql);
+
+    $age = date('Y-m-d', strtotime($rd->query['form_age']));
+    $betrieb = date('Y-m-d', strtotime($rd->query['form_betrieb']));
+
+    $sql = "UPDATE geraet SET betrieb ='$betrieb', age ='$age'";
     mysqli_query($link, $sql);
 
     mysqli_close($link);
