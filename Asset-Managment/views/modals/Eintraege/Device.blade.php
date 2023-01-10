@@ -27,7 +27,7 @@
                                     </select>
                                 </div>
                                 <div class="col">
-                                    <div class="dropdown">
+                                    <div class="dropdown" id="sometimesHide1">
                                         <button class="form-select" data-mdb-clear-button="true" type="button" id="addDeviceBetriebssystem" name="addDeviceBetriebssystem[]" multiple="multiple" data-bs-toggle="dropdown">Betriebssystem</button>
                                         <ul class="dropdown-menu form-select" aria-labelledby="addDeviceBetriebssystem" style="max-height: 280px; overflow-y: auto">
                                             <li><h6 class="dropdown-header">Betriebssystem</h6></li>
@@ -71,7 +71,7 @@
                                            name="addDeviceHersteller"
                                            placeholder="Hersteller"></div>
                                 <div class="col">
-                                    <div class="dropdown">
+                                    <div class="dropdown" id="sometimesHide2">
                                         <button class="form-select" data-mdb-clear-button="true" type="button" id="addDeviceSoftware" name="addDeviceSoftware" multiple="multiple" data-bs-toggle="dropdown">Software des Gerätes</button>
                                         <ul class="dropdown-menu form-select" aria-labelledby="addDeviceSoftware" style="max-height: 280px; overflow-y: auto">
                                             <li><h6 class="dropdown-header">Software des Gerätes</h6></li>
@@ -153,6 +153,20 @@
             </div>
         </div>
     </div>
+    <script>
+        const select = document.getElementById("deviceTyp");
+        select.addEventListener("change", function() {
+            let selectedOption = this.value;
+            if(selectedOption >=3 && selectedOption <= 6){
+                document.getElementById("sometimesHide1").style.display = "none";
+                document.getElementById("sometimesHide2").style.display = "none";
+            }
+            else{
+                document.getElementById("sometimesHide1").style.display = "block";
+                document.getElementById("sometimesHide2").style.display = "block";
+            }
+        });
+    </script>
 @endsection
 
 @section('editKommentar')
@@ -183,6 +197,7 @@
             </div>
         </div>
     </div>
+
 
 @endsection
 

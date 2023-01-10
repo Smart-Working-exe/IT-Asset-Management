@@ -163,7 +163,7 @@ function getGeraeteData($filter = [])
         switch ($value['typ']){
 
             case 1:
-                $data[$key]['typ'] = "PC";
+                $data[$key]['typ'] = "Computer";
                 break;
             case 2:
                 $data[$key]['typ'] = "Laptop";

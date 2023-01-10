@@ -94,9 +94,9 @@
                                     <div class="row mt-3">
                                         <div class="col">
                                             <select class="form-select" aria-label="Default select example"
-                                                    name="form_deviceType">
+                                                    name="form_deviceType" required>
                                                 <option>Typ*</option>
-                                                @if($geraet['typ'] == 1)
+                                                @if($geraet['typ'] == "Computer")
                                                     <option value="1" id="deviceTyp1111" selected>Computer</option>
                                                     <option value="2" id="deviceTyp1111">Laptop</option>
                                                     <option value="3" id="deviceTyp1111">Monitor</option>
@@ -104,7 +104,7 @@
                                                     <option value="5" id="deviceTyp1111">Maus</option>
                                                     <option value="6" id="deviceTyp1111">Praktikumsmaterial</option>
                                                     <option value="7" id="deviceTyp1111">Accessoires</option>
-                                                @elseif($geraet['typ'] == 2)
+                                                @elseif($geraet['typ'] == "Laptop")
 
                                                     <option value="1" id="deviceTyp">Computer</option>
                                                     <option value="2" id="deviceTyp" selected>Laptop</option>
@@ -113,7 +113,7 @@
                                                     <option value="5" id="deviceTyp">Maus</option>
                                                     <option value="6" id="deviceTyp">Praktikumsmaterial</option>
                                                     <option value="7" id="deviceTyp">Accessoires</option>
-                                                @elseif($geraet['typ'] == 3)
+                                                @elseif($geraet['typ'] == "Monitor")
 
                                                     <option value="1" id="deviceTyp">Computer</option>
                                                     <option value="2" id="deviceTyp">Laptop</option>
@@ -122,17 +122,16 @@
                                                     <option value="5" id="deviceTyp">Maus</option>
                                                     <option value="6" id="deviceTyp">Praktikumsmaterial</option>
                                                     <option value="7" id="deviceTyp">Accessoires</option>
-                                                @elseif($geraet['typ'] == 4)
+                                                @elseif($geraet['typ'] == "Tastatur")
 
                                                     <option value="1" id="deviceTyp">Computer</option>
-
                                                     <option value="2" id="deviceTyp">Laptop</option>
                                                     <option value="3" id="deviceTyp">Monitor</option>
                                                     <option value="4" id="deviceTyp" selected>Tastatur</option>
                                                     <option value="5" id="deviceTyp">Maus</option>
                                                     <option value="6" id="deviceTyp">Praktikumsmaterial</option>
                                                     <option value="7" id="deviceTyp">Accessoires</option>
-                                                @elseif($geraet['typ'] == 5)
+                                                @elseif($geraet['typ'] == "Maus")
 
                                                     <option value="1" id="deviceTyp">Computer</option>
                                                     <option value="2" id="deviceTyp">Laptop</option>
@@ -141,7 +140,7 @@
                                                     <option value="5" id="deviceTyp" selected>Maus</option>
                                                     <option value="6" id="deviceTyp">Praktikumsmaterial</option>
                                                     <option value="7" id="deviceTyp">Accessoires</option>
-                                                @elseif($geraet['typ'] == 6)
+                                                @elseif($geraet['typ'] == "Praktikumsmaterial")
                                                     <option value="1" id="deviceTyp">Computer</option>
                                                     <option value="2" id="deviceTyp">Laptop</option>
                                                     <option value="3" id="deviceTyp">Monitor</option>
