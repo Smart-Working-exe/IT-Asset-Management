@@ -169,7 +169,7 @@
                                                         <li>
                                                             <a class="dropdown-item" href="#">
                                                                 <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox" value="{{$key_betriebssystemid}}" id="Checkme {{$key_betriebssystemid}}" />
+                                                                    <input class="form-check-input" type="checkbox" value="{{$key_betriebssystemid}}" id="Checkme {{$key_betriebssystemid}}" @if($key_betriebssystemid == $filter_variable_data['betriebssystem_id']) checked @endif/>
                                                                     <label class="form-check-label" for="Checkme {{$key_betriebssystemid}}">{{$betriebssystem_name}}</label>
                                                                 </div>
                                                             </a>

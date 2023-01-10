@@ -72,7 +72,21 @@ function get_geraet_hat_software() :array{
         $return_data[$value['geraetid']][] = $value['name'];
 
     return $return_data;
+}
 
+function get_geraet_hat_software_id() :array{
+    $link = connectdb();
+    $sql = "SELECT * FROM geraet_hat_software";
+
+    $result = mysqli_query($link, $sql);
+
+    $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    // zur hashmap
+    foreach ($data as $value)
+        $return_data[$value['geraetid']][] = $value['softwarelizenzid'];
+
+    return $return_data;
 }
 
 /**gibt die view view_get_geraet_hat_betriebssystem als hashMap zurueck <br>
@@ -94,7 +108,24 @@ function get_geraet_hat_betriebssystem() :array
         $return_data[$value['geraetid']][] = $value['name'];
 
     return $return_data;
+}
 
+
+function get_geraet_hat_betriebssystem_id() :array
+{
+    $link = connectdb();
+    $sql = "SELECT * FROM geraet_hat_betriebssystem";
+
+    $result = mysqli_query($link, $sql);
+
+    $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+
+    // zur hashmap
+    foreach ($data as $value)
+        $return_data[$value['geraetid']][] = $value['betriebssystemid'];
+
+    return $return_data;
 }
 
 /**
@@ -129,18 +160,23 @@ function getGeraeteData($filter = [])
     $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     $geraet_hat_betriebssystem = get_geraet_hat_betriebssystem();
+    $geraet_hat_betriebssystem_id = get_geraet_hat_betriebssystem_id();
     $geraet_hat_software = get_geraet_hat_software();
+    $geraet_hat_software_id = get_geraet_hat_software_id();
 
     foreach ($data as $key => $value) {
 
 
-        // nur pcs oder laptops, hunzufuegen von betriebssystemen und software
+        // nur pcs oder laptops, hinzufuegen von betriebssystemen und software
         if($value['id'] >= 2) {
-            if (!empty($geraet_hat_betriebssystem[$value['id']]))
+            if (!empty($geraet_hat_betriebssystem[$value['id']])){
                 $data[$key]['betriebssystem'] = $geraet_hat_betriebssystem[$value['id']];
-
-            if (!empty($geraet_hat_software[$value['id']]))
+                $data[$key]['betriebssystem_id'] = $geraet_hat_betriebssystem_id[$value['id']];
+            }
+            if (!empty($geraet_hat_software[$value['id']])){
                 $data[$key]['software'] = $geraet_hat_software[$value['id']];
+                $data[$key]['software_id'] = $geraet_hat_software_id[$value['id']];
+            }
         }
 
 

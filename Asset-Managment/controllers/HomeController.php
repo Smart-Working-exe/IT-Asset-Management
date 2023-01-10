@@ -274,7 +274,6 @@ class HomeController
                 if (isset($_POST['submit_delete_person'])) {
                     print_r($_POST['submit_delete_person']);
                     delete_user($rd);
-
                 }
 
                 return view('Datenbank.datenbank_personen', [
