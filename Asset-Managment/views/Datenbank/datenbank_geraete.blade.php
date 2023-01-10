@@ -217,10 +217,11 @@
                                         </div>
                                     </div>
                                     <div class="row mt-3">
+                                        <label for="Inbetriebname">Inbetriebname</label>
                                         <div class="col">
                                             <div class="form-group">
                                                 <div class="input-group date" id="datepickerEditUsage">
-                                                    <input type="text" class="form-control"
+                                                    <input type="text" id="Inbetriebname" class="form-control"
                                                            placeholder="erste Inbetriebname*"
                                                            value="{{$geraet['betrieb']}}" name="form_betrieb">
                                                     <span class="input-group-append">
@@ -231,10 +232,11 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <label for="AlterdesGer">Alter des Geräts</label>
                                         <div class="col">
                                             <div class="form-group">
                                                 <div class="input-group date" id="datepickerEditBuild">
-                                                    <input type="text" class="form-control"
+                                                    <input type="text" id="AlterdesGer" class="form-control"
                                                            placeholder="alter des Gerätes"
                                                            value="{{$geraet['age']}}" name="form_age">
                                                     <span class="input-group-append">
