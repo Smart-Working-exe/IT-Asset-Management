@@ -13,12 +13,9 @@
         <tr>
             <th onclick="sortTable(0, devices)">Name <img src="/img/up-and-down-arrows-svgrepo-com.svg"
                                                           width="20px"></th>
-            <th onclick="sortTable(1, devices)">Erworben am <img src="/img/up-and-down-arrows-svgrepo-com.svg"
-                                                                 width="20px"></th>
-            <th onclick="sortTable(2, devices)">Ablaufdatum <img src="/img/up-and-down-arrows-svgrepo-com.svg"
-                                                               width="20px"></th>
-            <th onclick="sortTable(3, devices)">Installationen <img src="/img/up-and-down-arrows-svgrepo-com.svg"
-                                                                    width="20px"></th>
+            <th onclick="sortTable(1, devices)">Erworben am </th>
+            <th onclick="sortTable(2, devices)">Ablaufdatum </th>
+            <th onclick="sortTable(3, devices)">Installationen </th>
             <th>Bearbeiten</th>
         </tr>
         </thead>

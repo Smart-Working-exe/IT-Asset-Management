@@ -20,18 +20,12 @@
  width="20px"></th>
  <th onclick="sortTable(3, devices)">Alter <img src="/img/up-and-down-arrows-svgrepo-com.svg"
  width="20px"></th>
- <th onclick="sortTable(2, devices)">Ip-Adresse<img src="/img/up-and-down-arrows-svgrepo-com.svg"
- width="20px"></th>
- <th onclick="sortTable(4, devices)">Betriebssystem <img src="/img/up-and-down-arrows-svgrepo-com.svg"
- width="20px"></th>
- <th onclick="sortTable(5, devices)">Software <img src="/img/up-and-down-arrows-svgrepo-com.svg"
- width="20px"></th>
- <th onclick="sortTable(6, devices)">Technische Daten <img src="/img/up-and-down-arrows-svgrepo-com.svg"
- width="20px"></th>
- <th onclick="sortTable(7, devices)">Kommentar <img src="/img/up-and-down-arrows-svgrepo-com.svg"
- width="20px"></th>
- <th onclick="sortTable(8, devices)">Raum <img src="/img/up-and-down-arrows-svgrepo-com.svg"
- width="20px"></th>
+ <th onclick="sortTable(2, devices)">Ip-Adresse</th>
+ <th onclick="sortTable(4, devices)">Betriebssystem </th>
+ <th onclick="sortTable(5, devices)">Software </th>
+ <th onclick="sortTable(6, devices)">Technische Daten </th>
+ <th onclick="sortTable(7, devices)">Kommentar</th>
+ <th onclick="sortTable(8, devices)">Raum </th>
  <th>Bearbeiten</th>
  </tr>
  </thead>
@@ -112,7 +106,7 @@
  <option value="3" id="deviceTyp1111">Monitor</option>
  <option value="4" id="deviceTyp1111">Tastatur</option>
  <option value="5" id="deviceTyp1111">Maus</option>
- <option value="6" id="deviceTyp1111">Praktikum Utensilien</option>
+ <option value="6" id="deviceTyp1111">Praktikumsmaterial</option>
  <option value="7" id="deviceTyp1111">Accessoires</option>
  <?php elseif($geraet['typ'] == 2): ?>
 
@@ -121,7 +115,7 @@
  <option value="3" id="deviceTyp">Monitor</option>
  <option value="4" id="deviceTyp">Tastatur</option>
  <option value="5" id="deviceTyp">Maus</option>
- <option value="6" id="deviceTyp">Praktikum Utensilien</option>
+ <option value="6" id="deviceTyp">Praktikumsmaterial</option>
  <option value="7" id="deviceTyp">Accessoires</option>
  <?php elseif($geraet['typ'] == 3): ?>
 
@@ -130,7 +124,7 @@
  <option value="3" id="deviceTyp" selected>Monitor</option>
  <option value="4" id="deviceTyp">Tastatur</option>
  <option value="5" id="deviceTyp">Maus</option>
- <option value="6" id="deviceTyp">Praktikum Utensilien</option>
+ <option value="6" id="deviceTyp">Praktikumsmaterial</option>
  <option value="7" id="deviceTyp">Accessoires</option>
  <?php elseif($geraet['typ'] == 4): ?>
 
@@ -140,7 +134,7 @@
  <option value="3" id="deviceTyp">Monitor</option>
  <option value="4" id="deviceTyp" selected>Tastatur</option>
  <option value="5" id="deviceTyp">Maus</option>
- <option value="6" id="deviceTyp">Praktikum Utensilien</option>
+ <option value="6" id="deviceTyp">Praktikumsmaterial</option>
  <option value="7" id="deviceTyp">Accessoires</option>
  <?php elseif($geraet['typ'] == 5): ?>
 
@@ -149,7 +143,7 @@
  <option value="3" id="deviceTyp">Monitor</option>
  <option value="4" id="deviceTyp">Tastatur</option>
  <option value="5" id="deviceTyp" selected>Maus</option>
- <option value="6" id="deviceTyp">Praktikum Utensilien</option>
+ <option value="6" id="deviceTyp">Praktikumsmaterial</option>
  <option value="7" id="deviceTyp">Accessoires</option>
  <?php elseif($geraet['typ'] == 6): ?>
  <option value="1" id="deviceTyp">Computer</option>
@@ -157,7 +151,7 @@
  <option value="3" id="deviceTyp">Monitor</option>
  <option value="4" id="deviceTyp">Tastatur</option>
  <option value="5" id="deviceTyp">Maus</option>
- <option value="6" id="deviceTyp" selected>Praktikum Utensilien</option>
+ <option value="6" id="deviceTyp" selected>Praktikumsmaterial</option>
  <option value="7" id="deviceTyp">Accessoires</option>
  <?php else: ?>
  <option value="1" id="deviceTyp">Computer</option>
@@ -165,7 +159,7 @@
  <option value="3" id="deviceTyp">Monitor</option>
  <option value="4" id="deviceTyp">Tastatur</option>
  <option value="5" id="deviceTyp">Maus</option>
- <option value="6" id="deviceTyp">Praktikum Utensilien</option>
+ <option value="6" id="deviceTyp">Praktikumsmaterial</option>
  <option value="7" id="deviceTyp" selected>Accessoires</option>
  <?php endif; ?>
 

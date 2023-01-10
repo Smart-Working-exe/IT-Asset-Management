@@ -127,16 +127,11 @@
                                                                    width="20px"></th>
                 <th onclick="sortTable(3, devices)">Alter<img src="/img/up-and-down-arrows-svgrepo-com.svg"
                                                               width="20px"></th>
-                <th onclick="sortTable(4, devices)">IP-Adresse<img src="/img/up-and-down-arrows-svgrepo-com.svg"
-                                                                   width="20px"></th>
-                <th onclick="sortTable(5, devices)">Betriebssystem<img src="/img/up-and-down-arrows-svgrepo-com.svg"
-                                                                       width="20px"></th>
-                <th onclick="sortTable(6, devices)">Software<img src="/img/up-and-down-arrows-svgrepo-com.svg"
-                                                                 width="20px"></th>
-                <th onclick="sortTable(7, devices)">Technische Daten<img src="/img/up-and-down-arrows-svgrepo-com.svg"
-                                                                         width="20px"></th>
-                <th onclick="sortTable(8, devices)">Kommentar<img src="/img/up-and-down-arrows-svgrepo-com.svg"
-                                                                  width="20px"></th>
+                <th onclick="sortTable(4, devices)">IP-Adresse</th>
+                <th onclick="sortTable(5, devices)">Betriebssystem</th>
+                <th onclick="sortTable(6, devices)">Software</th>
+                <th onclick="sortTable(7, devices)">Technische Daten</th>
+                <th onclick="sortTable(8, devices)">Kommentar</th>
                 <th >  @if($user == 1)
                             Bearbeiten
                          @else

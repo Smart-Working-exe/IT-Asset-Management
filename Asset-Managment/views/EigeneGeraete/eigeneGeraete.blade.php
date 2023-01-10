@@ -44,14 +44,10 @@
                                                                        width="20px"></th>
                 <th onclick="sortTable(3, ownDevices)">Alter <img src="/img/up-and-down-arrows-svgrepo-com.svg"
                                                                   width="20px"></th>
-                <th onclick="sortTable(5, ownDevices)">Betriebssystem <img src="/img/up-and-down-arrows-svgrepo-com.svg"
-                                                                           width="20px"></th>
-                <th onclick="sortTable(6, ownDevices)">Software <img src="/img/up-and-down-arrows-svgrepo-com.svg"
-                                                                     width="20px"></th>
-                <th onclick="sortTable(7, ownDevices)">Technische Daten <img src="/img/up-and-down-arrows-svgrepo-com.svg"
-                                                                             width="20px"></th>
-                <th onclick="sortTable(8, ownDevices)">Kommentar <img src="/img/up-and-down-arrows-svgrepo-com.svg"
-                                                                      width="20px"></th>
+                <th onclick="sortTable(5, ownDevices)">Betriebssystem </th>
+                <th onclick="sortTable(6, ownDevices)">Software</th>
+                <th onclick="sortTable(7, ownDevices)">Technische Daten </th>
+                <th onclick="sortTable(8, ownDevices)">Kommentar </th>
                 <th>Kommentieren</th>
                 <th onclick="sortTable(9, ownDevices)">Raum</th>
             </tr>
