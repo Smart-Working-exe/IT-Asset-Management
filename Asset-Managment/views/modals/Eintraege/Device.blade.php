@@ -14,9 +14,9 @@
                         <div class="row">
                             <div class="row mt-3">
                                 <div class="col">
-                                    <select class="form-select" aria-label="Default select example" id="deviceTyp"
+                                    <select required class="form-select" aria-label="Default select example" id="deviceTyp"
                                             name="addDevicedeviceTyp">
-                                        <option disabled selected>Typ*</option>
+                                        <option value="" disabled selected>Typ*</option>
                                         <option value="1">Computer</option>
                                         <option value="2">Laptop</option>
                                         <option value="3">Monitor</option>

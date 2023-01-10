@@ -95,15 +95,15 @@
                                         <div class="col">
                                             <select class="form-select" aria-label="Default select example"
                                                     name="form_deviceType" required>
-                                                <option>Typ*</option>
+                                                <option value="" disabled>Typ*</option>
                                                 @if($geraet['typ'] == "Computer")
-                                                    <option value="1" id="deviceTyp1111" selected>Computer</option>
-                                                    <option value="2" id="deviceTyp1111">Laptop</option>
-                                                    <option value="3" id="deviceTyp1111">Monitor</option>
-                                                    <option value="4" id="deviceTyp1111">Tastatur</option>
-                                                    <option value="5" id="deviceTyp1111">Maus</option>
-                                                    <option value="6" id="deviceTyp1111">Praktikumsmaterial</option>
-                                                    <option value="7" id="deviceTyp1111">Accessoires</option>
+                                                    <option value="1" id="deviceTyp" selected>Computer</option>
+                                                    <option value="2" id="deviceTyp">Laptop</option>
+                                                    <option value="3" id="deviceTyp">Monitor</option>
+                                                    <option value="4" id="deviceTyp">Tastatur</option>
+                                                    <option value="5" id="deviceTyp">Maus</option>
+                                                    <option value="6" id="deviceTyp">Praktikumsmaterial</option>
+                                                    <option value="7" id="deviceTyp">Accessoires</option>
                                                 @elseif($geraet['typ'] == "Laptop")
 
                                                     <option value="1" id="deviceTyp">Computer</option>

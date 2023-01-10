@@ -84,7 +84,6 @@ class AddController
         else
             $var['addDeviceAusleihbar']=1;
 
-
         if ($var['addDeviceName'] != null) {
             logger($_SESSION['name'], 9, "Gerät: " . $var['addDeviceName'] . " wurde hinzugefügt.");
             db_add_device($var);
