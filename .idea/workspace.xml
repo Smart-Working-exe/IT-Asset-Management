@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b4b27b3-58aa-4163-82f5-f269307b0798" name="Changes" comment="Ausleihe: Anzeige der Geräte, Backend" />
+    <list default="true" id="0b4b27b3-58aa-4163-82f5-f269307b0798" name="Changes" comment="A Fistful of Bugfixes">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_geraete.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_geraete.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/modals.Eintraege.Device.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/modals.Eintraege.Device.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/views/modals/Eintraege/Device.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/modals/Eintraege/Device.blade.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
   </component>
   <component name="ComposerSettings">
     <execution />
@@ -28,7 +39,6 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "C:/Users/Studium/Documents/Core/Studium/3. Semester/SWE/Asset-ManagementMCV",
-    "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -84,8 +94,9 @@
       <updated>1671620162258</updated>
       <workItem from="1671620166592" duration="4520000" />
       <workItem from="1671724507508" duration="82000" />
-      <workItem from="1673088999630" duration="4133000" />
-      <workItem from="1673094313821" duration="7936000" />
+      <workItem from="1673088999630" duration="5817000" />
+      <workItem from="1673094822933" duration="396000" />
+      <workItem from="1673099992241" duration="5273000" />
     </task>
     <task id="LOCAL-00005" summary="Clean Logs">
       <created>1671621397675</created>
@@ -101,14 +112,35 @@
       <option name="project" value="LOCAL" />
       <updated>1673092521991</updated>
     </task>
-    <task id="LOCAL-00007" summary="Ausleihe: Anzeige der Geräte, Backend">
-      <created>1673106063722</created>
+    <task id="LOCAL-00007" summary="Responsivität der Belegungseinstellung">
+      <created>1673093170475</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1673106063722</updated>
+      <updated>1673093170475</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Responsivität der Belegungseinstellung">
+      <created>1673093343675</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1673093343675</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Gitignore Revival">
+      <created>1673094878822</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1673094878822</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Datepicker Database fix">
+      <created>1673102652089</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1673102652089</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -132,7 +164,9 @@
     <MESSAGE value="Logs Filter works and Security was increased" />
     <MESSAGE value="Clean Logs" />
     <MESSAGE value="Responsivität und Der Rote Fehler" />
-    <MESSAGE value="Ausleihe: Anzeige der Geräte, Backend" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ausleihe: Anzeige der Geräte, Backend" />
+    <MESSAGE value="Responsivität der Belegungseinstellung" />
+    <MESSAGE value="Gitignore Revival" />
+    <MESSAGE value="Datepicker Database fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Datepicker Database fix" />
   </component>
 </project>

@@ -49,13 +49,21 @@
                                 <div class="col">
                                     <input class="form-control" type="text" id="deviceName" name="addDeviceName"
                                            placeholder="Name*"></div>
-                                <div class="col">
-                                    <select class="form-select" data-mdb-clear-button="true" placeholder="Raum" name="addDeviceRoom" style="max-height: 180px; overflow-y: auto">
-                                        @foreach(getAll_Rooms() as $room)
-                                            <option value="{{$room['raumnummer']}}" @if($room['raumnummer'] == "Lager") selected @endif>{{$room['raumnummer']}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                               @if(!isset($_GET['raum']))
+                                    <div class="col">
+                                        <select class="form-select" data-mdb-clear-button="true" placeholder="Raum" name="addDeviceRoom" style="max-height: 180px; overflow-y: auto">
+                                            @foreach(getAll_Rooms() as $room)
+                                                <option value="{{$room['raumnummer']}}" @if($room['raumnummer'] == "Lager") selected @endif>{{$room['raumnummer']}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                               @else
+                                    <div class="col">
+                                        <select class="form-select" data-mdb-clear-button="true" placeholder="Raum" name="addDeviceRoom" style="max-height: 180px; overflow-y: auto;">
+                                                <option value="{{$_GET['raum']}}" selected >{{$_GET['raum']}}</option>
+                                        </select>
+                                    </div>
+                                @endif
                             </div>
                             <div class="row mt-3">
                                 <div class="col">

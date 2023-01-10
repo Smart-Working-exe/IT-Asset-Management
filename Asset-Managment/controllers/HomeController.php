@@ -75,10 +75,10 @@ class HomeController
     public function verleihung(RequestData $rd)
     {
         if(isset($_GET['accept_loan'])) {
-            logger($_SESSION['name'], 3, "Leihe wurde angenommen");
+            logger($_SESSION['name'], 3, "Leihe von ".$_GET['accept_loan']." wurde angenommen");
             accept_loan($_GET['accept_loan']);}
         if(isset($_GET['accept_return'])) {
-            logger($_SESSION['name'], 3, "Gerät wurde zurückgenommen");
+            logger($_SESSION['name'], 3, "Gerät wurde ".$_GET['accept_return']." zurückgenommen");
             accept_return($_GET['accept_return']);}
         if(isset($_GET['reject'])) { reject($_GET['reject']);}
         $requests = get_open_requests();
