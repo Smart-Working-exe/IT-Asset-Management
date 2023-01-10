@@ -86,9 +86,6 @@ class AddController
             $var['addDeviceAusleihbar']=1;
 
 
-        var_dump($var);
-        var_dump($var_OS);
-        var_dump($var_Software);
         if ($var['addDeviceName'] != null) {
             logger($_SESSION['name'], 9, "Gerät: " . $var['addDeviceName'] . " wurde hinzugefügt.");
             db_add_device($var,$var_OS,$var_Software);

@@ -7,8 +7,11 @@ function db_add_device($var,$var_OS,$var_Software,)
     $name = $var['addDeviceName'];
     $typ = $var['addDevicedeviceTyp'];
     $hersteller = $var['addDeviceHersteller'];
-    $age = date('Y-m-d', strtotime($var['addDevicealterGerat']));
     $betrieb = date('Y-m-d', strtotime($var['addDeviceersteInbetriebname']));
+    if (!empty($var['addDevicealterGerat']))
+        $age = date('Y-m-d', strtotime($var['addDevicealterGerat']));
+    else
+        $age = $betrieb;
     if (!empty($var['addDeviceRoom']))
         $room = $var['addDeviceRoom'];
     else
