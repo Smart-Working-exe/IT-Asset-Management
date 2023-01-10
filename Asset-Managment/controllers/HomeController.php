@@ -93,7 +93,7 @@ class HomeController
         }
         return view('Systemlogs.systemlogs', [
             'data' => get_logs(get_filter_data($rd, 4)),
-            'selected_filter' => get_filter_data($rd, 4)
+            'selected_filter' => get_filter_data($rd, 4,false)
         ]);
     }
 
@@ -112,7 +112,7 @@ class HomeController
         }
         return view('Softwarelizenzen.softwarelizenzen', [
             'data' => get_SoftwarlizenzenTabledata(get_filter_data($rd, 3)),
-            'selected_filter' => get_filter_data($rd, 3)
+            'selected_filter' => get_filter_data($rd, 3,false)
         ]);
     }
 
@@ -216,7 +216,7 @@ class HomeController
             'database_filter' => false,
             'data' => getGeraeteData(get_filter_data($rd, 1)),
             'filter_variable_data' => get_softwarelizenzen_betriessystem(), //Variable filter Daten wie zmb. softwarelizenzen
-            'selected_filter' => get_filter_data($rd, 1),
+            'selected_filter' => get_filter_data($rd, 1,false),
             'max_belegung' => get_raum_belegung($rd->query['raum'] ?? 'a001')['max'],
             'cur_belegung' => get_raum_belegung($rd->query['raum'] ?? 'a001')['cur'],
             'ip' => get_raum_ip($rd->query['raum'] ?? 'a001'),
@@ -253,7 +253,7 @@ class HomeController
             'database_filter' => true,
             'data' => getGeraeteData(get_filter_data($rd, 1)),
             'filter_variable_data' => get_softwarelizenzen_betriessystem(), //Variable filter Daten wie zmb. softwarelizenzen
-            'selected_filter' => get_filter_data($rd, 1),
+            'selected_filter' => get_filter_data($rd, 1,false),
             'dev'=> getGeraeteID_name(),
             'raueme' => getAll_Rooms()
         ]);
@@ -280,7 +280,7 @@ class HomeController
                 return view('Datenbank.datenbank_personen', [
                     'typ' => 'personen',
                     'data' => get_user_tabledata(get_filter_data($rd, 2)),
-                    'selected_filter' => get_filter_data($rd, 2)
+                    'selected_filter' => get_filter_data($rd, 2,false)
                 ]);
             } elseif ($rd->query['database'] == 'lizenzen') {
                 if (isset($_POST['submit']) and $_POST['submit'] == 3) {
@@ -296,7 +296,7 @@ class HomeController
                 return view('Datenbank.datenbank_lizenzen', [
                     'typ' => 'lizenzen',
                     'data' => get_SoftwarlizenzenTabledata(get_filter_data($rd, 3)),
-                    'selected_filter' => get_filter_data($rd, 3)
+                    'selected_filter' => get_filter_data($rd, 3,false)
                 ]);
             }
         }
@@ -319,7 +319,7 @@ class HomeController
             'database_filter' => true,
             'data' => getGeraeteData($filter_data),
             'filter_variable_data' => get_softwarelizenzen_betriessystem(), //Variable filter Daten wie zmb. softwarelizenzen
-            'selected_filter' => $filter_data,
+            'selected_filter' => get_filter_data($rd, 1,false),
             'raueme' => getAll_Rooms()
         ]);
     }

@@ -81,9 +81,28 @@ class RequestData
     public function __construct($method, $args, $query)
     {
         $this->query = $query;
+        //$this->query = $this->secures_query($query);
         $this->args = $args;
         $this->method = $method;
     }
+
+
+    private function secures_query($query) : array{
+
+        $link = connectdb();
+
+        $return_query = [];
+
+        foreach ($query as $key => $value){
+
+            $return_query[$key] = mysqli_real_escape_string($link, $value);
+
+        }
+
+        return $return_query;
+
+    }
+
 }
 
 class FrontController

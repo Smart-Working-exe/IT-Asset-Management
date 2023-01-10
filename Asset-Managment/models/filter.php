@@ -53,10 +53,11 @@ function get_softwarelizenzen_betriessystem(): array
 /**Gibt sämtliche vorhandenen Filterdaten zurück, welche über post oder get übermittelt worden sind
  * @param RequestData $rd benötigt die request data
  *  * @param $eintrag int für welchen typ 1 = Geräte 2 = Personen 3 = Softwarelizenzen 4 = Logs
+ * * @param bool $secure auf false fuer keine ueberabeitung der eingaben
  * @return array ein array entsprechend der Anforderungen von der Funktion get...Data. Softwarelizenzen und Betriebssysteme als id
  * @author jan
  */
-function get_filter_data(RequestData &$rd,$eintrag) : array
+function get_filter_data(RequestData &$rd,$eintrag,$secure = true) : array
 {
 
     $filter_search = [];
@@ -129,8 +130,11 @@ function get_filter_data(RequestData &$rd,$eintrag) : array
     }
 
 
-    foreach ($filter_search as $key => $value)
-        $filter_search[$key] = str_replace('%','\%',$value);
+
+    if($secure)
+        foreach ($filter_search as $key => $value)
+            $filter_search[$key] = str_replace('%','\%',$value);
+
 
     return $filter_search;
 }
