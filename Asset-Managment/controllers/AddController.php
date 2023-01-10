@@ -65,11 +65,12 @@ class AddController
             $_SESSION['target'] = $_SERVER["HTTP_REFERER"];
             header('Location: /login');
         }
-
+        $var_Software=$_POST['addDeviceSoftware'];
+        $var_OS=$_POST['addDeviceBetriebssystem'];
         $var=[
             'addDevicedeviceTyp'            => filter_input(INPUT_POST,'addDevicedeviceTyp'),
             'addDeviceName'                 => filter_input(INPUT_POST,'addDeviceName'),
-            'addDeviceBetriebssystem'       => filter_input(INPUT_POST,'addDeviceBetriebssystem'),
+           // 'addDeviceBetriebssystem'       => filter_input(INPUT_POST,'addDeviceBetriebssystem'),
             'addDeviceRoom'                 => filter_input(INPUT_POST,'addDeviceRoom'),
             'addDeviceHersteller'           => filter_input(INPUT_POST,'addDeviceHersteller'),
             'addDeviceSoftware'             => filter_input(INPUT_POST,'addDeviceSoftware'),
@@ -85,15 +86,18 @@ class AddController
             $var['addDeviceAusleihbar']=1;
 
 
+        var_dump($var);
+        var_dump($var_OS);
+        var_dump($var_Software);
         if ($var['addDeviceName'] != null) {
             logger($_SESSION['name'], 9, "Gerät: " . $var['addDeviceName'] . " wurde hinzugefügt.");
-            db_add_device($var);
+            db_add_device($var,$var_OS,$var_Software);
         }
         //print_r('Location: ' . $_SERVER["HTTP_REFERER"]);
 
         if (isset($_SERVER["HTTP_REFERER"]))
             header('Location: ' . $_SERVER["HTTP_REFERER"]);
-        return view($_SERVER["HTTP_REFERER"],[]);
+        //return view($_SERVER["HTTP_REFERER"],[$var]);
     }
 
     public function chooseDevice(){

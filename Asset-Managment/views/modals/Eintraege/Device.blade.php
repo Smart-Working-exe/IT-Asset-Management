@@ -28,14 +28,14 @@
                                 </div>
                                 <div class="col" id="sometimesHide1">
                                     <div class="dropdown" >
-                                        <button class="form-select" data-mdb-clear-button="true" type="button" id="addDeviceBetriebssystem" name="addDeviceBetriebssystem[]" multiple="multiple" data-bs-toggle="dropdown">Betriebssystem</button>
+                                        <button class="form-select" data-mdb-clear-button="true" type="button" id="addDeviceBetriebssystem"  multiple="multiple" data-bs-toggle="dropdown">Betriebssystem</button>
                                         <ul class="dropdown-menu form-select" aria-labelledby="addDeviceBetriebssystem" style="max-height: 280px; overflow-y: auto">
                                             <li><h6 class="dropdown-header">Betriebssystem</h6></li>
                                             @foreach(getAll_Betriebssysteme() as $betriebssystem)
                                                 <li>
                                                     <a class="dropdown-item" href="#">
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" value="{{$betriebssystem['id']}}" id="Checkme {{$betriebssystem['id']}}" />
+                                                            <input class="form-check-input" type="checkbox" id="Checkme {{$betriebssystem['id']}}" name="addDeviceBetriebssystem[]" value="{{$betriebssystem['id']}}"  /> <!--id="Checkme $betriebssystem['id']}}"-->
                                                             <label class="form-check-label" for="Checkme {{$betriebssystem['id']}}">{{$betriebssystem['name']}} @if(!empty($betriebssystem['version'])) {{$betriebssystem['version']}}  @endif</label>
                                                         </div>
                                                     </a>
@@ -72,7 +72,7 @@
                                            placeholder="Hersteller"></div>
                                 <div class="col" id="sometimesHide2">
                                     <div class="dropdown" >
-                                        <button class="form-select" data-mdb-clear-button="true" type="button" id="addDeviceSoftware" name="addDeviceSoftware" multiple="multiple" data-bs-toggle="dropdown">Software des Gerätes</button>
+                                        <button class="form-select" data-mdb-clear-button="true" type="button" id="addDeviceSoftware"  multiple="multiple" data-bs-toggle="dropdown">Software des Gerätes</button>
                                         <ul class="dropdown-menu form-select" aria-labelledby="addDeviceSoftware" style="max-height: 280px; overflow-y: auto">
                                             <li><h6 class="dropdown-header">Software des Gerätes</h6></li>
                                             @foreach(db_getAll_Softwarelizenzen() as $software)

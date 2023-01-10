@@ -1,7 +1,8 @@
 <?php
 
-function db_add_device($var)
+function db_add_device($var,$var_OS,$var_Software,)
 {
+
     $db = connectdb();
     $name = $var['addDeviceName'];
     $typ = $var['addDevicedeviceTyp'];
@@ -18,7 +19,6 @@ function db_add_device($var)
     //$betriebssystem = $var['addDeviceBetriebssystem'];
 
 
-    print_r($var);
     $absenden = $db->prepare("INSERT INTO geraet(name, typ, hersteller, age, betrieb,raumnummer,technische_eckdaten,kommentar,ausleihbar) VALUES(?,?,?,?,?,?,?,?,?)");
     $absenden->bind_param('ssssssssi', $name, $typ, $hersteller, $age, $betrieb, $room, $technischeEckdaten, $kommentar, $ausleihbar);
     $absenden->execute();
@@ -29,9 +29,18 @@ function db_add_device($var)
     //$db = connectdb();
     //$result=51;
     $betriebssystem = 2;
+    foreach($var_OS as $value){
     $absenden2 = $db->prepare("INSERT INTO geraet_hat_betriebssystem(geraetid,betriebssystemid)VALUES (?,?)");
-    $absenden2->bind_param('ii', $order_id, $betriebssystem);
-    $absenden2->execute();
+    $value =(int)$value;
+    $absenden2->bind_param('ii', $order_id, $value);
+    $absenden2->execute();}
+
+    foreach($var_Software as $value2){
+        $absenden3 = $db->prepare("INSERT INTO geraet_hat_software(geraetid,softwarelizenzid)VALUES (?,?)");
+        $value2 =(int)$value2;
+        $absenden3->bind_param('ii', $order_id, $value2);
+        $absenden3->execute();}
+    
     $db->close();
 }
 
