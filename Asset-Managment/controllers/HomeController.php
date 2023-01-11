@@ -329,7 +329,7 @@ class HomeController
     public function test(RequestData $rd)
     {
         return view('test', [
-            'data' => []
+            'data' => $rd->query
         ]);
     }
 

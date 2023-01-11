@@ -48,5 +48,6 @@
 </script>
     <div id='DivReqDetails'></div>
 
+{{print_r($data)}}
 </body>
 </html>
