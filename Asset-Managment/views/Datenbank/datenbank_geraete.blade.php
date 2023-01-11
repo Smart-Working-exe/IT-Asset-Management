@@ -36,7 +36,12 @@
                 <td>{{$geraet['name']}}</td>
                 <td>{{$geraet['typ']}}</td>
                 <td>{{$geraet['hersteller']}}</td>
-                <td>{{$geraet['alter']}} Jahre</td>
+{{--                <td>{{$geraet['alter']}} Jahre</td>--}}
+                <td>@if(strval($geraet['alter']) == strval(-1))
+                        0 Jahre
+                    @else
+                        {{$geraet['alter']}} Jahre
+                    @endif</td>
                 <td>{{$geraet['ip_adresse']}}</td>
                 <td>
                     @if(isset($geraet['betriebssystem']))
@@ -162,19 +167,15 @@
                                         </div>
                                         <div class="col">
                                             <div class="dropdown">
-                                                <button class="form-select" data-mdb-clear-button="true" type="button" id="form_OperationSystem" name="form_OperationSystem[]" multiple="multiple" data-bs-toggle="dropdown">Betriebssystem</button>
+                                                <button class="form-select" data-mdb-clear-button="true" type="button" id="form_OperationSystem" multiple="multiple" data-bs-toggle="dropdown">Betriebssystem</button>
                                                 <ul class="dropdown-menu form-select" aria-labelledby="form_OperationSystem" style="max-height: 280px; overflow-y: auto">
                                                     <li><h6 class="dropdown-header">Betriebssystem</h6>
-
-
                                                     @foreach($filter_variable_data['betriebssystem'] as $key => $betriebssystem_name)
                                                         <li>
                                                             <a class="dropdown-item" href="#">
                                                                 <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox" value="{{$key}}" id="Checkme {{$key}}"
-
+                                                                    <input class="form-check-input" type="checkbox"  name="form_OperationSystem[]" value="{{$key}}" id="Checkme {{$key}}"
                                                                     @if(isset($geraet['betriebssystem']))
-
                                                                         {{$vorhanden=false}}
                                                                         @foreach($geraet['betriebssystem'] as $value)
                                                                             @if($value==$betriebssystem_name)
@@ -182,10 +183,9 @@
                                                                             @endif
                                                                         @endforeach
                                                                     @endif
-                                                                           @if($vorhanden) checked @endif />
+
+                                                                    @if($vorhanden) checked @endif />
                                                                     <label class="form-check-label" for="Checkme {{$key}}">{{$betriebssystem_name}}</label>
-                                                                    {{var_dump($geraet['betriebssystem'])}}
-                                                                    {{var_dump($betriebssystem_name)}}
                                                                 </div>
                                                             </a>
                                                         </li>
@@ -221,7 +221,16 @@
                                                         <li>
                                                             <a class="dropdown-item" href="#">
                                                                 <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox" name="addDeviceSoftware[]" value="{{$key_softwareid}}" id="Checkme {{$key_softwareid}}" />
+                                                                    <input class="form-check-input" type="checkbox" name="form_Software[]" value="{{$key_softwareid}}" id="Checkme {{$key_softwareid}}"
+                                                                           @if(isset($geraet['software']))
+                                                                               {{$vorhanden=false}}
+                                                                               @foreach($geraet['software'] as $value)
+                                                                                   @if($value==$data_softwarename)
+                                                                                       $vorhan{{$vorhanden=true}}
+                                                                                   @endif
+                                                                               @endforeach
+                                                                           @endif
+                                                                           @if($vorhanden) checked @endif />
                                                                     <label class="form-check-label" for="Checkme {{$key_softwareid}}">{{$data_softwarename}}</label>
                                                                 </div>
                                                             </a>
@@ -236,9 +245,7 @@
                                         <div class="col">
                                             <div class="form-group">
                                                 <div class="input-group date" id="datepickerEditUsage">
-                                                    <input type="text" id="Inbetriebname" class="form-control"
-                                                           placeholder="erste Inbetriebname*"
-                                                           value="{{$geraet['betrieb']}}" name="form_betrieb">
+                                                    <input type="text" id="Inbetriebname" class="form-control" placeholder="erste Inbetriebname*" value="{{$geraet['betrieb']}}" name="form_betrieb">
                                                     <span class="input-group-append">
                                                         <span class="input-group-text bg-white d-block">
                                                             <i class="fa fa-calendar"></i>
