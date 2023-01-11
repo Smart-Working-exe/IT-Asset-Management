@@ -36,7 +36,12 @@
                 <td>{{$geraet['name']}}</td>
                 <td>{{$geraet['typ']}}</td>
                 <td>{{$geraet['hersteller']}}</td>
-                <td>{{$geraet['alter']}} Jahre</td>
+{{--                <td>{{$geraet['alter']}} Jahre</td>--}}
+                <td>@if(strval($geraet['alter']) == strval(-1))
+                        0 Jahre
+                    @else
+                        {{$geraet['alter']}} Jahre
+                    @endif</td>
                 <td>{{$geraet['ip_adresse']}}</td>
                 <td>
                     @if(isset($geraet['betriebssystem']))
