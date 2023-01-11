@@ -35,7 +35,7 @@ class HomeController
             return view('Dashboard.dashboard_mitarbeiter', ['rq'=>$rd, 'notifs'=>$notifs]);
         }
         elseif($_SESSION['Rolle'] == 3){
-            if(isset($_GET['delete'])) { delete_notif_loan($_GET['delete']); }
+            if(isset($_POST['delete'])) { delete_notif_loan($_POST['delete']); }
             $notifs = notif_student();
             return view('Dashboard.dashboard_student', ['rq' => $rd, 'notifs' => $notifs]);
         }
@@ -74,13 +74,13 @@ class HomeController
 
     public function verleihung(RequestData $rd)
     {
-        if(isset($_GET['accept_loan'])) {
-            logger($_SESSION['name'], 3, "Leihe von ".$_GET['accept_loan']." wurde angenommen");
-            accept_loan($_GET['accept_loan']);}
-        if(isset($_GET['accept_return'])) {
-            logger($_SESSION['name'], 3, "Gerät wurde ".$_GET['accept_return']." zurückgenommen");
-            accept_return($_GET['accept_return']);}
-        if(isset($_GET['reject'])) { reject($_GET['reject']);}
+        if(isset($_POST['accept_loan'])) {
+            logger($_SESSION['name'], 3, "Leihe von ".$_POST['accept_loan']." wurde angenommen");
+            accept_loan($_POST['accept_loan']);}
+        if(isset($_POST['accept_return'])) {
+            logger($_SESSION['name'], 3, "Gerät wurde ".$_POST['accept_return']." zurückgenommen");
+            accept_return($_POST['accept_return']);}
+        if(isset($_POST['reject'])) { reject($_POST['reject']);}
         $requests = get_open_requests();
         return view('Verleihung_Mitarbeiter.verleihung',['anfragen' => $requests]);
     }

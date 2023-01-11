@@ -74,9 +74,9 @@ function notif_student()
 
     // get Benachrichtigungen
     $setting = $data1[0][0];
-    $loan_request1 = "SELECT art, geraet, status, DATEDIFF(rueckgabedatum,NOW()) AS zeitraum FROM ausleihanfragen where student = '$self' AND art = 0 AND
+    $loan_request1 = "SELECT id, art, geraet, status, DATEDIFF(rueckgabedatum,NOW()) AS zeitraum FROM ausleihanfragen where student = '$self' AND art = 0 AND
                       status = 1 HAVING zeitraum <= '$setting' /*AND -'$setting' <= zeitraum*/ ORDER BY zeitraum";
-    $loan_request2 = "SELECT art, geraet, status FROM ausleihanfragen where student = '$self' 
+    $loan_request2 = "SELECT id, art, geraet, status FROM ausleihanfragen where student = '$self' 
                       AND ((art = 0 AND status = 2) OR (art = 1 AND status > 0))";
     $loan1 = mysqli_query($link,$loan_request1);
     $loan2 = mysqli_query($link,$loan_request2);
@@ -89,14 +89,14 @@ function notif_student()
     return array_merge($data2, $data3);
 }
 
-function delete_notif_loan($geraet) {
+function delete_notif_loan($id) {
 
     $self = $_SESSION['name'];
     $link = connectdb();
     mysqli_begin_transaction($link);
 
     // get request data
-    $request = "SELECT art, status from ausleihanfragen where student = '$self' AND geraet = '$geraet'";
+    $request = "SELECT art, status from ausleihanfragen where student = '$self' AND id = '$id'";
     $sql = mysqli_query($link, $request);
     $data = mysqli_fetch_all($sql,MYSQLI_BOTH);
     $art = $data[0][0];
@@ -104,13 +104,13 @@ function delete_notif_loan($geraet) {
     // delete Benachrichtigung
     if(($art == 0 && $status == 2) || ($art == 1 && $status == 1)) {
         $request = "DELETE FROM ausleihanfragen where student = '$self' 
-                    AND geraet = '$geraet'";
+                    AND id = '$id'";
         mysqli_query($link, $request);
     }
     // update art und status
     else if($art == 1 && $status == 2) {
         $request = "UPDATE ausleihanfragen SET art = 0, status = 1 
-                    where student = '$self' AND geraet = '$geraet'";
+                    where student = '$self' AND id = '$id'";
         mysqli_query($link, $request);
     }
 

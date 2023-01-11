@@ -24,23 +24,6 @@
                         <td class="text-center"><input class="form-check-input" name="loan[<?php $i ?>]" value={{$device['name']}} type="checkbox" id="flexCheckChecked" ></td>
                     </tr>
                 @endforeach
-                {{--<tr>
-                    <td>Laptop</td>
-                    <td>Computer</td>
-                    <td>
-                        <div class="progress position-relative">
-                            <div class="progress-bar" role="progressbar"
-                                 style="width:84%; background-color: green" aria-valuenow="212" aria-valuemin="0"
-                                 aria-valuemax="250">
-                                <small class="justify-content-center d-flex position-absolute w-100">212/250</small>
-                            </div>
-                            <div class="progress-bar" role="progressbar"
-                                 style="width:16%; background-color: black" aria-valuenow="438" aria-valuemin="0"
-                                 aria-valuemax="648"></div>
-                        </div>
-                    </td>
-                    <td class="text-center"><input class="form-check-input" type="checkbox" id="flexCheckChecked"></td>
-                </tr>--}}
                 </tbody>
             </table>
         </div>
@@ -111,12 +94,12 @@
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                    Eine Anfrage wurde an einem Mitarbeiter gesendet
+                    Eine Anfrage wurde an die Fachhochschule Aachen gesendet
                 </div>
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Ok</button>
+                    <!--<button type="button" class="btn btn-success" data-bs-dismiss="modal">Ok</button>-->
                 </div>
 
             </div>

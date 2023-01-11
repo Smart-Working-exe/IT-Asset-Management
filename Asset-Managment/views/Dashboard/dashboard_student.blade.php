@@ -24,15 +24,14 @@
                 <div class="row">
                     <p class="display-6 h6 text-center col-4 mt-3">Benachrichtigungen</p>
                 </div>
-
                 <div style="overflow-y: scroll;margin-right:20%; height:300px;">
                     @foreach ($notifs as $benachrichtigung)
                         @if(isset($benachrichtigung['art']))
                         <div class="toast show col-6 mt-2">
                             <div class="toast-header ">
                                 Ausleihfrist
-                                <form>
-                                    <button type="submit" action="/dashboard" method="get" name="delete" value={{$benachrichtigung['geraet']}} class="btn-close" data-bs-dismiss="toast"></button>
+                                <form action="/dashboard" method="post">
+                                    <button type="submit"  name="delete" value={{$benachrichtigung['id']}} class="btn-close" data-bs-dismiss="toast"></button>
                                 </form>
                             </div>
                             <div class="toast-body">
@@ -62,20 +61,19 @@
                             @endif
                                 </div>
                             </div>
-                        @elseif(empty($benachrichtigung))
-                            <div class="toast show col-6 mt-2">
-                                <div class="toast-header ">
-                                    Info
-                                    <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
-                                </div>
-                                <div class="toast-body">
-                                    Keine Benachrichtigungen vorhanden.
-                                </div>
-                            </div>
-                        @endif
-
-
+                            @endif
                     @endforeach
+                    @if(empty($benachrichtigung))
+                        <div class="toast show col-6 mt-2">
+                            <div class="toast-header ">
+                                Info
+                                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+                            </div>
+                            <div class="toast-body">
+                                Keine Benachrichtigungen vorhanden.
+                            </div>
+                        </div>
+                    @endif
                 </div>
             </div>
         @endsection

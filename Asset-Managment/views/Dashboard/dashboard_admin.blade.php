@@ -64,7 +64,9 @@
                                     In Raum {{ $benachrichtigung['raumnummer'] }} sind {{ $benachrichtigung['belegung_ip'] }} von {{ $benachrichtigung['anzahl_ip'] }} IP-Adressen belegt.
                                 </div>
                             </div>
-                        @else
+                        @endif
+                    @endforeach
+                        @if(empty($notifs))
                             <div class="toast show col-6 mt-2">
                                 <div class="toast-header ">
                                     Info
@@ -75,7 +77,6 @@
                                 </div>
                             </div>
                         @endif
-                    @endforeach
                 </div>
             </div>
     </div>
