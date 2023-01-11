@@ -246,8 +246,9 @@ function editGeraete(RequestData $rd){
 
     $age = date('Y-m-d', strtotime($rd->query['form_age']));
     $betrieb = date('Y-m-d', strtotime($rd->query['form_betrieb']));
+    $id = $rd->query['form_id'];
 
-    $sql = "UPDATE geraet SET betrieb ='$betrieb', age ='$age'";
+    $sql = "UPDATE geraet SET betrieb ='$betrieb', age ='$age' WHERE id ='$id'";
     mysqli_query($link, $sql);
 
     mysqli_close($link);

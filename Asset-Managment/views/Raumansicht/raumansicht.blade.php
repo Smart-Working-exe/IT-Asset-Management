@@ -51,7 +51,7 @@
 
             <div class="form-group">
                 <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal" data-bs-target="#addDevice">
-                    Gerät hinzufügen
+                    Geräte hinzufügen
                 </button>
 
                 @if(!empty($selected_filter['suche']) || !empty($selected_filter['Typ']) || !empty($selected_filter['hersteller']) || !empty($selected_filter['age']) || !empty($selected_filter['betriebssystemid']) || !empty($selected_filter['softwarelizenzid'])  )
@@ -147,7 +147,11 @@
                     <td>{{$geraet['name']}}</td>
                     <td>{{$geraet['typ']}}</td>
                     <td>{{$geraet['hersteller']}}</td>
-                    <td>{{$geraet['alter']}} Jahre</td>
+                    <td>@if(strval($geraet['alter']) == strval(-1))
+                            0 Jahre
+                        @else
+                            {{$geraet['alter']}} Jahre
+                        @endif</td>
                     <td>{{$geraet['ip_adresse']}}</td>
                     <td>
                         @if(isset($geraet['betriebssystem']))

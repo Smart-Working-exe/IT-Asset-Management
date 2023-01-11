@@ -80,8 +80,8 @@ class RequestData
      */
     public function __construct($method, $args, $query)
     {
-        //$this->query = $query;
-        $this->query = $this->secures_query($query);
+        $this->query = $query;
+        //$this->query = $this->secures_query($query);
         $this->args = $args;
         $this->method = $method;
     }
