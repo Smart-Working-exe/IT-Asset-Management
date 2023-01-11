@@ -44,9 +44,10 @@ function notif_employee()
 
     // get softwarelizenzen
     $setting_sw = $data1[0][0];
-    $sw_request = "SELECT g.name as geraet, s.name, DATEDIFF(s.ablaufdatum,NOW()) AS ablaufzeitraum 
-                FROM geraet g, softwarelizenzen s WHERE g.personen_id = '$self' 
-                HAVING ablaufzeitraum <= '$setting_sw' /*AND -'$setting_sw' <= ablaufzeitraum*/ ORDER BY ablaufzeitraum";
+    $sw_request = "SELECT g.name as geraet, s.name, s.version, DATEDIFF(s.ablaufdatum,NOW()) AS ablaufzeitraum FROM geraet g
+                    RIGHT JOIN geraet_hat_software gs ON g.id = gs.geraetid
+                    LEFT JOIN softwarelizenzen s on gs.softwarelizenzid = s.id
+                    WHERE g.personen_id = '$self' HAVING ablaufzeitraum <= 14 ORDER BY ablaufzeitraum;";
     $sw = mysqli_query($link,$sw_request);
 
     // get loan
