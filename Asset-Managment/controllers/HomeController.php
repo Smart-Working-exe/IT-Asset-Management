@@ -302,7 +302,9 @@ class HomeController
 
         if (isset($_POST['submit']) and $_POST['submit'] == 1) {
             logger($_SESSION['name'], 4, $rd->query['form_name123']." wurde bearbeitet.");
-            editGeraete($rd);
+            $edit_Software=$_POST['form_Software'];
+            $edit_OOS=$_POST['form_OperationSystem'];
+            editGeraete($rd,$edit_Software,$edit_OOS);
         }
 
         if (isset($_POST['submit_delete'])) {
@@ -319,7 +321,7 @@ class HomeController
             'data' => getGeraeteData($filter_data),
             'filter_variable_data' => get_softwarelizenzen_betriessystem(), //Variable filter Daten wie zmb. softwarelizenzen
             'selected_filter' => get_filter_data($rd, 1,false),
-            'raueme' => getAll_Rooms()
+            'raueme' => getAll_Rooms(),
         ]);
     }
 
@@ -328,7 +330,7 @@ class HomeController
     public function test(RequestData $rd)
     {
         return view('test', [
-            'data' => []
+            'data' => $rd->query
         ]);
     }
 

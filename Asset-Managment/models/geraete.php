@@ -230,7 +230,7 @@ function getGeraeteData($filter = [])
 
 }
 
-function editGeraete(RequestData $rd){
+function editGeraete(RequestData $rd,$edit_Software,$edit_OOS){
 
     $link = connectdb();
 
@@ -250,6 +250,24 @@ function editGeraete(RequestData $rd){
 
     $sql = "UPDATE geraet SET betrieb ='$betrieb', age ='$age' WHERE id ='$id'";
     mysqli_query($link, $sql);
+    $order_id=$rd->query['form_id'];
+
+    $sql = 'DELETE FROM geraet_hat_betriebssystem WHERE geraetid = ' . $rd->query['form_id'] . ';';
+    mysqli_query($link, $sql);
+    $sql = 'DELETE FROM geraet_hat_software WHERE geraetid = ' . $rd->query['form_id'] . ';';
+    mysqli_query($link, $sql);
+
+    foreach($edit_OOS as $value){
+        $absenden2 = $link->prepare("INSERT INTO geraet_hat_betriebssystem(geraetid,betriebssystemid)VALUES (?,?)");
+        $value =(int)$value;
+        $absenden2->bind_param('ii', $order_id, $value);
+        $absenden2->execute();}
+
+    foreach($edit_Software as $value2){
+        $absenden3 = $link->prepare("INSERT INTO geraet_hat_software(geraetid,softwarelizenzid)VALUES (?,?)");
+        $value2 =(int)$value2;
+        $absenden3->bind_param('ii', $order_id, $value2);
+        $absenden3->execute();}
 
     mysqli_close($link);
 };

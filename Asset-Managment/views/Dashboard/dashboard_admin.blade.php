@@ -42,20 +42,15 @@
                                 </div>
                                 <div class="toast-body">
                                     @if($benachrichtigung['ablaufzeitraum'] < -1)
-                                        Die Lizenz von {{ $benachrichtigung['name'] }} ist auf {{ $benachrichtigung['anzahl_gerate'] }}
-                                        Gerät(en) vor {{ -1*$benachrichtigung['ablaufzeitraum'] }} Tagen abgelaufen.
+                                        Die Lizenz von {{ $benachrichtigung['name'] }} {{ $benachrichtigung['version'] }} ist vor {{ -1*$benachrichtigung['ablaufzeitraum'] }} Tagen abgelaufen.
                                     @elseif($benachrichtigung['ablaufzeitraum'] == -1)
-                                        Die Lizenz von {{ $benachrichtigung['name'] }} ist auf {{ $benachrichtigung['anzahl_gerate'] }}
-                                        Gerät(en) vor {{ -1*$benachrichtigung['ablaufzeitraum'] }} Tag abgelaufen.
+                                        Die Lizenz von {{ $benachrichtigung['name'] }} {{ $benachrichtigung['version'] }} ist vor {{ -1*$benachrichtigung['ablaufzeitraum'] }} Tag abgelaufen.
                                     @elseif($benachrichtigung['ablaufzeitraum'] == 0)
-                                        Die Lizenz von {{ $benachrichtigung['name'] }} läuft auf {{ $benachrichtigung['anzahl_gerate'] }}
-                                        Gerät(en) heute ab.
+                                        Die Lizenz von {{ $benachrichtigung['name'] }} {{ $benachrichtigung['version'] }} läuft heute ab.
                                     @elseif($benachrichtigung['ablaufzeitraum'] == 1)
-                                        Die Lizenz von {{ $benachrichtigung['name'] }} läuft auf {{ $benachrichtigung['anzahl_gerate'] }}
-                                        Gerät(en) in {{ $benachrichtigung['ablaufzeitraum'] }} Tag ab.
+                                        Die Lizenz von {{ $benachrichtigung['name'] }} {{ $benachrichtigung['version'] }} läuft in {{ $benachrichtigung['ablaufzeitraum'] }} Tag ab.
                                     @elseif($benachrichtigung['ablaufzeitraum'] > 1)
-                                        Die Lizenz von {{ $benachrichtigung['name'] }} läuft auf {{ $benachrichtigung['anzahl_gerate'] }}
-                                        Gerät(en) in {{ $benachrichtigung['ablaufzeitraum'] }} Tagen ab.
+                                        Die Lizenz von {{ $benachrichtigung['name'] }} {{ $benachrichtigung['version'] }} läuft in {{ $benachrichtigung['ablaufzeitraum'] }} Tagen ab.
                                     @endif
                                 </div>
                             </div>

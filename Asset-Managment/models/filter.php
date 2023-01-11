@@ -22,10 +22,9 @@ function get_softwarelizenzen_betriessystem(): array
 
     foreach ($betriebssysteme as $btrsys )
     {
+        $name = $btrsys['name'];
 
-        $name = $btrsys['name'] ;
-
-        if(!empty($btrsys['version']))
+        if($btrsys['version'] != "")
             $name .=  " " . $btrsys['version'];
 
         $result['betriebssystem'][$btrsys['id']] = $name;
@@ -33,20 +32,15 @@ function get_softwarelizenzen_betriessystem(): array
 
     foreach ($softwarelizenzen as $swl )
     {
-
         $name = $swl['name'] ;
 
-        if(!empty($swl['version']))
+        if(($swl['version'] != ""))
             $name .=  " " . $swl['version'];
 
         $result['softwarelizenzen'][$swl['id']] = $name;
 
     }
-
-
-
     return $result;
-
 }
 
 

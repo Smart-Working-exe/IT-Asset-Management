@@ -167,15 +167,29 @@
                                         </div>
                                         <div class="col">
                                             <div class="dropdown">
-                                                <button class="form-select" data-mdb-clear-button="true" type="button" id="form_OperationSystem" name="form_OperationSystem[]" multiple="multiple" data-bs-toggle="dropdown">Betriebssystem</button>
+                                                <button class="form-select" data-mdb-clear-button="true" type="button" id="form_OperationSystem" multiple="multiple" data-bs-toggle="dropdown">Betriebssystem</button>
                                                 <ul class="dropdown-menu form-select" aria-labelledby="form_OperationSystem" style="max-height: 280px; overflow-y: auto">
-                                                    <li><h6 class="dropdown-header">Betriebssystem</h6></li>
-                                                    @foreach($filter_variable_data['betriebssystem'] as $key_betriebssystemid => $betriebssystem_name)
+                                                    <li><h6 class="dropdown-header">Betriebssystem</h6>
+
+
+                                                    @foreach($filter_variable_data['betriebssystem'] as $key => $betriebssystem_name)
                                                         <li>
                                                             <a class="dropdown-item" href="#">
                                                                 <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox" value="{{$key_betriebssystemid}}" id="Checkme {{$key_betriebssystemid}}" @if($key_betriebssystemid == $filter_variable_data['betriebssystem_id']) checked @endif/>
-                                                                    <label class="form-check-label" for="Checkme {{$key_betriebssystemid}}">{{$betriebssystem_name}}</label>
+                                                                    <input class="form-check-input" type="checkbox"  name="form_OperationSystem[]" value="{{$key}}" id="Checkme {{$key}}"
+
+                                                                    @if(isset($geraet['betriebssystem']))
+
+                                                                        {{$vorhanden=false}}
+                                                                        @foreach($geraet['betriebssystem'] as $value)
+                                                                            @if($value==$betriebssystem_name)
+                                                                                $vorhan{{$vorhanden=true}}
+                                                                            @endif
+                                                                        @endforeach
+                                                                    @endif
+                                                                           @if($vorhanden) checked @endif />
+                                                                    <label class="form-check-label" for="Checkme {{$key}}">{{$betriebssystem_name}}</label>
+
                                                                 </div>
                                                             </a>
                                                         </li>
@@ -211,7 +225,18 @@
                                                         <li>
                                                             <a class="dropdown-item" href="#">
                                                                 <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox" name="addDeviceSoftware[]" value="{{$key_softwareid}}" id="Checkme {{$key_softwareid}}" />
+                                                                    <input class="form-check-input" type="checkbox" name="form_Software[]" value="{{$key_softwareid}}" id="Checkme {{$key_softwareid}}"
+
+                                                                           @if(isset($geraet['software']))
+
+                                                                               {{$vorhanden=false}}
+                                                                               @foreach($geraet['software'] as $value)
+                                                                                   @if($value==$data_softwarename)
+                                                                                       $vorhan{{$vorhanden=true}}
+                                                                                   @endif
+                                                                               @endforeach
+                                                                           @endif
+                                                                           @if($vorhanden) checked @endif />
                                                                     <label class="form-check-label" for="Checkme {{$key_softwareid}}">{{$data_softwarename}}</label>
                                                                 </div>
                                                             </a>

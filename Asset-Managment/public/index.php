@@ -95,7 +95,10 @@ class RequestData
 
         foreach ($query as $key => $value){
 
-            $return_query[$key] = mysqli_real_escape_string($link, $value);
+                if(is_string($value))
+                    $return_query[$key] = mysqli_real_escape_string($link, $value);
+                else
+                    $return_query[$key] = $value;
 
         }
 

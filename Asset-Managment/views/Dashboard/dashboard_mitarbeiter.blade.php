@@ -33,18 +33,18 @@
                     </div>
                     <div class="toast-body">
                         @if($benachrichtigung['ablaufzeitraum'] < -1)
-                            Die Lizenz von {{ $benachrichtigung['name'] }} auf {{ $benachrichtigung['geraet'] }}
+                            Die Lizenz von {{ $benachrichtigung['name'] }} {{ $benachrichtigung['version'] }} auf {{ $benachrichtigung['geraet'] }}
                             ist vor {{ -1*$benachrichtigung['ablaufzeitraum'] }} Tagen abgelaufen.
                         @elseif($benachrichtigung['ablaufzeitraum'] == -1)
-                            Die Lizenz von {{ $benachrichtigung['name'] }} auf {{ $benachrichtigung['geraet'] }}
+                            Die Lizenz von {{ $benachrichtigung['name'] }} {{ $benachrichtigung['version'] }} auf {{ $benachrichtigung['geraet'] }}
                             ist vor {{ -1*$benachrichtigung['ablaufzeitraum'] }} Tag abgelaufen.
                         @elseif($benachrichtigung['ablaufzeitraum'] == 0)
-                            Die Lizenz von {{ $benachrichtigung['name'] }} läuft auf {{ $benachrichtigung['geraet'] }} heute ab.
+                            Die Lizenz von {{ $benachrichtigung['name'] }} {{ $benachrichtigung['version'] }} läuft auf {{ $benachrichtigung['geraet'] }} heute ab.
                         @elseif($benachrichtigung['ablaufzeitraum'] == 1)
-                            Die Lizenz von {{ $benachrichtigung['name'] }} läuft auf {{ $benachrichtigung['geraet'] }}
+                            Die Lizenz von {{ $benachrichtigung['name'] }} {{ $benachrichtigung['version'] }} läuft auf {{ $benachrichtigung['geraet'] }}
                             in {{ $benachrichtigung['ablaufzeitraum'] }} Tag ab.
                         @else($benachrichtigung['ablaufzeitraum'] < 1)
-                            Die Lizenz von {{ $benachrichtigung['name'] }} läuft auf {{ $benachrichtigung['geraet'] }}
+                            Die Lizenz von {{ $benachrichtigung['name'] }} {{ $benachrichtigung['version'] }} läuft auf {{ $benachrichtigung['geraet'] }}
                             in {{ $benachrichtigung['ablaufzeitraum'] }} Tagen ab.
                         @endif
                     </div>

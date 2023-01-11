@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b4b27b3-58aa-4163-82f5-f269307b0798" name="Changes" comment="A Fistful of Bugfixes">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="de454f2f-6b7b-4821-90f6-2409914a6de0" name="Changes" comment="Änderungen Benachrichtigungen und Einstellungen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/models/geraete.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/models/geraete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_geraete.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_geraete.bladec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/views/Datenbank/datenbank_geraete.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/Datenbank/datenbank_geraete.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/models/benachrichtigungen.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/models/benachrichtigungen.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Dashboard.dashboard_mitarbeiter.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Dashboard.dashboard_mitarbeiter.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/EigeneGeraete.eigeneGeraete.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/EigeneGeraete.eigeneGeraete.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/views/Dashboard/dashboard_mitarbeiter.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/Dashboard/dashboard_mitarbeiter.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +98,7 @@
       <workItem from="1673094822933" duration="396000" />
       <workItem from="1673099992241" duration="5273000" />
       <workItem from="1673379084283" duration="6816000" />
+      <workItem from="1673442035152" duration="4259000" />
     </task>
     <task id="LOCAL-00005" summary="Clean Logs">
       <created>1671621397675</created>
@@ -169,6 +169,7 @@
     <MESSAGE value="Responsivität der Belegungseinstellung" />
     <MESSAGE value="Gitignore Revival" />
     <MESSAGE value="Datepicker Database fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Datepicker Database fix" />
+    <MESSAGE value="Änderungen Benachrichtigungen und Einstellungen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Änderungen Benachrichtigungen und Einstellungen" />
   </component>
 </project>
