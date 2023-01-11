@@ -319,7 +319,8 @@ class HomeController
             'data' => getGeraeteData($filter_data),
             'filter_variable_data' => get_softwarelizenzen_betriessystem(), //Variable filter Daten wie zmb. softwarelizenzen
             'selected_filter' => get_filter_data($rd, 1,false),
-            'raueme' => getAll_Rooms()
+            'raueme' => getAll_Rooms(),
+            'Osid'=>get_geraet_hat_betriebssystem_id()
         ]);
     }
 
