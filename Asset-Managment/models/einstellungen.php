@@ -16,8 +16,9 @@ function get_setting()
 function change_setting(int $days)
 {
     $self = $_SESSION['name'];
-    // Nur Werte zwischen 0 und 60 gültig
-    ($days < 0) ? ($optimized_setting = 0) : ($optimized_setting = $days);
+
+    // Nur Werte zwischen 1 und 60 gültig
+    ($days < 1) ? ($optimized_setting = 1) : ($optimized_setting = $days);
     ($days > 60) ? ($optimized_setting = 60) : ($optimized_setting = $days);
 
     $link = connectdb();
@@ -43,8 +44,8 @@ function get_setting_ip()
 function change_setting_ip(int $free)
 {
     $self = $_SESSION['name'];
-    // Nur Werte zwischen 0 und 20 gültig
-    ($free < 0) ? ($optimized_setting = 0) : ($optimized_setting = $free);
+    // Nur Werte zwischen 1 und 20 gültig
+    ($free < 1) ? ($optimized_setting = 1) : ($optimized_setting = $free);
     ($free > 20) ? ($optimized_setting = 20) : ($optimized_setting = $free);
 
     $link = connectdb();

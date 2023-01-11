@@ -84,8 +84,8 @@
 
                             <div class="Sonstiges selectt">
                                 <label>
-                                    <input style="height: 18px;width: 50px;" type="number" min=0 max=60 name="neue_einstellung_s">
-                                    Tage vor Ablauf der Softwarelizenz (Es werden Werte zwischen 0 und 60 akzeptiert)</label><br>
+                                    <input style="height: 18px;width: 50px;" type="number" min=1 max=60 name="neue_einstellung_s">
+                                    Tage vor Ablauf der Softwarelizenz (Es werden Werte zwischen 1 und 60 akzeptiert)</label><br>
                             </div>
 
 
@@ -137,8 +137,8 @@
                             </div>
                             <div class="Sonstiges2 selectt">
                                 <label>
-                                    <input style="height: 18px;width: 50px;" type="number"  min=0 max = 20 name="neue_einstellung_ip_s">
-                                    freie Adressen (Es werden Werte zwischen 0 und 20 akzeptiert)</label><br>
+                                    <input style="height: 18px;width: 50px;" type="number"  min=1 max = 20 name="neue_einstellung_ip_s">
+                                    freie Adressen (Es werden Werte zwischen 1 und 20 akzeptiert)</label><br>
                             </div>
 
                         </div>
@@ -186,8 +186,8 @@
 
                                 <div class="Sonstiges selectt">
                                     <label>
-                                        <input style="height: 18px;width: 50px;" type="number" min=0 max=60 name="neue_einstellung_s"
-                                               value=""> Tage vor Ablauf der Ausleihfrist (Es werden Werte zwischen 0 und 60 akzeptiert)</label><br>
+                                        <input style="height: 18px;width: 50px;" type="number" min=1 max=60 name="neue_einstellung_s"
+                                               value=""> Tage vor Ablauf der Ausleihfrist (Es werden Werte zwischen 1 und 60 akzeptiert)</label><br>
                                 </div>
 
                             </div>

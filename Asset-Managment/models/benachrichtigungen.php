@@ -13,8 +13,8 @@ function notif_admin()
 
     // get softwarelizenzen
     $setting_sw = $data1[0][0];
-    $sw_request = "SELECT name, anzahl_gerate, DATEDIFF(ablaufdatum,NOW()) AS ablaufzeitraum FROM softwarelizenzen 
-                HAVING ablaufzeitraum <= '$setting_sw' AND -'$setting_sw' <= ablaufzeitraum ORDER BY ablaufzeitraum";
+    $sw_request = "SELECT name, version, DATEDIFF(ablaufdatum,NOW()) AS ablaufzeitraum FROM softwarelizenzen 
+                HAVING ablaufzeitraum <= '$setting_sw' /*AND -'$setting_sw' <= ablaufzeitraum*/ ORDER BY ablaufzeitraum";
     $sw = mysqli_query($link,$sw_request);
 
     // get IP
@@ -46,7 +46,7 @@ function notif_employee()
     $setting_sw = $data1[0][0];
     $sw_request = "SELECT g.name as geraet, s.name, DATEDIFF(s.ablaufdatum,NOW()) AS ablaufzeitraum 
                 FROM geraet g, softwarelizenzen s WHERE g.personen_id = '$self' 
-                HAVING ablaufzeitraum <= '$setting_sw' AND -'$setting_sw' <= ablaufzeitraum ORDER BY ablaufzeitraum";
+                HAVING ablaufzeitraum <= '$setting_sw' /*AND -'$setting_sw' <= ablaufzeitraum*/ ORDER BY ablaufzeitraum";
     $sw = mysqli_query($link,$sw_request);
 
     // get loan
@@ -74,7 +74,7 @@ function notif_student()
     // get Benachrichtigungen
     $setting = $data1[0][0];
     $loan_request1 = "SELECT art, geraet, status, DATEDIFF(rueckgabedatum,NOW()) AS zeitraum FROM ausleihanfragen where student = '$self' AND art = 0 AND
-                      status = 1 HAVING zeitraum <= '$setting' AND -'$setting' <= zeitraum ORDER BY zeitraum";
+                      status = 1 HAVING zeitraum <= '$setting' /*AND -'$setting' <= zeitraum*/ ORDER BY zeitraum";
     $loan_request2 = "SELECT art, geraet, status FROM ausleihanfragen where student = '$self' 
                       AND ((art = 0 AND status = 2) OR (art = 1 AND status > 0))";
     $loan1 = mysqli_query($link,$loan_request1);
