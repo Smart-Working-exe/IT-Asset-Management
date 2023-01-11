@@ -110,10 +110,18 @@
 
                                 <!-- Modal Body -->
                                 <div class="modal-body">
-                                   <input type="text" id="inputroom" name="form_room" value="{{$geraet['raumnummer']}}"  {{--onkeyup="this.value = this.value.toUpperCase();--}}">
-
+                                    <div class="row">
+                                        <div class="row mt-3">
+                                            <div class="col">
+                                                <select class="form-select" data-mdb-clear-button="true" placeholder="Raum" name="form_room" style="max-height: 180px; overflow-y: auto">
+                                                    @foreach($raueme as $raum)
+                                                        <option value="{{$raum['raumnummer']}}" @if($raum['raumnummer'] == $geraet['raumnummer']) selected @endif>{{$raum['raumnummer']}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-
                                 <!-- Modal footer -->
                                 <div class="modal-footer">
                                     <button type="submit" name="submit" value="Submit" class="btn btn-primary" data-bs-dismiss="modal">Speichern</button>
