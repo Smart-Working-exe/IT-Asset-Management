@@ -222,65 +222,65 @@
  name="form_deviceType" required>
  <option value="" disabled>Typ*</option>
  <?php if($geraet['typ'] == "Computer"): ?>
- <option value="1" id="deviceTyp" selected>Computer</option>
- <option value="2" id="deviceTyp">Laptop</option>
- <option value="3" id="deviceTyp">Monitor</option>
- <option value="4" id="deviceTyp">Tastatur</option>
- <option value="5" id="deviceTyp">Maus</option>
- <option value="6" id="deviceTyp">Praktikumsmaterial</option>
- <option value="7" id="deviceTyp">Accessoires</option>
+ <option value="1"  selected>Computer</option>
+ <option value="2" >Laptop</option>
+ <option value="3" >Monitor</option>
+ <option value="4" >Tastatur</option>
+ <option value="5" >Maus</option>
+ <option value="6" >Praktikumsmaterial</option>
+ <option value="7" >Accessoires</option>
  <?php elseif($geraet['typ'] == "Laptop"): ?>
 
- <option value="1" id="deviceTyp">Computer</option>
- <option value="2" id="deviceTyp" selected>Laptop</option>
- <option value="3" id="deviceTyp">Monitor</option>
- <option value="4" id="deviceTyp">Tastatur</option>
- <option value="5" id="deviceTyp">Maus</option>
- <option value="6" id="deviceTyp">Praktikumsmaterial</option>
- <option value="7" id="deviceTyp">Accessoires</option>
+ <option value="1" >Computer</option>
+ <option value="2"  selected>Laptop</option>
+ <option value="3" >Monitor</option>
+ <option value="4">Tastatur</option>
+ <option value="5" >Maus</option>
+ <option value="6" >Praktikumsmaterial</option>
+ <option value="7" >Accessoires</option>
  <?php elseif($geraet['typ'] == "Monitor"): ?>
 
- <option value="1" id="deviceTyp">Computer</option>
- <option value="2" id="deviceTyp">Laptop</option>
- <option value="3" id="deviceTyp" selected>Monitor</option>
- <option value="4" id="deviceTyp">Tastatur</option>
- <option value="5" id="deviceTyp">Maus</option>
- <option value="6" id="deviceTyp">Praktikumsmaterial</option>
- <option value="7" id="deviceTyp">Accessoires</option>
+ <option value="1" >Computer</option>
+ <option value="2" >Laptop</option>
+ <option value="3"  selected>Monitor</option>
+ <option value="4" >Tastatur</option>
+ <option value="5" >Maus</option>
+ <option value="6" >Praktikumsmaterial</option>
+ <option value="7" >Accessoires</option>
  <?php elseif($geraet['typ'] == "Tastatur"): ?>
 
- <option value="1" id="deviceTyp">Computer</option>
- <option value="2" id="deviceTyp">Laptop</option>
- <option value="3" id="deviceTyp">Monitor</option>
- <option value="4" id="deviceTyp" selected>Tastatur</option>
- <option value="5" id="deviceTyp">Maus</option>
- <option value="6" id="deviceTyp">Praktikumsmaterial</option>
- <option value="7" id="deviceTyp">Accessoires</option>
+ <option value="1" >Computer</option>
+ <option value="2" >Laptop</option>
+ <option value="3" >Monitor</option>
+ <option value="4"  selected>Tastatur</option>
+ <option value="5" >Maus</option>
+ <option value="6" >Praktikumsmaterial</option>
+ <option value="7" >Accessoires</option>
  <?php elseif($geraet['typ'] == "Maus"): ?>
 
- <option value="1" id="deviceTyp">Computer</option>
- <option value="2" id="deviceTyp">Laptop</option>
- <option value="3" id="deviceTyp">Monitor</option>
- <option value="4" id="deviceTyp">Tastatur</option>
- <option value="5" id="deviceTyp" selected>Maus</option>
- <option value="6" id="deviceTyp">Praktikumsmaterial</option>
- <option value="7" id="deviceTyp">Accessoires</option>
+ <option value="1" >Computer</option>
+ <option value="2" >Laptop</option>
+ <option value="3" >Monitor</option>
+ <option value="4" >Tastatur</option>
+ <option value="5"  selected>Maus</option>
+ <option value="6" >Praktikumsmaterial</option>
+ <option value="7" >Accessoires</option>
  <?php elseif($geraet['typ'] == "Praktikumsmaterial"): ?>
- <option value="1" id="deviceTyp">Computer</option>
- <option value="2" id="deviceTyp">Laptop</option>
- <option value="3" id="deviceTyp">Monitor</option>
- <option value="4" id="deviceTyp">Tastatur</option>
- <option value="5" id="deviceTyp">Maus</option>
- <option value="6" id="deviceTyp" selected>Praktikumsmaterial</option>
- <option value="7" id="deviceTyp">Accessoires</option>
+ <option value="1" >Computer</option>
+ <option value="2" >Laptop</option>
+ <option value="3" >Monitor</option>
+ <option value="4" >Tastatur</option>
+ <option value="5" >Maus</option>
+ <option value="6"  selected>Praktikumsmaterial</option>
+ <option value="7" >Accessoires</option>
  <?php else: ?>
- <option value="1" id="deviceTyp">Computer</option>
- <option value="2" id="deviceTyp">Laptop</option>
- <option value="3" id="deviceTyp">Monitor</option>
- <option value="4" id="deviceTyp">Tastatur</option>
- <option value="5" id="deviceTyp">Maus</option>
- <option value="6" id="deviceTyp">Praktikumsmaterial</option>
- <option value="7" id="deviceTyp" selected>Accessoires</option>
+ <option value="1" >Computer</option>
+ <option value="2" >Laptop</option>
+ <option value="3" >Monitor</option>
+ <option value="4" >Tastatur</option>
+ <option value="5" >Maus</option>
+ <option value="6" >Praktikumsmaterial</option>
+ <option value="7" selected>Accessoires</option>
  <?php endif; ?>
 
  </select>
