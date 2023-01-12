@@ -3,6 +3,7 @@
 
 @section('buttons')
 
+
     <div class="row mt-4 ">
         <p class="display-6 col-3"> Benachrichtigungseinstellungen</p>
 
@@ -65,7 +66,7 @@
 
                         <!-- Modal Body -->
                         <div class="modal-body">
-                            Aktuell werden Benachrichtigungen ab {{ $setting }} Tag(e) vor Ablauf der Softwarelizenz generiert.
+                            Aktuell werden Benachrichtigungen ab {{ $setting[0][0] }} Tag(e) vor Ablauf der Softwarelizenz generiert.
                             Ab wann soll das System Benachrichtigungen anzeigen: <br><br>
                             <div>
                                 <label>
@@ -117,7 +118,7 @@
 
                         <!-- Modal Body -->
                         <div class="modal-body">
-                            Aktuell werden Benachrichtigungen ab {{ $setting_ip }} freien IP-Adressen im Raum Benachrichtigungen generiert.
+                            Aktuell werden Benachrichtigungen ab {{ $setting[0][1] }} freien IP-Adressen im Raum Benachrichtigungen generiert.
                             Ab wann soll das System Benachrichtigungen anzeigen:
                             <br> <br>
                             <div>
@@ -166,7 +167,7 @@
 
                             <!-- Modal Body -->
                             <div class="modal-body">
-                                Aktuell werden Benachrichtigungen ab {{ $setting }} Tag(e) vor Ablauf der Ausleihfrist generiert.
+                                Aktuell werden Benachrichtigungen ab {{ $setting[0][0] }} Tag(e) vor Ablauf der Ausleihfrist generiert.
                                 Ab wann soll das System Benachrichtigungen anzeigen: <br> <br>
                                 <div>
                                     <label>

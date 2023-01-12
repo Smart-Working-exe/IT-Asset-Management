@@ -10,18 +10,31 @@ function notif_admin()
     $settings_request = "SELECT benachrichtigung, benachrichtigung_ip from personen where fh_kuerzel = '$self'";
     $settings = mysqli_query($link,$settings_request);
     $data1 = mysqli_fetch_all($settings, MYSQLI_BOTH);
+    $setting_sw = $data1[0][0];
+    $setting_ip = $data1[0][1];
 
     // get softwarelizenzen
-    $setting_sw = $data1[0][0];
     $sw_request = "SELECT name, version, DATEDIFF(ablaufdatum,NOW()) AS ablaufzeitraum FROM softwarelizenzen 
-                HAVING ablaufzeitraum <= '$setting_sw' /*AND -'$setting_sw' <= ablaufzeitraum*/ ORDER BY ablaufzeitraum";
+                HAVING ablaufzeitraum <= '$setting_sw' ORDER BY ablaufzeitraum";
     $sw = mysqli_query($link,$sw_request);
-
     // get IP
-    $setting_ip = $data1[0][1];
     $ip_request = "SELECT raumnummer, anzahl_ip, belegung_ip FROM raum WHERE (anzahl_ip - belegung_ip) <= '$setting_ip'";
     $ip = mysqli_query($link,$ip_request);
 
+    /*multiquery
+    $request = "SELECT name, version, DATEDIFF(ablaufdatum,NOW()) AS ablaufzeitraum FROM softwarelizenzen 
+                HAVING ablaufzeitraum <= '$setting_sw' ORDER BY ablaufzeitraum;";
+    $request .= "SELECT raumnummer, anzahl_ip, belegung_ip FROM raum WHERE (anzahl_ip - belegung_ip) <= '$setting_ip'";
+    mysqli_multi_query($link, $request);
+
+    $final = [];
+    do {
+        if ($result = mysqli_store_result($link)) {
+            while ($row = mysqli_fetch_row($result)) {
+                array_push($final,$row);
+            }
+        }
+    } while (mysqli_next_result($link));*/
 
     $data2 = mysqli_fetch_all($sw, MYSQLI_ASSOC);
     $data3 = mysqli_fetch_all($ip,MYSQLI_ASSOC);
@@ -47,7 +60,7 @@ function notif_employee()
     $sw_request = "SELECT g.name as geraet, s.name, s.version, DATEDIFF(s.ablaufdatum,NOW()) AS ablaufzeitraum FROM geraet g
                     RIGHT JOIN geraet_hat_software gs ON g.id = gs.geraetid
                     LEFT JOIN softwarelizenzen s on gs.softwarelizenzid = s.id
-                    WHERE g.personen_id = '$self' HAVING ablaufzeitraum <= 14 ORDER BY ablaufzeitraum;";
+                    WHERE g.personen_id = '$self' HAVING ablaufzeitraum <= '$setting_sw' ORDER BY ablaufzeitraum;";
     $sw = mysqli_query($link,$sw_request);
 
     // get loan
@@ -75,7 +88,7 @@ function notif_student()
     // get Benachrichtigungen
     $setting = $data1[0][0];
     $loan_request1 = "SELECT id, art, geraet, status, DATEDIFF(rueckgabedatum,NOW()) AS zeitraum FROM ausleihanfragen where student = '$self' AND art = 0 AND
-                      status = 1 HAVING zeitraum <= '$setting' /*AND -'$setting' <= zeitraum*/ ORDER BY zeitraum";
+                      status = 1 HAVING zeitraum <= '$setting' ORDER BY zeitraum";
     $loan_request2 = "SELECT id, art, geraet, status FROM ausleihanfragen where student = '$self' 
                       AND ((art = 0 AND status = 2) OR (art = 1 AND status > 0))";
     $loan1 = mysqli_query($link,$loan_request1);

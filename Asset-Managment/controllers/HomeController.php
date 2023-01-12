@@ -59,8 +59,7 @@ class HomeController
                 change_setting_ip($_POST["neue_einstellung_ip"]);
             }
             $setting = get_setting();
-            $setting_ip = get_setting_ip();
-            return view('Einstellungen.einstellungen', ['user' => $_SESSION['Rolle'], 'setting' => $setting, 'setting_ip' => $setting_ip]);
+            return view('Einstellungen.einstellungen', ['user' => $_SESSION['Rolle'], 'setting' => $setting]);
         } else {
             if ($_POST["neue_einstellung_s"] != "") {
                 change_setting($_POST["neue_einstellung_s"]);

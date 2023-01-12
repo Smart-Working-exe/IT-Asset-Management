@@ -46,7 +46,7 @@
                         <td>{{$device['geraet']}}</td>
                         <td>{{$device['ausleihdatum']}}</td>
                         <td>{{$device['rueckgabedatum']}}</td>
-                        <td class="text-center"><input name="return[<?php $i ?>]" value="{{$device['geraet']}}" class="form-check-input" type="checkbox" id="flexCheckChecked"></td>
+                        <td class="text-center"><input name="return[<?php $i ?>]" value="{{$device['id']}}" class="form-check-input" type="checkbox" id="flexCheckChecked"></td>
                         <td>
                             @if($device['art'] == 1)
                                 @if($device['status'] == 0)
@@ -75,35 +75,5 @@
         Auswahl bestätigen
     </button>
     </form>
-
-@endsection
-
-
-
-
-@section('confirmation')
-    <div class="modal" id="confirmation">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h3 class="modal-title">Auswahl bestätigt</h3>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                    Eine Anfrage wurde an die Fachhochschule Aachen gesendet
-                </div>
-
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <!--<button type="button" class="btn btn-success" data-bs-dismiss="modal">Ok</button>-->
-                </div>
-
-            </div>
-        </div>
-    </div>
 
 @endsection
