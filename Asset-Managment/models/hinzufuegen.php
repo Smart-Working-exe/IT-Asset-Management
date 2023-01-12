@@ -26,6 +26,12 @@ function db_add_device($var,$var_OS,$var_Software,)
     $absenden->bind_param('ssssssssi', $name, $typ, $hersteller, $age, $betrieb, $room, $technischeEckdaten, $kommentar, $ausleihbar);
     $absenden->execute();
 
+    // Raum WS und IP updaten
+    if(($var['addDevicedeviceTyp'] == 1 || $var['addDevicedeviceTyp'] == 2) && $room != "Lager") {
+        $update = "UPDATE raum set anzahl_ws = anzahl_ws+1, belegung_ip = IF(belegung_ip < anzahl_ip, belegung_ip+1, belegung_ip) where raumnummer = '$room'";
+        mysqli_query($db,$update);
+    }
+
     $order_id = $db->insert_id;
     //$fremdkeyID='SELECT id FROM geraet ';
     //$result=$db->query($fremdkeyID);

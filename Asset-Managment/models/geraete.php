@@ -233,13 +233,44 @@ function getGeraeteData($filter = [])
 function editGeraete(RequestData $rd,$edit_Software,$edit_OOS){
 
     $link = connectdb();
+    mysqli_begin_transaction($link);
 
     if (empty($rd->query['form_Ausleihbar'])==1)
         $ausleihbar=0;
     else
         $ausleihbar=1;
 
-    $sql = 'UPDATE geraet SET NAME = "' . $rd->query['form_name123'] . '", typ = ' . $rd->query['form_deviceType'] . ', hersteller = "' . $rd->query['form_hersteller'] . '", raumnummer = "' . $rd->query['form_room'] . '", ausleihbar = "' . $ausleihbar . '", technische_eckdaten = "' . $rd->query['form_technischeEckdaten'] . '", kommentar = "' . $rd->query['form_comment'] . '" WHERE id =' .$rd->query['form_id'].' ; ';
+    // get Typ und Raum (zum aendern von WS und IP count)
+    $get = 'SELECT typ, raumnummer from geraet where id = ' . $rd->query['form_id'] . ';';
+    $sqlget = mysqli_query($link,$get);
+    $data = mysqli_fetch_all($sqlget);
+    $typ = $data[0][0];
+    $raum_alt = $data[0][1];
+    $raum_neu = $rd->query['form_room'];
+    //var_dump($raum_neu,$raum_alt);
+    //Raum updaten, falls Laptop oder PC und Raumänderung
+    if($raum_alt != $raum_neu && ($typ == 1 || $typ == 2)) {
+        if($raum_alt == 'Lager') {  // nur neuen Raum ändern
+            $update = "UPDATE raum set anzahl_ws = anzahl_ws+1, belegung_ip = IF(belegung_ip < raum.anzahl_ip, belegung_ip+1, belegung_ip) where raumnummer = '$raum_neu'";
+            mysqli_query($link,$update);
+        }
+        else if($raum_neu == 'Lager') {   // nur alten Raum ändern
+            $update = "UPDATE raum set anzahl_ws = IF(anzahl_ws > 1, anzahl_ws-1, anzahl_ws), belegung_ip = 
+                        IF(belegung_ip > 0, belegung_ip-1, belegung_ip) WHERE raumnummer = '$raum_alt' ";
+            mysqli_query($link,$update);
+        }
+        else{   // Beide ändern
+            $update = "UPDATE raum set anzahl_ws = anzahl_ws+1, belegung_ip = IF(belegung_ip < raum.anzahl_ip, belegung_ip+1, belegung_ip) where raumnummer = '$raum_neu';";
+            $update .= "UPDATE raum set anzahl_ws = IF(anzahl_ws > 1, anzahl_ws-1, anzahl_ws), belegung_ip = IF(belegung_ip > 0, belegung_ip-1, belegung_ip) where raumnummer = '$raum_alt';";
+            mysqli_multi_query($link,$update);
+            do {} while (mysqli_next_result($link));
+        }
+    }
+
+    $sql = 'UPDATE geraet SET name = "' . $rd->query['form_name123'] . '", typ = ' . $rd->query['form_deviceType'] . ', 
+            hersteller = "' . $rd->query['form_hersteller'] . '", raumnummer = "' . $rd->query['form_room'] . '", 
+            ausleihbar = "' . $ausleihbar . '", technische_eckdaten = "' . $rd->query['form_technischeEckdaten'] . '", 
+            kommentar = "' . $rd->query['form_comment'] . '" WHERE id =' .$rd->query['form_id'].' ; ';
     //
 
     mysqli_query($link, $sql);
@@ -269,6 +300,7 @@ function editGeraete(RequestData $rd,$edit_Software,$edit_OOS){
         $absenden3->bind_param('ii', $order_id, $value2);
         $absenden3->execute();}
 
+    mysqli_commit($link);
     mysqli_close($link);
 };
 
@@ -301,11 +333,27 @@ function getGeraeteID_name(){
 
 function deleteDevice(RequestData $rd){
     $link = connectdb();
+    mysqli_begin_transaction($link);
 
+    // get Typ und Raum (zum aendern von WS und IP count)
+    $get = 'SELECT typ, raumnummer from geraet where id = ' . $rd->query['submit_delete'] . ';';
+    $sqlget = mysqli_query($link,$get);
+    $data = mysqli_fetch_all($sqlget);
+    $typ = $data[0][0];
+    $raum = $data[0][1];
+
+    // Löschen
     $sql = 'DELETE FROM geraet WHERE id = ' . $rd->query['submit_delete'] . ';';
-
     mysqli_query($link, $sql);
 
+    // Raum updaten
+    if(($typ == 1 || $typ == 2) && $raum != "Lager") {
+        $update = "UPDATE raum set anzahl_ws = IF(anzahl_ws > 1, anzahl_ws-1, anzahl_ws), belegung_ip = 
+                        IF(belegung_ip > 0, belegung_ip-1, belegung_ip) where raumnummer = '$raum'";
+        mysqli_query($link,$update);
+    }
+
+    mysqli_commit($link);
     mysqli_close($link);
 }
 
