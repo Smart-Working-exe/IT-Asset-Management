@@ -142,7 +142,6 @@
  </div>
  </div>
 
- <script src="../js/hideEntity.js"></script>
  <!-- Modal footer -->
  <div class="modal-footer">
  <p>mit * makierte Felder sind Pflichtfelder</p>

@@ -192,7 +192,9 @@ class HomeController
 
         if (isset($_POST['submit'])) {
             logger($_SESSION['name'], 4, $rd->query['form_name123']." wurde bearbeitet.");
-            editGeraete($rd);
+            $edit_OOS=$_POST['form_OperationSystem'];
+            $edit_Software=$_POST['form_Software'];
+            editGeraete($rd,$edit_Software,$edit_OOS);
         }
 
         if (isset($_POST['submit_delete'])) {

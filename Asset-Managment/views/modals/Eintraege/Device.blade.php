@@ -153,7 +153,6 @@
             </div>
         </div>
     </div>
-    <script src="../js/hideEntity.js"></script>
 @endsection
 
 @section('editKommentar')
