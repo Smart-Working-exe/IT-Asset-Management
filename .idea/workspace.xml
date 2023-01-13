@@ -4,16 +4,11 @@
     <list default="true" id="de454f2f-6b7b-4821-90f6-2409914a6de0" name="Changes" comment="A Fistful of Bugfixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Asset-Managment/controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/models/ausleihanfragen.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/models/ausleihanfragen.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/models/benachrichtigungen.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/models/benachrichtigungen.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/models/einstellungen.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/models/einstellungen.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Ausleihe_Student.ausleihe.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Ausleihe_Student.ausleihe.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/models/geraete.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/models/geraete.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/models/softwarelizenzen.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/models/softwarelizenzen.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Dashboard.dashboard_admin.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Dashboard.dashboard_admin.bladec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Dashboard.dashboard_student.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Dashboard.dashboard_student.bladec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Einstellungen.einstellungen.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Einstellungen.einstellungen.bladec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Verleihung_Mitarbeiter.verleihung.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Verleihung_Mitarbeiter.verleihung.bladec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/views/Ausleihe_Student/ausleihe.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/Ausleihe_Student/ausleihe.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/views/Einstellungen/einstellungen.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/Einstellungen/einstellungen.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_geraete.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_geraete.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_lizenzen.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_lizenzen.bladec" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,6 +102,7 @@
       <workItem from="1673379084283" duration="6816000" />
       <workItem from="1673442035152" duration="4259000" />
       <workItem from="1673542651890" duration="5407000" />
+      <workItem from="1673627872919" duration="1152000" />
     </task>
     <task id="LOCAL-00005" summary="Clean Logs">
       <created>1671621397675</created>
