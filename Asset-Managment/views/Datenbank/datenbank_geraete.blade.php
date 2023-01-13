@@ -175,11 +175,12 @@
                                                             <a class="dropdown-item" href="#">
                                                                 <div class="form-check">
                                                                     <input class="form-check-input" type="checkbox"  name="form_OperationSystem[]" value="{{$key}}" id="Checkme {{$key}}"
+                                                                           {{$vorhanden=false}}
                                                                     @if(isset($geraet['betriebssystem']))
                                                                         {{$vorhanden=false}}
                                                                         @foreach($geraet['betriebssystem'] as $value)
                                                                             @if($value==$betriebssystem_name)
-                                                                                $vorhan{{$vorhanden=true}}
+                                                                               {{$vorhanden=true}}
                                                                             @endif
                                                                         @endforeach
                                                                     @endif
