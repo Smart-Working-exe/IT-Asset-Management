@@ -1,13 +1,13 @@
 @section('userfilter')
     <form method="post">
-        <div class="row" style="padding-right: 50%">
+        <div class="sometimes_row" >
 
-            <div class="input-group mt-2 col-3" style="width: 50%; height: 2vh;">
+            <div class="input-group mt-2 col-3 searchbar" >
                 <input type="search" class="form-control rounded" placeholder="Suche" aria-label="Search"
                        aria-describedby="search-addon" name="filter_suche" id="filter_suche" @if(!empty($selected_filter['suche'])) value="{{$selected_filter['suche']}}" @endif/>
             </div>
 
-            <div class="col-3 mt-2" >
+            <div class=" mt-2" >
 
             <select class="form-select" name="filter_rolle" id="filter_rolle">
 

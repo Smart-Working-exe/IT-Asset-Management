@@ -1,15 +1,15 @@
 @section('geraetefilter')
 
     <form method="post">
-        <div class="row">
+        <div class="sometimes_row">
 
-            <div class="input-group mt-2 col-2" style="width: 20%; height: 2vh;">
-                <input type="search" class="form-control rounded" placeholder="Suche" aria-label="Search"
+            <div class="input-group mt-2 col-2 searchbar" >
+                <input type="search" class="form-control rounded " placeholder="Suche" aria-label="Search"
                        aria-describedby="search-addon" name="filter_suche" id="filter_suche"
                        @if(!empty($selected_filter['suche'])) value="{{$selected_filter['suche']}}"@endif >
             </div>
 
-            <div class="col-2 mt-2">
+            <div class=" mt-2">
 
 
                 <select class="form-select" name="filter_Typ" id="filter_Typ">
@@ -86,7 +86,7 @@
             </div>
 
             <!--zeigt das Element nicht an, wenn database false ist keine Ahnung wieso  -->
-            <div class=" mt-2 col-3" style="width: 10%; height: 2vh; @if($database_filter) display:none@endif">
+            <div class=" mt-2  raumsearchbar" style=" @if($database_filter) display:none@endif">
                 <input type="search" class="form-control rounded" placeholder="Raum" aria-label="Search"
                        aria-describedby="search-addon" name="raum" id="raum"
                        @if(!empty($selected_filter['raum'])) value="{{$selected_filter['raum']}}"@endif />
@@ -94,8 +94,8 @@
             @endif
 
 
-            <div class="col-1 mt-1" style="margin-right: 0">
-                <button type="submit" class="btn btn-primary sub"><img src="/img/search_icon.svg" width="30px"></button>
+            <div class="col-1 mt-1"  >
+                <button type="submit" class="btn btn-primary sub"><img src="/img/search_icon.svg" width="30px" ></button>
 
             </div>
         </div>

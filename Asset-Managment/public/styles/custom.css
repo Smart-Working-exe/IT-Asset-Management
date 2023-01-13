@@ -67,3 +67,58 @@ table{
     background-color: #40BEA9;
     border-color: #40BEA9;
 }
+
+
+
+
+@media only screen and (min-width: 1000px) {
+    .sometimes_row{
+        --bs-gutter-x: 1.5rem;
+        --bs-gutter-y: 0;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: calc(-1 * var(--bs-gutter-y));
+        margin-left: calc(-0.5 * var(--bs-gutter-x));
+        margin-right: calc(-0.5 * var(--bs-gutter-x));
+    }
+
+    .sometimes_row > * {
+        flex-shrink: 0;
+
+        padding-left: calc(var(--bs-gutter-x) * 0.5);
+        padding-right: calc(var(--bs-gutter-x) * 0.5);
+        margin-top: var(--bs-gutter-y);
+    }
+
+    .searchbar{
+        width: 20%;
+        height: 2px;
+    }
+
+    .raumsearchbar{
+        width: 10%;
+        height: 2vh;
+    }
+
+
+}
+
+@media only screen and (max-width:1000px) {
+
+
+
+    /*tr :not(:first-child):not(:last-child)  {
+        display: none;
+    }*/
+
+    .gebauede_plan{
+        display: none;
+    }
+
+
+
+}
+
+
+
+

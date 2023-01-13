@@ -5,9 +5,9 @@
 @section('content')
 
     <form method="post">
-        <div class="row">
+        <div class="sometimes_row">
 
-            <div class="input-group mt-2 col-3" style="width: 20%; height: 2vh;">
+            <div class="input-group mt-2 col-3 searchbar">
                 <input type="search" class="form-control rounded" placeholder="Suche" aria-label="Search"
                        aria-describedby="search-addon" name="filter_suche" id="filter_suche" @if(!empty($selected_filter['suche'] )) value="{{$selected_filter['suche']}}" @endif />
             </div>

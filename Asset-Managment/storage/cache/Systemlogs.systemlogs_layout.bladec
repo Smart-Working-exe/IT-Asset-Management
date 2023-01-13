@@ -1,3 +1,4 @@
+<!doctype html>
 <html>
 <head>
  <meta charset="UTF-8">
@@ -7,28 +8,29 @@
  <link rel="stylesheet" href="/styles/bootstrap.css">
  <link rel="stylesheet" href="/styles/custom.css">
  <link rel="icon" type="image/x-icon" href="/img/fh-aachen_university-of-applied-sciences_303_logo.png">
- <title>Raumauswahl</title>
+ <title>Systemlogs</title>
 </head>
 <body>
 <div class="container">
-
  <?php echo $this->yieldContent('header'); ?>
 
-
- <div class="row p-4 mt-4">
- <img  src="../img/Lageplan.png"  alt="Lageplan der FH-Aachen, Eupener Straße 33" class="col-8 gebauede_plan" style="height: 60vh; @media (max-width: 600px){height: 40vh}">
- <div id="accordion " class="col" >
+ <div class="row mt-4 ">
+ <p class="display-6 col-3"> Systemlogs</p>
+ </div>
 
  <?php echo $this->yieldContent('content'); ?>
+
+ <a href="/dashboard">
+ <button type="submit" class="btn btn-primary sub">Zurück zum Dashboard</button>
+ </a>
  </div>
 
- </div>
 </div>
-<footer class="py-3 my-4 footerBot">
- <?php echo $this->yieldContent('footer'); ?>
-</footer>
-
-<script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
 </body>
+<footer class="py-3 my-4 footerBot">
+<?php echo $this->yieldContent('footer'); ?>
+</footer>
+<script type="text/javascript" src="../js/custom.js"></script>
+<script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
 </html>
 

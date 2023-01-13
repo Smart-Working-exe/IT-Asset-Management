@@ -215,7 +215,7 @@
                                         <div class="row mt-3">
                                             <div class="col">
                                                 <select class="form-select" aria-label="Default select example"
-                                                        name="form_deviceType" required>
+                                                        name="form_deviceType" required >
                                                     <option value="" disabled>Typ*</option>
                                                     @if($geraet['typ'] == "Computer")
                                                         <option value="1"  selected>Computer</option>
