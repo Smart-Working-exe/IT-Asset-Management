@@ -8,50 +8,84 @@ const SEPERATOR = ';';
 function teste_dich_gluecklich()
 {
     $db = connectdb();
-    for ($i = 0; $i < 0; $i++) {
-        $name = "T_PC_V3_" . $i;
-        $typ = 1;
-        $hersteller = "Matrix";
-        $age = date('Y-m-d', strtotime("22.12.2022"));
-        $betrieb = date('Y-m-d', strtotime("22.12.2022"));
 
+    $hersteller = array("Samsung", "LG", "Apple", "Dell", "HP", "Lenovo", "Acer", "ASUS", "Microsoft", "Sony");
+    for($i = 0 ; $i < 100; $i++) {
+        $name = "T_PC_V4_" . $i;
+        $typ = 1;
+        $hersteller = $hersteller[array_rand($hersteller)];
+        $age = date('Y-m-d', strtotime("-" . rand(0, 365) . " days"));
+        $betrieb = date('Y-m-d', strtotime("-" . rand(0, 365) . " days"));
+        if ($betrieb > $age) {
+            $betrieb = $age;
+        }
         $room = "Test";
         $ausleihbar = 0;
         $technischeEckdaten = "Ein Test" . $i . " ;noch einer" . $i . " ; und noch einen" . $i;
         $kommentar = "Nein, ich bin der beste PC";
 
-
         $absenden = $db->prepare("INSERT INTO geraet(name, typ, hersteller, age, betrieb,raumnummer,technische_eckdaten,kommentar,ausleihbar) VALUES(?,?,?,?,?,?,?,?,?)");
         $absenden->bind_param('ssssssssi', $name, $typ, $hersteller, $age, $betrieb, $room, $technischeEckdaten, $kommentar, $ausleihbar);
         $absenden->execute();
-
         $order_id = $db->insert_id;
+
+        $result = $db->query("SELECT raumnummer FROM raum ORDER BY RAND() LIMIT 1");
+        $randomRoom = $result->fetch_array();
+        $randomRoomNumber = $randomRoom[0];
+
+        $absenden3 = $db->prepare("UPDATE geraet SET raumnummer = ? WHERE id = ?");
+        $absenden3->bind_param('si', $randomRoomNumber, $order_id);
+        $absenden3->execute();
 
         $used_randomNumbers = [];
         for ($b = 0; $b < random_int(1, 4); $b++) {
             $betriebssystem = random_int(1, 6);
             if (!isset($used_randomNumbers[$betriebssystem])) {
-                $absenden2 = $db->prepare("INSERT INTO geraet_hat_betriebssystem(geraetid,betriebssystemid)VALUES (?,?)");
-                $absenden2->bind_param('ii', $order_id, $betriebssystem);
-                $absenden2->execute();
-                $used_randomNumbers[$betriebssystem] = "aipsgfj";
+                $query = "SELECT * FROM betriebssystem WHERE id = ?";
+                $stmt = $db->prepare($query);
+                $stmt->bind_param('i', $betriebssystem);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                if ($result->num_rows > 0) {
+                    $row = $result->fetch_assoc();
+                    $betriebssystemid = $row['id'];
+                    $absenden2 = $db->prepare("INSERT INTO geraet_hat_betriebssystem(geraetid,betriebssystemid)VALUES (?,?)");
+                    $absenden2->bind_param('ii', $order_id, $betriebssystemid);
+                    $absenden2->execute();
+                    $used_randomNumbers[$betriebssystem] = "aipsgfj";
+                }
             }
         }
+
 
         $used_randomNumbers2 = [];
         for ($b = 0; $b < random_int(1, 5); $b++) {
             $software = random_int(35, 39);
             if (!isset($used_randomNumbers2[$software])) {
-                $absenden2 = $db->prepare("INSERT INTO geraet_hat_software(geraetid,softwarelizenzid)VALUES (?,?)");
-                $absenden2->bind_param('ii', $order_id, $software);
-                $absenden2->execute();
-                $used_randomNumbers2[$software] = "aipsgfj";
+                // Überprüfe die maximale Anzahl der verfügbaren Lizenzen
+                $check_query = $db->prepare("SELECT anzahl_gerate FROM softwarelizenzen WHERE id = ?");
+                $check_query->bind_param('i', $software);
+                $check_query->execute();
+                $check_result = $check_query->get_result();
+                $max_anzahl = $check_result->fetch_assoc()['anzahl_gerate'];
+
+                // Überprüfe die Anzahl der verwendeten Lizenzen
+                $check_query = $db->prepare("SELECT COUNT(*) as count FROM geraet_hat_software WHERE softwarelizenzid = ?");
+                $check_query->bind_param('i', $software);
+                $check_query->execute();
+                $check_result = $check_query->get_result();
+                $used_anzahl = $check_result->fetch_assoc()['count'];
+
+                if ($used_anzahl < $max_anzahl) {
+                    $absenden2 = $db->prepare("INSERT INTO geraet_hat_software(geraetid,softwarelizenzid)VALUES (?,?)");
+                    $absenden2->bind_param('ii', $order_id, $software);
+                    $absenden2->execute();
+                    $used_randomNumbers2[$software] = "aipsgfj";
+                }
             }
         }
-
     }
     $db->close();
-
 }
 
 /**gibt die view view_get_geraet_hat_software als hashMap zurueck <br>

@@ -47,8 +47,8 @@
                             </div>
                             <div class="row mt-3">
                                 <div class="col">
-                                    <input class="form-control" type="text" id="deviceName" name="addDeviceName"
-                                           placeholder="Name*"></div>
+                                    <input class="form-control" type="text" id="deviceName" name="addDeviceName" placeholder="Name*">
+                                </div>
                                @if(!isset($_GET['raum']))
                                     <div class="col">
                                         <select class="form-select" data-mdb-clear-button="true" placeholder="Raum" name="addDeviceRoom" style="max-height: 180px; overflow-y: auto">

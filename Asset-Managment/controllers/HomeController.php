@@ -321,7 +321,6 @@ class HomeController
             deleteDevice($rd);
         }
 
-
         $filter_data = get_filter_data($rd, 1);
 
         return view('Datenbank.datenbank_geraete', [
@@ -333,7 +332,6 @@ class HomeController
             'raueme' => getAll_Rooms(),
         ]);
     }
-
 
     // zum testen, im browser einfach /test aufrufen
     public function test(RequestData $rd)
