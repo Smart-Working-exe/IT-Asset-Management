@@ -68,7 +68,18 @@ function update_licences(RequestData $rd){
 
     mysqli_query($link, $sql);
 
+    $erwerbsdatum = date('Y-m-d', strtotime($rd->query['form_lizenzerwerb']));
+    $ablaufdatum = date('Y-m-d', strtotime($rd->query['form_lizenzablauf']));
+    $id=$rd->query['form_id'];
+
+    $sql = "UPDATE softwarelizenzen SET erwerbsdatum='$erwerbsdatum' WHERE id=$id";
+    mysqli_query($link, $sql);
+    
+    $sql = "UPDATE softwarelizenzen SET ablaufdatum='$ablaufdatum' WHERE id=$id";
+    mysqli_query($link, $sql);
+
     mysqli_close($link);
+
 }
 
 function delete_license(RequestData $rd){
