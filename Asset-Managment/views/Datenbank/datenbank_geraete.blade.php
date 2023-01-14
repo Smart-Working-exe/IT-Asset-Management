@@ -138,10 +138,10 @@
 
                                             </select>
                                         </div>
-                                        <div class="col">
+                                        <div class="col"
                                             @if(!($geraet['typ'] == "Computer" || $geraet['typ'] == "Laptop" || $geraet['typ'] == "Accessoires"))
                                                 style="display: none;"
-                                            @endif
+                                            @endif>
                                             <div class="dropdown"
                                                  >
                                                 <button class="form-select" data-mdb-clear-button="true" type="button" id="form_OperationSystem" multiple="multiple" data-bs-toggle="dropdown">Betriebssystem</button>
