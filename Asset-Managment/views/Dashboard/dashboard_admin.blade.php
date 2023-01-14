@@ -11,11 +11,13 @@
             <a style="padding: 3% ;" href="/raumauswahl" type="button" class="btn btn-primary staticButton sub">Raumansicht</a>
             <a style="padding: 3%;" href="/datenbank" type="button"
                class="btn btn-primary staticButton sub mt-2">Datenbank</a>
+            @if(isset($_SESSION['dup_entry'])){+
             @if($_SESSION['dup_entry'])
                 <div style="font-family: Arial,serif; font-weight: bold; Color: red; font-size: small">
                     Dieses Geräte existiert bereits wählen Sie einen anderen Namen.
                 </div>
                 {{$_SESSION['dup_entry']= false}}
+            @endif
             @endif
             <button type="submit" class="btn btn-primary staticButton sub mt-2" data-bs-toggle="modal"
                     data-bs-target="#addDevice">Geräte hinzufügen

@@ -1,18 +1,18 @@
 <html>
 <head>
-       <title>Datenbank</title>
-{{--    <meta charset="UTF-8" http-equiv="X-UA-Compatible" content="IE=edge" name="viewport"--}}
-{{--          content="width=device-width, initial-scale=1.0">--}}
-{{--    <link rel="icon" type="image/x-icon" href="/img/fh-aachen_university-of-applied-sciences_303_logo.png">--}}
-{{--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">--}}
-{{--    <link rel="stylesheet" href="/styles/bootstrap.css">--}}
-{{--    <link rel="stylesheet" href="/styles/custom.css">--}}
-{{--    <link rel="stylesheet"--}}
-{{--          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">--}}
-{{--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">--}}
-{{--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>--}}
-{{--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>--}}
-{{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>--}}
+    <title>Datenbank</title>
+    {{--    <meta charset="UTF-8" http-equiv="X-UA-Compatible" content="IE=edge" name="viewport"--}}
+    {{--          content="width=device-width, initial-scale=1.0">--}}
+    {{--    <link rel="icon" type="image/x-icon" href="/img/fh-aachen_university-of-applied-sciences_303_logo.png">--}}
+    {{--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">--}}
+    {{--    <link rel="stylesheet" href="/styles/bootstrap.css">--}}
+    {{--    <link rel="stylesheet" href="/styles/custom.css">--}}
+    {{--    <link rel="stylesheet"--}}
+    {{--          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">--}}
+    {{--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">--}}
+    {{--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>--}}
+    {{--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>--}}
+    {{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>--}}
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -58,17 +58,18 @@
                     data-bs-target="#importConfirmation">
                 Import
             </button> -->
-            @if($_SESSION['dup_entry'])
-                <div style="font-family: Arial,serif; font-weight: bold; Color: red;">
-                    Dieses Geräte existiert bereits wählen Sie einen anderen Namen.
-                </div>
-                {{$_SESSION['dup_entry']= false}}
+            @if(isset($_SESSION['dup_entry']))
+                @if($_SESSION['dup_entry'])
+                    <div style="font-family: Arial,serif; font-weight: bold; Color: red;">
+                        Dieses Geräte existiert bereits wählen Sie einen anderen Namen.
+                    </div>
+                    {{$_SESSION['dup_entry']= false}}
+                @endif
             @endif
 
         </div>
 
     </div>
-
 
 
     @if($typ == 'geraete')
@@ -86,22 +87,29 @@
     @endif
 
     <div class="container">
-    <div class="row">
-        <div class="form-group ">
-            <a href="/datenbank?database=geraete" class="btn  @if($typ == 'geraete') btn-primary sub @else btn-secondary @endif " role="button" aria-disabled="true">Geräte</a>
+        <div class="row">
+            <div class="form-group ">
+                <a href="/datenbank?database=geraete"
+                   class="btn  @if($typ == 'geraete') btn-primary sub @else btn-secondary @endif " role="button"
+                   aria-disabled="true">Geräte</a>
 
-            <a href="/datenbank?database=personen" class="btn @if($typ == 'personen') btn-primary sub @else btn-secondary @endif" role="button" aria-disabled="true">Personen</a>
+                <a href="/datenbank?database=personen"
+                   class="btn @if($typ == 'personen') btn-primary sub @else btn-secondary @endif" role="button"
+                   aria-disabled="true">Personen</a>
 
-            <a href="/datenbank?database=lizenzen" class="btn @if($typ == 'lizenzen') btn-primary sub @else btn-secondary @endif" role="button" aria-disabled="true">Lizenzen</a>
+                <a href="/datenbank?database=lizenzen"
+                   class="btn @if($typ == 'lizenzen') btn-primary sub @else btn-secondary @endif" role="button"
+                   aria-disabled="true">Lizenzen</a>
 
-            @if(!empty($selected_filter) && $typ == "geraete")
-                <a href="/datenbank?database=geraete" class="btn  btn-primary sub " role="button" aria-disabled="true" style="margin-left: 65%">Filter Zurücksetzten</a>
-            @endif
+                @if(!empty($selected_filter) && $typ == "geraete")
+                    <a href="/datenbank?database=geraete" class="btn  btn-primary sub " role="button"
+                       aria-disabled="true" style="margin-left: 65%">Filter Zurücksetzten</a>
+                @endif
+            </div>
+
+
         </div>
-
-
     </div>
-</div>
 
 
     <div class="container mt-3">
@@ -116,7 +124,7 @@
 </div>
 </body>
 <footer class="py-3 my-4 footerBot">
-  @yield('footer')
+    @yield('footer')
 </footer>
 
 @yield('addDevice')
