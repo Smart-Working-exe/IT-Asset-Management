@@ -6,8 +6,8 @@
 
 
 @section('Navigation')
-    <div class="row  justify-content-between" style="padding: 10%; font-size: 36px;">
-        <div class="btn-group-vertical col-5 mt-3 offset-1">
+    <div class=" col justify-content-between" style="padding: 10%; font-size: 36px; ">
+        <div class="btn-group-vertical col mt-3 " style="width:100%">
             <a style="padding: 3% ;" href="/raumauswahl" type="button" class="btn btn-primary staticButton sub">Raumansicht</a>
             <a style="padding: 3%;" href="/datenbank" type="button"
                class="btn btn-primary staticButton sub mt-2">Datenbank</a>
@@ -24,14 +24,15 @@
             <a style="padding: 3%;" href="/einstellungen" type="button"
                class="btn btn-primary staticButton sub mt-2">Einstellungen</a>
         </div>
+    </div>
         @endsection
 
         @section('Benachrichtigungen')
-            <div class="col-5">
-                <div class="row">
+            <div class="col">
+
                     <p class="display-6 h6 text-center col-4 mt-3">Benachrichtigungen</p>
-                </div>
-                <div style="overflow-y: scroll;margin-right:20%; height:300px;">
+
+                <div style="overflow-y: scroll;margin-right:20%; height:500px;">
 
                     @foreach ($notifs as $benachrichtigung)
                         @if(@isset($benachrichtigung['name']))
@@ -79,7 +80,7 @@
                         @endif
                 </div>
             </div>
-    </div>
+
         @endsection
 
 

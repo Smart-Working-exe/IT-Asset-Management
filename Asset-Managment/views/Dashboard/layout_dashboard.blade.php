@@ -27,8 +27,10 @@
 <body>
 <div class="container">
     @yield('header')
+    <div class="row">
     @yield('Navigation')
     @yield('Benachrichtigungen')
+    </div>
     @yield('addUser')
     @yield('addDevice')
 </div>

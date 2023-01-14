@@ -3,11 +3,11 @@
 
 
 @section('content')
-    <div class=" row mt-5 justify-content-between">
-        <div class="btn-group-vertical col-6 mt-3 tbodyDiv">
+    <div class=" sometimes_row mt-5 justify-content-between">
+        <div class="btn-group-vertical col-6 mt-3 tbodyDiv ">
 
             <h3> Ausleihe </h3>
-            <table class="table table-bordered table-striped" id="Anfrage">
+            <table class="table table-bordered table-striped ausleih_tabel" id="Anfrage">
                 <thead class="sticky-top bg-white">
                 <tr>
                     <th>Student*in</th>
@@ -41,7 +41,7 @@
         <br>
         <div class="btn-group-vertical col-6 mt-3 tbodyDiv">
             <h3>Rückgabe</h3>
-            <table class="table table-bordered table-striped" id="Anfrage">
+            <table class="table table-bordered table-striped ausleih_tabel" id="Anfrage">
                 <thead class="sticky-top bg-white">
                 <tr>
                     <th>Student*in</th>

@@ -2,7 +2,7 @@
     <div class="modal fade" id="chooseDevice" tabindex="-1" aria-labelledby="chooseDevice" aria-hidden="true">
         <div class="modal-dialog modal-xl modal-dialog-centered">
             <div class="modal-content">
-                <form action="/chooseDevice" method="post">
+                <form action="@if($nicht_eigeneGeraete ?? false)/chooseDevice?raum={{$room}} @else/chooseDevice @endif " method="post">
                     <!-- Modal Header -->
                     <div class="modal-header">
                         <h4 class="modal-title">Gerät Hinzufügen</h4>
@@ -16,9 +16,12 @@
                                 <div class="col">
                                     <select class="form-select" aria-label="Default select example" id="user_add_rolle" name="selected_device" required>
                                         @foreach($dev as $devices)
-                                            @if($devices['personen_id'] == null && $devices['ausleihbar']== 0)
+
                                                 <option value="{{$devices['id']}}" id="DeviceID">{{$devices['name']}}</option>
-                                            @endif
+                                                 @if($devices['personen_id'] == null && $devices['ausleihbar']== 0)
+                                                        <option value="{{$devices['id']}}" id="DeviceID">{{$devices['name']}}</option>
+                                                 @endif
+
                                         @endforeach
 
                                     </select>

@@ -97,8 +97,12 @@ class AddController
         //return view($_SERVER["HTTP_REFERER"],[$var]);
     }
 
-    public function chooseDevice(){
-        set_user_for_device($_POST['selected_device']);
+    public function chooseDevice(RequestData $rd){
+        if($rd->query['raum'] ?? false)
+            set_device_to_raum($_POST['selected_device'],$rd->query['raum']);
+        else
+            set_user_for_device($_POST['selected_device']);
+
         if (isset($_SERVER["HTTP_REFERER"]))
             header('Location: ' . $_SERVER["HTTP_REFERER"]);
         return view($_SERVER["HTTP_REFERER"], []);

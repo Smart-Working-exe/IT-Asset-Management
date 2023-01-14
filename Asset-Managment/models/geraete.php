@@ -223,7 +223,7 @@ function getGeraeteData($filter = [])
     $link = connectdb();
 
     // get geräte
-    $sql = 'SELECT id,name,typ,hersteller,age,betrieb,raumnummer,`ip_adresse`,ausleihbar,technische_eckdaten,kommentar FROM geraet';
+    $sql = 'SELECT id,name,typ,hersteller,age,betrieb,raumnummer,`ip_adresse`,ausleihbar,technische_eckdaten,kommentar FROM geraet ';
 
     $sql = filter_to_sql($sql, 1, $filter);
 
@@ -445,6 +445,18 @@ function set_user_for_device($id)
     $link = connectdb();
     $user = $_SESSION['name'];
     $sql = "UPDATE geraet SET personen_id = '$user' WHERE id = '$id'";
+
+    mysqli_query($link, $sql);
+
+    mysqli_close($link);
+}
+
+
+function set_device_to_raum($id,$raum)
+{
+    $link = connectdb();
+
+    $sql = "UPDATE geraet SET raumnummer = '$raum' WHERE id = '$id'";
 
     mysqli_query($link, $sql);
 

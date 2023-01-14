@@ -222,7 +222,9 @@ class HomeController
             'cur_belegung' => get_raum_belegung($rd->query['raum'] ?? 'a001')['cur'],
             'ip' => get_raum_ip($rd->query['raum'] ?? 'a001'),
             'color' => $this->get_color(get_raum_belegung($rd->query['raum'] ?? 'a001')['max'], get_raum_belegung($rd->query['raum'] ?? 'a001')['cur']),
-            'raueme' => getAll_Rooms()
+            'raueme' => getAll_Rooms(),
+            'dev'=> getGeraeteID_name(),
+            'nicht_eigeneGeraete' => true
         ]);
     }
 
@@ -248,6 +250,21 @@ class HomeController
 
         if(isset($_POST['to_remove'])){
             reset_used_by($_POST['to_remove']);
+        }
+
+        if (isset($_POST['submit']) and $_POST['submit'] == 1) {
+            logger($_SESSION['name'], 4, $rd->query['form_name123']." wurde bearbeitet.");
+            if(isset($_POST['form_Software'])){
+                $edit_Software=$_POST['form_Software'];}
+            else{
+                $edit_Software=NULL;
+            }
+            if(isset($_POST['form_OperationSystem'])){
+                $edit_OOS=$_POST['form_OperationSystem'];}
+            else{
+                $edit_OOS=NULL;
+            }
+            editGeraete($rd,$edit_Software,$edit_OOS);
         }
 
         return view('EigeneGeraete.eigeneGeraete', [
