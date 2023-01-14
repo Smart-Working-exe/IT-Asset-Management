@@ -97,7 +97,7 @@
  <div class="form-group">
  <div class="input-group date" id="datepickerUsage">
  <input type="text" class="form-control" placeholder="erste Inbetriebname*"
- name="addDeviceersteInbetriebname">
+ name="addDeviceersteInbetriebname" required>
  <span class="input-group-append">
  <span class="input-group-text bg-white d-block">
  <i class="fa fa-calendar"></i>

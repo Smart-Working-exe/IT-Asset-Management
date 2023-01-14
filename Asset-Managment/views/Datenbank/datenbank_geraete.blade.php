@@ -102,40 +102,13 @@
                                                     name="form_deviceType" required>
                                                 <option value="" disabled>Typ*</option>
                                                 @if($geraet['typ'] == "Computer")
-                                                    <option value="1" id="deviceTyp" selected>Computer</option>
-                                                    <option value="2" id="deviceTyp">Laptop</option>
-                                                    <option value="3" id="deviceTyp">Monitor</option>
-                                                    <option value="4" id="deviceTyp">Tastatur</option>
-                                                    <option value="5" id="deviceTyp">Maus</option>
-                                                    <option value="6" id="deviceTyp">Praktikumsmaterial</option>
-                                                    <option value="7" id="deviceTyp">Accessoires</option>
+                                                    <option value="1" selected>Computer</option>
                                                 @elseif($geraet['typ'] == "Laptop")
-
-                                                    <option value="1" id="deviceTyp">Computer</option>
-                                                    <option value="2" id="deviceTyp" selected>Laptop</option>
-                                                    <option value="3" id="deviceTyp">Monitor</option>
-                                                    <option value="4" id="deviceTyp">Tastatur</option>
-                                                    <option value="5" id="deviceTyp">Maus</option>
-                                                    <option value="6" id="deviceTyp">Praktikumsmaterial</option>
-                                                    <option value="7" id="deviceTyp">Accessoires</option>
+                                                    <option value="2" selected>Laptop</option>
                                                 @elseif($geraet['typ'] == "Monitor")
-
-                                                    <option value="1" id="deviceTyp">Computer</option>
-                                                    <option value="2" id="deviceTyp">Laptop</option>
-                                                    <option value="3" id="deviceTyp" selected>Monitor</option>
-                                                    <option value="4" id="deviceTyp">Tastatur</option>
-                                                    <option value="5" id="deviceTyp">Maus</option>
-                                                    <option value="6" id="deviceTyp">Praktikumsmaterial</option>
-                                                    <option value="7" id="deviceTyp">Accessoires</option>
+                                                    <option value="3" selected>Monitor</option>
                                                 @elseif($geraet['typ'] == "Tastatur")
-
-                                                    <option value="1" id="deviceTyp">Computer</option>
-                                                    <option value="2" id="deviceTyp">Laptop</option>
-                                                    <option value="3" id="deviceTyp">Monitor</option>
                                                     <option value="4" id="deviceTyp" selected>Tastatur</option>
-                                                    <option value="5" id="deviceTyp">Maus</option>
-                                                    <option value="6" id="deviceTyp">Praktikumsmaterial</option>
-                                                    <option value="7" id="deviceTyp">Accessoires</option>
                                                 @elseif($geraet['typ'] == "Maus")
 
                                                     <option value="1" id="deviceTyp">Computer</option>
@@ -166,7 +139,11 @@
                                             </select>
                                         </div>
                                         <div class="col">
-                                            <div class="dropdown">
+                                            @if(!($geraet['typ'] == "Computer" || $geraet['typ'] == "Laptop" || $geraet['typ'] == "Accessoires"))
+                                                style="display: none;"
+                                            @endif
+                                            <div class="dropdown"
+                                                 >
                                                 <button class="form-select" data-mdb-clear-button="true" type="button" id="form_OperationSystem" multiple="multiple" data-bs-toggle="dropdown">Betriebssystem</button>
                                                 <ul class="dropdown-menu form-select" aria-labelledby="form_OperationSystem" style="max-height: 280px; overflow-y: auto">
                                                     <li><h6 class="dropdown-header">Betriebssystem</h6>
@@ -213,7 +190,10 @@
                                             <input class="form-control" type="text" name="form_hersteller"
                                                    placeholder="Hersteller"
                                                    value="{{$geraet['hersteller']}}"></div>
-                                        <div class="col">
+                                        <div class="col"
+                                             @if(!($geraet['typ'] == "Computer" || $geraet['typ'] == "Laptop" || $geraet['typ'] == "Accessoires"))
+                                                 style="display: none;"
+                                                @endif>
                                             <div class="dropdown">
                                                 <button class="form-select" data-mdb-clear-button="true" type="button" id="form_Software" name="form_Software[]" multiple="multiple" data-bs-toggle="dropdown">Software des Gerätes</button>
                                                 <ul class="dropdown-menu form-select" aria-labelledby="form_Software" style="max-height: 280px; overflow-y: auto">
@@ -272,14 +252,20 @@
                                         </div>
                                     </div>
                                     @if($geraet['ausleihbar']==1)
-                                        <div class="col mt-3">
+                                        <div class="col mt-3"
+                                             @if(!($geraet['typ'] == "Praktikumsmaterial"))
+                                                 style="display: none;"
+                                                @endif>
                                             <div class="form-check form-switch">
                                                 <input class="form-check-input" type="checkbox" id="form_Ausleihbar" name="form_Ausleihbar" checked>
                                                 <label class="form-check-label" for="flexSwitchCheckDefault">Ausleihbar</label>
                                             </div>
                                         </div>
                                     @else
-                                        <div class="col mt-3">
+                                        <div class="col mt-3"
+                                             @if(!($geraet['typ'] == "Praktikumsmaterial"))
+                                                 style="display: none;"
+                                                @endif>
                                             <div class="form-check form-switch">
                                                 <input class="form-check-input" type="checkbox" id="form_Ausleihbar" name="form_Ausleihbar">
                                                 <label class="form-check-label" for="flexSwitchCheckDefault">Ausleihbar</label>
