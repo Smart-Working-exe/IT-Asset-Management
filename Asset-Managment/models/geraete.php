@@ -451,6 +451,18 @@ function set_user_for_device($id)
     mysqli_close($link);
 }
 
+
+function set_device_to_raum($id,$raum)
+{
+    $link = connectdb();
+
+    $sql = "UPDATE geraet SET raumnummer = '$raum' WHERE id = '$id'";
+
+    mysqli_query($link, $sql);
+
+    mysqli_close($link);
+}
+
 function id_to_name($id)
 {
     $link = connectdb();

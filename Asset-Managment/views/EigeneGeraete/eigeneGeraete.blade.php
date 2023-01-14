@@ -395,6 +395,7 @@
                                     <button type="submit"  name="submit_delete" value="{{$geraet['id']}}" class=" btn btn-danger">Gerät Löschen</button>
                                     </div>
                                     <div>
+                                        <button type="submit"  name="to_remove" value="{{$geraet['id']}}" class="btn btn-danger">Gerät entfernen</button>
                                         <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" name="submit"
                                                 value="1">Speichern
                                         </button>

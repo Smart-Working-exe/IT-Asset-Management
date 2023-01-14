@@ -222,7 +222,9 @@ class HomeController
             'cur_belegung' => get_raum_belegung($rd->query['raum'] ?? 'a001')['cur'],
             'ip' => get_raum_ip($rd->query['raum'] ?? 'a001'),
             'color' => $this->get_color(get_raum_belegung($rd->query['raum'] ?? 'a001')['max'], get_raum_belegung($rd->query['raum'] ?? 'a001')['cur']),
-            'raueme' => getAll_Rooms()
+            'raueme' => getAll_Rooms(),
+            'dev'=> getGeraeteID_name(),
+            'nicht_eigeneGeraete' => true
         ]);
     }
 

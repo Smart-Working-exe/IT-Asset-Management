@@ -2,6 +2,7 @@
 @extends('header_footer')
 @extends('modals.Eintraege.Device')
 @extends('Filter.geraete')
+@extends('modals.Eintraege.chooseDevice')
 
 
 @section('sub_header')
@@ -52,6 +53,9 @@
             <div class="form-group">
                 <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal" data-bs-target="#addDevice">
                     Geräte hinzufügen
+                </button>
+                <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal" data-bs-target="#chooseDevice">
+                    Bestehendes Gerät hinzufügen
                 </button>
 
                 @if(!empty($selected_filter['suche']) || !empty($selected_filter['Typ']) || !empty($selected_filter['hersteller']) || !empty($selected_filter['age']) || !empty($selected_filter['betriebssystemid']) || !empty($selected_filter['softwarelizenzid'])  )
