@@ -49,6 +49,13 @@
 
             @endif
 
+            @if($_SESSION['dup_entry'])
+                <div style="font-family: Arial,serif; font-weight: bold; Color: red">
+                    Dieses Geräte existiert bereits wählen Sie einen anderen Namen.
+                </div>
+                {{$_SESSION['dup_entry']= false}}
+            @endif
+
             <div class="form-group">
                 <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal" data-bs-target="#addDevice">
                     Geräte hinzufügen

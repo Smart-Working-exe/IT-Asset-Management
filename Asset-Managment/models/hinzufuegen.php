@@ -21,7 +21,13 @@ function db_add_device($var,$var_OS,$var_Software,)
     $kommentar = $var['addDeviceKommentarGerat'];
     //$betriebssystem = $var['addDeviceBetriebssystem'];
 
-
+    $copytesterString = "SELECT name FROM geraet WHERE name = '$name'";
+    $copytesterResult = mysqli_query($db, $copytesterString);
+    $copytesterData = mysqli_fetch_all($copytesterResult);
+    if($copytesterData[0][0] == $name){
+        $_SESSION['dup_entry']= true;
+        return;
+    }
     $absenden = $db->prepare("INSERT INTO geraet(name, typ, hersteller, age, betrieb,raumnummer,technische_eckdaten,kommentar,ausleihbar) VALUES(?,?,?,?,?,?,?,?,?)");
     $absenden->bind_param('ssssssssi', $name, $typ, $hersteller, $age, $betrieb, $room, $technischeEckdaten, $kommentar, $ausleihbar);
     $absenden->execute();

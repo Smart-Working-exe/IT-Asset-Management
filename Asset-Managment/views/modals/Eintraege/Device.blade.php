@@ -145,6 +145,7 @@
                         <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" id="device_add_submit">
                             Speichern
                         </button>
+
                         <button type="cancle" class="btn btn-danger" data-bs-dismiss="modal" id="device_add_cancle">
                             Abbrechen
                         </button>

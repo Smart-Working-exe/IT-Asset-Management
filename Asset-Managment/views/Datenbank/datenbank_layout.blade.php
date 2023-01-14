@@ -37,7 +37,6 @@
     <div class="row mt-4 ">
         <p class="display-6 col-3">Datenbank</p>
     </div>
-
     <div>
         <div class="form-group">
             @if($typ == 'geraete')
@@ -59,6 +58,12 @@
                     data-bs-target="#importConfirmation">
                 Import
             </button> -->
+            @if($_SESSION['dup_entry'])
+                <div style="font-family: Arial,serif; font-weight: bold; Color: red;">
+                    Dieses Geräte existiert bereits wählen Sie einen anderen Namen.
+                </div>
+                {{$_SESSION['dup_entry']= false}}
+            @endif
 
         </div>
 
