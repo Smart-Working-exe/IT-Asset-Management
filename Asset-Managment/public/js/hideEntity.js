@@ -36,3 +36,23 @@ $(document).ready(function(){
         }
     });
 });
+
+$(document).ready(function(){
+    $("#AlterdesGer").change(function(){
+        let selectedOption = $(this).val();
+        console.log("Test")
+        if(selectedOption >=3 && selectedOption <= 6){
+            $("#sometimesHide4").hide();
+            $("#sometimesHide3").hide();
+        }
+        else{
+            $("#sometimesHide4").show();
+            $("#sometimesHide3").show();
+        }
+        if(selectedOption == 6 || selectedOption == 7 ){
+            $("#DisplaySlide2").show();
+        }else{
+            $("#DisplaySlide2").hide();
+        }
+    });
+});
