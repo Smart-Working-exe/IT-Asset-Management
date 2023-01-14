@@ -1,0 +1,109 @@
+<?php $_shouldextend[1]=1; ?>
+<?php $_shouldextend[2]=1; ?>
+
+
+<?php $this->startSection('content'); ?>
+
+ <form method="post">
+ <div class="sometimes_row">
+
+ <div class="input-group mt-2 col-3 searchbar">
+ <input type="search" class="form-control rounded" placeholder="Suche" aria-label="Search"
+ aria-describedby="search-addon" name="filter_suche" id="filter_suche" <?php if(!empty($selected_filter['suche'] )): ?> value="<?php echo \htmlentities($selected_filter['suche']??'', ENT_QUOTES, 'UTF-8', false); ?>" <?php endif; ?> />
+ </div>
+
+ <div class="col mt-2">
+ <input type="search" class="form-control rounded" placeholder="Datum" aria-label="Search"
+ name="filter_datum" id="filter_datum" <?php if(!empty($selected_filter['datum'] )): ?> value="<?php echo \htmlentities($selected_filter['datum']??'', ENT_QUOTES, 'UTF-8', false); ?> " <?php endif; ?> >
+ </div>
+
+ <div class="col mt-2">
+ <input type="search" class="form-control rounded" placeholder="Benutzer" aria-label="Search"
+ name="filter_benutzer" id="filter_benutzer" <?php if(!empty($selected_filter['benutzer'])): ?> value="<?php echo \htmlentities($selected_filter['benutzer']??'', ENT_QUOTES, 'UTF-8', false); ?>" <?php endif; ?>>
+ </div>
+
+ <div class="col mt-2">
+ <select class="form-select" name="filter_aktion" id="filter_aktion">
+ <?php if(!empty($selected_filter['aktion'])): ?>
+ <option value="">Aktion</option>
+ <option value="1" <?php if($selected_filter['aktion'] == 1): ?> selected <?php endif; ?> >Anmeldung</option>
+ <option value="2" <?php if($selected_filter['aktion'] == 2): ?> selected <?php endif; ?> >Abmeldung</option>
+ <option value="3" <?php if($selected_filter['aktion'] == 3): ?> selected <?php endif; ?> >Ausleihe</option>
+ <option value="4" <?php if($selected_filter['aktion'] == 4): ?> selected <?php endif; ?> >Gerät bearbeiten</option>
+ <option value="5" <?php if($selected_filter['aktion'] == 5): ?> selected <?php endif; ?> >Gerät kommentieren</option>
+ <option value="6" <?php if($selected_filter['aktion'] == 6): ?> selected <?php endif; ?> >Gerät hinzufügen</option>
+ <option value="7" <?php if($selected_filter['aktion'] == 7): ?> selected <?php endif; ?> >Gerät gelöscht</option>
+ <option value="8" <?php if($selected_filter['aktion'] == 8): ?> selected <?php endif; ?> >Person bearbeitet</option>
+ <option value="9" <?php if($selected_filter['aktion'] == 9): ?> selected <?php endif; ?> >Person hinzugefügt</option>
+ <option value="10" <?php if($selected_filter['aktion'] == 10): ?> selected <?php endif; ?>> Person gelöscht</option>
+ <option value="11" <?php if($selected_filter['aktion'] == 11): ?> selected <?php endif; ?>> Softwarelizenz bearbeiten</option>
+ <option value="12" <?php if($selected_filter['aktion'] == 12): ?> selected <?php endif; ?>> Softwarelizenz hinzugefügt</option>
+ <option value="13" <?php if($selected_filter['aktion'] == 13): ?> selected <?php endif; ?>> Softwarelizenz gelöscht</option>
+ <option value="13" <?php if($selected_filter['aktion'] == 14): ?> selected <?php endif; ?>> Raumbelegung geändert</option>
+
+ <?php else: ?>
+ <option value="" selected>Aktion</option>
+ <option value="1" >Anmeldung</option>
+ <option value="2" >Abmeldung</option>
+ <option value="3" >Ausleihe</option>
+ <option value="4" >Gerät bearbeiten</option>
+ <option value="5" >Gerät kommentieren</option>
+ <option value="6" >Gerät hinzufügen</option>
+ <option value="7" >Gerät gelöscht</option>
+ <option value="8" >Person bearbeitet</option>
+ <option value="9" >Person hinzugefügt</option>
+ <option value="10"> Person gelöscht</option>
+ <option value="11"> Softwarelizenz bearbeiten</option>
+ <option value="12"> Softwarelizenz hinzugefügt</option>
+ <option value="13"> Softwarelizenz gelöscht</option>
+ <option value="14"> Raumbelegung geändert</option>
+
+ <?php endif; ?>
+
+ </select>
+
+
+ </div>
+
+ <div class="mt-1" style="width: 80px">
+ <button type="submit" class="btn btn-primary sub"><img src="/img/search_icon.svg" width="30px"></button>
+ </div>
+ <div class="col mt-2">
+ <?php if(!empty($selected_filter)): ?>
+ <a href="" class="btn  btn-primary sub  text-nowrap" role="button" aria-disabled="true">Filter Zurücksetzten</a>
+ <?php endif; ?>
+ </div>
+
+
+
+ </div>
+ </form>
+
+ <div class="container mt-3">
+ <table class="table table-striped table-bordered" id="log">
+ <thead>
+ <tr>
+ <th onclick="sortTable(0, log)">Datum <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+ <th onclick="sortTable(1, log)">Benutzer <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+ <th onclick="sortTable(2, log)">Aktion <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+ <th onclick="sortTable(3, log)">Beschreibung <img src="/img/up-and-down-arrows-svgrepo-com.svg" width="20px"></th>
+
+ </tr>
+ </thead>
+ <tbody>
+ <?php $__currentLoopData = $data; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $value): $loop = $this->incrementLoopIndices();  ?>
+ <tr>
+ <td><?php echo \htmlentities($value['datum']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td><?php echo \htmlentities($value['benutzer']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td><?php echo \htmlentities($value['aktion']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td class="no_nowrap"><?php echo \htmlentities($value['beschreibung']??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ </tr>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+
+ </tbody>
+ </table>
+
+<?php $this->stopSection(); ?>
+<?php if (isset($_shouldextend[2])) { echo $this->runChild('header_footer'); } ?>
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('Systemlogs.systemlogs_layout'); } ?>

@@ -34,7 +34,7 @@
 
                   <td>
                       <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                              data-bs-target="#editUser{{$person['fh_kuerzel']}}">Benutzer bearbeiten
+                              data-bs-target="#editUser{{$person['fh_kuerzel']}}">Bearbeiten
                       </button>
                   </td>
             </tr>

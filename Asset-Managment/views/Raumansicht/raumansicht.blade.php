@@ -132,12 +132,7 @@
                 <th onclick="sortTable(6, devices)">Software</th>
                 <th onclick="sortTable(7, devices)">Technische Daten</th>
                 <th onclick="sortTable(8, devices)">Kommentar</th>
-                <th >  @if($user == 1)
-                            Bearbeiten
-                         @else
-                           Kommentar
-                         @endif
-                </th>
+                <th ></th>
 
             </tr>
             </thead>
@@ -188,8 +183,12 @@
                                 data-bs-target="#editDevice{{$geraet['id']}}">Bearbeiten
                         </button>
                         @else
-                            <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
+                            <button type="submit" class="btn btn-primary sub hide_onmobile" data-bs-toggle="modal"
                                     data-bs-target="#editKommentar">Kommentieren
+                            </button>
+
+                            <button type="submit" class="btn btn-primary sub hide_onDestop" data-bs-toggle="modal"
+                                    data-bs-target="#editDevice{{$geraet['id']}}">Bearbeiten
                             </button>
                         @endif
                     </td>
@@ -213,7 +212,7 @@
                                 <div class="modal-body">
                                     <div class="row">
                                         <div class="row mt-3">
-                                            <div class="col">
+                                            <div class="col @if($user == 2) disabled @endif">
                                                 <select class="form-select" aria-label="Default select example"
                                                         name="form_deviceType" required >
                                                     <option value="" disabled>Typ*</option>
@@ -289,7 +288,7 @@
                                                         @foreach($filter_variable_data['betriebssystem'] as $key => $betriebssystem_name)
                                                             <li>
                                                                 <a class="dropdown-item" href="#">
-                                                                    <div class="form-check">
+                                                                    <div class="form-check @if($user == 2) disabled @endif">
                                                                         <input class="form-check-input" type="checkbox"  name="form_OperationSystem[]" value="{{$key}}" id="Checkme {{$key}}"
                                                                                @if(isset($geraet['betriebssystem']))
                                                                                    {{$vorhanden=false}}
@@ -311,10 +310,10 @@
                                             </div>
                                         </div>
                                         <div class="row mt-3">
-                                            <div class="col">
+                                            <div class="col @if($user == 2) disabled @endif">
                                                 <input class="form-control" type="text" name="form_name123" placeholder="Name*"
                                                        value="{{$geraet['name']}}"></div>
-                                            <div class="col">
+                                            <div class="col @if($user == 2) disabled @endif">
                                                 <select class="form-select" data-mdb-clear-button="true" placeholder="Raum" name="form_room" style="max-height: 180px; overflow-y: auto">
                                                     @foreach($raueme as $raum)
                                                         <option value="{{$raum['raumnummer']}}" @if($raum['raumnummer'] == $geraet['raumnummer']) selected @endif>{{$raum['raumnummer']}}</option>
@@ -323,7 +322,7 @@
                                             </div>
                                         </div>
                                         <div class="row mt-3">
-                                            <div class="col">
+                                            <div class="col @if($user == 2) disabled @endif">
                                                 <input class="form-control" type="text" name="form_hersteller" placeholder="Hersteller"
                                                        value="{{$geraet['hersteller']}}"></div>
                                             <div class="col">
@@ -334,7 +333,7 @@
                                                         @foreach($filter_variable_data['softwarelizenzen'] as $key_softwareid => $data_softwarename)
                                                             <li>
                                                                 <a class="dropdown-item" href="#">
-                                                                    <div class="form-check">
+                                                                    <div class="form-check @if($user == 2) disabled @endif">
                                                                         <input class="form-check-input" type="checkbox" name="form_Software[]" value="{{$key_softwareid}}" id="Checkme {{$key_softwareid}}"
                                                                                @if(isset($geraet['software']))
                                                                                    {{$vorhanden=false}}
@@ -354,11 +353,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row mt-3">
+                                        <div class="row mt-3 @if($user == 2) disabled @endif">
                                         <label for="Inbetriebname">Inbetriebname</label>
                                             <div class="col">
-                                                <div class="form-group">
-                                                    <div class="input-group date" id="datepickerEditUsage">
+                                                <div class="form-group ">
+                                                    <div class="input-group date  " id="datepickerEditUsage">
                                                         <input type="text" id="Inbetriebname" class="form-control" placeholder="erste Inbetriebname*"
                                                                value="{{$geraet['betrieb']}}" name="form_betrieb">
                                                         <span class="input-group-append">
@@ -385,22 +384,22 @@
                                             </div>
                                         </div>
                                         @if($geraet['ausleihbar']==1)
-                                            <div class="col mt-3">
+                                            <div class="col mt-3 @if($user == 2) disabled @endif">
                                                 <div class="form-check form-switch">
                                                     <input class="form-check-input" type="checkbox" id="form_Ausleihbar" name="form_Ausleihbar" checked>
                                                     <label class="form-check-label" for="flexSwitchCheckDefault">Ausleihbar</label>
                                                 </div>
                                             </div>
                                         @else
-                                            <div class="col mt-3">
+                                            <div class="col mt-3 @if($user == 2) disabled @endif">
                                                 <div class="form-check form-switch">
                                                     <input class="form-check-input" type="checkbox" id="form_Ausleihbar" name="form_Ausleihbar">
                                                     <label class="form-check-label" for="flexSwitchCheckDefault">Ausleihbar</label>
                                                 </div>
                                             </div>
                                         @endif
-                                        <div class="row mt-3">
-                                            <div class="col">
+                                        <div class="row mt-3 ">
+                                            <div class="col @if($user == 2) disabled @endif">
                                                 <textarea class="form-control" name="form_technischeEckdaten" rows="5" placeholder="Technische Eckdaten, mit Semikolon trennen">{{$geraet['technischeEckdaten']}}</textarea>
                                             </div>
                                             <div class="col">
@@ -411,7 +410,9 @@
                                 </div>
                                 <!-- Modal footer -->
                                 <div class="modal-footer justify-content-between">
+                                    <div class=" @if($user == 2) disabled_hidden @endif">
                                     <button type="submit"  name="submit_delete" value="{{$geraet['id']}}" class="btn btn-danger">Gerät Löschen</button>
+                                    </div>
                                     <div>
                                         <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"  name="submit" value="submitted">Speichern</button>
                                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal" >Abbrechen</button>

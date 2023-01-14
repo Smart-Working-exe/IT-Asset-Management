@@ -48,8 +48,9 @@
                 <th onclick="sortTable(6, ownDevices)">Software</th>
                 <th onclick="sortTable(7, ownDevices)">Technische Daten </th>
                 <th onclick="sortTable(8, ownDevices)">Kommentar </th>
-                <th>Kommentieren</th>
                 <th onclick="sortTable(9, ownDevices)">Raum</th>
+                <th></th>
+
             </tr>
             </thead>
             <tbody>
@@ -87,13 +88,20 @@
                         @endif
                     </td>
                     <td class="no_nowrap">{{$geraet['kommentar']}}</td>
-                    <td><button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                                data-bs-target="#editComment{{$geraet['name']}}">Kommentieren
-                        </button></td>
                     <td>{{$geraet['raumnummer']}}
                         <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
                                 data-bs-target="#editRoom{{$geraet['name']}}">Ändern
                         </button></td>
+                    <td><button type="submit" class="btn btn-primary sub hide_onmobile" data-bs-toggle="modal"
+                                data-bs-target="#editComment{{$geraet['name']}}">Kommentieren
+                        </button>
+
+                        <button type="submit" class="btn btn-primary sub hide_onDestop" data-bs-toggle="modal"
+                                data-bs-target="#editDevice{{$geraet['id']}}">Details
+                        </button>
+
+
+                    </td>
                 </tr>
 
                 <form action="eigeneGeraete?kuerzel={{$_SESSION['name']}}" method="POST">
@@ -155,6 +163,244 @@
                                 <div class="modal-footer">
                                     <button type="submit" name="submit" value="Submit2" class="btn btn-primary" data-bs-dismiss="modal">Speichern</button>
                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+
+
+                <form action="eigeneGeraete?kuerzel={{$_SESSION['name']}}" method="post" role="form">
+                    <input type="hidden" name="form_id" value="{{$geraet['id']}}">
+                    <div class="modal fade" id="editDevice{{$geraet['id']}}" tabindex="-1" aria-labelledby="editDevice" aria-hidden="true">
+                        <div class="modal-dialog modal-xl modal-dialog-centered">
+                            <div class="modal-content">
+
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Gerät bearbeiten {{$geraet['name']}}</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+
+                                <!-- Modal Body -->
+                                <div class="modal-body ">
+                                    <div class="row">
+                                        <div class="row mt-3">
+                                            <div class="col disabled">
+                                                <select class="form-select" aria-label="Default select example"
+                                                        name="form_deviceType" required>
+                                                    <option value="" disabled>Typ*</option>
+                                                    @if($geraet['typ'] == "Computer")
+                                                        <option value="1" id="deviceTyp" selected>Computer</option>
+                                                        <option value="2" id="deviceTyp">Laptop</option>
+                                                        <option value="3" id="deviceTyp">Monitor</option>
+                                                        <option value="4" id="deviceTyp">Tastatur</option>
+                                                        <option value="5" id="deviceTyp">Maus</option>
+                                                        <option value="6" id="deviceTyp">Praktikumsmaterial</option>
+                                                        <option value="7" id="deviceTyp">Accessoires</option>
+                                                    @elseif($geraet['typ'] == "Laptop")
+
+                                                        <option value="1" id="deviceTyp">Computer</option>
+                                                        <option value="2" id="deviceTyp" selected>Laptop</option>
+                                                        <option value="3" id="deviceTyp">Monitor</option>
+                                                        <option value="4" id="deviceTyp">Tastatur</option>
+                                                        <option value="5" id="deviceTyp">Maus</option>
+                                                        <option value="6" id="deviceTyp">Praktikumsmaterial</option>
+                                                        <option value="7" id="deviceTyp">Accessoires</option>
+                                                    @elseif($geraet['typ'] == "Monitor")
+
+                                                        <option value="1" id="deviceTyp">Computer</option>
+                                                        <option value="2" id="deviceTyp">Laptop</option>
+                                                        <option value="3" id="deviceTyp" selected>Monitor</option>
+                                                        <option value="4" id="deviceTyp">Tastatur</option>
+                                                        <option value="5" id="deviceTyp">Maus</option>
+                                                        <option value="6" id="deviceTyp">Praktikumsmaterial</option>
+                                                        <option value="7" id="deviceTyp">Accessoires</option>
+                                                    @elseif($geraet['typ'] == "Tastatur")
+
+                                                        <option value="1" id="deviceTyp">Computer</option>
+                                                        <option value="2" id="deviceTyp">Laptop</option>
+                                                        <option value="3" id="deviceTyp">Monitor</option>
+                                                        <option value="4" id="deviceTyp" selected>Tastatur</option>
+                                                        <option value="5" id="deviceTyp">Maus</option>
+                                                        <option value="6" id="deviceTyp">Praktikumsmaterial</option>
+                                                        <option value="7" id="deviceTyp">Accessoires</option>
+                                                    @elseif($geraet['typ'] == "Maus")
+
+                                                        <option value="1" id="deviceTyp">Computer</option>
+                                                        <option value="2" id="deviceTyp">Laptop</option>
+                                                        <option value="3" id="deviceTyp">Monitor</option>
+                                                        <option value="4" id="deviceTyp">Tastatur</option>
+                                                        <option value="5" id="deviceTyp" selected>Maus</option>
+                                                        <option value="6" id="deviceTyp">Praktikumsmaterial</option>
+                                                        <option value="7" id="deviceTyp">Accessoires</option>
+                                                    @elseif($geraet['typ'] == "Praktikumsmaterial")
+                                                        <option value="1" id="deviceTyp">Computer</option>
+                                                        <option value="2" id="deviceTyp">Laptop</option>
+                                                        <option value="3" id="deviceTyp">Monitor</option>
+                                                        <option value="4" id="deviceTyp">Tastatur</option>
+                                                        <option value="5" id="deviceTyp">Maus</option>
+                                                        <option value="6" id="deviceTyp" selected>Praktikumsmaterial</option>
+                                                        <option value="7" id="deviceTyp">Accessoires</option>
+                                                    @else
+                                                        <option value="1" id="deviceTyp">Computer</option>
+                                                        <option value="2" id="deviceTyp">Laptop</option>
+                                                        <option value="3" id="deviceTyp">Monitor</option>
+                                                        <option value="4" id="deviceTyp">Tastatur</option>
+                                                        <option value="5" id="deviceTyp">Maus</option>
+                                                        <option value="6" id="deviceTyp">Praktikumsmaterial</option>
+                                                        <option value="7" id="deviceTyp" selected>Accessoires</option>
+                                                    @endif
+
+                                                </select>
+                                            </div>
+                                            <div class="col">
+                                                <div class="dropdown">
+                                                    <button class="form-select" data-mdb-clear-button="true" type="button" id="form_OperationSystem" multiple="multiple" data-bs-toggle="dropdown">Betriebssystem</button>
+                                                    <ul class="dropdown-menu form-select" aria-labelledby="form_OperationSystem" style="max-height: 280px; overflow-y: auto">
+                                                        <li><h6 class="dropdown-header">Betriebssystem</h6>
+                                                        @foreach($filter_variable_data['betriebssystem'] as $key => $betriebssystem_name)
+                                                            <li>
+                                                                <a class="dropdown-item" href="#">
+                                                                    <div class="form-check disabled">
+                                                                        <input class="form-check-input "  type="checkbox"  name="form_OperationSystem[]" value="{{$key}}" id="Checkme {{$key}}"
+                                                                               {{$vorhanden=false}}
+                                                                               @if(isset($geraet['betriebssystem']))
+                                                                                   {{$vorhanden=false}}
+                                                                                   @foreach($geraet['betriebssystem'] as $value)
+                                                                                       @if($value==$betriebssystem_name)
+                                                                                           {{$vorhanden=true}}
+                                                                                       @endif
+                                                                                   @endforeach
+                                                                               @endif
+
+                                                                               @if($vorhanden) checked @endif />
+                                                                        <label class="form-check-label" for="Checkme {{$key}}">{{$betriebssystem_name}}</label>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col disabled">
+                                                <input class="form-control"  type="text" name="form_name123"
+                                                       placeholder="Name*"
+                                                       value="{{$geraet['name']}}"></div>
+                                            <div class="col">
+                                                <select class="form-select"  data-mdb-clear-button="true" placeholder="Raum" name="form_room" style="max-height: 180px; overflow-y: auto">
+                                                    @foreach($raueme as $raum)
+                                                        <option value="{{$raum['raumnummer']}}" @if($raum['raumnummer'] == $geraet['raumnummer']) selected @endif>{{$raum['raumnummer']}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col disabled">
+                                                <input class="form-control" type="text" name="form_hersteller"
+                                                       placeholder="Hersteller"
+                                                       value="{{$geraet['hersteller']}}"></div>
+                                            <div class="col">
+                                                <div class="dropdown">
+                                                    <button class="form-select" data-mdb-clear-button="true" type="button" id="form_Software" name="form_Software[]" multiple="multiple" data-bs-toggle="dropdown">Software des Gerätes</button>
+                                                    <ul class="dropdown-menu form-select" aria-labelledby="form_Software" style="max-height: 280px; overflow-y: auto">
+                                                        <li><h6 class="dropdown-header">Software des Gerätes</h6></li>
+                                                        @foreach($filter_variable_data['softwarelizenzen'] as $key_softwareid => $data_softwarename)
+                                                            <li>
+                                                                <a class="dropdown-item" href="#">
+                                                                    <div class="form-check disabled">
+                                                                        <input class="form-check-input" type="checkbox" name="form_Software[]" value="{{$key_softwareid}}" id="Checkme {{$key_softwareid}}"
+                                                                               @if(isset($geraet['software']))
+                                                                                   {{$vorhanden=false}}
+                                                                                   @foreach($geraet['software'] as $value)
+                                                                                       @if($value==$data_softwarename)
+                                                                                           $vorhan{{$vorhanden=true}}
+                                                                                       @endif
+                                                                                   @endforeach
+                                                                               @endif
+                                                                               @if($vorhanden) checked @endif />
+                                                                        <label class="form-check-label" for="Checkme {{$key_softwareid}}">{{$data_softwarename}}</label>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row disabled mt-3">
+                                            <label for="Inbetriebname">Inbetriebname</label>
+                                            <div class="col ">
+                                                <div class="form-group">
+                                                    <div class="input-group date" id="datepickerEditUsage">
+                                                        <input type="text" id="Inbetriebname" class="form-control" placeholder="erste Inbetriebname*" value="{{$geraet['betrieb']}}" name="form_betrieb">
+                                                        <span class="input-group-append">
+                                                        <span class="input-group-text bg-white d-block">
+                                                            <i class="fa fa-calendar"></i>
+                                                        </span>
+                                                    </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <label for="AlterdesGer">Alter des Geräts</label>
+                                            <div class="col ">
+                                                <div class="form-group">
+                                                    <div class="input-group date" id="datepickerEditBuild">
+                                                        <input type="text" id="AlterdesGer" class="form-control"
+                                                               placeholder="alter des Gerätes"
+                                                               value="{{$geraet['age']}}" name="form_age">
+                                                        <span class="input-group-append">
+                                                        <span class="input-group-text bg-white d-block">
+                                                            <i class="fa fa-calendar"></i>
+                                                        </span>
+                                                    </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @if($geraet['ausleihbar']==1)
+                                            <div class="col disabled  mt-3">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="form_Ausleihbar" name="form_Ausleihbar" checked>
+                                                    <label class="form-check-label" for="flexSwitchCheckDefault">Ausleihbar</label>
+                                                </div>
+                                            </div>
+                                        @else
+                                            <div class="col disabled mt-3">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="form_Ausleihbar" name="form_Ausleihbar">
+                                                    <label class="form-check-label" for="flexSwitchCheckDefault">Ausleihbar</label>
+                                                </div>
+                                            </div>
+                                        @endif
+                                        <div class="row mt-3">
+                                            <div class="col disabled">
+                                    <textarea class="form-control" name="form_technischeEckdaten" rows="5"
+                                              placeholder="Technische Eckdaten, mit Semikolon trennen">{{$geraet['technische_eckdaten']}}</textarea>
+                                            </div>
+                                            <div class="col">
+                                            <textarea class="form-control" name="form_comment" rows="5"
+                                                      placeholder="Kommentar zum Gerät">{{$geraet['kommentar']}}</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- Modal footer -->
+                                <div class="modal-footer justify-content-between">
+                                    <div class="disabled_hidden">
+                                    <button type="submit"  name="submit_delete" value="{{$geraet['id']}}" class=" btn btn-danger">Gerät Löschen</button>
+                                    </div>
+                                    <div>
+                                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" name="submit"
+                                                value="1">Speichern
+                                        </button>
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

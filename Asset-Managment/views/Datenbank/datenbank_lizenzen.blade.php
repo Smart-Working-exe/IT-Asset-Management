@@ -42,7 +42,7 @@
                 </td>
                 <td>
                     <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                            data-bs-target="#editSoftware{{$lizenz['id']}}">Softwarelizenz bearbeiten
+                            data-bs-target="#editSoftware{{$lizenz['id']}}">Bearbeiten
                     </button>
                 </td>
             </tr>

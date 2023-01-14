@@ -250,6 +250,21 @@ class HomeController
             reset_used_by($_POST['to_remove']);
         }
 
+        if (isset($_POST['submit']) and $_POST['submit'] == 1) {
+            logger($_SESSION['name'], 4, $rd->query['form_name123']." wurde bearbeitet.");
+            if(isset($_POST['form_Software'])){
+                $edit_Software=$_POST['form_Software'];}
+            else{
+                $edit_Software=NULL;
+            }
+            if(isset($_POST['form_OperationSystem'])){
+                $edit_OOS=$_POST['form_OperationSystem'];}
+            else{
+                $edit_OOS=NULL;
+            }
+            editGeraete($rd,$edit_Software,$edit_OOS);
+        }
+
         return view('EigeneGeraete.eigeneGeraete', [
             'database_filter' => true,
             'data' => getGeraeteData(get_filter_data($rd, 1)),

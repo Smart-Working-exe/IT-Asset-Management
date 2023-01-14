@@ -68,7 +68,13 @@ table{
     border-color: #40BEA9;
 }
 
+.disabled{
+    pointer-events: none;
+}
 
+.disabled_hidden{
+    display: none;
+}
 
 
 @media only screen and (min-width: 1000px) {
@@ -100,6 +106,10 @@ table{
         height: 2vh;
     }
 
+    .hide_onDestop{
+        display: none;
+    }
+
 
 }
 
@@ -107,15 +117,30 @@ table{
 
 
 
-    /*tr :not(:first-child):not(:last-child)  {
+    table:not(.ausleih_tabel) tr :not(:first-child):not(:last-child)  {
         display: none;
-    }*/
+
+    }
+
+    .ausleih_tabel tr{
+
+    }
+
+    .ausleih_tabel tr :nth-child(2)  {
+        display: none;
+
+    }
+
+
+
 
     .gebauede_plan{
         display: none;
     }
 
-
+    .hide_onmobile{
+        display: none;
+    }
 
 }
 
