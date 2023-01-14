@@ -4,23 +4,6 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
-                Gebäude A
-            </a>
-        </div>
-        <div id="collapseOne" class="collapse" data-bs-parent="#accordion">
-            <div class="card-body">
-                @foreach($raume as $raum)
-                    @if($raum['gebaude'] == 'a' || $raum['gebaude'] == 'A')
-                        <a href={{'/raumansicht?raum=' . $raum['raumnummer']}}  > {{$raum['raumnummer']}}</a>
-                    @endif
-                @endforeach
-            </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-header">
             <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo">
                 Gebäude B
             </a>
@@ -158,8 +141,13 @@
     <div class="card">
         <div class="card-header">
             <a class="collapsed btn" data-bs-toggle="collapse" href="#collapse10">
-                <a href={{'/raumansicht?raum=' . 'Lager'}}  >Lager</a>
+                Lager
             </a>
+        </div>
+        <div id="collapse10" class="collapse" data-bs-parent="#accordion">
+            <div class="card-body">
+                <a href={{'/raumansicht?raum=' . 'Lager'}}  >Lager</a>
+            </div>
         </div>
     </div>
 

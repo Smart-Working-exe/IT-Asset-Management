@@ -9,17 +9,20 @@ function teste_dich_gluecklich()
 {
     $db = connectdb();
 
-    $hersteller = array("Samsung", "LG", "Apple", "Dell", "HP", "Lenovo", "Acer", "ASUS", "Microsoft", "Sony");
-    for($i = 0 ; $i < 100; $i++) {
+    $original_time_limit = ini_get("max_execution_time");
+    set_time_limit(1200); // Erhöhe die maximale Ausführungszeit auf 5 Minuten (300 Sekunden)
+
+    $hersteller_array = array("Samsung", "LG", "Apple", "Dell", "HP", "Lenovo", "Acer", "ASUS", "Microsoft", "Sony");
+    for($i = 1 ; $i <= 1000; $i++) {
         $name = "T_PC_V4_" . $i;
         $typ = 1;
-        $hersteller = $hersteller[array_rand($hersteller)];
+        $hersteller = $hersteller_array[array_rand($hersteller_array)];
         $age = date('Y-m-d', strtotime("-" . rand(0, 365) . " days"));
         $betrieb = date('Y-m-d', strtotime("-" . rand(0, 365) . " days"));
         if ($betrieb > $age) {
             $betrieb = $age;
         }
-        $room = "Test";
+        $room = "Lager";
         $ausleihbar = 0;
         $technischeEckdaten = "Ein Test" . $i . " ;noch einer" . $i . " ; und noch einen" . $i;
         $kommentar = "Nein, ich bin der beste PC";
@@ -29,17 +32,50 @@ function teste_dich_gluecklich()
         $absenden->execute();
         $order_id = $db->insert_id;
 
-        $result = $db->query("SELECT raumnummer FROM raum ORDER BY RAND() LIMIT 1");
+        $result = $db->query("SELECT raumnummer, anzahl_ws, belegung_ip FROM raum ORDER BY RAND() LIMIT 1");
         $randomRoom = $result->fetch_array();
-        $randomRoomNumber = $randomRoom[0];
+        $randomRoomNumber = $randomRoom['raumnummer'];
+        $randomRoomWS = $randomRoom['belegung_ip'];
+        $randomRoomMaxWS = $randomRoom['anzahl_ws'];
+
+        while ($randomRoomWS >= $randomRoomMaxWS) {
+            $result = $db->query("SELECT raumnummer, anzahl_ws, belegung_ip FROM raum ORDER BY RAND() LIMIT 1");
+            $randomRoom = $result->fetch_array();
+            $randomRoomNumber = $randomRoom['raumnummer'];
+            $randomRoomWS = $randomRoom['belegung_ip'];
+            $randomRoomMaxWS = $randomRoom['anzahl_ws'];
+            if($randomRoomNumber == "Lager"){
+                break;
+            }
+        }
 
         $absenden3 = $db->prepare("UPDATE geraet SET raumnummer = ? WHERE id = ?");
         $absenden3->bind_param('si', $randomRoomNumber, $order_id);
         $absenden3->execute();
 
+        $result = $db->query("SELECT * FROM raum WHERE raumnummer = '$randomRoomNumber'");
+        $row = $result->fetch_array();
+        $ip_range_start = $row["ip-adressbereich_beginn"];
+        $ip_range_end = $row["ip-adressbereich_ende"];
+        $ip_range_count = $row["anzahl_ws"];
+        $ip_range_used = $row["belegung_ip"];
+
+        $ip_range_used++;
+        $new_ip = ip2long($ip_range_start) + $ip_range_used;
+        $new_ip = long2ip($new_ip);
+
+        $absenden4 = $db->prepare("UPDATE geraet SET ip_adresse = ? WHERE id = ?");
+        $absenden4->bind_param('si', $new_ip, $order_id);
+        $absenden4->execute();
+
+        $random_ws = mt_rand(0, $ip_range_count - 1);
+        $absenden5 = $db->prepare("UPDATE raum SET belegung_ip = ?, belegte_ws = ? WHERE raumnummer = ?");
+        $absenden5->bind_param('iis', $ip_range_used, $random_ws, $randomRoomNumber);
+        $absenden5->execute();
+
         $used_randomNumbers = [];
-        for ($b = 0; $b < random_int(1, 4); $b++) {
-            $betriebssystem = random_int(1, 6);
+        for ($b = 0; $b < random_int(1, 3); $b++) {
+            $betriebssystem = random_int(1, 25);
             if (!isset($used_randomNumbers[$betriebssystem])) {
                 $query = "SELECT * FROM betriebssystem WHERE id = ?";
                 $stmt = $db->prepare($query);
@@ -59,8 +95,8 @@ function teste_dich_gluecklich()
 
 
         $used_randomNumbers2 = [];
-        for ($b = 0; $b < random_int(1, 5); $b++) {
-            $software = random_int(35, 39);
+        for ($b = 0; $b < random_int(1, 30); $b++) {
+            $software = random_int(1, 55);
             if (!isset($used_randomNumbers2[$software])) {
                 // Überprüfe die maximale Anzahl der verfügbaren Lizenzen
                 $check_query = $db->prepare("SELECT anzahl_gerate FROM softwarelizenzen WHERE id = ?");
@@ -85,6 +121,9 @@ function teste_dich_gluecklich()
             }
         }
     }
+
+    set_time_limit($original_time_limit); // Setze die maximale Ausführungszeit zurück auf den ursprünglichen Wert
+
     $db->close();
 }
 

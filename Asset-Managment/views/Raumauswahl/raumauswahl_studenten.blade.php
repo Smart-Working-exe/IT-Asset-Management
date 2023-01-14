@@ -6,13 +6,6 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <a class="collapsed btn"  href="/raumansicht?gebaeude=a">
-                Gebäude A
-            </a>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-header">
             <a class="collapsed btn"  href="/raumansicht?gebaeude=B">
                 Gebäude B
             </a>
@@ -67,7 +60,4 @@
             </a>
         </div>
     </div>
-
-
-
 @endsection

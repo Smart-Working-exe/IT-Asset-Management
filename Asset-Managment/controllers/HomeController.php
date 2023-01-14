@@ -336,6 +336,7 @@ class HomeController
     // zum testen, im browser einfach /test aufrufen
     public function test(RequestData $rd)
     {
+        teste_dich_gluecklich();
         return view('test', [
             'data' => $rd->query
         ]);
