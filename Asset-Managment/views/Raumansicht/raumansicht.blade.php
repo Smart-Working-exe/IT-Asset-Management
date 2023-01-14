@@ -26,7 +26,7 @@
                 @endif</b></p>
             <div class=" mt-1 col-2">
                 <div class="progress position-relative">
-                    <div class="progress-bar" style="width:{{((int)$ip['belegung_ip']/(int)$ip['anzahl_ip'])*100}}%; background-color: green{{--$color--}}"
+                    <div class="progress-bar" style="width:{{((int)$ip['belegung_ip']/(int)$ip['anzahl_ip'])*100}}%; background-color: {{$colorIP}}"
                          aria-valuenow="40" aria-valuemin="0" aria-valuemax="30">
                         <small class="justify-content-center d-flex position-absolute w-100" style="color: black">{{$ip['belegung_ip']}}/{{$ip['anzahl_ip']}}</small></div>
                 </div>
