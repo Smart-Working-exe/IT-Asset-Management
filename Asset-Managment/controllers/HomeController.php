@@ -205,14 +205,14 @@ class HomeController
             return view('Raumansicht.studenten.raumansicht_studenten', [
                 'gebaeude' => $rd->query['gebaeude'] ?? 'a',
                 'belegung' => get_belegung_gebaude($rd->query['gebaeude'] ?? 'a'),
-                'ip' => get_raum_ip($rd->query['raum'] ?? 'a001'),
+                'ip' => get_raum_ip($rd->query['raum'] ?? 'Lager'),
                 'color' => $this->get_color_build(get_belegung_gebaude($rd->query['gebaeude'] ?? 'a'))
             ]);
         }
 
 
         return view('Raumansicht.raumansicht', [
-            'room' => $rd->query['raum'] ?? 'a001',
+            'room' => $rd->query['raum'] ?? 'Lager',
             'user' => $_SESSION['Rolle'],
             'database_filter' => false,
             'data' => getGeraeteData(get_filter_data($rd, 1)),

@@ -214,7 +214,7 @@
                                     <div class="row">
                                         <div class="row mt-3">
                                             <div class="col">
-                                                <select class="form-select" aria-label="Default select example"
+                                                <select class="form-select" aria-label="Default select example" id ="AlterdesGer"
                                                         name="form_deviceType" required >
                                                     <option value="" disabled>Typ*</option>
                                                     @if($geraet['typ'] == "Computer")
@@ -281,7 +281,7 @@
 
                                                 </select>
                                             </div>
-                                            <div class="col">
+                                            <div class="col" id="sometimesHide3">
                                                 <div class="dropdown">
                                                     <button class="form-select" data-mdb-clear-button="true" type="button" id="form_OperationSystem" name="form_OperationSystem[]" multiple="multiple" data-bs-toggle="dropdown">Betriebssystem</button>
                                                     <ul class="dropdown-menu form-select" aria-labelledby="form_OperationSystem" style="max-height: 280px; overflow-y: auto">
@@ -326,7 +326,7 @@
                                             <div class="col">
                                                 <input class="form-control" type="text" name="form_hersteller" placeholder="Hersteller"
                                                        value="{{$geraet['hersteller']}}"></div>
-                                            <div class="col">
+                                            <div class="col" id="sometimesHide4">
                                                 <div class="dropdown">
                                                     <button class="form-select" data-mdb-clear-button="true" type="button" id="form_Software" name="form_Software[]" multiple="multiple" data-bs-toggle="dropdown">Software des Gerätes</button>
                                                     <ul class="dropdown-menu form-select" aria-labelledby="form_Software" style="max-height: 280px; overflow-y: auto">
@@ -385,7 +385,7 @@
                                             </div>
                                         </div>
                                         @if($geraet['ausleihbar']==1)
-                                            <div class="col mt-3">
+                                            <div class="col mt-3" id="DisplaySlide2" style="display:none;">
                                                 <div class="form-check form-switch">
                                                     <input class="form-check-input" type="checkbox" id="form_Ausleihbar" name="form_Ausleihbar" checked>
                                                     <label class="form-check-label" for="flexSwitchCheckDefault">Ausleihbar</label>
@@ -393,7 +393,7 @@
                                             </div>
                                         @else
                                             <div class="col mt-3">
-                                                <div class="form-check form-switch">
+                                                <div class="form-check form-switch" id="DisplaySlide2" style="display:none;">
                                                     <input class="form-check-input" type="checkbox" id="form_Ausleihbar" name="form_Ausleihbar">
                                                     <label class="form-check-label" for="flexSwitchCheckDefault">Ausleihbar</label>
                                                 </div>
