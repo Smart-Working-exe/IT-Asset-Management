@@ -375,7 +375,8 @@
                                         @endif
                                         <div class="row mt-3">
                                             <div class="col">
-                                                <textarea class="form-control" name="form_technischeEckdaten" rows="5" placeholder="Technische Eckdaten, mit Semikolon trennen">{{$geraet['technische_eckdaten']}}</textarea>
+                                                 <textarea class="form-control" name="form_technischeEckdaten" rows="5"
+                                                           placeholder="Technische Eckdaten, mit Semikolon trennen">{{$geraet['technische_eckdaten']}}</textarea>
                                             </div>
                                             <div class="col">
                                                 <textarea class="form-control" name="form_comment" rows="5" placeholder="Kommentar zum Gerät">{{$geraet['kommentar']}}</textarea>
