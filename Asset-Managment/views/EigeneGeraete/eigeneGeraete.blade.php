@@ -431,7 +431,7 @@
 
         // Variable to store the final csv data
         var csv_data = [];
-        var test=["Name-;-Typ-;-Hersteller-;-Alter-;-Betriebsystem-;-Software-;-Technische Daten-;-Kommentar-;-Raum"];
+        var test=["Name;Typ;Hersteller;Alter;Betriebsystem;Software;Technische Daten;Kommentar;Raum"];
         csv_data.push(test);
         // Get each row data
         var rows = document.getElementsByTagName('tr')
@@ -486,6 +486,34 @@
                     // csvrow.push(arrayzumkillen);
 
                 }
+                else if(j==7){
+                    var Stringzumspalten=cols[j].innerHTML;
+                    var arrayzumkillen=Stringzumspalten.split('<').join(',').split('>').join(',').split(',');
+                    var Werte=[];
+
+                    for(var k=0;k < arrayzumkillen.length;k++){
+
+                        if(arrayzumkillen[k].includes("li") && arrayzumkillen[k].length<=3){
+                        }
+                        else if (arrayzumkillen[k].includes("ul") && arrayzumkillen[k].length<=3){
+                        }
+                        else{
+                            Werte.push(arrayzumkillen[k]);
+                        }
+
+                    }
+                    var reinda=Werte.toString();
+                    var rein=reinda.substring(4);
+                    var plz=rein.replaceAll(","," ");
+                    var plz2=plz.replaceAll("\n","");
+                    var plz3=plz2.replace(" ","");
+                    plz3=plz3.replace(" ","");
+                    plz3=plz3.replace(" ","");
+                    var plz4=plz3.replaceAll("     ",", ");
+                    var plz5=plz4.substring(0,plz4.length-3);
+                    csvrow.push(plz5);
+
+                }
                 else if(j==9){
                 continue;
                 }
@@ -504,7 +532,7 @@
 
             // Combine each column value with comma
             if(i!=0) {
-                csv_data.push(csvrow.join("-;-"));
+                csv_data.push(csvrow.join(";"));
             }
         }
 
