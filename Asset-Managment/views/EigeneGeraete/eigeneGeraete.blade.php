@@ -423,7 +423,7 @@
 
         // Variable to store the final csv data
         var csv_data = [];
-        var test=["Name","Typ","Hersteller", "Alter","Betriebsystem","Software","Technische Daten","Kommentar","Raum"];
+        var test=["Name-;-Typ-;-Hersteller-;-Alter-;-Betriebsystem-;-Software-;-Technische Daten-;-Kommentar-;-Raum"];
         csv_data.push(test);
         // Get each row data
         var rows = document.getElementsByTagName('tr')
@@ -461,20 +461,31 @@
                     }
                     var reinda=Werte.toString();
                     var rein=reinda.substring(4);
-                    var plz=rein.replaceAll(",","");
+                    var plz=rein.replaceAll(","," ");
                     var plz2=plz.replaceAll("\n","");
-
-                    csvrow.push(plz2);
+                    var plz21=plz2.replace(" ","");
+                    var plz3=plz21.replace(" ","");
+                    var plz32=plz3.replace(" ","");
+                    if(j!=6){
+                    var plz4=plz32.replaceAll("     ",", ");
+                    var plz5=plz4.substring(0,plz4.length-4);
+                    csvrow.push(plz5);}
+                    else{
+                        var plz4=plz32.replaceAll("     ",",");
+                        var plz5=plz4.substring(0,plz4.length-3);
+                        csvrow.push(plz5);
+                    }
                     // csvrow.push(arrayzumkillen);
 
                 }
-                else if(j==8){
+                else if(j==9){
                 continue;
                 }
-                else if(j==9){
+                else if(j==8){
                     var splitstring=cols[j].innerHTML;
-                    var gespaltet=splitstring.substring(0,4);
-                    csvrow.push(gespaltet);
+                    var gespaltet=splitstring.substring(0,5);
+                    var rein=gespaltet.replaceAll("\n","");
+                    csvrow.push(rein);
                 }
                 else{
                     csvrow.push(cols[j].innerHTML);
@@ -485,7 +496,7 @@
 
             // Combine each column value with comma
             if(i!=0) {
-                csv_data.push(csvrow.join(","));
+                csv_data.push(csvrow.join("-;-"));
             }
         }
 
