@@ -64,9 +64,9 @@ function teste_dich_gluecklich()
     );
 
 
-    for ($i = 1; $i <= 10; $i++) {
-        $name = "T_PC_V4_" . $i;
-        $typ = 1;
+    for ($i = 1; $i <= 500; $i++) {
+        $name = "Laptop_V4_" . $i;
+        $typ = 2;
         $hersteller = $hersteller_array[array_rand($hersteller_array)];
         $age = date('Y-m-d', strtotime("-" . rand(0, 365 * 10) . " days"));
         $betrieb = date('Y-m-d', strtotime("-" . rand(0, 365 * 10) . " days"));
@@ -76,8 +76,8 @@ function teste_dich_gluecklich()
         $room = "Lager";
         $ausleihbar = 0;
 
-        $tech_specs_count = 4;
-        $comments_count = 2;
+        $tech_specs_count = rand(0, 2);
+        $comments_count = rand(0, 3);
 
         $random_tech_specs = array();
         for ($j = 0; $j < $tech_specs_count; $j++) {
@@ -380,12 +380,12 @@ function editGeraete(RequestData $rd, $edit_Software, $edit_OOS)
     $get = 'SELECT typ, raumnummer, ip_adresse from geraet where id = ' . $deviceID . ';';
     $sqlget = mysqli_query($link, $get);
     $data = mysqli_fetch_all($sqlget);
-    var_dump($data);
+
     $typ = $data[0][0];
     $raum_alt = $data[0][1];
     $oldIP = $data[0][2];
     $raum_neu = $rd->query['form_room'];
-    //var_dump($raum_neu,$raum_alt);
+
     //Raum updaten, falls Laptop oder PC und Raumänderung
     if ($raum_alt != $raum_neu && ($typ == 1 || $typ == 2)) {
         if ($raum_alt == 'Lager') {  // nur neuen Raum ändern

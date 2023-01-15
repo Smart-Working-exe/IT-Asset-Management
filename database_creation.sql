@@ -103,7 +103,7 @@ CREATE TABLE `geraet` (
 )
 COLLATE='utf8mb4_general_ci'
 ENGINE=InnoDB
-AUTO_INCREMENT=1442
+AUTO_INCREMENT=2
 ;
 
 CREATE TABLE `geraet_hat_betriebssystem` (
