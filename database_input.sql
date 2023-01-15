@@ -1,3 +1,6 @@
+CREATE VIEW `view_geraet_hat_betriebssystem` AS select `gb`.`geraetid` AS `geraetid`,concat_ws('',trim(concat_ws(' ',`b`.`name`,ifnull(`b`.`version`,''))),'') AS `name` from (`geraet_hat_betriebssystem` `gb` left join `betriebssystem` `b` on(`gb`.`betriebssystemid` = `b`.`id`)) ;
+CREATE VIEW `view_geraet_hat_software` AS select `gs`.`geraetid` AS `geraetid`,concat_ws('',trim(concat_ws(' ',`s`.`name`,ifnull(`s`.`version`,''))),'') AS `name` from (`geraet_hat_software` `gs` left join `softwarelizenzen` `s` on(`gs`.`softwarelizenzid` = `s`.`id`)) ;
+
 -- RÄUME
 INSERT INTO raum (raumnummer, `ip-adressbereich_beginn`, `ip-adressbereich_ende`, anzahl_ws, belegte_ws, belegung_ip, anzahl_ip, gebaude)
 VALUES ('A001', '156.0.0.0', '156.0.0.255', 20, 20, 1, 254, 'A'),
