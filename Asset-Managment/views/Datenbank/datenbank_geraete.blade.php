@@ -342,7 +342,7 @@
                     // Get the text data of each cell
                     // of a row and push it to csvrow
 
-                    if(j==7|j==6|j==5){
+                    if(j==8|j==7|j==6|j==5){
                         var Stringzumspalten=cols[j].innerHTML;
                         var arrayzumkillen=Stringzumspalten.split('<').join(',').split('>').join(',').split(',');
                         var Werte=[];
@@ -369,6 +369,11 @@
                             var plz4=plz32.replaceAll("     ",", ");
                             var plz5=plz4.substring(0,plz4.length-4);
                             csvrow.push(plz5);}
+                        else if(j==8){
+                            var plz4=plz32.replaceAll("     ",",");
+                            var plz5=plz4.substring(0,plz4.length-2);
+                            csvrow.push(plz5);
+                        }
                         else{
                             var plz4=plz32.replaceAll("     ",",");
                             var plz5=plz4.substring(0,plz4.length-3);
