@@ -1,4 +1,4 @@
-@extends('Dashboard.layout_dashboard')
+  @extends('Dashboard.layout_dashboard')
 @extends('header_footer')
 
 @section('Navigation')

@@ -316,7 +316,7 @@
 
             // Variable to store the final csv data
             var csv_data = [];
-            var test=["Name","Typ","Hersteller", "Alter","IP-Adresse","Betriebsystem","Software","Technische Daten","Kommentar","Raum"];
+            var test=["Name-;-Typ-;-Hersteller-;-Alter-;-IP-Adresse-;-Betriebsystem-;-Software-;-Technische Daten-;-Kommentar-;-Raum"];
             csv_data.push(test);
             // Get each row data
             var rows = document.getElementsByTagName('tr')
@@ -355,10 +355,18 @@
                         var rein=reinda.substring(4);
                         var plz=rein.replaceAll(","," ");
                         var plz2=plz.replaceAll("\n","");
-                        var plz3=plz2.replace(" ","");
-                        var plz4=plz3.replaceAll("     ","*")
-                        var plz5=plz4.substring(0,plz4.length-3);
-                        csvrow.push(plz5);
+                        var plz21=plz2.replace(" ","");
+                        var plz3=plz21.replace(" ","");
+                        var plz32=plz3.replace(" ","");
+                        if(j!=7){
+                            var plz4=plz32.replaceAll("     ",", ");
+                            var plz5=plz4.substring(0,plz4.length-4);
+                            csvrow.push(plz5);}
+                        else{
+                            var plz4=plz32.replaceAll("     ",",");
+                            var plz5=plz4.substring(0,plz4.length-3);
+                            csvrow.push(plz5);
+                        }
                        // csvrow.push(arrayzumkillen);
 
                     }
@@ -378,7 +386,7 @@
 
                 // Combine each column value with comma
                 if(i!=0) {
-                    csv_data.push(csvrow.join(","));
+                    csv_data.push(csvrow.join("-;-"));
                 }
             }
 
@@ -421,28 +429,6 @@
         }
     </script>
 
-    <!--  <div> /*    if(j==7){
-
-          var Stringzumspalten=cols[j].innerHTML;
-          var help=Stringzumspalten.replace("\n","");
-          var arrayzumkillen=Stringzumspalten.split(">");
-          var arrayzumkillen2=arrayzumkillen.split("<");
-          var Werte=[];
-
-          for(var k=0;k<arrayzumkillen2.length;k++){
-
-          if(arrayzumkillen2[k].includes("li") && arrayzumkillen2[k].length()<=3){
-
-          }
-          else if (arrayzumkillen2[k].includes("ul") && arrayzumkillen2[k].length()<=3){
-
-          }
-          else{
-          Werte.push(arrayzumkillen2[k]);
-          }
-          var reinda=Werte.toString();
-          csvrow.push(reinda);
-          }*/</div>-->
 
 
 
