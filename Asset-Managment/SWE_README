@@ -29,7 +29,74 @@
             -  13 = Softwarelizenz gelöscht
 
 
+					IT ASSET MANAGEMENT
 
+______________________________________________________________________________________________
+Zu allererst bedanken wir uns, dass sie sich für unser Produkt entschieden haben. Folgend
+erhalten Sie eine Anleitung/ die Systemanforderungen, mit welchen Sie das System betreiben
+können. Hierbei ist zu beachten, dass die Anleitung legendlich die lokale Installation
+auf ihrem Gerät deckt. Hierbei muss ebenfalls beachtet werden, dass sich die Installation
+nur an das Windowsbetriebssystem wendet. Unter weiteren Betriebssystemen kann die 
+Installation anders ablaufen als beschrieben. Dies gielt auch für die Installation auf einem
+Server.
+______________________________________________________________________________________________
+
+
+					   Anforderungen
+
+
+# Systemanforderungen
+- Speicherbedarf: +- 20MB
+- PHP: Version 8.1
+- Netzwerkverbindung
+
+
+# Serveranforderungen:
+- SQL-Datenbank
+- 3GB Speicherplatz
+- Netzwerkverbindung
+
+
+_______________________________________________________________________________________________
+
+
+					Installationsanleitung
+
+Wie in den Systemanforderungen beschrieben wird PHP 8.1 benötigt. Um die Version des 
+Installierten PHP zu prüfen können Sie die Eingabeaufforderung öffnen. Wenn Sie hier den Befehl 
+"php -v" eingeben, wird ihnen ihre PHP-Version angezeigt. Hierbei muss es sich um die 8.1 handeln.
+Falls dies nicht der Fall ist kann diese hier runtergeladen werden: https://windows.php.net/download/
+Eine Anleitung zur Installation von PHP auf ihrem System finden Sie hier: 
+www.geeksforgeeks.org/how-to-install-php-in-windows-10
+
+bevor Sie nun ihre Datenbank erstellen können, müssen sie noch SQL runterladen. Den Installer erhalten
+Sie über den Link: https://dev.mysql.com/downloads/file/?id=514517
+Hier können Sie im Installer die Full-Version runterladen und installieren. 
+
+Nun können Sie in ihrem System eine Datenbank erstellen. Hierfür wird empfohlen sich ein
+Datenbankmanagementsystem wie Beispielsweise "HeidiSQL" - (https://www.heidisql.com/download.php) - 
+runterzuladen. 
+Hier können Sie nun ihre Datenbank lokale Datenbank zu testzwecken einrichten. Für einfach auf den
+Button "NEU" klicken und die Datenbankanbindung aus der SQL-Installation eingeben. (Portnummer,
+Benutzername, Passwort, etc.). Wenn Sie Erfolgreich in HeidiSQL die Datenbankanbindung geladen haben,
+können Sie in dieser eine neue Datenbank einrichten. Hierzu müssen Sie die SQL-Statements aus der 
+Datei anliegend zum System entnehmen und in der Datenbank ausführen. Hierfür gibt es ein Reiter "Abfragen"
+in den Zuerst die SQL-Statements der Datei "create_DB" kommen und dann die Statements aus der Datei "Inputs".
+
+
+Im nächsten Schritt können Sie das Verzeichnis des Systems öffnen, welches Sie per ZIP erhalten haben. 
+Hier werden Sie neben mehreren Ordnerverzeichnisen, und dieser README.txt eine Datei mit dem Namen
+"start_server.bat" finden. Wenn Sie diese ausführen öffnet sich ein Konsolefenster. In diesem werden
+Sie über Abläufe auf dem Server informiert. Ebenfalls steht dort vermerkt, über welche Adresse das
+System erreichbar ist. Im Standard ist die Seite über "http://127.0.0.1:9000" erreichbar. Diesen Link
+können Sie in einen Browser Ihrer Wahl in die Suchleiste eingeben und das System sollte erscheinen.
+
+Nun können Sie das System nach Ihrem belieben Testen bzw. Verwenden.
+
+Möchten Sie nun die Seite und ihren lokal angelegten Server schließen, so müssen Sie in dem
+Konsolefenster die Tastenkombination "CTRL + C" eingeben. Hierbei werden Sie noch einmal gefragt, ob
+Sie den Server sicher beenden wollen. Um zu bestätigen müssen Sie legendlich "J" in die Konsole schreiben,
+falls Sie Abbrechen wollen, müssen sie "N" in die Konsole schreiben.
 
 
 
