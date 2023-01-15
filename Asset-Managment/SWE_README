@@ -54,12 +54,16 @@ Datei anliegend zum System entnehmen und in der Datenbank ausführen. Hierfür g
 in den Zuerst die SQL-Statements der Datei "create_DB" kommen und dann die Statements aus der Datei "Inputs".
 
 
-Im nächsten Schritt können Sie das Verzeichnis des Systems öffnen, welches Sie per ZIP erhalten haben. 
-Hier werden Sie neben mehreren Ordnerverzeichnisen, und dieser README.txt eine Datei mit dem Namen
-"start_server.bat" finden. Wenn Sie diese ausführen öffnet sich ein Konsolefenster. In diesem werden
-Sie über Abläufe auf dem Server informiert. Ebenfalls steht dort vermerkt, über welche Adresse das
-System erreichbar ist. Im Standard ist die Seite über "http://127.0.0.1:9000" erreichbar. Diesen Link
-können Sie in einen Browser Ihrer Wahl in die Suchleiste eingeben und das System sollte erscheinen.
+Im nächsten Schritt können Sie das Verzeichnis des Systems öffnen, welches Sie per ZIP erhalten haben.
+Hier können Sie in dem Verzeichnis /config in der Datei "db.php" ihre Daten bezüglich der Datenbank eingeben.
+Unter Host müssen Sie bei einer lokalen Datenbank 127.0.0.1 eingeben und als Wert für "database" müssen Sie
+"it_asset_managment" eingeben. Die restlichen Informationen hängen von ihrer vorherigen SQL Konfiguration ab.
+
+Nun können Sie im Verzeichnis eine Datei mit dem Namen "start_server" suchen. Wenn Sie diese ausführen öffnet
+sich ein Konsolefenster. In diesem werden Sie über Abläufe auf dem Server informiert. Ebenfalls steht dort
+vermerkt, über welche Adresse das System erreichbar ist. Im Standard ist die Seite über "http://127.0.0.1:9000" 
+erreichbar. Diesen Link können Sie in einen Browser Ihrer Wahl in die Suchleiste eingeben und das System sollte
+erscheinen.
 
 Nun können Sie das System nach Ihrem belieben Testen bzw. Verwenden.
 
@@ -67,65 +71,3 @@ Möchten Sie nun die Seite und ihren lokal angelegten Server schließen, so müs
 Konsolefenster die Tastenkombination "CTRL + C" eingeben. Hierbei werden Sie noch einmal gefragt, ob
 Sie den Server sicher beenden wollen. Um zu bestätigen müssen Sie legendlich "J" in die Konsole schreiben,
 falls Sie Abbrechen wollen, müssen sie "N" in die Konsole schreiben.
-
-
-
- #  Begrifflichkeiten und zuordnung
-        * Verleihung => Mitarbeiter
-        * Ausleihe => Student
-
-
-
-
-# Einträge hinzufügen, bearbeiten, Export ... Alles was über Pop-Up-Fenster und in mehreren szenen benötigt ist befindet sich in views/modals
-        * ausgenommen modals welche es nur in einer szene gibt
-            - ihr könnt natürlich auch szenen exclusives ebenfalls auslagern
-
-        * solltet ihr festellen, ihr nutzt dasselbe in mehreren Szenen legt möglichst nach dem selben Prinzip etwas an, vermeidet Redundanz
-
-        * nutzt ihr dieses in eurer Szene so macht bspw. @extends(modals.ordnername.name)
-        * denkt daran im Layout entsprechend @yield('name') hinzuzufügen
-
-
- # vernachlässigt erstmal navigations Buttons wie "zurück zum Dashboard", diese müssen voraussichtlich später eh nochmal angepasst werden
- # das bedeutet auch, wenn ihr zu eurer Szene, welche ihr bearbeiten wollt, nicht hingelangt guckt wie diese in config/web.php und im Home Controller definiert sind
- # gibt diese dann ueber die URL direkt ein
-        * es kann sein das ihr aktuell Variablen anpassen müsst um in Varianten von Szenen zu gelangen
-            - Dies Betrifft mindestens
-                ~ einstellungen
-                ~ raumauswahl
-                ~ raumansicht
-
-
-
-# in der Datenbank werden technische Eckdaten, wenn es mehrere gibt, mit einem semicolon ';' getrennt
-
-# variablenwerte bedeutungen(Datenbank)
-        *Rolle
-           - 1 = admin
-           - 2 = mitarbeiter
-           - 3 = student
-        * Es gibt folgende Typen für Geräte:      (sollte hier im Lastenheft etwas festgehalten wurden sein bitte anpassen)
-            - 'PC'
-            - 'Laptop'
-            - 'Monitor'
-            - 'Tastatur'
-            - 'Maus'
-            - 'Praktikumsmaterial'
-            - 'Sonstiges'
-        * Logs Aktionen
-            -  1 = Anmeldung
-            -  2 = Abmeldung
-            -  3 = Ausleihe
-            -  4 = Gerät bearbeiteung/kommentieren
-            -  5 = Gerät kommentieren
-            -  6 = Gerät hinzufügen
-            -  7 = Gerät gelöscht
-            -  8 = Person bearbeitet
-            -  9 = Person hinzugefügt
-            -  10 = Person gelöscht
-            -  11 = Softwarelizenz bearbeitet
-            -  12 = Softwarelizenz hinzugefügt
-            -  13 = Softwarelizenz gelöscht
-
-
