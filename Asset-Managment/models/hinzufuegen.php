@@ -1,8 +1,7 @@
 <?php
 
-function db_add_device($var,$var_OS,$var_Software,)
+function db_add_device($var, $var_OS, $var_Software,)
 {
-
     $db = connectdb();
     $name = $var['addDeviceName'];
     $typ = $var['addDevicedeviceTyp'];
@@ -21,41 +20,46 @@ function db_add_device($var,$var_OS,$var_Software,)
     $kommentar = $var['addDeviceKommentarGerat'];
     //$betriebssystem = $var['addDeviceBetriebssystem'];
 
-    $copytesterString = "SELECT name FROM geraet WHERE name = '$name'";
+    $copytesterString = "SELECT name FROM geraet WHERE id = '$id'";
     $copytesterResult = mysqli_query($db, $copytesterString);
     $copytesterData = mysqli_fetch_all($copytesterResult);
-    if($copytesterData[0][0] == $name){
-        $_SESSION['dup_entry']= true;
+    var_dump($copytesterResult);
+    if ($copytesterData[0][0] == $name) {
+        $_SESSION['dup_entry'] = true;
         return;
     }
+    $tmp_room = "Lager";
     $absenden = $db->prepare("INSERT INTO geraet(name, typ, hersteller, age, betrieb,raumnummer,technische_eckdaten,kommentar,ausleihbar) VALUES(?,?,?,?,?,?,?,?,?)");
-    $absenden->bind_param('ssssssssi', $name, $typ, $hersteller, $age, $betrieb, $room, $technischeEckdaten, $kommentar, $ausleihbar);
+    $absenden->bind_param('ssssssssi', $name, $typ, $hersteller, $age, $betrieb, $tmp_room, $technischeEckdaten, $kommentar, $ausleihbar);
     $absenden->execute();
+    $order_id = $db->insert_id;
+    $stmt = $db->prepare("UPDATE geraet SET raumnummer = ? WHERE id = ?");
+    $stmt->bind_param('si', $room, $order_id);
+    $stmt->execute();
 
     // Raum WS und IP updaten
-    if(($var['addDevicedeviceTyp'] == 1 || $var['addDevicedeviceTyp'] == 2) && $room != "Lager") {
-        $update = "UPDATE raum set anzahl_ws = anzahl_ws+1, belegung_ip = IF(belegung_ip < anzahl_ip, belegung_ip+1, belegung_ip) where raumnummer = '$room'";
-        mysqli_query($db,$update);
+    if (($var['addDevicedeviceTyp'] == 1 || $var['addDevicedeviceTyp'] == 2) && $room != "Lager") {
+        $stmt = $db->prepare("UPDATE raum SET anzahl_ws = anzahl_ws+1, belegung_ip = IF(belegung_ip < anzahl_ip, belegung_ip+1, belegung_ip) WHERE raumnummer = ?");
+        $stmt->bind_param("s", $room);
+        $stmt->execute();
+        update_room_ips_up($room, $order_id);
     }
 
-    $order_id = $db->insert_id;
-    //$fremdkeyID='SELECT id FROM geraet ';
-    //$result=$db->query($fremdkeyID);
-    //$db = connectdb();
-    //$result=51;
-    $betriebssystem = 2;
-    foreach($var_OS as $value){
-    $absenden2 = $db->prepare("INSERT INTO geraet_hat_betriebssystem(geraetid,betriebssystemid)VALUES (?,?)");
-    $value =(int)$value;
-    $absenden2->bind_param('ii', $order_id, $value);
-    $absenden2->execute();}
 
-    foreach($var_Software as $value2){
-        $absenden3 = $db->prepare("INSERT INTO geraet_hat_software(geraetid,softwarelizenzid)VALUES (?,?)");
-        $value2 =(int)$value2;
-        $absenden3->bind_param('ii', $order_id, $value2);
-        $absenden3->execute();}
-    
+
+    foreach ($var_OS as $value) {
+        $stmt = $db->prepare("INSERT INTO geraet_hat_betriebssystem(geraetid,betriebssystemid) VALUES (?,?)");
+        $stmt->bind_param('ii', $order_id, $value);
+        $stmt->execute();
+    }
+
+    foreach ($var_Software as $value2) {
+        $stmt = $db->prepare("INSERT INTO geraet_hat_software(geraetid,softwarelizenzid) VALUES (?,?)");
+        $stmt->bind_param('ii', $order_id, $value2);
+        $stmt->execute();
+    }
+
+
     $db->close();
 }
 
@@ -94,7 +98,7 @@ function getAll_Betriebssysteme()
     $db = connectdb();
 
     $sql = 'SELECT * FROM betriebssystem ORDER BY name ASC';
-    $result = mysqli_query($db,$sql);
+    $result = mysqli_query($db, $sql);
 
     $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
@@ -107,7 +111,7 @@ function getAll_Rooms()
     $db = connectdb();
 
     $sql = 'SELECT * FROM raum ORDER BY raumnummer ASC';
-    $result = mysqli_query($db,$sql);
+    $result = mysqli_query($db, $sql);
 
     $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 

@@ -13,7 +13,7 @@ function teste_dich_gluecklich()
     set_time_limit(1200); // Erhöhe die maximale Ausführungszeit auf 5 Minuten (300 Sekunden)
 
     $hersteller_array = array("Samsung", "LG", "Apple", "Dell", "HP", "Lenovo", "Acer", "ASUS", "Microsoft", "Sony");
-    for($i = 1 ; $i <= 1000; $i++) {
+    for ($i = 1; $i <= 1000; $i++) {
         $name = "T_PC_V4_" . $i;
         $typ = 1;
         $hersteller = $hersteller_array[array_rand($hersteller_array)];
@@ -32,22 +32,16 @@ function teste_dich_gluecklich()
         $absenden->execute();
         $order_id = $db->insert_id;
 
-        $result = $db->query("SELECT raumnummer, anzahl_ws, belegung_ip FROM raum ORDER BY RAND() LIMIT 1");
-        $randomRoom = $result->fetch_array();
-        $randomRoomNumber = $randomRoom['raumnummer'];
-        $randomRoomWS = $randomRoom['belegung_ip'];
-        $randomRoomMaxWS = $randomRoom['anzahl_ws'];
-
-        while ($randomRoomWS >= $randomRoomMaxWS) {
+        do {
             $result = $db->query("SELECT raumnummer, anzahl_ws, belegung_ip FROM raum ORDER BY RAND() LIMIT 1");
             $randomRoom = $result->fetch_array();
             $randomRoomNumber = $randomRoom['raumnummer'];
             $randomRoomWS = $randomRoom['belegung_ip'];
             $randomRoomMaxWS = $randomRoom['anzahl_ws'];
-            if($randomRoomNumber == "Lager"){
+            if ($randomRoomNumber == "Lager") {
                 break;
             }
-        }
+        } while ($randomRoomWS >= $randomRoomMaxWS);
 
         $absenden3 = $db->prepare("UPDATE geraet SET raumnummer = ? WHERE id = ?");
         $absenden3->bind_param('si', $randomRoomNumber, $order_id);
@@ -315,11 +309,14 @@ function editGeraete(RequestData $rd, $edit_Software, $edit_OOS)
         $ausleihbar = 1;
 
     // get Typ und Raum (zum aendern von WS und IP count)
-    $get = 'SELECT typ, raumnummer from geraet where id = ' . $rd->query['form_id'] . ';';
+    $deviceID = $rd->query['form_id'];
+    $get = 'SELECT typ, raumnummer, ip_adresse from geraet where id = ' . $deviceID . ';';
     $sqlget = mysqli_query($link, $get);
     $data = mysqli_fetch_all($sqlget);
+    var_dump($data);
     $typ = $data[0][0];
     $raum_alt = $data[0][1];
+    $oldIP = $data[0][2];
     $raum_neu = $rd->query['form_room'];
     //var_dump($raum_neu,$raum_alt);
     //Raum updaten, falls Laptop oder PC und Raumänderung
@@ -327,16 +324,19 @@ function editGeraete(RequestData $rd, $edit_Software, $edit_OOS)
         if ($raum_alt == 'Lager') {  // nur neuen Raum ändern
             $update = "UPDATE raum set anzahl_ws = anzahl_ws+1, belegung_ip = IF(belegung_ip < raum.anzahl_ip, belegung_ip+1, belegung_ip) where raumnummer = '$raum_neu'";
             mysqli_query($link, $update);
+            update_room_ips_up($raum_neu, $deviceID);
         } else if ($raum_neu == 'Lager') {   // nur alten Raum ändern
             $update = "UPDATE raum set anzahl_ws = IF(anzahl_ws > 1, anzahl_ws-1, anzahl_ws), belegung_ip = 
                         IF(belegung_ip > 0, belegung_ip-1, belegung_ip) WHERE raumnummer = '$raum_alt' ";
             mysqli_query($link, $update);
+            update_room_ips_down($oldIP, $raum_alt);
         } else {   // Beide ändern
             $update = "UPDATE raum set anzahl_ws = anzahl_ws+1, belegung_ip = IF(belegung_ip < raum.anzahl_ip, belegung_ip+1, belegung_ip) where raumnummer = '$raum_neu';";
             $update .= "UPDATE raum set anzahl_ws = IF(anzahl_ws > 1, anzahl_ws-1, anzahl_ws), belegung_ip = IF(belegung_ip > 0, belegung_ip-1, belegung_ip) where raumnummer = '$raum_alt';";
             mysqli_multi_query($link, $update);
-            do {
-            } while (mysqli_next_result($link));
+            update_room_ips_down($oldIP, $raum_alt);
+            update_room_ips_up($raum_neu, $deviceID);
+            while (mysqli_next_result($link));
         }
     }
 
@@ -382,19 +382,52 @@ function editGeraete(RequestData $rd, $edit_Software, $edit_OOS)
     mysqli_close($link);
 }
 
-;
+//Rechnet alle IPs -1 wenn ein Gerät gelöscht oder bearbeitet wird.
+function update_room_ips_down($deleted_ip, $room) {
+    $db = connectdb();
+    $query = "UPDATE geraet SET ip_adresse = INET_NTOA(INET_ATON(ip_adresse) - 1) WHERE raumnummer = ? AND INET_ATON(ip_adresse) > INET_ATON(?)";
+    $stmt = $db->prepare($query);
+    $stmt->bind_param("ss", $room, $deleted_ip);
+    $stmt->execute();
+    $db->close();
+}
+
+//Updated die IP
+function update_room_ips_up($room, $deviceID) {
+    // Connect to the database
+    $db = connectdb();
+
+    // Get the next available IP for the room
+    $result = $db->query("SELECT * FROM raum WHERE raumnummer = '$room'");
+    $row = $result->fetch_array();
+    $ip_range_start = $row["ip-adressbereich_beginn"];
+    $ip_range_end = $row["ip-adressbereich_ende"];
+    $ip_range_count = $row["anzahl_ws"];
+    $ip_range_used = $row["belegung_ip"];
+
+    $ip_range_used++;
+    $new_ip = ip2long($ip_range_start) + $ip_range_used;
+    $new_ip = long2ip($new_ip);
+
+    // Update the device with the next available IP
+    $stmt = $db->prepare("UPDATE geraet SET ip_adresse = ? WHERE id = ? LIMIT 1");
+    $stmt->bind_param('ss', $new_ip, $deviceID);
+    $stmt->execute();
+
+    // Close the database connection
+    $db->close();
+}
+
 
 function addComment(RequestData $rd)
 {
     $link = connectdb();
 
     $sql = 'UPDATE geraet SET kommentar = "' . $rd->query['form_comment'] . '" WHERE id =' . $rd->query['form_deviceID'] . ' ; ';
-    //
 
-    $result = mysqli_query($link, $sql);
+    mysqli_query($link, $sql);
 
     mysqli_close($link);
-
 }
 
 function getGeraeteID_name()
@@ -419,11 +452,12 @@ function deleteDevice(RequestData $rd)
     mysqli_begin_transaction($link);
 
     // get Typ und Raum (zum aendern von WS und IP count)
-    $get = 'SELECT typ, raumnummer from geraet where id = ' . $rd->query['submit_delete'] . ';';
+    $get = 'SELECT typ, raumnummer, ip from geraet where id = ' . $rd->query['submit_delete'] . ';';
     $sqlget = mysqli_query($link, $get);
     $data = mysqli_fetch_all($sqlget);
     $typ = $data[0][0];
     $raum = $data[0][1];
+    $ip = $data[0][2];
 
     // Löschen
     $sql = 'DELETE FROM geraet WHERE id = ' . $rd->query['submit_delete'] . ';';
@@ -438,6 +472,7 @@ function deleteDevice(RequestData $rd)
 
     mysqli_commit($link);
     mysqli_close($link);
+    update_room_ips_down($ip, $raum);
 }
 
 function set_user_for_device($id)
@@ -452,7 +487,7 @@ function set_user_for_device($id)
 }
 
 
-function set_device_to_raum($id,$raum)
+function set_device_to_raum($id, $raum)
 {
     $link = connectdb();
 
