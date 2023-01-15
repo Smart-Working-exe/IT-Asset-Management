@@ -18,6 +18,10 @@ class LoginController
     }
 
     public function check_passwort($name, $pwd): bool{
+        $n = str_split($name, 7);
+        $name = $n[0];
+
+
         $user_data = get_user_data();
         //$passwort = 'admin';
         //$passwort = 'mitarbeiter';
@@ -39,7 +43,9 @@ class LoginController
 
 
     public function login_verify(RequestData $rq){
-        $username = $_POST['username'] ?? false;
+        $u = $_POST['username'] ?? false;
+        $n = str_split($u, 7);
+        $username = $n[0];
         $password = $_POST['password'] ?? false;
         // Überprüfung Eingabedaten
         $_SESSION['login_result_message'] = null;

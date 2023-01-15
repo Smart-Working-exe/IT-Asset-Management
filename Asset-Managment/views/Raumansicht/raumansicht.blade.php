@@ -233,13 +233,48 @@
                             </button>
                         @else
                             <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                                    data-bs-target="#editKommentar">Kommentieren
+                                    data-bs-target="#editKommentar{{$geraet['id']}}">Kommentieren
                             </button>
                         @endif
                     </td>
 
 
                 </tr>
+
+                <form action="/raumansicht?raum={{$room}}" method="post" role="form">
+                    <input type="hidden" name="form_id" value="{{$geraet['id']}}">
+                    <!-- The Modal -->
+                    <div class="modal" id="editKommentar{{$geraet['id']}}">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Kommentar</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+
+                                <!-- Modal Body -->
+                                <div class="modal-body">
+
+                                    <fieldset>
+                                        <textarea id="kommentar" name="textfeld" cols="45" rows="4"> {{$geraet['kommentar']}} </textarea>
+                                    </fieldset>
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" name="submit_kommentar">Speichern</button>
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+
+
+
                 <form action="/raumansicht?raum={{$room}}" method="post" role="form">
                     <input type="hidden" name="form_id" value="{{$geraet['id']}}">
                     <div class="modal fade" id="editDevice{{$geraet['id']}}" tabindex="-1" aria-labelledby="editDevice"

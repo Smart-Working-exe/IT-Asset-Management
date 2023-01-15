@@ -13,6 +13,7 @@ function notif_admin()
     $setting_sw = $data1[0][0];
     $setting_ip = $data1[0][1];
 
+
     // get softwarelizenzen
     $sw_request = "SELECT name, version, DATEDIFF(ablaufdatum,NOW()) AS ablaufzeitraum FROM softwarelizenzen 
                 HAVING ablaufzeitraum <= '$setting_sw' ORDER BY ablaufzeitraum";

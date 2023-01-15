@@ -1,33 +1,3 @@
-# in der Datenbank werden technische Eckdaten, wenn es mehrere gibt, mit einem semicolon ';' getrennt
-
-# variablenwerte bedeutungen(Datenbank)
-        *Rolle
-           - 1 = admin
-           - 2 = mitarbeiter
-           - 3 = student
-        * Es gibt folgende Typen für Geräte:      (sollte hier im Lastenheft etwas festgehalten wurden sein bitte anpassen)
-            - 'PC'
-            - 'Laptop'
-            - 'Monitor'
-            - 'Tastatur'
-            - 'Maus'
-            - 'Praktikumsmaterial'
-            - 'Sonstiges'
-        * Logs Aktionen
-            -  1 = Anmeldung
-            -  2 = Abmeldung
-            -  3 = Ausleihe
-            -  4 = Gerät bearbeiteung/kommentieren
-            -  5 = Gerät kommentieren
-            -  6 = Gerät hinzufügen
-            -  7 = Gerät gelöscht
-            -  8 = Person bearbeitet
-            -  9 = Person hinzugefügt
-            -  10 = Person gelöscht
-            -  11 = Softwarelizenz bearbeitet
-            -  12 = Softwarelizenz hinzugefügt
-            -  13 = Softwarelizenz gelöscht
-
 
 					IT ASSET MANAGEMENT
 
@@ -127,5 +97,35 @@ falls Sie Abbrechen wollen, müssen sie "N" in die Konsole schreiben.
                 ~ raumansicht
 
 
+
+# in der Datenbank werden technische Eckdaten, wenn es mehrere gibt, mit einem semicolon ';' getrennt
+
+# variablenwerte bedeutungen(Datenbank)
+        *Rolle
+           - 1 = admin
+           - 2 = mitarbeiter
+           - 3 = student
+        * Es gibt folgende Typen für Geräte:      (sollte hier im Lastenheft etwas festgehalten wurden sein bitte anpassen)
+            - 'PC'
+            - 'Laptop'
+            - 'Monitor'
+            - 'Tastatur'
+            - 'Maus'
+            - 'Praktikumsmaterial'
+            - 'Sonstiges'
+        * Logs Aktionen
+            -  1 = Anmeldung
+            -  2 = Abmeldung
+            -  3 = Ausleihe
+            -  4 = Gerät bearbeiteung/kommentieren
+            -  5 = Gerät kommentieren
+            -  6 = Gerät hinzufügen
+            -  7 = Gerät gelöscht
+            -  8 = Person bearbeitet
+            -  9 = Person hinzugefügt
+            -  10 = Person gelöscht
+            -  11 = Softwarelizenz bearbeitet
+            -  12 = Softwarelizenz hinzugefügt
+            -  13 = Softwarelizenz gelöscht
 
 

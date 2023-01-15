@@ -15,7 +15,7 @@
                 <select class="form-select" name="filter_Typ" id="filter_Typ">
                     @if(empty($selected_filter['Typ']))
                         <option value="" selected>Typ</option>
-                        <option value="1" >PC</option>
+                        <option value="1" >Computer</option>
                         <option value="2">Laptop</option>
                         <option value="3">Monitor</option>
                         <option value="4">Tastatur</option>

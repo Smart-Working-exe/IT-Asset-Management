@@ -521,7 +521,7 @@ function deleteDevice(RequestData $rd)
     mysqli_begin_transaction($link);
 
     // get Typ und Raum (zum aendern von WS und IP count)
-    $get = 'SELECT typ, raumnummer, ip from geraet where id = ' . $rd->query['submit_delete'] . ';';
+    $get = 'SELECT typ, raumnummer, ip_adresse from geraet where id = ' . $rd->query['submit_delete'] . ';';
     $sqlget = mysqli_query($link, $get);
     $data = mysqli_fetch_all($sqlget);
     $typ = $data[0][0];

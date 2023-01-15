@@ -156,37 +156,7 @@
     </div>
 @endsection
 
-@section('editKommentar')
-    <!-- The Modal -->
-    <div class="modal" id="editKommentar">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
 
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Kommentar</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-
-                <!-- Modal Body -->
-                <div class="modal-body">
-
-                    <fieldset>
-                        <textarea id="kommentar" name="textfeld" cols="45" rows="4"></textarea>
-                    </fieldset>
-                </div>
-
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Speichern</button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Abbrechen</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-@endsection
 
 @section('jsextra')
     <script src="../js/multiselect-dropdown.js"></script>

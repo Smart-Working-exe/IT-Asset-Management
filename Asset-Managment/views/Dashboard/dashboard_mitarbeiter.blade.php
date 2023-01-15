@@ -65,7 +65,7 @@
                 </div>
             @endif
         @endforeach
-            @if(sizeof($notifs) == 1 & $notifs['anzahl'] == 0)
+            @if(sizeof($notifs) == 1 & $notifs[3]['anzahl'] == 0)
                 <div class="toast show col-6 mt-2">
                     <div class="toast-header ">
                         Info

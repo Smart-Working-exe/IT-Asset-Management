@@ -48,12 +48,12 @@ class HomeController
             header('Location: /login');
         }
         if ($_SESSION['Rolle'] == 1) {
-            if ($_POST["neue_einstellung_s"] != "") {
+            if (isset($_POST["neue_einstellung_s"]) and $_POST["neue_einstellung_s"] != "") {
                 change_setting($_POST["neue_einstellung_s"]);
             } else if (isset($_POST["neue_einstellung"])) {
                 change_setting($_POST["neue_einstellung"]);
             }
-            if ($_POST["neue_einstellung_ip_s"] != "") {
+            if (isset($_POST["neue_einstellung_ip_s"]) and $_POST["neue_einstellung_ip_s"] != "") {
                 change_setting_ip($_POST["neue_einstellung_ip_s"]);
             } else if (isset($_POST["neue_einstellung_ip"])) {
                 change_setting_ip($_POST["neue_einstellung_ip"]);
@@ -61,7 +61,7 @@ class HomeController
             $setting = get_setting();
             return view('Einstellungen.einstellungen', ['user' => $_SESSION['Rolle'], 'setting' => $setting]);
         } else {
-            if ($_POST["neue_einstellung_s"] != "") {
+            if (isset($_POST["neue_einstellung_s"]) and $_POST["neue_einstellung_s"] != "") {
                 change_setting($_POST["neue_einstellung_s"]);
             } else if (isset($_POST["neue_einstellung"])) {
                 change_setting($_POST["neue_einstellung"]);
@@ -195,6 +195,13 @@ class HomeController
             $edit_Software=$_POST['form_Software'] ?? null;
             editGeraete($rd,$edit_Software,$edit_OOS);
         }
+
+        if (isset($_POST['submit_kommentar'])) {
+            $rd->query['form_comment'] = $rd->query['textfeld'];
+            $rd->query['form_deviceID'] = $rd->query['form_id'];
+            addComment($rd);
+        }
+
 
         if (isset($_POST['submit_delete'])) {
             logger($_SESSION['name'], 7, id_to_name($rd->query['submit_delete'])['name']." wurde gelöscht.");
