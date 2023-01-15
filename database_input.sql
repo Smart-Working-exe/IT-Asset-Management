@@ -1,5 +1,5 @@
 -- RÄUME
-INSERT INTO raum (raumnummer, ip-adressbereich_beginn, ip-adressbereich_ende, anzahl_ws, belegte_ws, belegung_ip, anzahl_ip, gebaude)
+INSERT INTO raum (raumnummer, `ip-adressbereich_beginn`, `ip-adressbereich_ende`, anzahl_ws, belegte_ws, belegung_ip, anzahl_ip, gebaude)
 VALUES ('A001', '156.0.0.0', '156.0.0.255', 20, 20, 1, 254, 'A'),
 ('A002', '156.0.1.0', '156.0.1.255', 20, 0, 2, 254, 'A'),
 ('A003', '156.0.2.0', '156.0.2.255', 20, 20, 0, 254, 'A'),
