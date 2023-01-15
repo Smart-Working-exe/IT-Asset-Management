@@ -302,7 +302,7 @@
                                                                                    @endforeach
                                                                                @endif
 
-                                                                               @if($vorhanden) checked @endif />
+                                                                               @if($vorhanden ?? false ) checked @endif />
                                                                         <label class="form-check-label"
                                                                                for="Checkme {{$key}}">{{$betriebssystem_name}}</label>
                                                                     </div>
@@ -364,7 +364,7 @@
                                                                                        @endif
                                                                                    @endforeach
                                                                                @endif
-                                                                               @if($vorhanden) checked @endif />
+                                                                               @if($vorhanden ?? false ) checked @endif />
                                                                         <label class="form-check-label"
                                                                                for="Checkme {{$key_softwareid}}">{{$data_softwarename}}</label>
                                                                     </div>

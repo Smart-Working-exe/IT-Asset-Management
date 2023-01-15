@@ -80,8 +80,8 @@ class RequestData
      */
     public function __construct($method, $args, $query)
     {
-        $this->query = $query;
-        //$this->query = $this->secures_query($query);
+        //$this->query = $query;
+        $this->query = $this->secures_query($query);
         $this->args = $args;
         $this->method = $method;
     }
@@ -197,14 +197,15 @@ class FrontController
         $ctrlFile = ($ctrlClass . '.php');
         $validControllers = FrontController::getValidControllers($controllerDirectory);
         if (!in_array($controllerDirectory . $ctrlFile, $validControllers)) {
-            if ($verbosity > 0) {
+            /*if ($verbosity > 0) {
                 echo "<div><p>Controller: $ctrlFile not found in</p><pre>" . print_r($validControllers, 1) . "</pre><p>Config Array:</p><pre>" . print_r($config, 1) . "</pre></div>";
             }
             // #ERROR
             FrontController::showErrorMessage("<h1>Web Software Error</h1><img alt='shrug' src='https://c.tenor.com/9TEDud6eP2UAAAAC/woody-woodpecker-shrug-shoulders.gif'>" .
                 "<p>Keine entspreche Zuordnung der Route für {$ctrlName}::{$actionName} gefunden. Tippfehler in der Route?" .
                 "<p>Es konnte keine Klasse <abbr title='Gesucht im Verzeichnis {$controllerDirectory}'>" . $ctrlFile . "</abbr> gefunden werden! Request fehlgeschlagen.</p>" .
-                "<p> Prüfen Sie die Einträge in der Datei <code>config/web.php</code> und gleichen Sie den getätigten Aufruf damit ab.</p>");
+                "<p> Prüfen Sie die Einträge in der Datei <code>config/web.php</code> und gleichen Sie den getätigten Aufruf damit ab.</p>");*/
+            header('Location: /dashboard');
         }
 
         // a file matching has been found, now try to load the class
@@ -223,9 +224,9 @@ class FrontController
         } catch (Exception $ex) {
             // #ERROR
             FrontController::showErrorMessage(
-                "<h2>Fehler in Controller " . get_class($controller) . "!</h2><p>Stellen Sie sicher, dass die Action/der Controller existiert.</p>
+                "<h2>Fehler in Controller " . get_class($controller) . "!</h2>
                     <p>Das Routing Config-Array hat " . count($config) . " Einträge.</p>
-                    <p><strong>Exception text</strong><br>" . $ex->getMessage() . "</p>");
+                    <p><strong>Exception text</strong><br>" . $ex->getMessage() . "</p>" );
         }
     }
 
@@ -235,7 +236,8 @@ class FrontController
             1 => "background-color: #F08170; border: 2px solid lightgray; padding: 2em; margin: 5em; width: 50%; box-shadow: 0em 0em 1em #F08170;",
             2 => "background-color: #F08170; border: 2px solid lightgray; padding: 2em; margin: 5em; width: 50%; box-shadow: 0em 0em 1em #F08170;",
             3 => "background-color: #F08170; border: 2px solid lightgray; padding: 2em; margin: 5em; width: 50%; box-shadow: 0em 0em 1em #F08170;");
-        print("<div style=\"{$styles[$severity]}\">{$text}</div>");
+        print("<div style=\"{$styles[$severity]}\">{$text}  <a  href='/dashboard'> <button> Zurück zum Daschboard </button></a>".
+                "<a  > <button> Bericht Senden </button></a></div>");
         if ($die) exit($severity);
     }
 

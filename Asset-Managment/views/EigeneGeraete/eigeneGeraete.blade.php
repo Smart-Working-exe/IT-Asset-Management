@@ -90,23 +90,23 @@
                     <td class="no_nowrap">{{$geraet['kommentar']}}</td>
                     <td>{{$geraet['raumnummer']}}
                         <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
-                                data-bs-target="#editRoom{{$geraet['name']}}">Ändern
-                        </button></td>
-                    <td><button type="submit" class="btn btn-primary sub hide_onmobile" data-bs-toggle="modal"
-                                data-bs-target="#editComment{{$geraet['name']}}">Kommentieren
+                                data-bs-target="#editRoom{{$geraet['id']}}">Ändern
+                        </button>
+                    </td>
+                    <td>
+                        <button type="submit" class="btn btn-primary sub hide_onmobile" data-bs-toggle="modal"
+                                data-bs-target="#editComment{{$geraet['id']}}">Kommentieren
                         </button>
 
                         <button type="submit" class="btn btn-primary sub hide_onDestop" data-bs-toggle="modal"
                                 data-bs-target="#editDevice{{$geraet['id']}}">Details
                         </button>
-
-
                     </td>
                 </tr>
 
                 <form action="eigeneGeraete?kuerzel={{$_SESSION['name']}}" method="POST">
                     <input type="hidden" name="form_deviceID" value="{{$geraet['id']}}">
-                    <div class="modal fade" id="editRoom{{$geraet['name']}}">
+                    <div class="modal fade" id="editRoom{{$geraet['id']}}">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
 
@@ -144,7 +144,7 @@
 
                 <form action="eigeneGeraete?kuerzel={{$_SESSION['name']}}" method="POST">
                     <input type="hidden" name="form_deviceID" value="{{$geraet['id']}}">
-                    <div class="modal fade" id="editComment{{$geraet['name']}}">
+                    <div class="modal fade" id="editComment{{$geraet['id']}}">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
 
@@ -275,7 +275,7 @@
                                                                                    @endforeach
                                                                                @endif
 
-                                                                               @if($vorhanden) checked @endif />
+                                                                               @if($vorhanden ?? false) checked @endif />
                                                                         <label class="form-check-label" for="Checkme {{$key}}">{{$betriebssystem_name}}</label>
                                                                     </div>
                                                                 </a>
@@ -321,7 +321,7 @@
                                                                                        @endif
                                                                                    @endforeach
                                                                                @endif
-                                                                               @if($vorhanden) checked @endif />
+                                                                               @if($vorhanden ?? false) checked @endif />
                                                                         <label class="form-check-label" for="Checkme {{$key_softwareid}}">{{$data_softwarename}}</label>
                                                                     </div>
                                                                 </a>

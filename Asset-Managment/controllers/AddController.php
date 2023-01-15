@@ -65,8 +65,8 @@ class AddController
             $_SESSION['target'] = $_SERVER["HTTP_REFERER"];
             header('Location: /login');
         }
-        $var_Software=$_POST['addDeviceSoftware'];
-        $var_OS=$_POST['addDeviceBetriebssystem'];
+        $var_Software=$_POST['addDeviceSoftware'] ?? null;
+        $var_OS=$_POST['addDeviceBetriebssystem'] ?? null;
         $var=[
             'addDevicedeviceTyp'            => filter_input(INPUT_POST,'addDevicedeviceTyp'),
             'addDeviceName'                 => filter_input(INPUT_POST,'addDeviceName'),
