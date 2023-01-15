@@ -154,7 +154,7 @@
 
             // Variable to store the final csv data
             var csv_data = [];
-            var test=["Name-;-Erworben am-;-Abgelaufen am-;-Installationen"];
+            var test=["Name;Erworben am;Abgelaufen am;Installationen"];
             csv_data.push(test);
             // Get each row data
             var rows = document.getElementsByTagName('tr')
@@ -191,7 +191,7 @@
 
                 // Combine each column value with comma
                 if(i!=0) {
-                    csv_data.push(csvrow.join("-;-"));
+                    csv_data.push(csvrow.join(";"));
                 }
             }
             // Combine each row data with new line character

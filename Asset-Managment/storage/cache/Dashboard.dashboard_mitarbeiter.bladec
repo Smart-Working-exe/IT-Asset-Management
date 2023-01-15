@@ -1,4 +1,4 @@
-<?php $_shouldextend[1]=1; ?>
+ <?php $_shouldextend[1]=1; ?>
 <?php $_shouldextend[2]=1; ?>
 
 <?php $this->startSection('Navigation'); ?>
