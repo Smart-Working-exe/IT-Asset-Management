@@ -1,0 +1,15 @@
+version: '2'
+services:
+  webserver:
+    image: phpstorm/php-71-apache-xdebug-26
+    ports:
+      - "6968:80"
+      - "6970:443"
+    volumes:
+      - ./Asset-Managment:/var/www/html
+      - ./Asset-Managment/public:/var/www/html/public
+      - ./000-default.conf:/etc/apache2/sites-available/000-default.conf
+    environment:
+      APACHE_DOCUMENT_ROOT: /var/www/html/public
+      XDEBUG_CONFIG: remote_host=host.docker.internal
+    command: ["sh", "-c", "cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf.bak && sed -i -e 's#DocumentRoot /var/www/html#DocumentRoot /var/www/html/public#g' /etc/apache2/sites-available/000-default.conf.bak && sed -i -e 's#<Directory /var/www/>#<Directory /var/www/html/public/>#g' /etc/apache2/sites-available/000-default.conf.bak && cp /etc/apache2/sites-available/000-default.conf.bak /etc/apache2/sites-available/000-default.conf && apache2-foreground"]

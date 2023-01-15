@@ -13,19 +13,82 @@ function teste_dich_gluecklich()
     set_time_limit(1200); // Erhöhe die maximale Ausführungszeit auf 5 Minuten (300 Sekunden)
 
     $hersteller_array = array("Samsung", "LG", "Apple", "Dell", "HP", "Lenovo", "Acer", "ASUS", "Microsoft", "Sony");
-    for ($i = 1; $i <= 1000; $i++) {
+
+    $tech_specs = array(
+        "Intel Core i9-9900K",
+        "NVIDIA GeForce RTX 3080",
+        "32 GB DDR4 RAM",
+        "2 TB NVMe SSD",
+        "ASUS ROG Maximus XI Hero",
+        "Corsair RM850x 850W 80+ Gold",
+        "Corsair H150i Elite Capellix",
+        "Corsair Dominator Platinum RGB 32 GB (4 x 8 GB) DDR4-3200",
+        "Samsung 970 EVO 2 TB NVMe SSD",
+        "ASUS ROG Swift PG279QZ 27.0\" 1440p 165Hz G-Sync",
+        "Corsair K95 RGB Platinum XT",
+        "Corsair Dark Core RGB/SE Wireless Gaming Mouse",
+        "Corsair MM1000 Qi Wireless Charging Mouse Pad",
+        "LG 34UM68-P 34.0\" 1080p 75Hz Freesync",
+        "Corsair Vengeance LPX 16 GB (2 x 8 GB) DDR4-3000",
+        "Samsung 860 EVO 1 TB 2.5\" Solid State Drive",
+        "ASRock Z270M-ITX/ac",
+        "Seasonic FOCUS Plus Gold 750 W 80+ Gold",
+        "Corsair H100i v2 70.7 CFM Liquid CPU Cooler",
+        "Corsair Vengeance LPX 16 GB (2 x 8 GB) DDR4-3200",
+        "Samsung 860 EVO 1 TB 2.5\" Solid State Drive",
+        "ASRock Z270M-ITX/ac",
+        "Seasonic FOCUS Plus Gold 750 W 80+ Gold",
+        "Corsair H100i v2 70.7 CFM Liquid CPU Cooler",
+        "Corsair Vengeance LPX 16 GB (2 x 8 GB) DDR4-3200",
+        "Samsung 860 EVO 1 TB 2.5\" Solid State Drive",
+        "ASRock Z270M-ITX/ac",
+        "Seasonic FOCUS Plus Gold 750 W 80+ Gold",
+        "Corsair H100i v2 70.7 CFM Liquid CPU Cooler");
+
+    $comments = array(
+        "Flackert manchmal",
+        "Gut für Bildverarbeitung",
+        "Gut für VMs",
+        "Schnelles Booten",
+        "Leicht überhitzt",
+        "Tastatur etwas laut",
+        "Gute Klangqualität",
+        "Geringe Lüftergeräusche",
+        "Leicht zu transportieren",
+        "Braucht häufiges Neustarten",
+        "Gute Performance für Spiele",
+        "Etwas schwerer",
+        "Gut für Entwicklungsumgebungen",
+        "Gute Wlan-Reichweite",
+        "Sehr schnelles booten"
+    );
+
+
+    for ($i = 1; $i <= 10; $i++) {
         $name = "T_PC_V4_" . $i;
         $typ = 1;
         $hersteller = $hersteller_array[array_rand($hersteller_array)];
-        $age = date('Y-m-d', strtotime("-" . rand(0, 365) . " days"));
-        $betrieb = date('Y-m-d', strtotime("-" . rand(0, 365) . " days"));
+        $age = date('Y-m-d', strtotime("-" . rand(0, 365 * 10) . " days"));
+        $betrieb = date('Y-m-d', strtotime("-" . rand(0, 365 * 10) . " days"));
         if ($betrieb > $age) {
             $betrieb = $age;
         }
         $room = "Lager";
         $ausleihbar = 0;
-        $technischeEckdaten = "Ein Test" . $i . " ;noch einer" . $i . " ; und noch einen" . $i;
-        $kommentar = "Nein, ich bin der beste PC";
+
+        $tech_specs_count = 4;
+        $comments_count = 2;
+
+        $random_tech_specs = array();
+        for ($j = 0; $j < $tech_specs_count; $j++) {
+            $random_tech_specs[] = $tech_specs[array_rand($tech_specs)];
+        }
+        $random_comments = array();
+        for ($j = 0; $j < $comments_count; $j++) {
+            $random_comments[] = $comments[array_rand($comments)];
+        }
+        $technischeEckdaten = implode("; ", $random_tech_specs);
+        $kommentar = implode("; ", $random_comments);
 
         $absenden = $db->prepare("INSERT INTO geraet(name, typ, hersteller, age, betrieb,raumnummer,technische_eckdaten,kommentar,ausleihbar) VALUES(?,?,?,?,?,?,?,?,?)");
         $absenden->bind_param('ssssssssi', $name, $typ, $hersteller, $age, $betrieb, $room, $technischeEckdaten, $kommentar, $ausleihbar);
@@ -89,7 +152,7 @@ function teste_dich_gluecklich()
 
 
         $used_randomNumbers2 = [];
-        for ($b = 0; $b < random_int(1, 30); $b++) {
+        for ($b = 0; $b < random_int(1, 10); $b++) {
             $software = random_int(1, 55);
             if (!isset($used_randomNumbers2[$software])) {
                 // Überprüfe die maximale Anzahl der verfügbaren Lizenzen
@@ -252,6 +315,10 @@ function getGeraeteData($filter = [])
         if (!empty($data[$key]['technische_eckdaten']))
             $data[$key]['technische_eckdaten_liste'] = explode(SEPERATOR, $value['technische_eckdaten']);
 
+        //technische_eckdaten von string zu array
+        if (!empty($data[$key]['kommentar']))
+            $data[$key]['kommentar_liste'] = explode(SEPERATOR, $value['kommentar']);
+
         $data[$key]['alter'] = floor((time() - strtotime($value['age'])) / 31556926);
 
         $data[$key]['age'] = date_create($value['age'])->format('d.m.Y');
@@ -336,7 +403,7 @@ function editGeraete(RequestData $rd, $edit_Software, $edit_OOS)
             mysqli_multi_query($link, $update);
             update_room_ips_down($oldIP, $raum_alt);
             update_room_ips_up($raum_neu, $deviceID);
-            while (mysqli_next_result($link));
+            while (mysqli_next_result($link)) ;
         }
     }
 
@@ -383,7 +450,8 @@ function editGeraete(RequestData $rd, $edit_Software, $edit_OOS)
 }
 
 //Rechnet alle IPs -1 wenn ein Gerät gelöscht oder bearbeitet wird.
-function update_room_ips_down($deleted_ip, $room) {
+function update_room_ips_down($deleted_ip, $room)
+{
     $db = connectdb();
     $query = "UPDATE geraet SET ip_adresse = INET_NTOA(INET_ATON(ip_adresse) - 1) WHERE raumnummer = ? AND INET_ATON(ip_adresse) > INET_ATON(?)";
     $stmt = $db->prepare($query);
@@ -393,7 +461,8 @@ function update_room_ips_down($deleted_ip, $room) {
 }
 
 //Updated die IP
-function update_room_ips_up($room, $deviceID) {
+function update_room_ips_up($room, $deviceID)
+{
     // Connect to the database
     $db = connectdb();
 

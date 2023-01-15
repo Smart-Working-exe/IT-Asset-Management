@@ -70,7 +70,14 @@
                         </ul>
                     @endif
                 </td>
-                <td class="no_nowrap">{{$geraet['kommentar']}}</td>
+                <td class="no_nowrap">@if(!empty($geraet['kommentar_liste'][0]))
+                        <ul>
+                            @foreach($geraet['kommentar_liste'] as $value)
+                                <li>{{$value}}</li>
+                            @endforeach
+                        </ul>
+                    @endif
+                </td>
                 <td>{{$geraet['raumnummer']}}</td>
                 <td>
                     <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal"
