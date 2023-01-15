@@ -337,7 +337,6 @@
 
                     if(j==7|j==6|j==5){
                         var Stringzumspalten=cols[j].innerHTML;
-                        var help=Stringzumspalten.replace("\n","");
                         var arrayzumkillen=Stringzumspalten.split('<').join(',').split('>').join(',').split(',');
                         var Werte=[];
 
@@ -354,11 +353,20 @@
                         }
                         var reinda=Werte.toString();
                         var rein=reinda.substring(4);
-                        var plz=rein.replaceAll(",","");
+                        var plz=rein.replaceAll(","," ");
                         var plz2=plz.replaceAll("\n","");
-
-                        csvrow.push(plz2);
+                        var plz3=plz2.replace(" ","");
+                        var plz4=plz3.replaceAll("     ","*")
+                        var plz5=plz4.substring(0,plz4.length-3);
+                        csvrow.push(plz5);
                        // csvrow.push(arrayzumkillen);
+
+                    }
+                    else if(j==3){
+                             var Stringzumspalten=cols[j].innerHTML;
+                            var plz=Stringzumspalten.replaceAll("\n","");
+
+                             csvrow.push(plz);
 
                     }
                     else{
