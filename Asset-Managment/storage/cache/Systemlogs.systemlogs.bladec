@@ -39,7 +39,7 @@
  <option value="11" <?php if($selected_filter['aktion'] == 11): ?> selected <?php endif; ?>> Softwarelizenz bearbeiten</option>
  <option value="12" <?php if($selected_filter['aktion'] == 12): ?> selected <?php endif; ?>> Softwarelizenz hinzugefügt</option>
  <option value="13" <?php if($selected_filter['aktion'] == 13): ?> selected <?php endif; ?>> Softwarelizenz gelöscht</option>
- <option value="13" <?php if($selected_filter['aktion'] == 14): ?> selected <?php endif; ?>> Raumbelegung geändert</option>
+ <option value="14" <?php if($selected_filter['aktion'] == 14): ?> selected <?php endif; ?>> Raumbelegung geändert</option>
 
  <?php else: ?>
  <option value="" selected>Aktion</option>

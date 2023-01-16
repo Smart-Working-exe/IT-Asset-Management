@@ -299,6 +299,7 @@ class HomeController
                 }
                 if (isset($_POST['submit_delete_person'])) {
                     print_r($_POST['submit_delete_person']);
+                    logger($_SESSION['name'], 10, $rd->query['form_personIdentifier']." wurde gelöscht.");
                     delete_user($rd);
                 }
 
@@ -314,6 +315,7 @@ class HomeController
                 }
                 if (isset($_POST['submit_delete_license'])) {
                   //  print_r("Hallo ");
+                    logger($_SESSION['name'], 13, $rd->query['form_lizenzname']." wurde gelöscht.");
                     delete_license($rd);
                 }
 

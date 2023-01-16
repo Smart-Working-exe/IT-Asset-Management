@@ -87,7 +87,7 @@ class AddController
 
 
         if ($var['addDeviceName'] != null) {
-            logger($_SESSION['name'], 9, "Gerät: " . $var['addDeviceName'] . " wurde hinzugefügt.");
+            logger($_SESSION['name'], 6, "Gerät: " . $var['addDeviceName'] . " wurde hinzugefügt.");
             db_add_device($var,$var_OS,$var_Software);
         }
         //print_r('Location: ' . $_SERVER["HTTP_REFERER"]);
