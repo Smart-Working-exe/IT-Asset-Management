@@ -336,6 +336,7 @@
                                                                         <input class="form-check-input" type="checkbox"
                                                                                name="form_OperationSystem[]"
                                                                                value="{{$key}}" id="Checkme {{$key}}"
+                                                                               {{$vorhanden=false}}
                                                                                @if(isset($geraet['betriebssystem']))
                                                                                    {{$vorhanden=false}}
                                                                                    @foreach($geraet['betriebssystem'] as $value)
@@ -399,6 +400,7 @@
                                                                                name="form_Software[]"
                                                                                value="{{$key_softwareid}}"
                                                                                id="Checkme {{$key_softwareid}}"
+                                                                               {{$vorhanden=false}}
                                                                                @if(isset($geraet['software']))
                                                                                    {{$vorhanden=false}}
                                                                                    @foreach($geraet['software'] as $value)
