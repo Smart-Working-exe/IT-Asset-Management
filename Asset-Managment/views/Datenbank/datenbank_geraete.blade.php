@@ -232,7 +232,7 @@
                                         <label for="Inbetriebname">Inbetriebname</label>
                                         <div class="col">
                                             <div class="form-group">
-                                                <div class="input-group date" id="datepickerEditUsage">
+                                                <div class="input-group date" id="datepickerEditUsage{{$geraet['id']}}" >
                                                     <input type="text" id="Inbetriebname" class="form-control" placeholder="erste Inbetriebname*" value="{{$geraet['betrieb']}}" name="form_betrieb">
                                                     <span class="input-group-append">
                                                         <span class="input-group-text bg-white d-block">
@@ -245,7 +245,7 @@
                                         <label for="AlterdesGer">Alter des Geräts</label>
                                         <div class="col">
                                             <div class="form-group">
-                                                <div class="input-group date" id="datepickerEditBuild">
+                                                <div class="input-group date" id="datepickerEditBuild{{$geraet['id']}}">
                                                     <input type="text" id="AlterdesGer" class="form-control"
                                                            placeholder="alter des Gerätes"
                                                            value="{{$geraet['age']}}" name="form_age">
@@ -305,6 +305,20 @@
                             </div>
                         </div>
                     </div>
+                    <script type="text/javascript">
+
+                        $(function () {
+                            $('#datepickerEditBuild{{$geraet['id']}}').datepicker({
+                                format: 'dd.mm.yyyy'
+                            });
+                        });
+
+                        $(function () {
+                            $('#datepickerEditUsage{{$geraet['id']}}').datepicker({
+                                format: 'dd.mm.yyyy'
+                            });
+                        });
+                    </script>
                 </div>
             </form>
 

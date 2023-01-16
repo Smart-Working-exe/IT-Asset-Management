@@ -6,53 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="186cc990-98cb-4eca-b8aa-3db037413a7a" name="Changes" comment="Änderungen Benachrichtigungen und Einstellungen">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7b1e1ff9-2e24-41d3-be8b-0d0cc800d6f9.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_01_2023_21_04__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_01_2023_21_04__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/SWE_README" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/SWE_README" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/controllers/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/models/benachrichtigungen.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/models/benachrichtigungen.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/models/geraete.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/models/geraete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Ausleihe_Student.ausleihe.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Ausleihe_Student.layout_ausleihe.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Dashboard.dashboard_admin.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Dashboard.dashboard_mitarbeiter.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Dashboard.dashboard_student.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Dashboard.layout_dashboard.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_geraete.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_layout.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_lizenzen.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_personen.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/EigeneGeraete.eigeneGeraete.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/EigeneGeraete.layout_eigeneGeraete.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Einstellungen.einstellungen.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Einstellungen.layout_einstellungen.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Filter.geraete.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Filter.software.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Filter.user.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Login.login.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Raumansicht.layout_raumansicht.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Raumansicht.raumansicht.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Raumansicht.studenten.layout_raumansicht_studenten.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Raumansicht.studenten.raumansicht_studenten.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Raumauswahl.raumauswahl.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Raumauswahl.raumauswahl_layout.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Raumauswahl.raumauswahl_studenten.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Softwarelizenzen.softwarelizenzen.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Softwarelizenzen.softwarelizenzen_layout.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Verleihung_Mitarbeiter.layout_verleihung.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Verleihung_Mitarbeiter.verleihung.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/header_footer.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/modals.Eintraege.Device.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/modals.Eintraege.User.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/modals.Eintraege.chooseDevice.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/modals.Eintraege.software.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/modals.export_import.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/test.bladec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/views/Dashboard/dashboard_mitarbeiter.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/Dashboard/dashboard_mitarbeiter.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/views/Filter/geraete.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/Filter/geraete.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Dashboard.dashboard_mitarbeiter.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Dashboard.dashboard_mitarbeiter.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_geraete.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_geraete.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/EigeneGeraete.eigeneGeraete.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/EigeneGeraete.eigeneGeraete.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Raumansicht.raumansicht.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Raumansicht.raumansicht.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/views/Datenbank/datenbank_geraete.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/Datenbank/datenbank_geraete.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Asset-Managment/views/Raumansicht/raumansicht.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/Raumansicht/raumansicht.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/views/modals/Eintraege/Device.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/modals/Eintraege/Device.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +99,7 @@
       <updated>1671613683019</updated>
     </task>
     <task active="true" id="Default" summary="Default task">
-      <changelist id="de454f2f-6b7b-4821-90f6-2409914a6de0" name="Changes" comment="A Fistful of Bugfixes" />
+      <changelist id="186cc990-98cb-4eca-b8aa-3db037413a7a" name="Changes" comment="Änderungen Benachrichtigungen und Einstellungen" />
       <created>1671620162258</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -158,6 +120,7 @@
       <workItem from="1673710740227" duration="814000" />
       <workItem from="1673777712621" duration="6300000" />
       <workItem from="1673809175401" duration="105000" />
+      <workItem from="1673849406627" duration="559000" />
     </task>
     <task id="LOCAL-00005" summary="Clean Logs">
       <created>1671621397675</created>
