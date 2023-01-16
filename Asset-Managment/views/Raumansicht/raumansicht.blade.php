@@ -340,7 +340,7 @@
                                                                                    {{$vorhanden=false}}
                                                                                    @foreach($geraet['betriebssystem'] as $value)
                                                                                        @if($value==$betriebssystem_name)
-                                                                                           $vorhan{{$vorhanden=true}}
+                                                                                           {{$vorhanden=true}}
                                                                                        @endif
                                                                                    @endforeach
                                                                                @endif
@@ -403,7 +403,7 @@
                                                                                    {{$vorhanden=false}}
                                                                                    @foreach($geraet['software'] as $value)
                                                                                        @if($value==$data_softwarename)
-                                                                                           $vorhan{{$vorhanden=true}}
+                                                                                           {{$vorhanden=true}}
                                                                                        @endif
                                                                                    @endforeach
                                                                                @endif
