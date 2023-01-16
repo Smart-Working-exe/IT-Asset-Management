@@ -20,7 +20,7 @@ function db_add_device($var, $var_OS, $var_Software,)
     $kommentar = $var['addDeviceKommentarGerat'];
     //$betriebssystem = $var['addDeviceBetriebssystem'];
 
-    $copytesterString = "SELECT name FROM geraet WHERE id = '$id'";
+    $copytesterString = "SELECT name FROM geraet WHERE id = '$name'";
     $copytesterResult = mysqli_query($db, $copytesterString);
     $copytesterData = mysqli_fetch_all($copytesterResult);
     var_dump($copytesterResult);
