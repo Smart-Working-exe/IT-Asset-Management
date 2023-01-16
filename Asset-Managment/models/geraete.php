@@ -39,7 +39,7 @@ function teste_dich_gluecklich()
 
     for ($i = 2; $i <= 100; $i++) {
         $name = "PC-" . $i;
-        $typ = 2;
+        $typ = 1;
         $hersteller = $hersteller_array[array_rand($hersteller_array)];
         $age = date('Y-m-d', strtotime("-" . rand(0, 365 * 10) . " days"));
         $betrieb = date('Y-m-d', strtotime("-" . rand(0, 365 * 10) . " days"));
@@ -523,6 +523,7 @@ function set_user_for_device($id)
     $user = $_SESSION['name'];
     $sql = "UPDATE geraet SET personen_id = '$user' WHERE id = '$id'";
 
+
     mysqli_query($link, $sql);
 
     mysqli_close($link);
@@ -534,6 +535,9 @@ function set_device_to_raum($id, $raum)
     $link = connectdb();
 
     $sql = "UPDATE geraet SET raumnummer = '$raum' WHERE id = '$id'";
+    update_room_ips_up($id,$raum);
+
+
 
     mysqli_query($link, $sql);
 

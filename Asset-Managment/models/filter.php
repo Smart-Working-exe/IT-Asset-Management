@@ -251,6 +251,6 @@ function filter_to_sql($sql,$eintrag, &$filter =[] ) : string
 
 
 
-        return $complet_sql . " Limit 100";
+        return $complet_sql ;
 
     }

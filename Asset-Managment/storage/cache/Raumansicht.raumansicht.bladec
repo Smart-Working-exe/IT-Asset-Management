@@ -75,7 +75,7 @@
  <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal" data-bs-target="#addDevice">
  Geräte hinzufügen
  </button>
- <button type="submit" class="btn btn-primary sub" data-bs-toggle="modal" data-bs-target="#chooseDevice">
+ <button type="submit" class="btn btn-primary sub hide_onDestop hide_onmobile" data-bs-toggle="modal" data-bs-target="#chooseDevice">
  Bestehendes Gerät hinzufügen
  </button>
 

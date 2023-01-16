@@ -17,7 +17,7 @@
                                     <select class="form-select" aria-label="Default select example" id="user_add_rolle" name="selected_device" required>
                                         @foreach($dev as $devices)
 
-                                                <option value="{{$devices['id']}}" id="DeviceID">{{$devices['name']}}</option>
+
                                                  @if($devices['personen_id'] == null && $devices['ausleihbar']== 0)
                                                         <option value="{{$devices['id']}}" id="DeviceID">{{$devices['name']}}</option>
                                                  @endif
