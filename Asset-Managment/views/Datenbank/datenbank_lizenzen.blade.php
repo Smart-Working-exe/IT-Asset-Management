@@ -87,7 +87,7 @@
                                 <div class="row mt-3">
                                     <div class="col">
                                         <div class="form-group">
-                                            <div class="input-group date" id="datepickerEditAvailable">
+                                            <div class="input-group date" id="datepickerEditAvailable{{$lizenz['id']}}">
                                                 <input type="text" name="form_lizenzerwerb" class="form-control"
                                                        placeholder="Erwerbsdatum" value="{{$lizenz['erwerbsdatum']}}">
                                                 <span class="input-group-append">
@@ -102,7 +102,7 @@
                                 <div class="row mt-3">
                                     <div class="col">
                                         <div class="form-group">
-                                            <div class="input-group date" id="datepickerEditNotAvailable">
+                                            <div class="input-group date" id="datepickerEditNotAvailable{{$lizenz['id']}}">
                                                 <input type="text" name="form_lizenzablauf" class="form-control"
                                                        placeholder="Ablaufdatum" value="{{$lizenz['ablaufdatum']}}">
                                                 <span class="input-group-append">
@@ -137,6 +137,21 @@
                             </div>
                         </div>
                     </div>
+
+                    <script type="text/javascript">
+
+                        $(function () {
+                            $('#datepickerEditAvailable{{$lizenz['id']}}').datepicker({
+                                format: 'dd.mm.yyyy'
+                            });
+                        });
+
+                        $(function () {
+                            $('#datepickerEditNotAvailable{{$lizenz['id']}}').datepicker({
+                                format: 'dd.mm.yyyy'
+                            });
+                        });
+                    </script>
                 </div>
             </form>
 

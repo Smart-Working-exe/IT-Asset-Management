@@ -15,35 +15,8 @@ function teste_dich_gluecklich()
     $hersteller_array = array("Samsung", "LG", "Apple", "Dell", "HP", "Lenovo", "Acer", "ASUS", "Microsoft", "Sony");
 
     $tech_specs = array(
-        "Intel Core i9-9900K",
-        "NVIDIA GeForce RTX 3080",
-        "32 GB DDR4 RAM",
-        "2 TB NVMe SSD",
-        "ASUS ROG Maximus XI Hero",
-        "Corsair RM850x 850W 80+ Gold",
-        "Corsair H150i Elite Capellix",
-        "Corsair Dominator Platinum RGB 32 GB (4 x 8 GB) DDR4-3200",
-        "Samsung 970 EVO 2 TB NVMe SSD",
-        "ASUS ROG Swift PG279QZ 27.0\" 1440p 165Hz G-Sync",
-        "Corsair K95 RGB Platinum XT",
-        "Corsair Dark Core RGB/SE Wireless Gaming Mouse",
-        "Corsair MM1000 Qi Wireless Charging Mouse Pad",
-        "LG 34UM68-P 34.0\" 1080p 75Hz Freesync",
-        "Corsair Vengeance LPX 16 GB (2 x 8 GB) DDR4-3000",
-        "Samsung 860 EVO 1 TB 2.5\" Solid State Drive",
-        "ASRock Z270M-ITX/ac",
-        "Seasonic FOCUS Plus Gold 750 W 80+ Gold",
-        "Corsair H100i v2 70.7 CFM Liquid CPU Cooler",
-        "Corsair Vengeance LPX 16 GB (2 x 8 GB) DDR4-3200",
-        "Samsung 860 EVO 1 TB 2.5\" Solid State Drive",
-        "ASRock Z270M-ITX/ac",
-        "Seasonic FOCUS Plus Gold 750 W 80+ Gold",
-        "Corsair H100i v2 70.7 CFM Liquid CPU Cooler",
-        "Corsair Vengeance LPX 16 GB (2 x 8 GB) DDR4-3200",
-        "Samsung 860 EVO 1 TB 2.5\" Solid State Drive",
-        "ASRock Z270M-ITX/ac",
-        "Seasonic FOCUS Plus Gold 750 W 80+ Gold",
-        "Corsair H100i v2 70.7 CFM Liquid CPU Cooler");
+        "2x HDMI",
+        "6x USB");
 
     $comments = array(
         "Flackert manchmal",
@@ -64,8 +37,8 @@ function teste_dich_gluecklich()
     );
 
 
-    for ($i = 1; $i <= 500; $i++) {
-        $name = "Laptop_V4_" . $i;
+    for ($i = 2; $i <= 100; $i++) {
+        $name = "PC-" . $i;
         $typ = 2;
         $hersteller = $hersteller_array[array_rand($hersteller_array)];
         $age = date('Y-m-d', strtotime("-" . rand(0, 365 * 10) . " days"));
@@ -76,12 +49,12 @@ function teste_dich_gluecklich()
         $room = "Lager";
         $ausleihbar = 0;
 
-        $tech_specs_count = rand(0, 2);
-        $comments_count = rand(0, 3);
+        $tech_specs_count = rand(2, 2);
+        $comments_count = rand(0, 0);
 
         $random_tech_specs = array();
         for ($j = 0; $j < $tech_specs_count; $j++) {
-            $random_tech_specs[] = $tech_specs[array_rand($tech_specs)];
+            $random_tech_specs[] = $tech_specs[$j];
         }
         $random_comments = array();
         for ($j = 0; $j < $comments_count; $j++) {
@@ -132,7 +105,7 @@ function teste_dich_gluecklich()
 
         $used_randomNumbers = [];
         for ($b = 0; $b < random_int(1, 3); $b++) {
-            $betriebssystem = random_int(1, 25);
+            $betriebssystem = random_int(1, 4);
             if (!isset($used_randomNumbers[$betriebssystem])) {
                 $query = "SELECT * FROM betriebssystem WHERE id = ?";
                 $stmt = $db->prepare($query);
@@ -152,8 +125,8 @@ function teste_dich_gluecklich()
 
 
         $used_randomNumbers2 = [];
-        for ($b = 0; $b < random_int(1, 10); $b++) {
-            $software = random_int(1, 55);
+        for ($b = 0; $b < random_int(3, 3); $b++) {
+            $software = random_int(1, 3);
             if (!isset($used_randomNumbers2[$software])) {
                 // Überprüfe die maximale Anzahl der verfügbaren Lizenzen
                 $check_query = $db->prepare("SELECT anzahl_gerate FROM softwarelizenzen WHERE id = ?");

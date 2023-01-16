@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="186cc990-98cb-4eca-b8aa-3db037413a7a" name="Changes" comment="Änderungen Benachrichtigungen und Einstellungen">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/controllers/AddController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/controllers/AddController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_geraete.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_geraete.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/models/geraete.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/models/geraete.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_lizenzen.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_lizenzen.bladec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_personen.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Datenbank.datenbank_personen.bladec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/storage/cache/Systemlogs.systemlogs.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/storage/cache/Systemlogs.systemlogs.bladec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asset-Managment/views/Systemlogs/systemlogs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/Systemlogs/systemlogs.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Asset-Managment/views/Datenbank/datenbank_lizenzen.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Asset-Managment/views/Datenbank/datenbank_lizenzen.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
